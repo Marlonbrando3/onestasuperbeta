@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+module.exports = {
+nextConfig: {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: ['onestaforms.com.pl'],
+  },
+},
+webpack5: true,
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
 
-module.exports = nextConfig
+    return config;
+  },
+}
