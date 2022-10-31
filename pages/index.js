@@ -127,10 +127,10 @@ export default function Home({propertiesWork}) {
   },[newSearch===true, searchConditions[0].value, searchConditions[13].value])
 
   return (
-    <div>
+    <div className='overflow-x-hidden'>
       <Head>
         <title>My page title</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
       </Head>
       <Header 
         searchShow={searchShow}

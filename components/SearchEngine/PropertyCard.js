@@ -62,27 +62,26 @@ export default function PropertyCard({
           />
       </div>
       <div className='flex flex-col w-1/2 bg-white '>
-          <div className=' flex p-2 w-full h-16 items-center'>
-          <Localization className='mr-2 md:w-5 w-3'
-          />
-          <p className="lg: text-md pl-1 text-xs lg:leading-5 md:text-lg p-0 leading-3">{country}, <span className="text-md font-bold">{region}</span>,<br></br> {city}</p>
+          <div className=' flex p-2 w-full h-10 items-center'>
+            <Localization className='mr-2 md:w-5 w-3 md:visible hidden'/>
+            <p className="lg: text-md pl-1 text-xs lg:leading-5 md:text-lg p-0 leading-3">{country}, <span className="text-xs font-bold">{region}</span>,<br></br> {city}</p>
           </div>
-          <div className='w-full h-80 lg:leading-6 lg:pl-8 pr-12 leading-4 md:text-2xl text-sm pl-3 pt-2 font-bold'>
+          <div className='w-full h-80 lg:leading-6 lg:pl-8 pr-12 md:leading-4 leading-1 md:text-2xl text-xs pl-3 pt-2 font-bold'>
             <p>{property.title}</p>
           </div>
-          <div className='flex items-center w-full lg:h-14 h-12 bg-gray-900 '>
-            <div className='flex flex-col items-center  justify-center w-3/12 h-full border-2 bg-white p-1'>
+          <div className='flex items-center w-full lg:h-14 bg-gray-900 '>
+            <div className='flex flex-col items-center justify-center w-3/12 h-full border-2 bg-white p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Sypilanie</p>
               <div className='flex flex-col lg:flex-row items-center justify-center'>
                 <AirlineSeatIndividualSuiteOutlinedIcon className="w-5 lg:w-8 h-6"/>
-                <p className='font-semibold text-sm lg:text-xl pl-0 lg:pl-2'>{beds}</p>
+                <p className='font-semibold text-xs lg:text-xl pl-0 lg:pl-2'>{beds}</p>
                </div>
             </div>
-            <div className='flex flex-col items-center justify-center w-3/12 h-full border-2 bg-white p-1'>
+            <div className='flex flex-col items-center justify-center w-3/12 border-2 bg-white p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Łazienki</p>
                 <div className='flex flex-col items-center lg:flex-row justify-center'>
                   <ShowerOutlinedIcon className="w-5 lg:w-8 h-6"/>
-                  <p className='font-semibold text-sm lg:text-xl pl-0 lg:pl-2'>{baths}</p>
+                  <p className='font-semibold text-xs lg:text-xl pl-0 lg:pl-2'>{baths}</p>
                </div>
             </div>
             {/* <div className='flex flex-col items-center justify-center lg:block md:hidden w-2/6 h-16 border-2 bg-white p-1'>

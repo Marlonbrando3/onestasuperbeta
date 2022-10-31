@@ -17,7 +17,7 @@
     "@mui/material": "^5.10.3",
     "fs": "^0.0.1-security",
     "ftp-client": "^0.2.2",
-    "mongodb": "^4.9.0",
+    "mongodb": "^4.11.0",
     "mongoose": "^5.6.11",
     "net": "^1.0.2",
     "next": "12.2.5",
