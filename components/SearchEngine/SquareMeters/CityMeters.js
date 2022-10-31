@@ -53,14 +53,14 @@ export default function CountrySearch({
 
   return (
     <>
-    <div className="InputsStyle">
+    {/* <div className="InputsStyle">
       <input onClick={handleShowCountryList} className="InputsProps" autoComplete="off" name="" placeholder="Miasto"></input>
     </div>
     {activeCountryList && <div className="ListWithChooseContainer">{ActualCountiresList.map(country => 
       <li key={country}
         className="listToChoose"
         name={country.name}
-        onClick={handleChooseThisCountry}>{country.name}</li>)}</div>}
+        onClick={handleChooseThisCountry}>{country.name}</li>)}</div>} */}
     </>
   )
 }
