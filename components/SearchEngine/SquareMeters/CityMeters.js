@@ -61,6 +61,6 @@ export default function CountrySearch({
         className="listToChoose"
         name={country.name}
         onClick={handleChooseThisCountry}>{country.name}</li>)}</div>}
-      </>
+    </>
   )
 }
