@@ -13,7 +13,7 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@heroicons/react": "^1.0.6",
-    "@mui/icons-material": "^5.10.3",
+    "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.3",
     "fs": "^0.0.1-security",
     "ftp-client": "^0.2.2",
