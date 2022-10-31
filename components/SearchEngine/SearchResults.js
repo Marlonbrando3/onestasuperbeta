@@ -25,7 +25,7 @@ export default function SearchResults({
   return (
     <div className="h-2/3 w-12/12 md:w-8/12">
       {properties.map(property => 
-          <PropertyCard
+          <PropertyCard key={property}
             country={property.country}
             region={property.region}
             city={property.city}
@@ -65,5 +65,4 @@ export default function SearchResults({
           />
     </div>
   )
-
 }

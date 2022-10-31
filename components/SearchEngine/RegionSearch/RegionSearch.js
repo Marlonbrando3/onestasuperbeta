@@ -75,7 +75,7 @@ export default function CountrySearch({
       <input onClick={handleShowCountryList} className="InputsProps w-full" autoComplete="off" name="country" placeholder="Wybierz region"></input>
     </div>
     {activeRegionList && <div className="ListWithChooseContainer w-full">{ActualRegionList.map(country => 
-      <li 
+      <li key={country}
         className="listToChoose"
         name={country.name}
         onClick={handleChooseThisRegion}>{country.name}</li>)}</div>}

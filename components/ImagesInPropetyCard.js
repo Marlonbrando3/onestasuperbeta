@@ -29,7 +29,7 @@ export default function ImagesInPropetyCard({property, images, setImages}) {
   return (
     <>
     {images.map((prop, index)=> (
-        <div className={prop.showed === true ? 'h-full w-36 mx-2 flex border-red-700 border-4': 'h-full w-36 mx-2 flex border-red-700/[0] border-4'}>
+        <div key={prop} className={prop.showed === true ? 'h-full w-36 mx-2 flex border-red-700 border-4': 'h-full w-36 mx-2 flex border-red-700/[0] border-4'}>
           <Image className='cursor-pointer'
             src={prop.image}
             width={200}

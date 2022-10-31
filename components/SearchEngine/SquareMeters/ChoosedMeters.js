@@ -43,21 +43,6 @@ export default function ChoosedCountry({
 
   return (
     <div className="">
-      {/* <div className='flex items-center justify-center'>
-        {choosedCountry.map(country => 
-          <>
-            <div className='flex items-center border-black border-b ml-1'>{country}
-            <XIcon 
-                className=" text-gray-900 cursor-pointer"
-                onClick={handleDeleteCountryFromList}
-                name={country}
-                width={20}
-                height={20}
-            />
-            </div>
-          </>
-          )}
-    </div> */}
     </div>
   )
 }
