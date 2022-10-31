@@ -16,8 +16,6 @@ export default function Bedrooms({
 
     let targetvalue = e.target.value
     setSearchConditions(searchConditions.map(param => {
-      // console.log(param)
-      // console.log(param.isSearching)
       if(param.name === 'bedf'){
         if((targetvalue === '') && (param.isSearching === true)){
           return{
@@ -40,8 +38,6 @@ export default function Bedrooms({
     
     let targetvalue = e.target.value
     setSearchConditions(searchConditions.map(param => {
-      // console.log(param)
-      // console.log(param.isSearching)
       if(param.name === 'bedt'){
         if((targetvalue === '') && (param.isSearching === true)){
           return{

@@ -50,9 +50,9 @@ export default function SearchButton({
                         <span>
                             <p className='mb-4 pl-1 text-xl'>W jakim kraju szukasz nieruchmości?</p>
                     <select 
-                    onChange={handleShowSearch} 
+                    onChange={handleShowSearch}
                     className="CountrySelect border-solid border-2 rounded-xl text-2xl py-2 px-4 outline-none">
-                        <option selected >Wybierz z listy</option>
+                        <option default >Wybierz z listy</option>
                         <option value="Hiszpania" >Nieruchomości w Hiszpanii</option>
                         <option value="Portugalia">Nieruchomości w Portugalii</option>
                         <option value="Chorwacja">Nieruchomości w Chorwacji</option>

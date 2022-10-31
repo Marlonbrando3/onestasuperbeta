@@ -48,7 +48,6 @@ export default function PropertyCard({
     const handleShowDetails = () => {
       setShowProp(setShowProp => !setShowProp)
       setPropDetails(property)
-      console.log(property)
     }
     
   return (

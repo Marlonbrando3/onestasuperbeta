@@ -119,7 +119,6 @@ export default function Home({propertiesWork}) {
   useEffect(()=> {
 
       setNewSearch(false)
-      console.log(resultsFin)
       query = resultsFin.toString().replaceAll(',','&')
       router.push({
         pathname:'/',
@@ -253,7 +252,6 @@ export async function getServerSideProps (contex) {
     if(datadistance === undefined){
       distanced = 100000;
     } else distanced = contex.query.distance
-      console.log(distanced)
 
   }
 

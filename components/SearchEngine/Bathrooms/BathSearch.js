@@ -16,10 +16,7 @@ export default function Bathrooms({
     setApply(true)
 
     let targetvalue = e.target.value
-    console.log(e.target.value)
     setSearchConditions(searchConditions.map(param => {
-      // console.log(param)
-      // console.log(param.isSearching)
       if(param.name === 'bathf'){
         if((targetvalue === '') && (param.isSearching === true)){
           return{
@@ -43,8 +40,6 @@ export default function Bathrooms({
     
     let targetvalue = e.target.value
     setSearchConditions(searchConditions.map(param => {
-      // console.log(param)
-      // console.log(param.isSearching)
       if(param.name === 'batht'){
         if((targetvalue === '') && (param.isSearching === true)){
           return{

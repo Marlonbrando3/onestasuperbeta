@@ -46,7 +46,7 @@ export default function ContactForm({propertyId}) {
             <textarea className="cf-input-property-card" type="text" name='massage'></textarea>
             <div className='checkbox'>
                 <input className='w-6 h-6' type="checkbox" name="mail required"></input>
-                <p className='block ml-2'>Akceptuję regulamin i <a classname="underline-offset-1" href="#">politykę prywatności (wymagane)</a></p>
+                <p className='block ml-2'>Akceptuję regulamin i <a className="underline-offset-1" href="#">politykę prywatności (wymagane)</a></p>
             </div>
             <button 
                 className='bg-red-600 w-24 text-white'>Wyślij</button>

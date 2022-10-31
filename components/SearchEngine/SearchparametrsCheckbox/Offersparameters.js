@@ -26,10 +26,7 @@ export default function Offersparameters({
     // setNewSearch(false)
 
     setSearchConditions(searchConditions.map(param => {
-      // console.log(param)
-      // console.log(param.isSearching)
       if(param.name === targetname && param.isSearching === false){
-        // console.log('working')
         return{
           ...param,
           isSearching: true,
@@ -38,7 +35,6 @@ export default function Offersparameters({
       }
 
       if(param.name === targetname && param.isSearching === true){
-        // console.log('working')
         return{
           ...param,
           isSearching: false,

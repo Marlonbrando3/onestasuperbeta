@@ -3,13 +3,12 @@ import Image from "next/image";
 import Header from '../Header';
 import {useRouter} from 'next/router'
 
-export default function offerWindow({property, showDetails, propDetails, showProp, setShowProp}) {
+export default function OfferWindow({property, showDetails, propDetails, showProp, setShowProp}) {
 
   const router = useRouter();
 
   const handleCloseDetails = (e) => {
     setShowProp(setShowProp => !setShowProp)
-    console.log(propDetails)
   }
 
   return (
@@ -25,7 +24,7 @@ export default function offerWindow({property, showDetails, propDetails, showPro
         {
           if((img.visible) === true) {
             return (
-            <Image 
+            <Image key={img}
               src={img.link}
               // width={1000}
               // height={1000}

@@ -21,7 +21,6 @@ export default function SearchResults({
 }) {
       // // countring how many sites is nessesairly
       const howManySites = Math.ceil(properties.length/2)
-      console.log(properties)
 
   return (
     <div className="h-2/3 w-12/12 md:w-8/12">

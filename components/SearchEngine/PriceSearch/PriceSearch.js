@@ -20,8 +20,6 @@ export default function PriceSearch({
     let targetvalue = e.target.value
 
     setSearchConditions(searchConditions.map(param => {
-      // console.log(param)
-      // console.log(param.isSearching)
       if(param.name === 'pf'){
         if((targetvalue === '') && (param.isSearching === true)){
           return{
@@ -47,8 +45,6 @@ export default function PriceSearch({
     let targetvalue = e.target.value
 
     setSearchConditions(searchConditions.map(param => {
-      // console.log(param)
-      // console.log(param.isSearching)
       if(param.name === 'pt'){
         if((targetvalue === '') && (param.isSearching === true)){
           return{

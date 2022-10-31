@@ -16,7 +16,6 @@ export default function ChoosedCountry({
   const handleDeleteCountryFromList = (e) => {
     
     let Country = e.target.getAttribute('name')
-    console.log(Country)
     setCountries(countries.map(country => {
       if((country.name === Country) && (country.OnList !== "deactive")){
       return {

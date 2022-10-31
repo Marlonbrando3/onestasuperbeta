@@ -7,7 +7,6 @@ export default function ImagesInPropetyCard({property, images, setImages}) {
   const [activeImgNumber, setActiveImgNumber] = useState(1);
   
   const handleActiveImage = (indexfromClick) =>{
-    console.log(indexfromClick)
     setImages(images.map((img, index) => {
       if(img.showed === false && index+1 === indexfromClick){
         return{
