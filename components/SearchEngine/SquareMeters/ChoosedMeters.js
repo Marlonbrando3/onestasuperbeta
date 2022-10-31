@@ -40,7 +40,6 @@ export default function ChoosedCountry({
     setChoosedCountry(choosedCountry.filter(country => country !== Country))
   }
 
-
   return (
     <div className="">
     </div>
