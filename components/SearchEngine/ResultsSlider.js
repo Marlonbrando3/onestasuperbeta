@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import ChevronRightIcon from '@mui/icons-material/chevronRightOutlined';
-import ChevronLeftIcon from '@mui/icons-material/chevronLeftOutlined';
+import ChevronRightIcon from '@mui/icons-material/ChevronRightOutlined';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { ImageSearch } from "@mui/icons-material";
 
 export default function ResultsSlider({
