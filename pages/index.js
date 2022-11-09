@@ -198,7 +198,9 @@ export default function Home({propertiesWork}) {
 }
 
 export async function getServerSideProps (contex) {
+  console.log("im in get props")
   await db.connect();
+  console.log("connected with DB")
 
   //searching for regions
   let dataid = contex.query.id
