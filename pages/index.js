@@ -11,7 +11,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Property from "../model/property"
 import db from '../utils/db'
-import { FindReplaceOutlined, RouterTwoTone } from '@mui/icons-material'
+import FindReplaceOutlined from '@mui/icons-material/FindReplaceOutlined'
+import FindReplaceOutlinedfrom from '@mui/icons-material/RouterTwoTone'
 import Applychanges from '../components/SearchEngine/Applychanges'
 import Footer from '../components/Footer'
 import ContactFormMain from '../components/ContactFormMain'
@@ -196,6 +197,7 @@ export default function Home({propertiesWork}) {
     </div>
   )
 }
+console.log("index")
 
 export async function getServerSideProps (contex) {
   console.log("im in get props")
