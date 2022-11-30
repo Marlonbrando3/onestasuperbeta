@@ -4,7 +4,7 @@ import Link from "next/link";
 import Logotype from './images/logotype.png'
 import FBIcon from './images/facebook.png'
 import IGIcon from './images/instagram.png'
-import { UserIcon, StarIcon } from '@heroicons/react/outline'
+// import { UserIcon, StarIcon } from '@heroicons/react/outline'
 import Applychanges from "./SearchEngine/Applychanges";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
