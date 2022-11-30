@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-// import {useRouter} from 'next/router'
+import {useRouter} from 'next/router'
 import Header from '../components/Header'
 import HomeView from '../components/HomeView'
 import SearchButton from '../components/SearchButton'
@@ -10,7 +10,7 @@ import HeaderCountrySearch from '../components/HeaderCountrySearch'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Property from "../model/property"
-// import db from '../utils/db'
+import db from '../utils/db'
 import FindReplaceOutlined from '@mui/icons-material/FindReplaceOutlined'
 import FindReplaceOutlinedfrom from '@mui/icons-material/RouterTwoTone'
 import Applychanges from '../components/SearchEngine/Applychanges'
@@ -22,9 +22,9 @@ export default function Home(
   ) {
   console.log("index")
   
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const {country, pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, region, batht, distance} = router.query
+  const {country, pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, region, batht, distance} = router.query
 
   const[showSearchComponentsOnMobile, setShowSearchComponentsOnMobile] = useState(false)
 
