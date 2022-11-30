@@ -1,9 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import {useRouter} from 'next/router';
-import {ChevronRightIcon, SearchIcon } from '@heroicons/react/outline'
-import Image from "next/dist/client/image"
-import ArrowSearch from './images/left.png'
-
 
 export default function SearchButton({
     actualSite,
