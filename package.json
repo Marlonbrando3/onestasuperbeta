@@ -10,6 +10,8 @@
     "devn": "nodemon pages/index.js"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.16",
