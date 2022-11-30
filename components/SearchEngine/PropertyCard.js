@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import PropertyContext from "../../context/PropertyContext";
 import { useState, useContext } from "react";
 import Localization from '@mui/icons-material/Room';
 import AirlineSeatIndividualSuiteOutlinedIcon from '@mui/icons-material/AirlineSeatIndividualSuiteOutlined';
@@ -14,9 +13,7 @@ import OtherHousesIcon from '@mui/icons-material/OtherHouses';
 import img from "../images/2_max.jpeg";
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import ResultsSlider from "./ResultsSlider";
-import Property from '../../pages/[property]'
-// const fs = require('fs');
-
+// import Property from '../../pages/[property]'
 
 export default function PropertyCard({
   actualSite,
@@ -38,7 +35,7 @@ export default function PropertyCard({
   setShowProp,}) {
 
     const router = useRouter();
-    const propertyNew = useContext(PropertyContext)
+    // const propertyNew = useContext(PropertyContext)
 
     const PriceOneE = price.toString();
     const PriceOne = PriceOneE.slice(0,3)
@@ -49,7 +46,7 @@ export default function PropertyCard({
       setShowProp(setShowProp => !setShowProp)
       setPropDetails(property)
     }
-    
+
   return (
     <div className="flex bg-gray-300 w-12/12 h-44 md:h-72 mb-4 md:mx-auto mx-2 rounded-md overflow-hidden">
       <div className="w-6/12 h-full flex items-center justify-center text-4xl">

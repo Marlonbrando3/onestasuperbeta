@@ -7,7 +7,7 @@ import OfferWindow from './OfferWindow';
 export default function SearchEngine({
     actualSite,
     setActualSite,
-    properties, 
+    properties,
     searchShow, 
     setSearchShow, 
     choosedCountry, 
@@ -28,7 +28,6 @@ export default function SearchEngine({
     sitesArraycounter,
     showSearchComponentsOnMobile,
     setShowSearchComponentsOnMobile
-    
 }) {
         const router = useRouter();
 
