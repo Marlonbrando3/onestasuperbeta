@@ -207,10 +207,10 @@ export default function Home(
   )
 }
 
-// export async function getServerSideProps (contex) {
+export async function getServerSideProps (contex) {
   
 //   console.log("im in get props")
-//   await db.connect();
+  await db.connect();
 //   console.log("connected with DB")
 
 //   //searching for regions
@@ -369,6 +369,6 @@ export default function Home(
 //     ])
 //   }
 // }
-// }
+}
 
   
