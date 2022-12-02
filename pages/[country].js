@@ -21,12 +21,14 @@ export default function Home(
   {propertiesWork}
   ) {
   console.log("index")
+
+  const[showSearchComponentsOnMobile, setShowSearchComponentsOnMobile] = useState(false)
   
   const router = useRouter();
 
   const {country, pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, region, batht, distance} = router.query
 
-
+  //added INDEX!!!
   const [searchConditions, setSearchConditions] = useState([
       {id: 1, name: 'country', value: '', isSearching:false},
       {id: 3, name: 'type', value: '', isSearching:false},
@@ -48,12 +50,6 @@ export default function Home(
   const [propertiesOnSite, setPropertiesOnSite] = useState(4);
   const [startCountingFrom, setStartCountingFrom] = useState(0);
   const [sitesArray, setSitesArray] = useState(['1','1','1'])
-
-  // const [propertiesWork, setPropertiesWork] = useState([
-  //         {title: 'lala', id: 1, price: 250000, value: '', isSearching:false, image:[{first:'lalal'}]},
-  //         {title: 'kolo', id: 3, price: 230000, value: '', isSearching:false, image:[{first:'lalal'}]},
-  //         {title: 'jolo', id: 4, price: 210000, value:'', isSearching:false, image:[{first:'lalal'}]},
-  // ])
 
   let siteNumber = 1;
   let lastPropertyOnSite = 4;
@@ -97,6 +93,8 @@ export default function Home(
   const [actualSite, setActualSite] = useState(1);
 
   let query = resultsFin.toString().replaceAll(',','&')
+
+  //INDEX
   const [choosedCountry, setChoosedCountry] = useState(
     {
         id:'',
@@ -118,27 +116,18 @@ export default function Home(
         distancetothesea:'',
     },
 )
-  // const [searchShow, setSearchShow] = useState(false);
+  //INDEX
+  const [searchShow, setSearchShow] = useState(true);
   const [showMainPage, setShowMainPage] = useState(true);
   const [apply, setApply] = useState(false);
   const [newSearch, setNewSearch] = useState(false);
 
   const properties = propertiesWithSites.filter(prop => prop.page === actualSite)
 
-  // useEffect(()=> {
-
-  //     setNewSearch(false)
-  //     query = resultsFin.toString().replaceAll(',','&')
-  //     router.push({
-  //       pathname:'/',
-  //       query
-  //     })
-  // },[newSearch===true, searchConditions[0].value, searchConditions[13].value])
-
   return (
     <div className='overflow-x-hidden'>
       <Head>
-        <title>My page title</title>
+        <title>Onesta || Hiszpania</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
       </Head>
       <Header 
@@ -155,15 +144,15 @@ export default function Home(
           setNewSearch={setNewSearch}
           newSearch={newSearch} 
       />
-      <HomeView 
+      {/* <HomeView 
         showMainPage={showMainPage}
         setShowMainPage={setShowMainPage}
         searchShow={searchShow}
         setSearchShow={setSearchShow}
         apply={apply}
         setApply={setApply}
-        />
-      <SearchButton
+        /> */}
+      {/* <SearchButton
         searchShow={searchShow}
         setSearchShow={setSearchShow}
         choosedCountry={choosedCountry}
@@ -172,7 +161,7 @@ export default function Home(
         setActualSite={setActualSite}
         searchConditions={searchConditions}
         setSearchConditions={setSearchConditions}
-       />
+       /> */}
       <MainTheme 
         searchShow={searchShow}
         setSearchShow={setSearchShow}/>
@@ -209,7 +198,7 @@ export default function Home(
 export async function getServerSideProps (contex) {
 
   console.log("im in get props")
-  db.connect();
+  await db.connect();
   console.log("connected with DB")
 
   //searching for regions
@@ -336,19 +325,19 @@ export async function getServerSideProps (contex) {
 
 
   const results = await Property.find({
-      country: contex.query.country,
-      region: regiond,
-      distance: {$lte: distanced},
-      type: typed,
-      pool:{$in: pool},
-      seaview:{$in: seaview},
-      parking:{$in: parking},
-      garden:{$in: garden},
-      solarium:{$in: solarium},
-      balcony:{$in: balcony},
-      price: {$gte: pf, $lte: pt},
-      bathrooms: {$gte: bathf, $lte: batht},
-      bedrooms: {$gte: bedf, $lte: bedt},
+      // country: contex.query.country,
+      // region: regiond,
+      // distance: {$lte: distanced},
+      // type: typed,
+      // pool:{$in: pool},
+      // seaview:{$in: seaview},
+      // parking:{$in: parking},
+      // garden:{$in: garden},
+      // solarium:{$in: solarium},
+      // balcony:{$in: balcony},
+      // price: {$gte: pf, $lte: pt},
+      // bathrooms: {$gte: bathf, $lte: batht},
+      // bedrooms: {$gte: bedf, $lte: bedt},
   });
 
   const properties = JSON.parse(JSON.stringify(results))
@@ -358,16 +347,6 @@ export async function getServerSideProps (contex) {
       propertiesWork: properties
     }
   }
-
-return {
-  props:{
-      propertiesWork:([
-      {title: 'lala', id: 1, price: 250000, value: '', isSearching:false, image:[{first:'lalal'}]},
-      {title: 'kolo', id: 3, price: 230000, value: '', isSearching:false, image:[{first:'lalal'}]},
-      {title: 'jolo', id: 4, price: 210000, value:'', isSearching:false, image:[{first:'lalal'}]},
-    ])
-  }
-}
 }
 
   

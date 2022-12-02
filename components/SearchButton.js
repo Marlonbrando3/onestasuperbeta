@@ -1,4 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { useContext } from 'react'
+import { CCountry } from '../context/CCountry'
 
 export default function SearchButton({
     actualSite,
@@ -13,7 +17,14 @@ export default function SearchButton({
     setSearchConditions
 
 }) {    
+    const router = useRouter()
+
     const handleShowSearch = (e) =>{
+
+        router.push({
+            pathname:'/[country]',
+            query: {country:e.target.value}
+        })
         
         let targetvalue = e.target.value
         setSearchConditions(searchConditions.map(param => {
@@ -42,7 +53,7 @@ export default function SearchButton({
             <>
                 <div 
                     className={searchShow ? 'hidden' : 'p-5 transition absolute top-3/4 left-0 right-0 mx-4 lg:top-72 lg:left-2/3 rounded-xl bg-gray-50 z-96 flex flex-col cursor-pointer'}>
-                        <span>
+                    <span>
                             <p className='mb-4 pl-1 text-xl'>W jakim kraju szukasz nieruchmości?</p>
                     <select 
                     onChange={handleShowSearch}
@@ -52,13 +63,6 @@ export default function SearchButton({
                         <option value="Portugalia">Nieruchomości w Portugalii</option>
                         <option value="Chorwacja">Nieruchomości w Chorwacji</option>
                     </select>
-                    {/* <div onClick={handleShowSearch} className='bg-yellow-500 flex items-center justify-center px-4 py-2 mt-5 rounded-xl'>
-                        <SearchIcon className="text-white"
-                            width={25}
-                            height={25}/>
-                        <p className="text-center ml-2 text-white text-2xl"
-                            onClick={handleShowSearchClick}>Wyświetl</p>
-                    </div> */}
                 </span>
             </div>
         </>
