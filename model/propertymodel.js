@@ -55,7 +55,7 @@ const propertySchema = new mongoose.Schema({
         type:String,
     },
     image:{
-        
+
     }
 })
 

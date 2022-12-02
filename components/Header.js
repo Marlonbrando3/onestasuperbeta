@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Image from "next/dist/client/image";
+import Image from "next/image";
 import Link from "next/link";
 import Logotype from './images/logotype.png'
 import FBIcon from './images/facebook.png'
@@ -37,7 +37,6 @@ export default function Header({searchShow, setSearchShow, apply, setApply,showS
            <li >ABC Zakupu</li>
            <li >Kontakt</li>
           </ul>
-
     </div>
         <Image
             src={Logotype}

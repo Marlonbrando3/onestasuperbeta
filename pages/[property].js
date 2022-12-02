@@ -3,7 +3,7 @@ import {useRouter} from 'next/router';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import db from '../utils/db';
-import PropertyTwo from '../model/property';
+import PropertyTwo from '../model/propertymodel';
 import Localization from '@mui/icons-material/Room';
 import ShowerOutlinedIcon  from '@mui/icons-material/ShowerOutlined';
 import WavesOutlinedIcon from '@mui/icons-material/WavesOutlined';
@@ -17,7 +17,9 @@ import Descryption from '../components/Descryption';
 import ContactForm from '../components/ContactForm';
 
 
-export default function Property({property}) {
+export default function Property(
+  {property}
+  ) {
   let propertyDescription = (property[0].description)
   let propertyId = (property[0].id)
 
