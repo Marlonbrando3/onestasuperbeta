@@ -48,8 +48,8 @@ export default function PropertyCard({
     }
 
   return (
-    <div className="flex bg-gray-300 w-12/12 h-44 md:h-72 mb-4 md:mx-auto mx-2 rounded-md overflow-hidden">
-      <div className="w-6/12 h-full flex items-center justify-center text-4xl">
+    <div className="flex flex-col md:flex-row bg-gray-300 w-12/12 md:h-72 mb-4 md:mx-auto mx-2 rounded-md overflow-hidden">
+      <div className="md:w-6/12 w-full h-full flex items-center justify-center text-4xl">
         <ResultsSlider 
           property={property}
           country={property.country}
@@ -58,12 +58,12 @@ export default function PropertyCard({
           images={images}
           />
       </div>
-      <div className='flex flex-col w-1/2 bg-white '>
+      <div className='flex flex-col md:w-1/2 w-full bg-white '>
           <div className='flex p-2 w-full h-10 items-center'>
-            <Localization className='mr-2 w-3 md:block md:w-6 md:h-5 hidden lg:mt-6 lg:w-5 h-22'/>
+            <Localization className='mr-2 w-3 md:block md:w-6 md:h-5 lg:mt-6 lg:w-5 h-22'/>
             <p className="lg:text-md pl-1 lg:pt-6 text-xs lg:leading-5 md:text-lg p-0 leading-3">{country} <span className="text-xs font-bold">{region}</span><br></br> {city}</p>
           </div>
-          <div className='w-full h-80 lg:leading-6 lg:pl-8 lg:pt-6 pr-12 md:leading-5 leading-1 md:text-2xl text-xs pl-3 pt-2 font-bold'>
+          <div className='w-full md:h-80 lg:leading-6 lg:pl-8 lg:pt-6 pr-12 md:leading-5 leading-1 md:text-2xl text-sm pl-3 pt-2 font-bold'>
             <p>{property.title}</p>
           </div>
           <div className='flex items-center w-full lg:h-14 bg-gray-900 '>
@@ -104,13 +104,13 @@ export default function PropertyCard({
                </div>
             </div>
           </div>
-          <div className='bg-red-500 lg:h-52 h-32 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
-            <span className="ml-1 text-white md:text-3xl sm:text-xl text-sm ">{PriceOne} {PriceTwo} €</span>
+          <div className='bg-red-500 lg:h-52 md:h-32 h-10 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
+            <span className="ml-1 text-white md:text-3xl sm:text-xl text-lg ">{PriceOne} {PriceTwo} €</span>
             <span 
               className="blok flex transition items-center text-white border-white border-2 rounded-full font-sm p-0 md:py-1 md:px-4 cursor-pointer hover:bg-white hover:text-red-500"
               onClick={handleShowDetails}>
                       <Link href={`/oferty/?id=${property.id}&${property.title.replaceAll(' ','-')}`}>
-                          <a className="lg:block hidden">więcej</a>
+                          <a className="md:block block text-sm px-2">więcej</a>
                       </Link>
                 <DoubleArrowIcon />
               </span>

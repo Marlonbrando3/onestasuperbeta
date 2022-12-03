@@ -8,6 +8,13 @@ module.exports = {
   variants: ["responsive"],
   theme: {
     extend: {},
+    backgroundSize: {
+      'auto': 'auto',
+      'cover': 'cover',
+      'contain': 'contain',
+      '150': '350%',
+      '16': '4rem',
+    },
   },
   plugins: [],
 }

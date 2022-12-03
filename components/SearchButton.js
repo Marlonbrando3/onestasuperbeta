@@ -50,13 +50,12 @@ export default function SearchButton({
         setChoosedCountry({...choosedCountry, country:targetvalue})
 
     }
-
     return (
             <>
                 <div 
-                    className={searchShow ? 'hidden' : 'p-5 transition absolute top-3/4 left-4 right-4 md:left-20 md:right-20 lg:right-6 mx-4 lg:top-72 lg:left-2/3 rounded-xl bg-gray-50 z-96 flex flex-col cursor-pointer'}>
+                    className={searchShow ? 'hidden' : 'md:p-5 px-7 transition absolute top-2/3 h-1/3 md:top-3/4 left-0 right-0 md:left-20 md:right-20 lg:right-6 md:mx-4 lg:top-72 lg:left-2/3 md:rounded-xl bg-gray-50 z-96 flex flex-col cursor-pointer'}>
                     <span>
-                            <p className='mb-4 pl-1 lg:text-xl md:text-xl tex-md'>W jakim kraju szukasz nieruchmości?</p>
+                            <p className='mb-4 pt-5 lg:text-xl md:text-xl text-lg'>W jakim kraju szukasz nieruchmości?</p>
                     <select 
                     onChange={handleShowSearch}
                     className="CountrySelect border-solid border-2 rounded-xl text-2xl py-2 px-4 outline-none">
