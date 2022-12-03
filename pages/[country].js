@@ -1,32 +1,24 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import {useRouter} from 'next/router'
+import MiniHomeView from '../components/SearchEngine/MiniHomeView'
 import Header from '../components/Header'
-import HomeView from '../components/HomeView'
-import SearchButton from '../components/SearchButton'
-import MainTheme from '../components/MainTheme'
 import SearchEngine from '../components/SearchEngine/SearchEngine'
-import HeaderCountrySearch from '../components/HeaderCountrySearch'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import Property from '../model/propertymodel'
 import db from '../utils/db'
-import FindReplaceOutlined from '@mui/icons-material/FindReplaceOutlined'
-import FindReplaceOutlinedfrom from '@mui/icons-material/RouterTwoTone'
 import Applychanges from '../components/SearchEngine/Applychanges'
 import Footer from '../components/Footer'
 import ContactFormMain from '../components/ContactFormMain'
 
 export default function Home(
-  {propertiesWork}
+  {propertiesWork, kolo}
   ) {
-  console.log("index")
+  const router = useRouter();
+  const ActualCountry = router.query.country
+
+  // const {pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, region, batht, distance} = router.query
 
   const[showSearchComponentsOnMobile, setShowSearchComponentsOnMobile] = useState(false)
-  
-  const router = useRouter();
-
-  const {country, pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, region, batht, distance} = router.query
 
   //added INDEX!!!
   const [searchConditions, setSearchConditions] = useState([
@@ -124,13 +116,26 @@ export default function Home(
 
   const properties = propertiesWithSites.filter(prop => prop.page === actualSite)
 
+  useEffect(()=> {
+
+    setNewSearch(false)
+    query = resultsFin.toString().replaceAll(',','&')
+    router.push({
+      pathname: ActualCountry+'/',
+      query
+    })
+
+    console.log(query)
+
+},[newSearch===true, searchConditions[0].value, searchConditions[13].value])
+
   return (
     <div className='overflow-x-hidden'>
       <Head>
         <title>Onesta || Hiszpania</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
       </Head>
-      <Header 
+      <Header
         searchShow={searchShow}
         setSearchShow={setSearchShow}
         apply={apply}
@@ -144,27 +149,9 @@ export default function Home(
           setNewSearch={setNewSearch}
           newSearch={newSearch} 
       />
-      {/* <HomeView 
-        showMainPage={showMainPage}
-        setShowMainPage={setShowMainPage}
-        searchShow={searchShow}
-        setSearchShow={setSearchShow}
-        apply={apply}
-        setApply={setApply}
-        /> */}
-      {/* <SearchButton
-        searchShow={searchShow}
-        setSearchShow={setSearchShow}
-        choosedCountry={choosedCountry}
-        setChoosedCountry={setChoosedCountry}
-        actualSite={actualSite}
-        setActualSite={setActualSite}
-        searchConditions={searchConditions}
-        setSearchConditions={setSearchConditions}
-       /> */}
-      <MainTheme 
-        searchShow={searchShow}
-        setSearchShow={setSearchShow}/>
+      <MiniHomeView 
+        ActualCountry={ActualCountry}
+      />
       <SearchEngine
         sitesArraycounter={sitesArraycounter}
         sitesArray={sitesArray}
@@ -325,26 +312,28 @@ export async function getServerSideProps (contex) {
 
 
   const results = await Property.find({
-      // country: contex.query.country,
-      // region: regiond,
-      // distance: {$lte: distanced},
-      // type: typed,
-      // pool:{$in: pool},
-      // seaview:{$in: seaview},
-      // parking:{$in: parking},
-      // garden:{$in: garden},
-      // solarium:{$in: solarium},
-      // balcony:{$in: balcony},
-      // price: {$gte: pf, $lte: pt},
-      // bathrooms: {$gte: bathf, $lte: batht},
-      // bedrooms: {$gte: bedf, $lte: bedt},
+      country: contex.query.country,
+      region: regiond,
+      distance: {$lte: distanced},
+      type: typed,
+      pool:{$in: pool},
+      seaview:{$in: seaview},
+      parking:{$in: parking},
+      garden:{$in: garden},
+      solarium:{$in: solarium},
+      balcony:{$in: balcony},
+      price: {$gte: pf, $lte: pt},
+      bathrooms: {$gte: bathf, $lte: batht},
+      bedrooms: {$gte: bedf, $lte: bedt},
   });
 
   const properties = JSON.parse(JSON.stringify(results))
   
   return {
+    props:{kolo:"kolo"},
     props:{
-      propertiesWork: properties
+      propertiesWork: properties,
+      dummyprop:"kolo"
     }
   }
 }

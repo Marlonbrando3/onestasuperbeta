@@ -64,7 +64,9 @@ export default function ResultsSlider({
         {
           if(img.visible === true) {
             return (
-            <img key={img.img} className="object-fill w-full h-full" src={img.img} />
+              <div className="w-full h-full">
+                <img key={img.img} className="object-cover w-full h-full" src={img.img} />
+              </div>
           )
         }
       }

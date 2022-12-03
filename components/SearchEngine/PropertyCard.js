@@ -59,11 +59,11 @@ export default function PropertyCard({
           />
       </div>
       <div className='flex flex-col w-1/2 bg-white '>
-          <div className=' flex p-2 w-full h-10 items-center'>
-            <Localization className='mr-2 w-3 md:block md:w-5 md:h-5 hidden'/>
-            <p className="lg: text-md pl-1 text-xs lg:leading-5 md:text-lg p-0 leading-3">{country}, <span className="text-xs font-bold">{region}</span>,<br></br> {city}</p>
+          <div className='flex p-2 w-full h-10 items-center'>
+            <Localization className='mr-2 w-3 md:block md:w-6 md:h-5 hidden lg:mt-6 lg:w-5 h-22'/>
+            <p className="lg:text-md pl-1 lg:pt-6 text-xs lg:leading-5 md:text-lg p-0 leading-3">{country} <span className="text-xs font-bold">{region}</span><br></br> {city}</p>
           </div>
-          <div className='w-full h-80 lg:leading-6 lg:pl-8 pr-12 md:leading-5 leading-1 md:text-2xl text-xs pl-3 pt-2 font-bold'>
+          <div className='w-full h-80 lg:leading-6 lg:pl-8 lg:pt-6 pr-12 md:leading-5 leading-1 md:text-2xl text-xs pl-3 pt-2 font-bold'>
             <p>{property.title}</p>
           </div>
           <div className='flex items-center w-full lg:h-14 bg-gray-900 '>

@@ -63,7 +63,7 @@ export default function HeaderCountrySearch({
   return (
     <div className='flex items-center w-full h-12'>
         <span className='w-full'>
-            <select value={choosedCountry.country} onChange={handleChangeCountry} id="Country" className="InputsProps py-1 px-1 w-full outline-none" placeholder="Wybierz z listy">
+            <select value={choosedCountry.country} onChange={handleChangeCountry} id="Country" className="text-sm py-1 px-1 w-full outline-none" placeholder="Wybierz z listy">
                 <option value="Hiszpania">Hiszpania</option>
                 <option value="Portugalia">Portugalia</option>
                 <option value="Chorwacja">Chorwacja</option>

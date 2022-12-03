@@ -53,8 +53,6 @@ export default function FirstView () {
     )
     const [searchShow, setSearchShow] = useState(false);
 
-    const dodo = useContext(CCountry)
-
     return(
         <>
         <Head>
@@ -62,8 +60,8 @@ export default function FirstView () {
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
         </Head>
         <Header 
-            // searchShow={searchShow}
-            // setSearchShow={setSearchShow}
+            searchShow={searchShow}
+            setSearchShow={setSearchShow}
             // apply={apply}
             // setApply={setApply}
             // showSearchComponentsOnMobile={showSearchComponentsOnMobile}

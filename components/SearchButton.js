@@ -21,12 +21,14 @@ export default function SearchButton({
 
     const handleShowSearch = (e) =>{
 
+        let targetvalue = e.target.value
+        
         router.push({
             pathname:'/[country]',
-            query: {country:e.target.value}
+            query: {country:targetvalue}
         })
         
-        let targetvalue = e.target.value
+        
         setSearchConditions(searchConditions.map(param => {
         if(param.name === 'country'){
             return{
@@ -52,9 +54,9 @@ export default function SearchButton({
     return (
             <>
                 <div 
-                    className={searchShow ? 'hidden' : 'p-5 transition absolute top-3/4 left-0 right-0 mx-4 lg:top-72 lg:left-2/3 rounded-xl bg-gray-50 z-96 flex flex-col cursor-pointer'}>
+                    className={searchShow ? 'hidden' : 'p-5 transition absolute top-3/4 left-4 right-4 md:left-20 md:right-20 lg:right-6 mx-4 lg:top-72 lg:left-2/3 rounded-xl bg-gray-50 z-96 flex flex-col cursor-pointer'}>
                     <span>
-                            <p className='mb-4 pl-1 text-xl'>W jakim kraju szukasz nieruchmości?</p>
+                            <p className='mb-4 pl-1 lg:text-xl md:text-xl tex-md'>W jakim kraju szukasz nieruchmości?</p>
                     <select 
                     onChange={handleShowSearch}
                     className="CountrySelect border-solid border-2 rounded-xl text-2xl py-2 px-4 outline-none">

@@ -18,7 +18,8 @@ async function connect () {
 
     const db = await mongoose.connect('mongodb+srv://onestauser:8XwxABJyEETxygc7@onesta-base.evtzc20.mongodb.net/onesta-base?retryWrites=true&w=majority');
     console.log('new connection');
-    connection.isConnected = db.connections[0].readyState;
+    return;
+    // connection.isConnected = db.connections[0].readyState;
     
 }
 
