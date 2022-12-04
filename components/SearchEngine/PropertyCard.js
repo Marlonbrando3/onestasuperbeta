@@ -63,21 +63,21 @@ export default function PropertyCard({
             <Localization className='mr-2 w-3 md:block md:w-6 md:h-5 lg:mt-6 lg:w-5 h-22'/>
             <p className="lg:text-md pl-1 lg:pt-6 text-xs lg:leading-5 md:text-lg p-0 leading-3">{country} <span className="text-xs font-bold">{region}</span><br></br> {city}</p>
           </div>
-          <div className='w-full md:h-80 lg:leading-6 lg:pl-8 lg:pt-6 pr-12 md:leading-5 leading-1 md:text-2xl text-sm pl-3 pt-2 font-bold'>
+          <div className='w-full md:h-80 lg:leading-6 lg:pl-8 lg:pt-6 pr-12 md:leading-5 leading-auto md:text-2xl text-xl pl-8 pt-2 font-bold'>
             <p>{property.title}</p>
           </div>
           <div className='flex items-center w-full lg:h-14 bg-gray-900 '>
             <div className='flex flex-col items-center justify-center w-3/12 h-full border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Sypilanie</p>
-              <div className='flex flex-col lg:flex-row items-center justify-center'>
-                <AirlineSeatIndividualSuiteOutlinedIcon className="w-3 lg:w-8 h-5"/>
+              <div className='flex md:flex-col lg:flex-row items-center justify-center'>
+                <AirlineSeatIndividualSuiteOutlinedIcon className="w-full md:w-3 lg:w-8 md:h-5 h-12 py-3"/>
                 <p className='font-semibold text-xs lg:text-xl pl-0 lg:pl-2'>{beds}</p>
                </div>
             </div>
             <div className='flex flex-col items-center justify-center w-3/12 border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Łazienki</p>
-                <div className='flex flex-col items-center lg:flex-row justify-center'>
-                  <ShowerOutlinedIcon className="w-3 lg:w-8 h-5"/>
+                <div className='flex md:flex-col items-center lg:flex-row justify-center'>
+                  <ShowerOutlinedIcon className="w-full md:w-3 lg:w-8 md:h-5 h-12 py-3"/>
                   <p className='font-semibold text-xs lg:text-xl pl-0 lg:pl-2'>{baths}</p>
                </div>
             </div>
@@ -91,21 +91,21 @@ export default function PropertyCard({
             </div> */}
             <div className='flex flex-col items-center justify-center w-3/12 h-full border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Basen</p>
-                <div className='flex flex-col items-center lg:flex-row justify-center'>
-                  <PoolOutlinedIcon className="w-3 lg:w-8 h-5"/>
+                <div className='flex md:flex-col items-center lg:flex-row justify-center'>
+                  <PoolOutlinedIcon className="w-full md:w-3 lg:w-8 md:h-5 h-12 py-3"/>
                   <p className='font-semibold text-xs lg:text:xl pl-0 lg:pl-2'>tak</p>
                 </div>
             </div>
             <div className='flex flex-col items-center justify-center w-3/12 h-full border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Pow. uzyt.</p>
-              <div className='flex items-center flex-col lg:flex-row justify-center'>
-                <OtherHousesIcon className="w-3 lg:w-8 h-5"  />
+              <div className='flex items-center md:flex-col lg:flex-row justify-center'>
+                <OtherHousesIcon className="w-full md:w-3 lg:w-8 md:h-5 h-12 py-3"  />
                 <p className='font-semibold  text-xs lg:text:xl pl-0 lg:pl-2'>20m<span className='text-xs absolute'>2</span></p>
                </div>
             </div>
           </div>
-          <div className='bg-red-500 lg:h-52 md:h-32 h-10 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
-            <span className="ml-1 text-white md:text-3xl sm:text-xl text-lg ">{PriceOne} {PriceTwo} €</span>
+          <div className='bg-red-500 lg:h-52 md:h-32 h-12 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
+            <span className="ml-1 text-white md:text-3xl sm:text-xl text-2xl ">od {PriceOne} {PriceTwo} €</span>
             <span 
               className="blok flex transition items-center text-white border-white border-2 rounded-full font-sm p-0 md:py-1 md:px-4 cursor-pointer hover:bg-white hover:text-red-500"
               onClick={handleShowDetails}>

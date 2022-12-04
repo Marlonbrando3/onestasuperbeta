@@ -138,6 +138,8 @@ export default function Home(
       <Header
         searchShow={searchShow}
         setSearchShow={setSearchShow}
+        newSearch={newSearch}
+        setNewSearch={setNewSearch}
         apply={apply}
         setApply={setApply}
         showSearchComponentsOnMobile={showSearchComponentsOnMobile}
@@ -147,7 +149,9 @@ export default function Home(
           apply={apply}
           setApply={setApply}
           setNewSearch={setNewSearch}
-          newSearch={newSearch} 
+          newSearch={newSearch}
+          showSearchComponentsOnMobile={showSearchComponentsOnMobile}
+          setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
       />
       <MiniHomeView 
         ActualCountry={ActualCountry}

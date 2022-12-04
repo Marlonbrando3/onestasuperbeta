@@ -12,7 +12,7 @@ module.exports = {
       'auto': 'auto',
       'cover': 'cover',
       'contain': 'contain',
-      'manual': '23%',
+      'manual': '19%',
       '16': '4rem',
     },
   },

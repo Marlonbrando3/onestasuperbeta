@@ -14,6 +14,7 @@ export default function Header({searchShow, setSearchShow, apply, setApply,showS
 
   const handleShowMobileMenu = () => {
     setMobileMenu(MobileMenu => !MobileMenu)
+    
   }
 
   const handleShowMobileFilters = () => {
@@ -40,10 +41,10 @@ export default function Header({searchShow, setSearchShow, apply, setApply,showS
     </div>
         <Image
             src={Logotype}
-            width={260}
+            width={160}
             objectFit="contain"
             alt="logo"
-           />
+          />
             <div className="flex flex-col flex-1 h-full">
             <div className=""></div>
                 <div className="h-full justify-end lg:flex items-center">
@@ -58,10 +59,10 @@ export default function Header({searchShow, setSearchShow, apply, setApply,showS
                       <div className="h-full  flex justify-end items-center">
                         <div 
                           className={searchShow ? 
-                            "border-2 border-gray-900 rounded-md px-2 ml-4 w-32 mr-4 z-50 block md:hidden" : 
+                            "border-2 border-gray-900 rounded-md px-2 ml-4 w-26 mr-4 z-50 block md:hidden" : 
                             "border-2 border-gray-900 rounded-md px-2 ml-4 w-32 mr-4 z-50 invisible md:hidden"}
                             onClick={handleShowMobileFilters}>
-                              <p className={(searchShow===true && showSearchComponentsOnMobile===true) ? "visible cursor-pointer" : "hidden"}>Zamknij Filtry</p>
+                              <p className={(searchShow===true && showSearchComponentsOnMobile===true) ? "visible cursor-pointer" : "hidden"}>X</p>
                               <p className={(searchShow===true && showSearchComponentsOnMobile===false) ? "visible cursor-pointer" : "hidden"}>Filtry</p>
                               
                         </div>

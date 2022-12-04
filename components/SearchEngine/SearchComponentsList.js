@@ -71,7 +71,7 @@ export default function SearchInput({
         "transition-all absolute duration-700 top-10 w-screen z-30 bg-white p-1":
         "transition-all duration-700 hidden -top-screen flex-col items-center justify-center md:w-3/12 md:flex md:static"}
     >
-        <form className="flex sticky flex-col m-auto justify-start items-center bg-white rounded-md p-1 mb-60 lg:w-11/12 w-10/12">
+        <form className="flex sticky flex-col m-auto justify-start items-center bg-white rounded-md h-auto p-1 mb-60 lg:w-11/12 w-10/12">
         <div className="InputsStyleContainer w-11/12 lg:w-9/12 md:w-11/12">
         <p>Kraj</p>
           <div className="InputsStyle m-auto w-full">

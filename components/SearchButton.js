@@ -53,7 +53,7 @@ export default function SearchButton({
     return (
             <>
                 <div 
-                    className={searchShow ? 'hidden' : 'md:p-5 mx-7 transition absolute top-2/3 md:h-1/5 md:top-3/4 left-0 right-0 md:left-20 md:right-20 lg:right-6 md:mx-4 lg:top-72 lg:left-2/3 md:rounded-xl md:bg-gray-50 bg-white/[0.0] z-96 flex flex-col cursor-pointer'}>
+                    className={searchShow ? 'hidden' : 'md:p-5 mx-7 transition absolute top-3/4 md:h-1/5 md:top-3/4 left-0 right-0 md:left-20 md:right-20 lg:right-6 md:mx-4 lg:top-72 lg:left-2/3 md:rounded-xl md:bg-gray-50 bg-white/[0.0] z-96 flex flex-col cursor-pointer'}>
                     <span>
                             <p className='mb-4 hidden md:block md:pt-1 pt-5 lg:text-xl md:text-xl text-lg'>W jakim kraju szukasz nieruchmości?</p>
                     <select 

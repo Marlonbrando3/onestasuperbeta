@@ -99,8 +99,8 @@ export default function SearchEngine({
     return (
         <>
             <div className={(searchShow && showSearchComponentsOnMobile===false)? "z-50 flex flex-col items-start justify-start w-full bg-white" : "h-0 overflow-hidden"}>
-                <div className="flex items-center justify-center px-20 py-4 bg-white">
-                    <h1 className="text-center text-md font-normal">Wyszukiwanie pośród {properties.length} ogłoszeń w kraju {choosedCountry.country}</h1>
+                <div className="flex items-center w-full justify-center nd:py-4 py-2 bg-white">
+                    <p className="text-base w-full text-center font-normal">Przeglądasz pośród {properties.length} ogłoszeń</p>
                 </div>
                 <div className="flex items-start justify-center w-full pt-4 bg-gray-900/[0.1]">
                 <SearchComponentsList
