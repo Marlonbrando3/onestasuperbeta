@@ -54,7 +54,7 @@ export default function FirstView () {
     const [searchShow, setSearchShow] = useState(false);
 
     return(
-        <>
+        <div className='h-screen w-screen overflow-hidden'>
         <Head>
             <title>Onesta Group</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
@@ -62,39 +62,18 @@ export default function FirstView () {
         <Header 
             searchShow={searchShow}
             setSearchShow={setSearchShow}
-            // apply={apply}
-            // setApply={setApply}
-            // showSearchComponentsOnMobile={showSearchComponentsOnMobile}
-            // setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
         />
-        <Applychanges
-            // apply={apply}
-            // setApply={setApply}
-            // setNewSearch={setNewSearch}
-            // newSearch={newSearch} 
-        />
-        <HomeView 
-            // showMainPage={showMainPage}
-            // setShowMainPage={setShowMainPage}
-            // searchShow={searchShow}
-            // setSearchShow={setSearchShow}
-            // apply={apply}
-            // setApply={setApply}
-            />
+        <Applychanges />
+        <HomeView />
         <SearchButton
             searchShow={searchShow}
             setSearchShow={setSearchShow}
             choosedCountry={choosedCountry}
             setChoosedCountry={setChoosedCountry}
-            // actualSite={actualSite}
-            // setActualSite={setActualSite}
             searchConditions={searchConditions}
             setSearchConditions={setSearchConditions}
         />
-        <MainTheme 
-            // searchShow={searchShow}
-            // setSearchShow={setSearchShow}
-        />
-    </>
+        <MainTheme />
+    </div>
     )
 }

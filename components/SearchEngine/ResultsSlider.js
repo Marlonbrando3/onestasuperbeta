@@ -60,11 +60,11 @@ export default function ResultsSlider({
         <div onClick={handleChangeSite} className="flex items-center justify-center absolute w-10 h-full right-0 cursor-pointer group hover:bg-sky-900/25 transition duration-450 hover:ease-in-out">
         <ChevronRightIcon className="w-full h-full text-white"/>
         </div>
-        {imagesNew.map(img => 
+        {imagesNew.map((img, index) => 
         {
           if(img.visible === true) {
             return (
-              <div className="w-full h-full">
+              <div key={index} className="w-full h-full">
                 <img key={img.img} className="object-cover w-full h-full" src={img.img} />
               </div>
           )

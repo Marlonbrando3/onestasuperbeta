@@ -111,8 +111,6 @@ div.InputsStyleContainer p {
 
 .CountrySelect {
   min-width: 2vw;
-  border:1px solid rgb(147, 146, 146);
-  border-radius: 1px;
   width:100%;
   /* height: 80%; */
   outline:none;
