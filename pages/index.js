@@ -54,7 +54,7 @@ export default function FirstView () {
     const [searchShow, setSearchShow] = useState(false);
 
     return(
-        <div className='h-screen w-screen overflow-hidden'>
+        <div className='main-index'>
         <Head>
             <title>Onesta Group</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
