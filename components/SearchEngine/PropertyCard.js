@@ -48,7 +48,7 @@ export default function PropertyCard({
     }
 
   return (
-    <div className="flex flex-col md:flex-row bg-gray-300 w-12/12 md:h-72 mb-4 md:mx-auto mx-2 rounded-md overflow-hidden">
+    <div className="flex flex-col md:flex-row bg-gray-300 w-12/12 md:h-56 lg:h-72 mb-4 md:mx-auto mx-2 rounded-md overflow-hidden">
       <div className="md:w-6/12 w-full h-full flex items-center justify-center text-4xl">
         <ResultsSlider 
           property={property}
@@ -61,23 +61,23 @@ export default function PropertyCard({
       <div className='flex flex-col md:w-1/2 w-full bg-white '>
           <div className='flex p-2 w-full h-10 items-center'>
             <Localization className='mr-2 w-3 md:block md:w-6 md:h-5 lg:mt-6 lg:w-5 h-22'/>
-            <p className="lg:text-md pl-1 lg:pt-6 text-xs lg:leading-5 md:text-lg p-0 leading-3">{country} <span className="text-xs font-bold">{region}</span><br></br> {city}</p>
+            <p className="lg:text-md pl-1 lg:pt-6 text-xs lg:leading-5 md:text-lg p-0 md:leading-3 leading-3">{country} <span className="text-xs font-bold">{region}</span><br></br> {city}</p>
           </div>
-          <div className='w-full md:h-80 lg:leading-6 lg:pl-8 lg:pt-6 pr-12 md:leading-5 leading-auto md:text-2xl text-xl pl-8 pt-2 font-bold'>
+          <div className='w-full md:h-80 lg:leading-6 lg:pl-8 lg:pt-6 pr-12 md:leading-5 leading-auto md:text-xl text-xl pl-8 pt-2 font-bold'>
             <p>{property.title}</p>
           </div>
-          <div className='flex items-center w-full lg:h-14 bg-gray-900 '>
+          <div className='flex items-center w-full lg:h-14 bg-gray-900'>
             <div className='flex flex-col items-center justify-center w-3/12 h-full border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Sypilanie</p>
               <div className='flex md:flex-col lg:flex-row items-center justify-center'>
-                <AirlineSeatIndividualSuiteOutlinedIcon className="w-full md:w-3 lg:w-8 md:h-5 h-12 py-3"/>
+                <AirlineSeatIndividualSuiteOutlinedIcon className="w-full md:w-3 lg:w-8 md:h-6 h-12 md:py-0 py-3"/>
                 <p className='font-semibold text-xs lg:text-xl pl-0 lg:pl-2'>{beds}</p>
                </div>
             </div>
-            <div className='flex flex-col items-center justify-center w-3/12 border-2 bg-white md:p-1'>
+            <div className='flex flex-col items-center justify-center w-3/12 border-2 h-full bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Łazienki</p>
                 <div className='flex md:flex-col items-center lg:flex-row justify-center'>
-                  <ShowerOutlinedIcon className="w-full md:w-3 lg:w-8 md:h-5 h-12 py-3"/>
+                  <ShowerOutlinedIcon className="w-full md:w-3 lg:w-8 md:h-6 h-12 md:py-0 py-3"/>
                   <p className='font-semibold text-xs lg:text-xl pl-0 lg:pl-2'>{baths}</p>
                </div>
             </div>
@@ -92,25 +92,25 @@ export default function PropertyCard({
             <div className='flex flex-col items-center justify-center w-3/12 h-full border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Basen</p>
                 <div className='flex md:flex-col items-center lg:flex-row justify-center'>
-                  <PoolOutlinedIcon className="w-full md:w-3 lg:w-8 md:h-5 h-12 py-3"/>
+                  <PoolOutlinedIcon className="w-full md:w-3 lg:w-8 md:h-6 h-12 md:py-0 py-3"/>
                   <p className='font-semibold text-xs lg:text:xl pl-0 lg:pl-2'>tak</p>
                 </div>
             </div>
             <div className='flex flex-col items-center justify-center w-3/12 h-full border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Pow. uzyt.</p>
-              <div className='flex items-center md:flex-col lg:flex-row justify-center'>
-                <OtherHousesIcon className="w-full md:w-3 lg:w-8 md:h-5 h-12 py-3"  />
-                <p className='font-semibold  text-xs lg:text:xl pl-0 lg:pl-2'>20m<span className='text-xs absolute'>2</span></p>
+              <div className='flex items-center md:flex-col lg:flex-row justify-center relative'>
+                <OtherHousesIcon className="w-full md:w-3 lg:w-8 md:h-6 h-12 md:py-0 py-3"  />
+                <p className='font-semibold text-xs lg:text:xl pl-0 lg:pl-2'>20m<span className='text-xs absolute -mt-1'>2</span></p>
                </div>
             </div>
           </div>
           <div className='bg-red-500 lg:h-52 md:h-32 h-12 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
-            <span className="ml-1 text-white md:text-3xl sm:text-xl text-2xl ">od {PriceOne} {PriceTwo} €</span>
+            <span className="ml-1 text-white md:text-2xl sm:text-xl text-2xl ">od {PriceOne} {PriceTwo} €</span>
             <span 
-              className="blok flex transition items-center text-white border-white border-2 rounded-full font-sm p-0 md:py-1 md:px-4 cursor-pointer hover:bg-white hover:text-red-500"
+              className="blok flex transition items-center text-white border-white border-2 rounded-full font-sm p-0 md:py-1 my-1 md:px-4 cursor-pointer hover:bg-white hover:text-red-500"
               onClick={handleShowDetails}>
                       <Link href={`/oferty/?id=${property.id}&${property.title.replaceAll(' ','-')}`}>
-                          <a className="md:block block text-sm px-2">więcej</a>
+                          <a className="md:hidden lg:block block text-sm px-2">więcej</a>
                       </Link>
                 <DoubleArrowIcon />
               </span>
