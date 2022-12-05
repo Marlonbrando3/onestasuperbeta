@@ -9,7 +9,7 @@ html{
   box-sizing: border-box;
   width: 100vw;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body{
@@ -148,63 +148,11 @@ div.InputsStyleContainer p {
   margin:auto;
   height: 116%;
 }
-
-.property-card-container{
-  display:flex;
-  flex-direction: column;
-  background-color:rgb(230, 227, 227);
-}
-
-.property-card-title{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  height:80px;
-  width:83.33%;
-  margin: 10px auto;
-  background-color: white;
-  border-radius: 5px;
-
-}
-
 .property-card-price{
   font-weight: 700;
   color: white;
 
 }
-
-/* property card */
-.property-card-data-container{
-  padding:20px;
-  height:550px;
-  width:83%;
-  background-color: white;
-  border-radius: 10px;
-  margin: 0 auto;
-}
-
-.property-data-left{
-  overflow:hidden;
-  width:55%;
-  margin-right: 20px;
-}
-
-.property-data-right{
-  padding-top:10px;
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width:45%;
-  height: 100%;
-  background-color: white;
-}
-
-.property-data-localization{
-  padding-top:4px;
-  width:100%;
-  height:10%;
-} 
-
 .property-data-specyfication-box{
   display: flex;
   flex-wrap: wrap;
@@ -216,35 +164,10 @@ div.InputsStyleContainer p {
   height: 85%;
 }
 
-.property-data-specifation-one{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 25%;
-  height:15%;
-  background-color: rgb(245, 245, 245);
-  border:2px solid white
-
-}
-.property-data-main-image{
-  overflow: hidden;
-  /* background-color:yellow; */
-
-}
-.property-data-images-container{
-  display: flex;
-  height: 100%;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  /* background-color:blue; */
-}
 .property-card-data-gallery-container {
     position: relative;
     display:flex;
-    height:150px;
-    /* background-color:red; */
+    height:80px;
 }
 
 .property-card-data-gallery-all-images {
@@ -301,7 +224,7 @@ div.InputsStyleContainer p {
 }
 
 .clickedSlideLeftGallery{
-  margin-left:-160px;
+  margin-left:-105px;
   transition:0.4s
 }
 
@@ -309,14 +232,6 @@ div.InputsStyleContainer p {
   margin-left:-160px;
   transition:0.4s
 }
-
-/* .footer-left{
-  display: flex;
-  z-index:1;
-  flex-direction: column;
-  align-items: center;
-  width: 40%;
-} */
 
 .company-base{
   display:flex;
@@ -340,12 +255,6 @@ div.InputsStyleContainer p {
   width: 83%;
   background-color: white;
   margin: 10px auto;
-
-}
-
-.one-feature{
-  display: block;
-  margin:20px 0px 20px 30px;
 }
 
 .contact-form-container {

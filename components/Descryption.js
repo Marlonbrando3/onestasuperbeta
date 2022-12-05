@@ -4,7 +4,7 @@ import DescAboutObiect from './DescAboutObiect'
 
 export default function Descryption({description}) {
   return (
-    <div className='descrytpion-container'>
+    <div className='w-full bg-white px-3 mx-1 rounded-xl '>
         <DescAboutObiect 
           description={description}/>
         {/* <DescAboutProperty /> */}

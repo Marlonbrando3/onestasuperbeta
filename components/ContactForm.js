@@ -32,7 +32,7 @@ export default function ContactForm({propertyId}) {
 
 
   return (
-    <div className='contact-form-container'>
+    <div className='w-full bg-white mx-1 px-2 rounded-xl mt-1'>
         <form className='contact-form-in-property-card'>
             <div className='py-4 font-bold text-xl'>Napisz do nas:</div>
             <p>Ogłoszenie o nr ref. <input type="text" value={propertyId} name="id"></input></p>

@@ -1,6 +1,5 @@
 import React from 'react'
 import CopyrightIcon from '@mui/icons-material/Copyright';
-import Property from '../pages/property';
 
 export default function Footer() {
   return (

@@ -8,14 +8,14 @@ import Solarium from '@mui/icons-material/SolarPower';
 
 export default function Features() {
   return (
-    <div className='features-container'>
-      <span className='one-feature'><PoolOutlinedIcon /> Basen</span>
-      <span className='one-feature'><Parking /> Parking</span>
-      <span className='one-feature'><Garden /> Ogród</span>
-      <span className='one-feature'><Solarium /> Solarium/Taras</span>
-      <span className='one-feature'><WavesOutlinedIcon /> Odległość od morza</span>
-      <span className='one-feature'><Seaview /> Widok na morze</span>
-      <span className='one-feature'><PoolOutlinedIcon /> Balkon</span>
+    <div className='flex rounded-xl w-full bg-white my-[10px] px-2 flex-wrap'>
+      <span className='flex w-1/2 py-1'><PoolOutlinedIcon /> Basen</span>
+      <span className='flex w-1/2 py-1'><Parking /> Parking</span>
+      <span className='flex w-1/2 py-1'><Garden /> Ogród</span>
+      <span className='flex w-1/2 py-1'><Solarium /> Solarium/Taras</span>
+      <span className='flex w-1/2 py-1'><WavesOutlinedIcon /> Blisko morza</span>
+      <span className='flex w-1/2 py-1'><Seaview /> Widok na morze</span>
+      <span className='flex w-1/2 py-1'><PoolOutlinedIcon /> Balkon</span>
     </div>
   )
 }

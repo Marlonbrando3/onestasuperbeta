@@ -23,7 +23,7 @@ export default function ChangeSite({
     }
 
   return (
-    <div className="flex items-center justify-center w-11/12">
+    <div className="flex items-center justify-center w-12/12">
         {sitesArraycounter.map((index, key) =>
             <div key={key} className={key+1 === actualSite ? 'sitesArrow ActiveSite' : 'sitesArrow' } onClick={e => handleClickOnSite(e, key)}>{key+1}</div>
         )}

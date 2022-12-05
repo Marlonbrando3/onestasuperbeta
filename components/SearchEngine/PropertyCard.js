@@ -45,6 +45,11 @@ export default function PropertyCard({
     const handleShowDetails = () => {
       setShowProp(setShowProp => !setShowProp)
       setPropDetails(property)
+      router.push({
+        pathname:"/oferty",
+        query: `id=${property.id}&${property.title.replaceAll(' ','-')}`
+
+      })
     }
 
   return (
@@ -109,9 +114,9 @@ export default function PropertyCard({
             <span 
               className="blok flex transition items-center text-white border-white border-2 rounded-full font-sm p-0 md:py-1 my-1 md:px-4 cursor-pointer hover:bg-white hover:text-red-500"
               onClick={handleShowDetails}>
-                      <Link href={`/oferty/?id=${property.id}&${property.title.replaceAll(' ','-')}`}>
+                      {/* <Link router={`/oferty/?id=${property.id}&${property.title.replaceAll(' ','-')}`}>
                           <a className="md:hidden lg:block block text-sm px-2">więcej</a>
-                      </Link>
+                      </Link> */}
                 <DoubleArrowIcon />
               </span>
           </div>
