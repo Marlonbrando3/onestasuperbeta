@@ -136,9 +136,9 @@ export default function Property(
                       height={800}
                   ></Image>
                 </div>
-                <div className='property-card-data-gallery-container'>
-                  <div className='property-card-data-gallery-arrow-blindbox'></div>
-                  <div className='property-card-data-gallery-arrow-left'>
+                <div className='relative flex h-[80px]'>
+                  <div className='w-[30px] h-full cursor-pointer'></div>
+                  <div className='absolute w-[30px] left-0 z-4 h-full flex justify-center cursor-pointer'>
                     <ChevronLeftIcon className='h-full w-8'/>
                   </div>
                   <div className='property-card-data-gallery-all-images'>
@@ -150,8 +150,8 @@ export default function Property(
                     />
                     </div>
                   </div>
-                  <div className='property-card-data-gallery-arrow-blindbox'></div>
-                  <div className={handleMarginSlider ? 'property-card-data-gallery-arrow-right clickedSlideLeftGallery' : 'property-card-data-gallery-arrow-right unClickedSlideLeftGallery'}>
+                  <div className='w-[30px] h-full cursor-pointer'></div>
+                  <div className={handleMarginSlider ? 'absolute w-[30px] left-0 z-4 h-full flex justify-center cursor-pointer clickedSlideLeftGallery' : 'property-card-data-gallery-arrow-right unClickedSlideLeftGallery'}>
                     <ChevronRightIcon 
                       className='h-full w-8'
                       onClick={handleChangeSlideLeft}/>
@@ -159,8 +159,8 @@ export default function Property(
                 </div>
               </div>
               </div>
-              <div className='pt-[10px] flex flex-col justify-center md:w-[45%] w-full bg-gray-200'>
-                <div className='pt-[4px] w-full h-[10%]'>
+              <div className='pt-[10px] flex flex-col justify-center md:w-[45%] w-full  bg-gray-200'>
+                <div className='pt-[4px] w-full h-28'>
                   <div className='flex h-16'>
                     <div className='h-12 w-10 flex items-center justify-center'>
                       <Localization />

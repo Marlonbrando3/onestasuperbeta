@@ -9,13 +9,12 @@ html{
   box-sizing: border-box;
   width: 100vw;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body{
   padding:0;
   margin:0;
-  height: 100%;
   overflow: auto;
   box-sizing: border-box;
 }
@@ -142,7 +141,6 @@ div.InputsStyleContainer p {
   height:15vh;
   transition: .7s;
 }
-
 .main-video{
   width: 100%;
   margin:auto;
@@ -183,26 +181,6 @@ div.InputsStyleContainer p {
   display:flex;
   flex-wrap: nowrap;
   /* width:500%; */
-}
-
-.property-card-data-gallery-arrow-blindbox{
-  width:30px;
-  height:100%;
-  cursor: pointer;
-  /* background-color: yellow; */
-}
-
-.property-card-data-gallery-arrow-left{
-  position: absolute;
-  width:30px;
-  left:0;
-  z-index:2;
-  height:100%;
-  display:flex;
-  justify-content: center;
-  cursor: pointer;
-  /* border:2px solid black */
-  /* background-color:white; */
 }
 
 .property-card-data-gallery-arrow-right{
