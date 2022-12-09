@@ -12,6 +12,8 @@ import CloseIcon from '@mui/icons-material/Close';
 export default function Header({searchShow, setSearchShow, apply, setApply,showSearchComponentsOnMobile,
   setShowSearchComponentsOnMobile}) {
 
+  const [MobileMenu, setMobileMenu] = useState(false)
+
   const handleShowMobileMenu = () => {
     setMobileMenu(MobileMenu => !MobileMenu)
     
@@ -20,8 +22,6 @@ export default function Header({searchShow, setSearchShow, apply, setApply,showS
   const handleShowMobileFilters = () => {
     setShowSearchComponentsOnMobile(showSearchComponentsOnMobile => !showSearchComponentsOnMobile)
   }
-
-  const [MobileMenu, setMobileMenu] = useState(false)
 
   return (
     <>
@@ -67,10 +67,10 @@ export default function Header({searchShow, setSearchShow, apply, setApply,showS
                               
                         </div>
                         {MobileMenu ? <CloseIcon 
-                          className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden"
+                          className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden visible"
                           onClick={handleShowMobileMenu}/> : 
                           <MenuIcon 
-                          className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden"
+                          className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden visible"
                           onClick={handleShowMobileMenu}/>}
                       </div>
                 </div>
