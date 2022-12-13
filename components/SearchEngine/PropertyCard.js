@@ -75,14 +75,14 @@ export default function PropertyCard({
             <div className='flex flex-col items-center justify-center w-3/12 border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Sypilanie</p>
               <div className='flex md:flex-col h-14 lg:flex-row items-center justify-center'>
-                <AirlineSeatIndividualSuiteOutlinedIcon className="w-2/3 md:w-3 lg:w-8 md:h-6 h-14 md:py-0"/>
+                <AirlineSeatIndividualSuiteOutlinedIcon className="w-2/5 md:w-3 pr-1lg:w-8 md:h-6 h-14 md:py-0"/>
                 <div className='flex items-center font-semibold h-14 text-base lg:text:xl pl-0 lg:pl-2'>{beds}</div>
               </div>
             </div>
             <div className='flex flex-col items-center justify-center w-3/12 border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Łazienki</p>
                 <div className='flex md:flex-col h-14 items-center lg:flex-row justify-center'>
-                  <ShowerOutlinedIcon className="w-2/3 md:w-3 lg:w-8 md:h-6 h-14 md:py-0"/>
+                  <ShowerOutlinedIcon className="w-2/5 md:w-3 lg:w-8 md:h-6 h-14 md:py-0"/>
                   <div className='flex items-center font-semibold h-14 text-base lg:text:xl pl-0 lg:pl-2'>{baths}</div>
                </div>
             </div>
@@ -97,14 +97,14 @@ export default function PropertyCard({
             <div className='flex flex-col items-center justify-center w-3/12 border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Basen</p>
                 <div className='flex md:flex-col h-14 items-center lg:flex-row justify-center'>
-                  <PoolOutlinedIcon className="w-2/3 md:w-3 lg:w-8 md:h-6 h-14 md:py-0"/>
+                  <PoolOutlinedIcon className="w-2/5 md:w-3 lg:w-8 md:h-6 h-14 md:py-0"/>
                   <div className='flex items-center font-semibold h-14 text-base lg:text:xl pl-0 lg:pl-2'>tak</div>
                 </div>
             </div>
             <div className='flex flex-col items-center justify-center w-3/12 border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Pow. uzyt.</p>
               <div className='flex items-center h-14 md:flex-col lg:flex-row justify-center relative'>
-                <OtherHousesIcon className="w-2/3 md:w-3 lg:w-8 md:h-6 h-14 md:py-0"  />
+                <OtherHousesIcon className="w-2/5 md:w-3 lg:w-8 md:h-6 h-14 md:py-0"  />
                 <div className='flex items-center font-semibold h-14 text-base lg:text:xl pl-0 lg:pl-2'>20m<span className='text-xs absolute -mt-5 ml-8'>2</span></div>
                </div>
             </div>
@@ -114,9 +114,6 @@ export default function PropertyCard({
             <span 
               className="blok flex transition items-center text-white border-white border-2 rounded-full font-sm p-0 md:py-1 my-1 md:px-4 cursor-pointer hover:bg-white hover:text-red-500"
               onClick={handleShowDetails}>
-                      {/* <Link router={`/oferty/?id=${property.id}&${property.title.replaceAll(' ','-')}`}>
-                          <a className="md:hidden lg:block block text-sm px-2">więcej</a>
-                      </Link> */}
                 <DoubleArrowIcon />
               </span>
           </div>

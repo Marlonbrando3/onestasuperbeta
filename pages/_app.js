@@ -1,16 +1,21 @@
 import '../styles/globals.css'
-import { useContext } from 'react'
 import { useState } from 'react'
-import { CCountry } from '../context/CCountry'
 
 function MyApp({ Component, pageProps }) {
 
-    const [value, setValue] = useState("kolo")
+    const [searchShow,setSearchShow] = useState(false)
+    const [showSearchComponentsOnMobile,setShowSearchComponentsOnMobile] = useState(false)
 
     return(
-        <CCountry.Provider value={{value, setValue}}>
-            <Component {...pageProps} />
-        </CCountry.Provider>
+
+            <Component 
+                {...pageProps}
+                setSearchShow={setSearchShow}
+                searchShow={searchShow}
+                showSearchComponentsOnMobile={showSearchComponentsOnMobile}
+                setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
+            />
+
     )
 }
 

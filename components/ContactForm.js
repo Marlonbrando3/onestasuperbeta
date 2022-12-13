@@ -32,25 +32,27 @@ export default function ContactForm({propertyId}) {
 
 
   return (
-    <div className='w-full bg-white mx-1 px-2 rounded-xl mt-1'>
-        <form className='contact-form-in-property-card'>
+    <div className=' lg:flex w-full bg-white mx-1 px-2 lg:px-10 rounded-md mt-1 lg:w-10/12 lg:mx-auto'>
+        <form className='flex flex-col lg:w-10/12 my-[10px] lg:px-7'>
             <div className='py-4 font-bold text-xl'>Napisz do nas:</div>
-            <p>Ogłoszenie o nr ref. <input type="text" value={propertyId} name="id"></input></p>
-            <label id="name">Imię i naziwsko</label>
-            <input className="cf-input-property-card" type="text" name="name"></input>
-            <label id="phone">Numer telefonu</label>
-            <input className="cf-input-property-card" type="number" name="phone"></input>
-            <label id="mail">Adres e-mail</label>
-            <input className="cf-input-property-card" type="text" name="mail"></input>
-            <label id="massage">Wiadomość</label>
-            <textarea className="cf-input-property-card" type="text" name='massage'></textarea>
-            <div className='checkbox'>
-                <input className='w-6 h-6' type="checkbox" name="mail required"></input>
-                <p className='block ml-2'>Akceptuję regulamin i <a className="underline-offset-1" href="#">politykę prywatności (wymagane)</a></p>
-            </div>
-            <button 
-                className='bg-red-600 w-24 text-white'>Wyślij</button>
-    </form>
+              <p className='py-2 font-bold'>Ogłoszenie o nr ref. <input type="text" value={propertyId} name="id"></input></p>
+              {/* <label id="name">Imię i naziwsko</label> */}
+              <input className="cf-input-property-card pl-2 py-1" type="text" name="name" placeholder='Imię i nazwisko'></input>
+              {/* <label id="phone">Numer telefonu</label> */}
+              <input className="cf-input-property-card pl-2 py-1" type="number" name="phone" placeholder='Numer telefonu'></input>
+              {/* <label id="mail">Adres e-mail</label> */}
+              <input className="cf-input-property-card pl-2 py-1" type="text" name="mail" placeholder='Email'></input>
+              {/* <label id="massage">Wiadomość</label> */}
+              <textarea className="cf-input-property-card pl-2 pt-1" type="text" name='massage' placeholder='Wiadomość'></textarea>
+              <div className='checkbox flex my-2'>
+                  <input className='w-6 h-6' type="checkbox" name="mail required"></input>
+                  <p className='block ml-2'>Akceptuję regulamin i <a className="underline-offset-1" href="#">politykę prywatności (wymagane)</a></p>
+              </div>
+            <button className='bg-red-600 w-full rounded-md py-2 text-white'>Wyślij</button>
+        </form>
+
+        <div className='lg:w-10/12 lg:h-12/12 bg-[url("../components/images/landscape.jpeg")] bg-cover'>
+        </div>
 </div>
   )
 }

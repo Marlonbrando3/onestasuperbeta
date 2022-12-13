@@ -9,7 +9,7 @@ import SearchButton from '../components/SearchButton'
 import MainTheme from '../components/MainTheme'
 import Applychanges from '../components/SearchEngine/Applychanges'
 
-export default function FirstView () {
+export default function FirstView ({searchShow, setSearchShow}) {
 
     const router = useRouter();
 
@@ -51,7 +51,6 @@ export default function FirstView () {
             distancetothesea:'',
         },
     )
-    const [searchShow, setSearchShow] = useState(false);
 
     return(
         <div className='main-index'>
@@ -59,10 +58,7 @@ export default function FirstView () {
             <title>Onesta Group</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
         </Head>
-        <Header 
-            searchShow={searchShow}
-            setSearchShow={setSearchShow}
-        />
+        <Header />
         <Applychanges />
         <HomeView />
         <SearchButton

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Header from '../components/Header';
 import {useRouter} from 'next/router';
+import MiniHomeView from '../components/SearchEngine/MiniHomeView';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import db from '../utils/db';
@@ -19,8 +20,11 @@ import ContactForm from '../components/ContactForm';
 
 
 export default function Property(
-  {property}
+  {property, searchShow, setSearchShow}, 
   ) {
+
+
+  setSearchShow(true)
   let propertyDescription = (property[0].description)
   let propertyId = (property[0].id)
 
@@ -120,20 +124,21 @@ export default function Property(
 
   return (
     <>
-        <div className='flex flex-col bg-gray-200 mt-16'>
-          <Header />
-          <div className='flex items-center justify-center h-[80px] w-full px-auto my-[10px] mx-auto bg-white rounded-xl'>
-            <p className='block w-10/12 text-lg font-bold'>{property[0].title}</p>
+        <div className='flex flex-col bg-gray-100 mt-16'>
+          <Header className="bg-white" />
+          <MiniHomeView />
+          <div className='flex items-center justify-center h-[80px] w-full px-auto my-[10px] mx-auto bg-white'>
+            <p className='block w-12/12 text-lg lg:text-2xl font-bold lg:mx-auto'>{property[0].title}</p>
           </div>
-          <div className='w-[100%] p-[20px] mx-auto my-0 bg-white rounded-xl'>
+          <div className='w-[100%] p-[20px] mx-auto my-0 bg-white rounded-md lg:w-10/12'>
             <div className='flex flex-col md:flex-row h-full mx-auto'>
-              <div className='md:w-[55%] w-full h-50 overflow-hidden mr-[20px]'>
-              <div className='flex h-full w-full flex-col justify-center'>
+              <div className='md:w-[55%] w-full h-full overflow-hidden mr-[20px]'>
+              <div className='flex h-full w-full flex-col justify-between'>
                 <div className='overflow-hidden'>
                   <Image 
                       src={showedImage}
                       width={1000}
-                      height={800}
+                      height={600}
                   ></Image>
                 </div>
                 <div className='relative flex h-[80px]'>
@@ -159,13 +164,13 @@ export default function Property(
                 </div>
               </div>
               </div>
-              <div className='pt-[10px] flex flex-col justify-center md:w-[45%] w-full  bg-gray-200'>
-                <div className='pt-[4px] w-full h-28'>
-                  <div className='flex h-16'>
+              <div className='flex flex-col justify-center md:w-[45%] w-full  bg-gray-200'>
+                <div className='w-full h-28 lg:h-16'>
+                  <div className='flex h-full items-center'>
                     <div className='h-12 w-10 flex items-center justify-center'>
                       <Localization />
                     </div>
-                    <div className='flex flex-col h-full'>
+                    <div className='flex flex-col h-full justify-center'>
                       <div className=''>{property[0].country}</div>
                       <div className='text-xl font-bold'>{property[0].region}, {property[0].city} </div>
                     </div>
@@ -183,25 +188,25 @@ export default function Property(
                     <div className='w-full flex justify-center text-sm'>Łazienki</div>
                         <div className='flex justify-center '>
                           <div className='mr-2'><ShowerOutlinedIcon/></div>
-                          <div>{property[0].bedrooms.toString()}</div>
+                          <div>{property[0].bathrooms.toString()}</div>
                         </div>
                     </div>
                     <div className='w-1/4 border-2 border-white h-16 bg-gray-200 pt-2'>
                     <div className='w-full flex justify-center text-xs'>Do Morza</div>
-                        <div className='flex '>
+                        <div className='flex justify-center  '>
                           <div className='mr-2'><WavesOutlinedIcon/></div>
                           <div>{property[0].distance.toString()}</div>
                         </div>
                     </div>
                     <div className='w-1/4 border-2 border-white h-16 bg-gray-200 pt-2'>
                         <div className='w-full flex justify-center text-xs'>Basen</div>
-                          <div className='flex'>
+                          <div className='flex justify-center '>
                             <div className='mr-2'><PoolOutlinedIcon/></div>
                             <div className='font-bold text-md'>{pool.toString().toUpperCase()}</div>
                           </div>
                     </div>
-                    <div className='w-full h-50'>
-                    <iframe className="w-[100%] h-52" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6297.78949969237!2d-0.7631180743668244!3d37.88614401895693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd630f53e30fd6e9%3A0x65e736f432819e2f!2s03191%20Mil%20Palmeras%2C%20Prowincja%20Alicante%2C%20Hiszpania!5e0!3m2!1spl!2spl!4v1666100630565!5m2!1spl!2spl" allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div className='w-full h-64'>
+                    <iframe className="w-[100%] h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6297.78949969237!2d-0.7631180743668244!3d37.88614401895693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd630f53e30fd6e9%3A0x65e736f432819e2f!2s03191%20Mil%20Palmeras%2C%20Prowincja%20Alicante%2C%20Hiszpania!5e0!3m2!1spl!2spl!4v1666100630565!5m2!1spl!2spl" allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                       <div className='bg-red-600 w-full h-20 flex flex-col justify-center items-start pl-4'>
                         <p className='text-5xl font-bold text-white'>od {priceToShow} €</p>
@@ -214,6 +219,10 @@ export default function Property(
           <Features/>
           <Descryption 
             description={propertyDescription}
+            bedrooms={property[0].bedrooms}
+            bathrooms={property[0].bathrooms}
+            distance={property[0].distance}
+            pool={property[0].pool}
           />
           <ContactForm 
             propertyId={propertyId}

@@ -11,14 +11,12 @@ import Footer from '../components/Footer'
 import ContactFormMain from '../components/ContactFormMain'
 
 export default function Home(
-  {propertiesWork, kolo}
+  {propertiesWork, kolo,showSearchComponentsOnMobile, setShowSearchComponentsOnMobile}
   ) {
   const router = useRouter();
   const ActualCountry = router.query.country
 
   // const {pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, region, batht, distance} = router.query
-
-  const[showSearchComponentsOnMobile, setShowSearchComponentsOnMobile] = useState(false)
 
   //added INDEX!!!
   const [searchConditions, setSearchConditions] = useState([
