@@ -5,6 +5,8 @@ import SearchResults from "./SearchResults";
 import OfferWindow from './OfferWindow';
 
 export default function SearchEngine({
+    ActualCountry,
+    setActualCountry,
     actualSite,
     setActualSite,
     properties,
@@ -104,6 +106,8 @@ export default function SearchEngine({
                 </div>
                 <div className="flex items-start justify-center w-full pt-4 bg-gray-900/[0.1]">
                 <SearchComponentsList
+                    ActualCountry={ActualCountry}
+                    setActualCountry={setActualCountry}
                     actualSite={actualSite}
                     setActualSite={setActualSite}
                     choosedRegion={choosedRegion}

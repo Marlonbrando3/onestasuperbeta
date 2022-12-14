@@ -110,7 +110,7 @@ export default function PropertyCard({
             </div>
           </div>
           <div className='bg-red-500 lg:h-52 md:h-32 h-12 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
-            <span className="ml-1 text-white md:text-2xl sm:text-xl text-2xl ">od {PriceOne} {PriceTwo} €</span>
+            <span className="ml-1 text-white md:text-2xl sm:text-xl text-2xl lg:text-3xl ">od {PriceOne} {PriceTwo} €</span>
             <span 
               className="blok flex transition items-center text-white border-white border-2 rounded-full font-sm p-0 md:py-1 my-1 md:px-4 cursor-pointer hover:bg-white hover:text-red-500"
               onClick={handleShowDetails}>

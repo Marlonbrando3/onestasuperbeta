@@ -32,8 +32,8 @@ export default function ContactForm({propertyId}) {
 
 
   return (
-    <div className=' lg:flex w-full bg-white mx-1 px-2 lg:px-10 rounded-md mt-1 lg:w-10/12 lg:mx-auto'>
-        <form className='flex flex-col lg:w-10/12 my-[10px] lg:px-7'>
+    <div className=' lg:flex w-full bg-slate-800 mx-1 px-2 lg:px-10 rounded-md mt-1 lg:w-full lg:mx-auto'>
+        <form className='flex flex-col lg:w-11/12 my-[10px] lg:px-7'>
             <div className='py-4 font-bold text-xl'>Napisz do nas:</div>
               <p className='py-2 font-bold'>Ogłoszenie o nr ref. <input type="text" value={propertyId} name="id"></input></p>
               {/* <label id="name">Imię i naziwsko</label> */}
@@ -50,9 +50,6 @@ export default function ContactForm({propertyId}) {
               </div>
             <button className='bg-red-600 w-full rounded-md py-2 text-white'>Wyślij</button>
         </form>
-
-        <div className='lg:w-10/12 lg:h-12/12 bg-[url("../components/images/landscape.jpeg")] bg-cover'>
-        </div>
 </div>
   )
 }

@@ -10,7 +10,7 @@ export default function DescAboutProperty({description, bedrooms, bathrooms, dis
   else poolCnv = "Nie"
 
   return (
-    <div className='pt-10'>
+    <div className='pt-5'>
       <p>- Sypialnie: {bedrooms}</p>
       <p>- Łazienki: {bathrooms}</p>
       <p>- Dystans do morza: {distance} metrów</p>

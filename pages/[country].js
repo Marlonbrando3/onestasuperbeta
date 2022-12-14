@@ -11,10 +11,9 @@ import Footer from '../components/Footer'
 import ContactFormMain from '../components/ContactFormMain'
 
 export default function Home(
-  {propertiesWork, kolo,showSearchComponentsOnMobile, setShowSearchComponentsOnMobile}
+  {propertiesWork, kolo, showSearchComponentsOnMobile, setShowSearchComponentsOnMobile}
   ) {
   const router = useRouter();
-  const ActualCountry = router.query.country
 
   // const {pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, region, batht, distance} = router.query
 
@@ -88,7 +87,7 @@ export default function Home(
   const [choosedCountry, setChoosedCountry] = useState(
     {
         id:'',
-        country: 'Hiszpania',
+        country: '',
         region:'',
         city:'',
         title:'',
@@ -113,6 +112,7 @@ export default function Home(
   const [newSearch, setNewSearch] = useState(false);
 
   const properties = propertiesWithSites.filter(prop => prop.page === actualSite)
+  let [ActualCountry, setActualCountry] = useState(router.query.country);
 
   useEffect(()=> {
 
@@ -155,6 +155,8 @@ export default function Home(
         ActualCountry={ActualCountry}
       />
       <SearchEngine
+        ActualCountry={ActualCountry}
+        setActualCountry={setActualCountry}
         sitesArraycounter={sitesArraycounter}
         sitesArray={sitesArray}
         setSitesArray={setSitesArray}
@@ -228,7 +230,7 @@ export async function getServerSideProps (contex) {
   let countRegions = () => {
 
     if(dataregion === undefined){
-      regiond = ['Costa Blanca','Costa del Sol','Costa Brava','Costa Dorada','Lisboa','Porto'];
+      regiond = ['Costa Blanca','Costa del Sol','Costa Brava','Costa Dorada','Lisboa','Porto','Istria', 'Kvarner', 'Dalmacja PŁ', 'Dalmacja PŁD', 'Dalmacja ŚR'];
     } else regiond = contex.query.region
 
     if(datatype === undefined){

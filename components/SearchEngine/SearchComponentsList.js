@@ -19,6 +19,8 @@ import Applychanges from "./Applychanges";
 import Seaview from '@mui/icons-material/Houseboat';
 
 export default function SearchInput({
+  ActualCountry,
+  setActualCountry,
   TypeList,
   choosedTypes,
   setChoosedTypes,
@@ -76,6 +78,8 @@ export default function SearchInput({
         <p>Kraj</p>
           <div className="InputsStyle m-auto w-full">
             <CountrySearchInSearchEngine
+              ActualCountry={ActualCountry}
+              setActualCountry={setActualCountry}
               countries={countries}
               setCountries={setCountries}
               choosedCountry={choosedCountry}

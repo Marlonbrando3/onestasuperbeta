@@ -223,8 +223,6 @@ export default function Property(
             bathrooms={property[0].bathrooms}
             distance={property[0].distance}
             pool={property[0].pool}
-          />
-          <ContactForm 
             propertyId={propertyId}
           />
         </div>

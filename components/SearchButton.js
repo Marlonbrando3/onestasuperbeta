@@ -1,8 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
-import { useContext } from 'react'
-import { CCountry } from '../context/CCountry'
 
 export default function SearchButton({
     actualSite,
