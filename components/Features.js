@@ -8,7 +8,7 @@ import Solarium from '@mui/icons-material/SolarPower';
 
 export default function Features() {
   return (
-    <div className='flex rounded-md w-full bg-white my-[10px] mx-auto px-2 flex-wrap lg:w-10/12 '>
+    <div className='flex rounded-md w-full bg-white my-[10px] mx-auto lg:py-4 lg:px-9 p-7 flex-wrap lg:w-10/12 '>
       <span className='flex lg:w-auto w-1/2 lg:my-8 lg:px-3 py-1'><PoolOutlinedIcon /> <p className='pl-2 text-xl'>Basen</p></span>
       <span className='flex lg:w-auto w-1/2 lg:my-8 lg:px-3 py-1'><Parking /> <p className='pl-2 text-xl'>Parking</p></span>
       <span className='flex lg:w-auto w-1/2 lg:my-8 lg:px-3 py-1'><Garden /> <p className='pl-2 text-xl'>Ogród</p></span>

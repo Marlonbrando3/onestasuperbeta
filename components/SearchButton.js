@@ -56,7 +56,7 @@ export default function SearchButton({
                     <select 
                     onChange={handleShowSearch}
                     className="CountrySelect border-solid border-2 rounded-3xl text-2xl py-2 px-4 outline-none">
-                        <option default >Kliknij i wybierz kraj</option>
+                        <option default >Kliknij aby wybać kraj</option>
                         <option value="Hiszpania" >Nieruchomości w Hiszpanii</option>
                         <option value="Portugalia">Nieruchomości w Portugalii</option>
                         <option value="Chorwacja">Nieruchomości w Chorwacji</option>
