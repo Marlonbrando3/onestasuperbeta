@@ -24,7 +24,7 @@ export default function MainTheme({searchShow}) {
     },[index])
 
   return (
-    <div className={searchShow ? 'hidden transition duration-500': undefined}>
+    <div className={searchShow ? 'hidden transition duration-500': 'hidden md:block'}>
         <div className='md:block flex flex-col transition absolute text-white lg:top-64 md:top-24 md:ml-12 top-44 left-10 h-66 lg:w-1/2 w-full border-yellow-500 lg:border-l-8 border-l-4 z-96 lg:pl-10 pl-1'>
             <p className='lg:text-3xl text-xl'>Znajdź swój wymarzony dom, <br></br>zamieszkaj lub inwestuj w: </p>
             <span className={visible ? "main-country-crousel visible" : " main-country-crousel novisible"}>{ActualCountry}</span>

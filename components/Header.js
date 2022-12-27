@@ -69,7 +69,7 @@ export default function Header({searchShow,showSearchComponentsOnMobile,
                           className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden visible"
                           onClick={handleShowMobileMenu}/> : 
                           <MenuIcon 
-                          className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden visible"
+                          className="transition-all duration-700 cursor-pointer z-50 w-10 h-10 lg:hidden block"
                           onClick={handleShowMobileMenu}/>}
                       </div>
                 </div>

@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Loader from '../components/images/Spinner-1s-200px.gif'
 
 export default function SearchButton({
     actualSite,
@@ -64,6 +66,15 @@ export default function SearchButton({
                     </select>
                 </span>
             </div>
+            {searchShow && 
+            <div className='absolute md:w-40 md:h-40 w-56 h-56 z-30 md:right-72'>
+            <Image className='z-50 absolute'
+                src={Loader}
+                width={800}
+                height={800}
+            />
+            </div>
+            } 
         </>
     )
 }

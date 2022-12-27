@@ -72,7 +72,7 @@ export default function ContactFormMain() {
                         <input className='w-4 h-4' type="checkbox" name="mail" required></input>
                         <p className='text-xs text-white block ml-2'>Akceptuję regulamin i <a className="underline-offset-1" href="#">politykę prywatności (wymagane)</a></p>
                     </div>
-                    <button type="submit" onClick={handleSubmit} className='bg-white w-56 py-2 mx-auto rounded-md text-gray-900 text-xl font-normal'>Wyślij</button>
+                    <button type="submit" onClick={handleSubmit} className='bg-white w-56 py-2 mx-auto rounded-md text-gray-900 text-xl font-normal hover:bg-red-900'>Wyślij</button>
                 </form>
             </div>
             <div className='md:flex lg:flex-col items-center z-10 lg:w-6/12 w-full justify-center lg:pt-0 pt-24 hidden md:visible'>

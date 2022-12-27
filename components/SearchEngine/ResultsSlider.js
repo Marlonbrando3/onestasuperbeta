@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import ChevronRightIcon from '@mui/icons-material/ChevronRightOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { ImageSearch } from "@mui/icons-material";
+import Loader from '../../components/images/Spinner-1s-200px-1.gif';
 import Image from "next/image";
 import Link from 'next/link';
 
@@ -154,14 +155,14 @@ export default function ResultsSlider({
           if(img.visible === true) {
             return (
               <div key={index} className="w-full h-full overflow-hidden">
-                 <Link href={`/oferty/?id=${property.id}&${property.title.replaceAll(' ','-')}`}>
+                 <Link href={`/${property.country}/${property.id}&${property.title.replaceAll(' ','-')}`}>
                     <span className="cursor-pointer">
                       <Image className="object-cover h-full md:w-full"
-                        // loader="lazy"
+                        blurDataURL={Loader}
                         src={img.img}
                         alt="Picture of the author"
                         width={500}
-                        height={300}
+                        height={400}
                       />
                     </span>
                 </Link>
