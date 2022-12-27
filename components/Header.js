@@ -26,11 +26,11 @@ export default function Header({searchShow,showSearchComponentsOnMobile,
 
   return (
     <>
-    <div className='transition-all duration-700 z-50 flex w-full h-16 top-0 lg:pl-24 lg:pt-2 lg:pb-2 lg:pr-10 px-4 text-gray-900'>
+    <div className='transition-all duration-700 flex w-full h-16 top-0 lg:pl-24 lg:pt-2 lg:pb-2 lg:pr-10 px-4 text-gray-900'>
     <div className={MobileMenu ? 
       "flex items-center justify-center transition-all duration-700 bg-white absolute w-full h-screen left-0 top-0": 
-      "flex items-center justify-center transition-all duration-700 bg-red-400 absolute w-full h-screen left-full top-0"}>
-        <ul className="flex flex-col items-start justify-center mr-6">
+      "hidden items-center justify-center transition-all duration-700 bg-red-400 absolute w-full h-screen left-full top-0"}>
+        <ul className="flex flex-col items-start justify-center mr-6 z-30">
            <li >Strona główna</li>
            <li >Oferta</li>
            <li >Jak kupić</li>
