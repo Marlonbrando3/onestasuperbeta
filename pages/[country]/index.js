@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import {useRouter} from 'next/router'
-import MiniHomeView from '../components/SearchEngine/MiniHomeView'
-import Header from '../components/Header'
-import SearchEngine from '../components/SearchEngine/SearchEngine'
-import Property from '../model/propertymodel'
-import db from '../utils/db'
-import Applychanges from '../components/SearchEngine/Applychanges'
-import Footer from '../components/Footer'
-import ContactFormMain from '../components/ContactFormMain'
+import MiniHomeView from '../../components/SearchEngine/MiniHomeView'
+import Header from '../../components/Header'
+import SearchEngine from '../../components/SearchEngine/SearchEngine'
+import Property from '../../model/propertymodel'
+import db from '../../utils/db'
+import Applychanges from '../../components/SearchEngine/Applychanges'
+import Footer from '../../components/Footer'
+import ContactFormMain from '../../components/ContactFormMain'
 
 export default function Home(
-  {propertiesWork, kolo, showSearchComponentsOnMobile, setShowSearchComponentsOnMobile}
+  {propertiesWork, showSearchComponentsOnMobile, setShowSearchComponentsOnMobile}
   ) {
   const router = useRouter();
 
@@ -66,7 +66,7 @@ export default function Home(
     if(obj.isSearching === true) return true;
   })
   //from filtered props leave olny ...
-  let resultsFin = results.map(obj =>  {
+  const resultsFin = results.map(obj =>  {
       return (
         obj.name+'='+obj.value
       )
@@ -133,16 +133,18 @@ export default function Home(
         <title>Onesta || Hiszpania</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
       </Head>
-      <Header
-        searchShow={searchShow}
-        setSearchShow={setSearchShow}
-        newSearch={newSearch}
-        setNewSearch={setNewSearch}
-        apply={apply}
-        setApply={setApply}
-        showSearchComponentsOnMobile={showSearchComponentsOnMobile}
-        setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
-      />
+      <div className='fixed w-full h-16 z-50 bg-white'>
+        <Header
+          searchShow={searchShow}
+          setSearchShow={setSearchShow}
+          newSearch={newSearch}
+          setNewSearch={setNewSearch}
+          apply={apply}
+          setApply={setApply}
+          showSearchComponentsOnMobile={showSearchComponentsOnMobile}
+          setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
+        />
+        </div>
       <Applychanges
           apply={apply}
           setApply={setApply}
@@ -164,11 +166,11 @@ export default function Home(
         setActualSite={setActualSite}
         choosedCountry={choosedCountry}
         setChoosedCountry={setChoosedCountry}
-        searchShow={searchShow}
-        setSearchShow={setSearchShow}
         properties={properties}
         apply={apply}
         setApply={setApply}
+        searchShow={searchShow}
+        setSearchShow={setSearchShow}
         searchConditions={searchConditions}
         setSearchConditions={setSearchConditions}
         newSearch={newSearch}

@@ -93,11 +93,6 @@ export default function SearchEngine({
         const [propDetails, setPropDetails] = useState();
 
         const [showProp, setShowProp] = useState(false);
-
-        const handleCloseSearch = () =>{
-            setSearchShow(false)
-        }
-
     return (
         <>
             <div className={(searchShow && showSearchComponentsOnMobile===false)? "z-50 flex flex-col items-start justify-start w-full bg-white" : "h-0 overflow-hidden"}>

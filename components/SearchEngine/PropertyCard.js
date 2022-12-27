@@ -13,7 +13,8 @@ import OtherHousesIcon from '@mui/icons-material/OtherHouses';
 import img from "../images/2_max.jpeg";
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import ResultsSlider from "./ResultsSlider";
-// import Property from '../../pages/[property]'
+import ShareIcon from '@mui/icons-material/Share';
+
 
 export default function PropertyCard({
   actualSite,
@@ -22,17 +23,11 @@ export default function PropertyCard({
   images, 
   country, 
   city,
-  title,
   beds,
   baths,
   region, 
   price,
-  pool,
-  desc,
-  propDetails,
-  setPropDetails,
-  showProp,
-  setShowProp,}) {
+}) {
 
     const router = useRouter();
     // const propertyNew = useContext(PropertyContext)
@@ -42,18 +37,8 @@ export default function PropertyCard({
     const PriceTwoE = price.toString();
     const PriceTwo = PriceTwoE.slice(3,6);
 
-    const handleShowDetails = () => {
-      setShowProp(setShowProp => !setShowProp)
-      setPropDetails(property)
-      router.push({
-        pathname:"/oferty",
-        query: `id=${property.id}&${property.title.replaceAll(' ','-')}`
-
-      })
-    }
-
   return (
-    <div className="flex flex-col md:flex-row bg-gray-300 w-12/12 md:h-56 lg:h-72 mb-4 md:mx-auto mx-2 rounded-md overflow-hidden">
+    <div className="flex relative flex-col md:flex-row bg-gray-300 w-12/12 md:h-56 lg:h-72 mb-4 md:mx-auto mx-2 rounded-md overflow-hidden">
       <div className="md:w-6/12 w-full h-full flex items-center justify-center text-4xl">
         <ResultsSlider 
           property={property}
@@ -63,7 +48,9 @@ export default function PropertyCard({
           images={images}
           />
       </div>
-      <div className='flex flex-col md:w-1/2 w-full bg-white'>
+      {/* <span className="flex justify-center absolute m-1 p-1 rounded-3xl right-0 top-0 cursor-pointer"><ShareIcon /></span> */}
+      <Link href={`/${property.country}/${property.id}&${property.title.replaceAll(' ','-')}`}>
+      <div className='flex flex-col md:w-1/2 w-full bg-white cursor-pointer'>
           <div className='flex p-2 w-full h-10 items-center'>
             <Localization className='mr-2 w-3 md:block md:w-6 md:h-5 lg:mt-6 lg:w-5 h-22'/>
             <p className="lg:text-md pl-1 lg:pt-6 text-xs lg:leading-5 md:text-lg p-0 md:leading-3 leading-3">{country} <span className="text-xs font-bold">{region}</span><br></br> {city}</p>
@@ -75,7 +62,7 @@ export default function PropertyCard({
             <div className='flex flex-col items-center justify-center w-3/12 border-2 bg-white md:p-1'>
                 <p className='w-full text-center hidden lg:block text-sm'>Sypilanie</p>
               <div className='flex md:flex-col h-14 lg:flex-row items-center justify-center'>
-                <AirlineSeatIndividualSuiteOutlinedIcon className="w-2/5 md:w-3 pr-1lg:w-8 md:h-6 h-14 md:py-0"/>
+                <AirlineSeatIndividualSuiteOutlinedIcon className="w-2/5 md:w-3 pr-1 lg:w-8 md:h-6 h-14 md:py-0"/>
                 <div className='flex items-center font-semibold h-14 text-base lg:text:xl pl-0 lg:pl-2'>{beds}</div>
               </div>
             </div>
@@ -111,13 +98,10 @@ export default function PropertyCard({
           </div>
           <div className='bg-red-500 lg:h-52 md:h-32 h-12 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
             <span className="ml-1 text-white md:text-2xl sm:text-xl text-2xl lg:text-3xl ">od {PriceOne} {PriceTwo} €</span>
-            <span 
-              className="blok flex transition items-center text-white border-white border-2 rounded-full font-sm p-0 md:py-1 my-1 md:px-4 cursor-pointer hover:bg-white hover:text-red-500"
-              onClick={handleShowDetails}>
-                <DoubleArrowIcon />
-              </span>
           </div>
-      </div>
+        </div>
+      </Link>
     </div>
+    
   )
 }

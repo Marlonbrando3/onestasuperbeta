@@ -1,34 +1,34 @@
 import Image from 'next/image';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 import {useRouter} from 'next/router';
-import MiniHomeView from '../components/SearchEngine/MiniHomeView';
-import { useState, useEffect } from 'react';
+import MiniHomeView from '../../components/SearchEngine/MiniHomeView';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import React from 'react';
-import db from '../utils/db';
-import PropertyTwo from '../model/propertymodel';
+import db from '../../utils/db';
+import PropertyTwo from '../../model/propertymodel';
 import Localization from '@mui/icons-material/Room';
 import ShowerOutlinedIcon from '@mui/icons-material/ShowerOutlined';
 import WavesOutlinedIcon from '@mui/icons-material/WavesOutlined';
 import PoolOutlinedIcon from '@mui/icons-material/PoolOutlined';
 import Bedrooms from '@mui/icons-material/AirlineSeatIndividualSuiteOutlined';
-import ImagesInPropetyCard from '../components/ImagesInPropetyCard';
+import ImagesInPropetyCard from '../../components/ImagesInPropetyCard';
 import ChevronRightIcon from '@mui/icons-material/ChevronRightOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeftOutlined';
-import Features from '../components/Features';
-import Descryption from '../components/Descryption';
-import ContactForm from '../components/ContactForm';
+import Features from '../../components/Features';
+import Descryption from '../../components/Descryption';
+import ContactForm from '../../components/ContactForm';
 
 
 export default function Property(
-  {property, searchShow, setSearchShow}, 
+  {property}, 
   ) {
 
-
-  setSearchShow(true)
-  let propertyDescription = (property[0].description)
+  const router = useRouter();
+  let propertyDescription = (property.description)
   let propertyId = (property[0].id)
 
   const [actualImage, setActualImage] = useState(1);
+  const [searchShow, setSearchShow] = useState(true);
   const [images, setImages] = useState(property[0].image.map((image, index) =>{
     if(index === 0){
       return{
@@ -57,6 +57,7 @@ export default function Property(
 
   //change Imagearray
   let hiddenImg;
+  
   
   const handleChangeSlideLeft = () => {
     setHandleMarginSlider('true')
@@ -91,8 +92,6 @@ export default function Property(
 },400)
 
 }
-  const router = useRouter();
-  const {id} = router.query
 
   const pool = property.map(prop => {
     if(prop.pool === true){
@@ -124,8 +123,12 @@ export default function Property(
 
   return (
     <>
-        <div className='flex flex-col bg-gray-100 mt-16'>
-          <Header className="bg-white" />
+        <div className='flex flex-col bg-gray-100'>
+          <div className='fixed w-full bg-white h-16 z-50'>
+            <Header 
+              searchShow={searchShow}
+              setSearchShow={setSearchShow}/>
+          </div>
           <MiniHomeView />
           <div className='flex items-center justify-center h-[80px] w-full px-auto my-[10px] mx-auto bg-white'>
             <p className='block w-12/12 text-lg lg:text-2xl font-bold lg:mx-auto'>{property[0].title}</p>
@@ -181,21 +184,21 @@ export default function Property(
                     <div className='w-full flex justify-center text-sm'>Sypalni</div>
                     <div className='flex h-full justify-center'>
                         <div className='mr-2'><Bedrooms/></div>
-                        <div>{property[0].bedrooms.toString()}</div>
+                        <div>{property[0].bedrooms}</div>
                       </div>
                     </div>
                     <div className='w-1/4 border-2 border-white h-16 bg-gray-200 pt-2'>
                     <div className='w-full flex justify-center text-sm'>Łazienki</div>
                         <div className='flex justify-center '>
                           <div className='mr-2'><ShowerOutlinedIcon/></div>
-                          <div>{property[0].bathrooms.toString()}</div>
+                          <div>{property[0].bathrooms}</div>
                         </div>
                     </div>
                     <div className='w-1/4 border-2 border-white h-16 bg-gray-200 pt-2'>
                     <div className='w-full flex justify-center text-xs'>Do Morza</div>
                         <div className='flex justify-center  '>
                           <div className='mr-2'><WavesOutlinedIcon/></div>
-                          <div>{property[0].distance.toString()}</div>
+                          <div>{property[0].distance}</div>
                         </div>
                     </div>
                     <div className='w-1/4 border-2 border-white h-16 bg-gray-200 pt-2'>
@@ -231,13 +234,17 @@ export default function Property(
 }
 
 export async function getServerSideProps (contex) {
+
+      const id = contex.query
+      const offerId = id.offers.slice(0,6)
+
       await db.connect();
-      const results = await PropertyTwo.find({id:contex.query.id})
+      const results = await PropertyTwo.find({id:offerId})
       const property = JSON.parse(JSON.stringify(results))
 
       return {
         props:{
-          property: property
+          property: property,
         }
       }
 }

@@ -9,8 +9,10 @@ import Applychanges from "./SearchEngine/Applychanges";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function Header({searchShow, setSearchShow, apply, setApply,showSearchComponentsOnMobile,
+export default function Header({searchShow,showSearchComponentsOnMobile,
   setShowSearchComponentsOnMobile}) {
+  
+  console.log(searchShow)
 
   const [MobileMenu, setMobileMenu] = useState(false)
 
@@ -24,8 +26,7 @@ export default function Header({searchShow, setSearchShow, apply, setApply,showS
 
   return (
     <>
-    <div className={searchShow ? 'transition-all duration-700 z-50 flex bg-white w-full h-16 fixed top-0 lg:pl-24 lg:pt-2 lg:pb-2 lg:pr-10 px-4 text-gray-900':
-    'shadow-md transition-all duration-700 z-50 flex md:bg-gray-800/[0.4] lg:bg-gray-800/[0.4] bg-white fixed w-full h-16 first-letter md:h-20 top-0 lg:pl-22 lg:pr-10 px-4'}>
+    <div className='transition-all duration-700 z-50 flex w-full h-16 top-0 lg:pl-24 lg:pt-2 lg:pb-2 lg:pr-10 px-4 text-gray-900'>
     <div className={MobileMenu ? 
       "flex items-center justify-center transition-all duration-700 bg-white absolute w-full h-screen left-0 top-0": 
       "flex items-center justify-center transition-all duration-700 bg-red-400 absolute w-full h-screen left-full top-0"}>

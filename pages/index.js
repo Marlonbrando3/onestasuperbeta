@@ -58,7 +58,11 @@ export default function FirstView ({searchShow, setSearchShow}) {
             <title>Onesta Group</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
         </Head>
-        <Header />
+        <div className='w-full h-16 fixed top-0 bg-gray-800/[0.4]'>
+            <Header 
+                searchShow={searchShow}
+                setSearchShow={setSearchShow}/>
+        </div>
         <Applychanges />
         <HomeView />
         <SearchButton
