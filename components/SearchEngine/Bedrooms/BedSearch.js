@@ -127,7 +127,7 @@ export default function Bedrooms({
     <>
     {applyBed && <div onClick={hideAppyButton} className="applyButton">Zatwierdź</div>}
     {SummaryBeds.map(obj => (
-        <span ket={obj} onClick={resetFilters} className="choosed-multiple-option-beds">Sypilani: {obj} <CloseIcon className="close-icon" /></span>
+        <span key={obj} onClick={resetFilters} className="choosed-multiple-option-beds">Sypilani: {obj} <CloseIcon className="close-icon" /></span>
       ))}
       <div className="InputsStyle">
         <input ref={BedFromRef} onChange={handleChangeData} className="InputsProps  mr-2 " autoComplete="off" name="bedsfrom" placeholder="Od"></input>
