@@ -128,7 +128,7 @@ export default function Bathrooms({}
     <>  
         {applyBath && <div onClick={hideAppyButton} className="applyButton">Zatwierdź</div>}
         {SummaryBaths.map(obj => (
-        <span onClick={resetFilters} className="choosed-multiple-option-beds">Łazienek: {obj} <CloseIcon className="close-icon" />
+        <span key={obj} onClick={resetFilters} className="choosed-multiple-option-beds">Łazienek: {obj} <CloseIcon className="close-icon" />
         </span>))}
       <div className="InputsStyle">
         <input ref={BathFromRef} type="number" onChange={handleChangeData}  className="InputsProps  mr-2 " autoComplete="off" name="" placeholder="Od"></input>
