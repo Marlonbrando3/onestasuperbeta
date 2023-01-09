@@ -23,7 +23,7 @@ export default function SearchResults({
       const howManySites = Math.ceil(properties.length/2)
 
   return (
-    <div className="h-2/3 w-12/12 md:w-8/12">
+    <div className="h-3/3 w-12/12 md:w-9/12">
       {properties.map(property => 
           <PropertyCard key={property}
             country={property.country}
@@ -37,7 +37,7 @@ export default function SearchResults({
             pool={property.pool}
             garage={property.garage}
             garden={property.garden}
-            solarium={property.solatium}
+            solarium={property.solarium}
             seaview={property.seaview}
             balcony={property.garden}
             price={property.price}

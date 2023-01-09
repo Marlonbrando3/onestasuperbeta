@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Head from 'next/head';
 import Header from '../../components/Header';
 import {useRouter} from 'next/router';
 import MiniHomeView from '../../components/SearchEngine/MiniHomeView';
@@ -16,11 +17,10 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRightOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeftOutlined';
 import Features from '../../components/Features';
 import Descryption from '../../components/Descryption';
-import ContactForm from '../../components/ContactForm';
 
 
 export default function Property(
-  {property}, 
+  {property},
   ) {
 
   const router = useRouter();
@@ -59,7 +59,7 @@ export default function Property(
   let hiddenImg;
   
   
-  const handleChangeSlideLeft = () => {
+  const handleChangeSlideRight = () => {
     setHandleMarginSlider('true')
 
     setTimeout(() => {
@@ -123,6 +123,13 @@ export default function Property(
 
   return (
     <>
+         <Head>
+            <title>Onesta Group</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
+            <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+            <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Nunito+Sans&display=swap" rel="stylesheet"></link>
+        </Head>
         <div className='flex flex-col bg-gray-100'>
           <div className='fixed w-full bg-white h-16 z-50'>
             <Header 
@@ -146,11 +153,11 @@ export default function Property(
                 </div>
                 <div className='relative flex h-[80px]'>
                   <div className='w-[30px] h-full cursor-pointer'></div>
-                  <div className='absolute w-[30px] left-0 z-4 h-full flex justify-center cursor-pointer'>
+                  <div className='absolute w-[30px] left-0 z-4 h-full flex justify-center cursor-pointer border'>
                     <ChevronLeftIcon className='h-full w-8'/>
                   </div>
-                  <div className='property-card-data-gallery-all-images'>
-                    <div className={handleMarginSlider ? 'property-card-data-gallery clickedSlideLeftGallery':'property-card-data-gallery unClickedSlideLeftGallery'}>
+                  <div className='overflow-x-hidden flex h-full w-full p-[5px]'>
+                    <div className={handleMarginSlider ? 'duration-300 flex flex-nowrap -ml-[144px]':'flex flex-nowrap ml-0'}>
                     <ImagesInPropetyCard
                       property={images}
                       images={images}
@@ -158,11 +165,11 @@ export default function Property(
                     />
                     </div>
                   </div>
-                  <div className='w-[30px] h-full cursor-pointer'></div>
+                  <div className='w-[30px] h-full cursor-pointer border'></div>
                   <div className={handleMarginSlider ? 'absolute w-[30px] left-0 z-4 h-full flex justify-center cursor-pointer clickedSlideLeftGallery' : 'property-card-data-gallery-arrow-right unClickedSlideLeftGallery'}>
                     <ChevronRightIcon 
                       className='h-full w-8'
-                      onClick={handleChangeSlideLeft}/>
+                      onClick={handleChangeSlideRight}/>
                   </div>
                 </div>
               </div>

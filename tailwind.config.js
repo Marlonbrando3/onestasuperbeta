@@ -17,5 +17,6 @@ module.exports = {
       '16': '4rem',
     },
   },
+  
   plugins: [],
 }

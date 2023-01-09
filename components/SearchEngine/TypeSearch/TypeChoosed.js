@@ -1,56 +1,61 @@
 import CloseIcon from '@mui/icons-material/Close';
+import { useContext } from 'react';
+import { AppContext } from '../../../pages/_app';
+import { useState } from 'react';
 
-export default function TypeChoosed({
-  apply,
-  setApply,
-  TypeList,
-  choosedTypes,
-  setChoosedTypes,
-  setTypeList,
-  activeTypeList,
-  setActiveTypeList,
-  searchConditions,
-  setSearchConditions
+export default function TypeChoosed({}) {
 
-}) {
+  const {searchConditions, setSearchConditions} = useContext(AppContext)
+
+  let TypeList = [];
+  searchConditions.map(obj => {
+
+    let types = [];
+    if(obj.name === 'type'){
+      obj.value.map(v => {
+          if(v.isSearching === true) {
+            types = [...types, v.type]
+            // console.log(regions)
+          } TypeList = types; 
+      }
+      )
+    } 
+  }
+  )
 
   const handleDeleteTypeFromList = (e) => {
-    setApply(true)
 
     let Type = e.target.getAttribute('name')
 
-    setTypeList(TypeList.map(type => {
-      if(type.type === Type){
-      return {
-        ...type,
-        onList: true
+    setSearchConditions(searchConditions.map(obj => {
+      if(obj.name === 'type') { 
+            return {
+              id:3,
+              name: obj.name,
+              value: obj.value.map(v => {
+                if(v.type === Type) {
+                  // console.log(v)
+                    return {
+                      ...v,
+                      isSearching: false
+                    }
+              } else return {...v}
+            })
+            }
+      } else return {...obj}
       }
-    } else return {...type}
-    }))
-
-    setSearchConditions(searchConditions.map(type => {
-      if(type.value === Type){
-      return{
-          id:2,
-          value: '',
-          name: 'type',
-          isSearching: false
-    }} else return {...type}
-  
-  }))
-
-    setChoosedTypes(choosedTypes.filter(type => type !== Type))
+      ))
   }
 
   return (
     <div className="">
       <div className='flex items-start flex-wrap-reverse justify-start'>
-        {choosedTypes.map(type => 
+        {TypeList.map(type => 
           <>
-            <div onClick={handleDeleteTypeFromList} name={type} className='flex border-black bg-gray-500/[0.2] text-xs rounded-md m-1 px-1 cursor-pointer'>
+            <div onClick={handleDeleteTypeFromList} name={type} className='choosed-multiple-option-multiple'>
                 <span onClick={handleDeleteTypeFromList} name={type} className='flex justify-center items-center'>{type}</span>
             <CloseIcon
-                className="cursor-pointer text-red-900 w-4 border"
+                className="close-icon"
                 onClick={handleDeleteTypeFromList}
                 name={type}
             />

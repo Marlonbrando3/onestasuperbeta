@@ -1,35 +1,72 @@
-import { useEffect,useState } from "react"
+import { useEffect,useState, useContext, useRef } from "react"
+import CloseIcon from '@mui/icons-material/Close';
+import { AppContext } from "../../../pages/_app"
+import { SearchEngineContext } from '../SearchEngine'
 
-export default function Searange({ 
-  apply,
-  setApply,
-  seaMax, 
-  setSeaMax,
-  searchConditions,
-  setSearchConditions
-}
+export default function Searange({}
 ) {
+  const RangeRef = useRef();
+  const RangeRefVis = useRef();
+
+  const [current, setValue] = useState(2000);
+
+  const {searchConditions, setSearchConditions} = useContext(AppContext)
+  const {applySea, setApplySea} = useContext(SearchEngineContext)
+
+  let distanceActual = [];
+
+  searchConditions.map(obj =>{
+    if(obj.name ==='distance'){
+      if(obj.value !== '') {
+        distanceActual = [obj.value]
+      } else {
+        distanceActual = [];
+      }
+    }})
   
   const handleChangeMax = (e) =>{
-      setApply(true)
-
-      let Evalue = parseInt(e.target.value)
-      setSeaMax(Evalue)
-      setSearchConditions(searchConditions.map(range=> {
-        if(range.name === 'distance'){
-        return{
-          ...range,
-          value: Evalue,
-          isSearching:true
-        }}
-      else return {...range}}))
+    setValue(parseInt(e.target.value))
+    setApplySea(true)
   }
+
+  const hideAppyButton = (e) => {
+
+    setSearchConditions(searchConditions.map(param => {
+      if(param.name === 'distance'){
+          return{
+            ...param,
+            isSearching: true,
+            value: current
+        }} else return {...param}
+      })) 
+
+      setApplySea(false)
+    }
+
+  const resetFilters = () => {
+
+    // setActualBeds(false)
+    setSearchConditions(searchConditions.map(param => {
+      if(param.name === 'distance'){
+          return{
+            ...param,
+            isSearching: false,
+            value: ''
+          }
+        } else return {...param}
+    })) 
+  }
+
 
   return (
     <>
+        {applySea && <div onClick={hideAppyButton} className="applyButton">Zatwierdź</div>}
+        {distanceActual.map(obj => (
+        <div onClick={resetFilters} className="choosed-multiple-option-beds">Dystans: {obj} m <CloseIcon className="close-icon" /></div>
+      )) }
       <div className="InputsStyle flex-col items-end">
-        <input type="range" onChange={handleChangeMax} start="6000" step="100" max="10000" value={seaMax} className="InputsProp appearance-none outline-none rounded-md bg-red-500 h-1 w-full my-2 " autoComplete="off" name="" placeholder="Do"></input>
-        <div className=" w-full h-10 border rounded-md border-gray-900/[0.5] p-1 mt-1">{seaMax} m / {seaMax/1000} km</div>
+        <input ref={RangeRef} type="range" onChange={handleChangeMax} start="2000" step="100" max="10000" className="InputsProp appearance-none outline-none rounded-md bg-red-500 h-1 w-full my-2 cursor-pointer" autoComplete="off" name="" placeholder="Do"></input>
+        <div ref={RangeRefVis} className=" w-full h-10 border rounded-md border-gray-900/[0.5] p-1 mt-1">{current} km</div>
       </div> 
     </>
   )

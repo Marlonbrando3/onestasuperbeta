@@ -1,71 +1,87 @@
 import CloseIcon from '@mui/icons-material/Close';
+import { useState } from 'react';
+import { useContext } from 'react';
+import { AppContext } from '../../../pages/_app';
+import { CountryIndexContext } from '../../../pages/[country]/index'
+import { useRouter } from 'next/router';
 
-export default function RegionChoosed({
-  apply,
-  setApply,
-  choosedRegion,
-  setChoosedRegion,
-  countryPlaceHolder,
-  setCountryPlaceHolder,
-  choosedCountry,
-  setChoosedCountry,
-  countries,
-  setCountries,
-  activeCountryList,
-  setActiveCountryList,
-  searchConditions,
-  setSearchConditions
-}) {
+export default function RegionChoosed({}) {
 
-  const handleDeleteRegionFromList = (e) => {
+  const router = useRouter();
 
-    setApply(true)
-    
-    let regionName = e.target.getAttribute('name')
+  // const {choosedRegion, setChoosedRegion} = useContext(CountryIndexContext)
+  const {searchConditions, setSearchConditions} = useContext(AppContext)
 
-    setCountries(countries.map(region => {
-      if((region.name === regionName) && (region.OnList !== "deactive")){
-      return {
-        ...region, 
-        added: false,
-        OnList: true,
-        regionList:true
+  let RegionsList = [];
+  searchConditions.map(obj => {
+
+    let regions = [];
+    if(obj.name === 'region'){
+      obj.value.map(v => {
+          if(v.isSearching === true) {
+            regions = [...regions, v.region]
+            // console.log(regions)
+          } RegionsList = regions; 
       }
-    } else return {...region}
-    }))
-
-    setSearchConditions(searchConditions.map(region => {
-      if(region.value === regionName){
-      return{
-          id:2,
-          value: '',
-          name: 'region',
-          isSearching: false
-    }} else return {...region}
+      )
+    } 
+  }
+  )
   
-  }))
+  const handleDeleteRegionFromList = (e) => {
+    
+    let Region = e.target.getAttribute('name')
 
-    if(choosedCountry.length >= 0 && choosedCountry.length < 2){
-      setCountryPlaceHolder("Wybierz Kraj (mozesz kilka)")
-    }
-      setChoosedRegion(choosedRegion.filter(region => region !== regionName))
+    // setCountries(countries.map(region => {
+    //   if((region.name === Region) && (region.OnList !== "deactive")){
+    //   return {
+    //     ...region, 
+    //     added: false,
+    //     OnList: true,
+    //     regionList:true
+    //   }
+    // } else return {...region}
+    // }))
+
+    setSearchConditions(searchConditions.map(obj => {
+      if(obj.name === 'region') { 
+            return {
+              id:1,
+              name: obj.name,
+              value: obj.value.map(v => {
+                if(v.region === Region) {
+                  console.log(v)
+                    return {
+                      ...v,
+                      isSearching: false
+                    }
+              } else return {...v}
+            })
+            }
+      } else return {...obj}
+      }
+      ))
+
+    // if(choosedCountry.length >= 0 && choosedCountry.length < 2){
+    //   setCountryPlaceHolder("Wybierz Kraj (mozesz kilka)")
+    // }
     }
 
   return (
     <div className="">
       <div className='flex items-start flex-wrap-reverse justify-start'>
-        {choosedRegion.map(region => 
+        {RegionsList.map(region => (
           <>
-            <div onClick={handleDeleteRegionFromList} name={region} className='flex border-black bg-gray-500/[0.2] text-xs rounded-md m-1 px-1 cursor-pointer'>
+            <div onClick={handleDeleteRegionFromList} name={region} className='choosed-multiple-option-region'>
               <span onClick={handleDeleteRegionFromList} name={region} className='flex justify-center items-center'>{region}</span>
             <CloseIcon
-                  className="cursor-pointer text-red-900 w-4 border"
+                  className="close-icon"
                   onClick={handleDeleteRegionFromList}
                   name={region}
               />
             </div>
           </>
-          )}
+        ))}
     </div>
     </div>
   )

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AppContext } from "../pages/_app";
 import Image from "next/image";
 import Link from "next/link";
 import Logotype from './images/logotype.png'
@@ -9,10 +10,12 @@ import Applychanges from "./SearchEngine/Applychanges";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function Header({searchShow,showSearchComponentsOnMobile,
+export default function Header({
+  showSearchComponentsOnMobile,
   setShowSearchComponentsOnMobile}) {
   
-  console.log(searchShow)
+    const {searchShow,setSearchShow} = useContext(AppContext)
+    const {headerAfterFirstView, setHeaderAfterFirstView} = useContext(AppContext)
 
   const [MobileMenu, setMobileMenu] = useState(false)
 
@@ -34,27 +37,35 @@ export default function Header({searchShow,showSearchComponentsOnMobile,
            <li >Strona główna</li>
            <li >Oferta</li>
            <li >Jak kupić</li>
-           <li >O Nas</li>
+           <li ><Link href='/aboutus'>O Nas</Link></li>
            <li >ABC Zakupu</li>
            <li >Kontakt</li>
           </ul>
     </div>
+    <Link  href='/'>
         <Image
             src={Logotype}
             width={160}
             objectFit="contain"
             alt="logo"
+            className="cursor-pointer"
+            onClick={() => setSearchShow(false)}
           />
+      </Link>
             <div className="flex flex-col flex-1 h-full">
             <div className=""></div>
                 <div className="h-full justify-end lg:flex items-center">
                       <ul className="lg:flex mr-6 hidden">
-                          <li className={searchShow ? 'list' : 'listScrolled '}>Strona główna</li>
-                          <li className={searchShow ? 'list' : 'listScrolled '}>Oferta</li>
-                          <li className={searchShow ? 'list' : 'listScrolled '}>Jak kupić</li>
-                          <li className={searchShow ? 'list' : 'listScrolled '}>O Nas</li>
-                          <li className={searchShow ? 'list' : 'listScrolled '}>ABC Zakupu</li>
-                          <li className={searchShow ? 'list' : 'listScrolled '}>Kontakt</li>
+                      <li className={headerAfterFirstView ? 'list' : 'listScrolled '}>
+                            <Link href='/'>Strona główna</Link>
+                          </li>
+                          <li className={headerAfterFirstView ? 'list' : 'listScrolled '}>
+                            <Link href='/aboutus'>O Nas</Link>
+                          </li>
+                          <li className={headerAfterFirstView ? 'list' : 'listScrolled '}>Zarządzanie najmem</li>
+                          <li className={headerAfterFirstView ? 'list' : 'listScrolled '}>Blog</li>
+                          <li className={headerAfterFirstView ? 'list' : 'listScrolled '}>ABC Zakupu</li>
+                          <li className={headerAfterFirstView ? 'list' : 'listScrolled '}>Kontakt</li>
                       </ul>
                       <div className="h-full  flex justify-end items-center">
                         <div 

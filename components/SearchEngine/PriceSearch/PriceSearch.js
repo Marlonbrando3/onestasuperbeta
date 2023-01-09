@@ -1,73 +1,137 @@
 
-import { useState } from "react"
-import Applychanges from "../Applychanges"
+import { useState, useContext, useRef } from "react"
+import CloseIcon from '@mui/icons-material/Close';
+import { SearchEngineContext } from '../SearchEngine'
+import { AppContext } from "../../../pages/_app"
 
-export default function PriceSearch({
-  priceMin,
-  setPriceMin,
-  priceMax,
-  setPriceMax,
-  searchConditions,
-  setSearchConditions,
-  apply,
-  setApply
-}) {
+export default function PriceSearch({}) {
 
-    const handleChangeFrom = (e) =>{
-    setPriceMin(e.target.value)
-    setApply(true)
+  const {searchConditions, setSearchConditions} = useContext(AppContext)
+  const {applyPrice, setApplyPrice} = useContext(SearchEngineContext)
 
-    let targetvalue = e.target.value
+  const PriceFromRef = useRef();
+  const PriceToRef = useRef();
 
-    setSearchConditions(searchConditions.map(param => {
-      if(param.name === 'pf'){
-        if((targetvalue === '') && (param.isSearching === true)){
-          return{
-            ...param,
-            isSearching: false,
-            value: targetvalue
-          }
-        } else return {
-          ...param,
-          isSearching: true,
-          value: targetvalue
-        }
-      } else return {...param}
-    }))
+  let pricefrom;
+  let pricefromString;
+  let priceto;
+  let pricetoString;
+  let SummaryPrice = [];
 
+  searchConditions.map(obj =>{
+    if(obj.name ==='pf'){
+      pricefrom = obj.value
+    }
+    if(obj.name ==='pt'){
+      priceto = obj.value
+    }
+  })
+
+  if(pricefrom !== ''){
+    pricefromString = "od "+pricefrom
+  } else {
+    pricefromString = '';
   }
 
-  const handleChangeTo = (e) =>{
-    setPriceMax(e.target.value)
+  if(priceto !== ''){
+    pricetoString = " do "+priceto
+  }else {
+    pricetoString = '';
+  } 
 
-    setApply(true)
+  if(priceto === '' && pricefrom === '') {
+    SummaryPrice = []
+  } else {
+    SummaryPrice = [pricefromString + pricetoString]
+  }
 
-    let targetvalue = e.target.value
+
+  //handle by useRef data 'from'
+  const handleChangeData = (e) => {
+    let pricerom = [];
+    let priceto = [];
+
+      searchConditions.map(obj => {
+        if(obj.name === "pf"){
+          pricefrom = obj.value
+          }
+        if(obj.name === "pt"){
+          priceto = obj.value
+          }})
+
+      if((PriceFromRef.current.value === pricefrom) && (PriceToRef.current.value === priceto)){
+        setApplyPrice(false)
+      } else {
+        setApplyPrice(true)
+      }
+  }
+
+  //hide apply button after click and change value 'from' and 'to' in searchConditions
+  const hideAppyButton = (e) => {
+    setApplyPrice(false)
 
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'pt'){
-        if((targetvalue === '') && (param.isSearching === true)){
+        if((PriceToRef.current.value === '')){
           return{
             ...param,
             isSearching: false,
-            value: targetvalue
+            value: ''
           }
         } else return {
           ...param,
           isSearching: true,
-          value: targetvalue
+          value: PriceToRef.current.value
+        }
+      } if(param.name === 'pf'){
+        if((PriceFromRef.current.value === '')){
+          return{
+            ...param,
+            isSearching: false,
+            value: ''
+          }
+        } else return {
+          ...param,
+          isSearching: true,
+          value: PriceFromRef.current.value
         }
       } else return {...param}
-    }))
+    })) 
 
+    PriceFromRef.current.value = ''
+    PriceToRef.current.value = ''
   }
 
+  const resetFilters = () => {
+
+    // setActualBeds(false)
+    setSearchConditions(searchConditions.map(param => {
+      if(param.name === 'pt'){
+          return{
+            ...param,
+            isSearching: false,
+            value: ''
+          }
+        } 
+      if(param.name === 'pf'){
+          return{
+            ...param,
+            isSearching: false,
+            value: ''
+          }
+        } else return {...param}
+    })) 
+  }
 
   return (
     <>
+    {applyPrice && <div onClick={hideAppyButton} className="applyButton top-0">Zatwierdź</div>}
+    {SummaryPrice.map(obj => (
+        <div onClick={resetFilters} className="choosed-multiple-option-price">Cena {obj} € <CloseIcon className="close-icon" /></div>
+      ))}
       <div className="InputsStyle">
-        <input type="number" onChange={handleChangeFrom} value={priceMin} className="InputsProps  mr-2 " autoComplete="off" name="" placeholder="Od"></input>
-        <input type="number" onChange={handleChangeTo} value={priceMax} className="InputsProps ml-2 " autoComplete="off" name="" placeholder="Do"></input>
+        <input ref={PriceFromRef} type="number" onChange={handleChangeData} className="InputsProps  mr-2" autoComplete="off" name="" placeholder="Od"></input>
+        <input ref={PriceToRef} type="number" onChange={handleChangeData} className="InputsProps ml-2" autoComplete="off" name="" placeholder="Do"></input>
       </div>
     </>
   )

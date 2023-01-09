@@ -1,65 +1,137 @@
 
-import { useState } from "react"
+import { useState, useContext, useRef } from "react"
+import CloseIcon from '@mui/icons-material/Close';
+import { SearchEngineContext } from '../SearchEngine'
+import { AppContext } from "../../../pages/_app"
 
 export default function Bedrooms({
-  apply,
-  setApply,
-  setBedMin, 
-  setBedMax,
-  searchConditions,
-  setSearchConditions
 }) {
+  const {searchConditions, setSearchConditions} = useContext(AppContext)
+  const {applyBed, setApplyBed} = useContext(SearchEngineContext)
 
-  const handleChangeFrom = (e) =>{
-    setBedMin(e.target.value)
-    setApply(true)
+  const BedFromRef = useRef();
+  const BedToRef = useRef();
 
-    let targetvalue = e.target.value
-    setSearchConditions(searchConditions.map(param => {
-      if(param.name === 'bedf'){
-        if((targetvalue === '') && (param.isSearching === true)){
-          return{
-            ...param,
-            isSearching: false,
-            value: targetvalue
-          }
-        } else return {
-          ...param,
-          isSearching: true,
-          value: targetvalue
-        }
-      } else return {...param}
-    }))
+  let bedfrom;
+  let bedfromString;
+  let bedto;
+  let bedtoString;
+  let SummaryBeds = [];
+
+  searchConditions.map(obj =>{
+    if(obj.name ==='bedf'){
+      bedfrom = obj.value
+    }
+    if(obj.name ==='bedt'){
+      bedto = obj.value
+    }
+  })
+
+  if(bedfrom !== ''){
+    bedfromString = "od "+bedfrom
+  } else {
+    bedfromString = '';
   }
 
-  const handleChangeTo = (e) =>{
-    setBedMax(e.target.value)
-    setApply(true)
-    
-    let targetvalue = e.target.value
+  if(bedto !== ''){
+    bedtoString = " do "+bedto
+  }else {
+    bedtoString = '';
+  } 
+
+  if(bedto === '' && bedfrom === '') {
+    SummaryBeds = []
+  } else {
+    SummaryBeds = [bedfromString + bedtoString]
+  }
+
+
+  //handle by useRef data 'from'
+  const handleChangeData = (e) => {
+    let bedfrom = [];
+    let bedto = [];
+
+      searchConditions.map(obj => {
+        if(obj.name === "bedf"){
+          bedfrom = obj.value
+          }
+        if(obj.name === "bedt"){
+          bedto = obj.value
+          }})
+
+      if((BedFromRef.current.value === bedfrom) && (BedToRef.current.value === bedto)){
+        setApplyBed(false)
+      } else {
+        setApplyBed(true)
+      }
+  }
+
+  //hide apply button after click and change value 'from' and 'to' in searchConditions
+  const hideAppyButton = (e) => {
+    setApplyBed(false)
+
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'bedt'){
-        if((targetvalue === '') && (param.isSearching === true)){
+        if((BedToRef.current.value === '')){
           return{
             ...param,
             isSearching: false,
-            value: targetvalue
+            value: ''
           }
         } else return {
           ...param,
           isSearching: true,
-          value: targetvalue
+          value: BedToRef.current.value
+        }
+      } if(param.name === 'bedf'){
+        if((BedFromRef.current.value === '')){
+          return{
+            ...param,
+            isSearching: false,
+            value: ''
+          }
+        } else return {
+          ...param,
+          isSearching: true,
+          value: BedFromRef.current.value
         }
       } else return {...param}
-    }))
+    })) 
 
+    BedFromRef.current.value = ''
+    BedToRef.current.value = ''
+  }
+
+  const resetFilters = () => {
+
+    // setActualBeds(false)
+    setSearchConditions(searchConditions.map(param => {
+      if(param.name === 'bedt'){
+          return{
+            ...param,
+            isSearching: false,
+            value: ''
+          }
+        } 
+      if(param.name === 'bedf'){
+          return{
+            ...param,
+            isSearching: false,
+            value: ''
+          }
+        } else return {...param}
+    })) 
   }
 
   return (
     <>
+    {applyBed && <div onClick={hideAppyButton} className="applyButton">Zatwierdź</div>}
+    {SummaryBeds.map(obj => (
+        <span onClick={resetFilters} className="choosed-multiple-option-beds">Sypilani: {obj} <CloseIcon className="close-icon" /></span>
+      ))}
       <div className="InputsStyle">
-        <input onChange={handleChangeFrom} className="InputsProps  mr-2 " autoComplete="off" name="" placeholder="Od"></input>
-        <input onChange={handleChangeTo} className="InputsProps ml-2 " autoComplete="off" name="" placeholder="Do"></input>
+        <input ref={BedFromRef} onChange={handleChangeData} className="InputsProps  mr-2 " autoComplete="off" name="bedsfrom" placeholder="Od"></input>
+        <input ref={BedToRef} onChange={handleChangeData} className="InputsProps ml-2 " autoComplete="off" name="bedsto" placeholder="Do"></input>
       </div>
     </>
   )

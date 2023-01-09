@@ -1,0 +1,23 @@
+    [    
+        {
+            "country": "Hiszpania",
+            "region":["Costa Blanca", "Costa del Sol", "Costa Brava", "Costa Dorata"]
+        },
+
+        {
+            "country": "Portugalia",
+            "region":["Leiria", "Lisboa", "Setubal", "Beja", "Faro"]
+        },
+
+        {
+            "country": "Chorwacja",
+            "region":["Istria", "Kvarner", "Dalmacja PŁN", "Dalmacja PŁD", "Dalmacja ŚR"]
+        },
+
+        {
+            "types":["Bungalow", "Dom", "Apartament"]
+        }
+    ]
+
+
+

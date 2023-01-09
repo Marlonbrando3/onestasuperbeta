@@ -1,8 +1,10 @@
-import {useState} from "react";
+import {useState, useContext, createContext} from "react";
+import { AppContext } from "../../pages/_app";
 import {useRouter} from 'next/router';
 import SearchComponentsList from "./SearchComponentsList";
 import SearchResults from "./SearchResults";
-import OfferWindow from './OfferWindow';
+
+export const SearchEngineContext = createContext();
 
 export default function SearchEngine({
     ActualCountry,
@@ -10,28 +12,18 @@ export default function SearchEngine({
     actualSite,
     setActualSite,
     properties,
-    searchShow, 
-    setSearchShow, 
     choosedCountry, 
     setChoosedCountry,
-    choosedRegion,
-    setChoosedRegion,
     choosedTypes,
     setChoosedTypes,
-    query,
-    setQuery,
-    searchConditions,
-    setSearchConditions,
-    apply,
-    setApply,
-    newSearch,
-    setNewSearch,
     sitesArray,
     sitesArraycounter,
     showSearchComponentsOnMobile,
     setShowSearchComponentsOnMobile
 }) {
         const router = useRouter();
+
+        const {searchShow,setSearchShow} = useContext(AppContext)
 
         //a./ll countries, regions, Cities
         const[countries, setCountries] = useState([
@@ -65,29 +57,22 @@ export default function SearchEngine({
 
         //handling type of property
         const [activeTypeList, setActiveTypeList] = useState(false)
-        const [TypeList, setTypeList] = useState([
-            {id:1, type: "Bungalow", onList:true},
-            {id:2, type: "Dom", onList:true},
-            {id:3, type: "Apartament", onList:true},
-        ])
 
         //handling region of property
         const [activeRegionList, setActiveRegionList] = useState(false)
 
         //handling prices
-        const[priceMin, setPriceMin] = useState('');
-        const[priceMax, setPriceMax] = useState('');
+        const[applyPrice, setApplyPrice] = useState('');
+
 
         //handling bedrooms
-        const[bedMin, setBedMin] = useState('');
-        const[bedMax, setBedMax] = useState('');
+        const[applyBed, setApplyBed] = useState(false);
 
         //handling bathrooms
-        const[bathMin, setBathMin] = useState();
-        const[bathMax, setBathMax] = useState();
+        const[applyBath, setApplyBath] = useState('');
 
         //distance to the sea
-        const[seaMax, setSeaMax] = useState(6000);
+        const[applySea, setApplySea] = useState('');
 
         //property details
         const [propDetails, setPropDetails] = useState();
@@ -95,52 +80,25 @@ export default function SearchEngine({
         const [showProp, setShowProp] = useState(false);
     return (
         <>
-            <div className={(searchShow && showSearchComponentsOnMobile===false)? "z-50 flex flex-col items-start justify-start w-full bg-white" : "h-0 overflow-hidden"}>
+            <div className={showSearchComponentsOnMobile===false ? "z-50 flex flex-col items-start justify-start w-full bg-white" : "h-0 overflow-hidden"}>
                 <div className="flex items-center w-full justify-center nd:py-4 py-2 bg-white">
                     <p className="text-base w-full text-center font-normal">Przeglądasz pośród {properties.length} ogłoszeń</p>
                 </div>
-                <div className="flex items-start justify-center w-full pt-4 bg-gray-900/[0.1]">
+                <div className="flex items-start justify-center w-full pt-4 bg-gray-400/[0.1]">
+                    <SearchEngineContext.Provider value={{applyBed, setApplyBed, applyBath, setApplyBath, activeTypeList, applyPrice, setApplyPrice, setActiveTypeList, applySea, setApplySea}}>
                 <SearchComponentsList
                     ActualCountry={ActualCountry}
                     setActualCountry={setActualCountry}
                     actualSite={actualSite}
                     setActualSite={setActualSite}
-                    choosedRegion={choosedRegion}
-                    setChoosedRegion={setChoosedRegion}
                     choosedCountry={choosedCountry}
                     setChoosedCountry={setChoosedCountry}
-                    searchShow={searchShow}
-                    setSearchShow={setSearchShow}
                     countries={countries}
                     setCountries={setCountries}
                     activeRegionList={activeRegionList}
                     setActiveRegionList={setActiveRegionList}
-                    TypeList={TypeList}
-                    setTypeList={setTypeList}
-                    choosedTypes={choosedTypes}
                     setChoosedTypes={setChoosedTypes}
-                    activeTypeList={activeTypeList}
                     setActiveTypeList={setActiveTypeList}
-                    priceMin={priceMin}
-                    setPriceMin={setPriceMin}
-                    priceMax={priceMax}
-                    setPriceMax={setPriceMax}
-                    setBathMax={setBathMax}
-                    setBathMin={setBathMin}
-                    bedMin={bedMin}
-                    bedMax={bedMax}
-                    setBedMax={setBedMax}
-                    setBedMin={setBedMin}
-                    seaMax={seaMax}
-                    setSeaMax={setSeaMax}
-                    query={query}
-                    setQuery={setQuery}
-                    searchConditions={searchConditions}
-                    setSearchConditions={setSearchConditions}
-                    apply={apply}
-                    setApply={setApply}
-                    newSearch={newSearch}
-                    setNewSearch={setNewSearch}
                     showSearchComponentsOnMobile={showSearchComponentsOnMobile}
                     setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
                 />
@@ -149,32 +107,16 @@ export default function SearchEngine({
                     setActualSite={setActualSite}
                     choosedCountry={choosedCountry}
                     setChoosedCountry={setChoosedCountry}
-                    choosedRegion={choosedRegion}
-                    setChoosedRegion={setChoosedRegion}
                     choosedTypes={choosedTypes}
                     properties={properties}
-                    priceMin={priceMin}
-                    priceMax={priceMax}
-                    bedMin={setBedMin}
-                    setBedMin={setBedMin}
-                    bathMax={bathMax}
-                    setBedMax={setBedMax}
-                    setBathMax={setBathMax}
-                    setBathMin={setBathMin}
-                    bedMax={bedMax}
-                    seaMax={seaMax}
-                    setSeaMax={setSeaMax}
                     propDetails={propDetails}
                     setPropDetails={setPropDetails}
                     showProp={showProp}
                     setShowProp={setShowProp}
-                    newSearch={newSearch}
-                    setNewSearch={setNewSearch}
-                    searchConditions={searchConditions}
-                    setSearchConditions={setSearchConditions}
                     sitesArray={sitesArray}
                     sitesArraycounter={sitesArraycounter}
                 />
+                </SearchEngineContext.Provider>
             </div>
         </div>
     </>

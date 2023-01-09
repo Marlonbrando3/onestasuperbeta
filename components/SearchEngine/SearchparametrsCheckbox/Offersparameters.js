@@ -1,29 +1,26 @@
 import { CommentsDisabledOutlined } from '@mui/icons-material'
+import { AppContext } from '../../../pages/_app';
+import { SearchEngineContext } from '../SearchEngine'
 import Pool from '@mui/icons-material/Pool';
 import Seaview from '@mui/icons-material/Houseboat';
-
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { useContext } from 'react'
 
 export default function Offersparameters({
-  apply,
-  setApply,
   title, 
   name, 
-  choosedCountry, 
-  setChoosedCountry, 
-  query,
-  setQuery,
-  searchConditions,
-  setSearchConditions,
-  newSearch,
-  setNewSearch,
   IconName}) {
+
+    const {searchConditions, setSearchConditions} = useContext(AppContext)
+    
+  let ActualValue; 
+
+  searchConditions.map(param => {
+  if(param.name === name) ActualValue = param.value})
 
   const handleSelectParameter = (e) => {
 
     let targetname = e.target.name
-    setApply(true)
-    // setNewSearch(false)
 
     setSearchConditions(searchConditions.map(param => {
       if(param.name === targetname && param.isSearching === false){
@@ -40,29 +37,25 @@ export default function Offersparameters({
           isSearching: false,
           value: false
       }} else return {...param,}
-    }))
 
+    })
+    )
 
-      setChoosedCountry(() => {
-        if(choosedCountry[e.target.name] === false){
-          return{
-            ...choosedCountry,[e.target.name]: true
-        }
-    } else return {...choosedCountry,[e.target.name]: false}
-  })
+  console.log(targetname)
 }
-
   return (
   <>
       <div className='flex items-center justify-start w-full'>
         <input 
-          name={name} 
-          onChange={handleSelectParameter} 
-          className="w-5 h-5" 
+          name={name}
+          onChange={handleSelectParameter}
+          className="w-5 h-5 cursor-pointer"
           type="checkbox"
-          checked={choosedCountry.name}></input>
+          checked={ActualValue}
+          >
+        </input>
           {IconName}
-        <label id="pool" className="p-2">{title}</label>
+        <label id={name} className="p-2 font-normal cursor-pointer">{title}</label>
       </div>
     </>
   )
