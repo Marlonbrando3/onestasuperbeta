@@ -21,7 +21,7 @@ export default function SearchEngine({
     showSearchComponentsOnMobile,
     setShowSearchComponentsOnMobile
 }) {
-        const router = useRouter();
+        // const router = useRouter();
 
         const {searchShow,setSearchShow} = useContext(AppContext)
 

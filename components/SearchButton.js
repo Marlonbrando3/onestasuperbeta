@@ -15,8 +15,6 @@ export default function SearchButton({}) {
     const {searchShow,setSearchShow} = useContext(AppContext)
     const {searchConditions, setSearchConditions} = useContext(AppContext)
     const {headerAfterFirstView, setHeaderAfterFirstView} = useContext(AppContext)
-    console.log(searchConditions)
-    console.log(headerAfterFirstView)
 
     const handleShowSearch = (e) =>{
 
@@ -38,7 +36,6 @@ export default function SearchButton({}) {
             let data = [];
             DataCountry.map(obj => {
                 if(obj.country === targetvalue){
-
                     obj.region.map(region => {
                         console.log(region)
                             data = [...data, {
