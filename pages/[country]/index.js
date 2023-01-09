@@ -173,13 +173,13 @@ export default function Home(
     // console.log(window.localStorage.key(1))
 
     if(window.localStorage.key(0) === null){
-      window.localStorage.setItem(query, JSON.stringify(searchConditions))
+      // window.localStorage.setItem(query, JSON.stringify(searchConditions))
     } 
     if(window.localStorage.length >= 0 && query === "page=1"){
       // console.log('alredyExist')
     }
     else {
-      window.localStorage.setItem(query, JSON.stringify(searchConditions))
+      // window.localStorage.setItem(query, JSON.stringify(searchConditions))
     }
     
     router.push({

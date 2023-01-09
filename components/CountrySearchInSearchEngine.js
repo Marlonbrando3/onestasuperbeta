@@ -21,7 +21,7 @@ export default function HeaderCountrySearch({
 
  
         let Country = e.target.value
-        window.localStorage.clear()
+        // window.localStorage.clear()
 
         console.log(Country)
         
