@@ -19,7 +19,6 @@ export default function HeaderCountrySearch({
 
     const handleChangeCountry = (e) => {
 
- 
         let Country = e.target.value
         // window.localStorage.clear()
 

@@ -145,24 +145,24 @@ export default function Home(
   // console.log(LocalData)
 
   //use Effect for counring down counter with callBack
-  useEffect(()=>{
+  // useEffect(()=>{
 
-  setTimeout(()=> {
+  // setTimeout(()=> {
   
-      const StorageInsideData = window.localStorage.getItem(router.asPath.replaceAll('%20',' ').split("?")[1])
-      let conditions = [];
-      conditions = JSON.parse(StorageInsideData)
-      // console.log(conditions)
+  //     const StorageInsideData = window.localStorage.getItem(router.asPath.replaceAll('%20',' ').split("?")[1])
+  //     let conditions = [];
+  //     conditions = JSON.parse(StorageInsideData)
+  //     // console.log(conditions)
 
 
-     if(conditions === null){
-        console.log("null")
-     } else {
-          setSearchConditions(conditions)
-        }
-  },0)
+  //    if(conditions === null){
+  //       console.log("null")
+  //    } else {
+  //         setSearchConditions(conditions)
+  //       }
+  // },0)
 
-  },[router])
+  // },[router])
 
   useEffect(()=> {
 
@@ -172,15 +172,15 @@ export default function Home(
     // console.log(window.localStorage.key(0))
     // console.log(window.localStorage.key(1))
 
-    if(window.localStorage.key(0) === null){
-      // window.localStorage.setItem(query, JSON.stringify(searchConditions))
-    } 
-    if(window.localStorage.length >= 0 && query === "page=1"){
-      // console.log('alredyExist')
-    }
-    else {
-      // window.localStorage.setItem(query, JSON.stringify(searchConditions))
-    }
+    // if(window.localStorage.key(0) === null){
+    //   window.localStorage.setItem(query, JSON.stringify(searchConditions))
+    // } 
+    // if(window.localStorage.length >= 0 && query === "page=1"){
+    //   // console.log('alredyExist')
+    // }
+    // else {
+    //   window.localStorage.setItem(query, JSON.stringify(searchConditions))
+    // }
     
     router.push({
       pathname: ActualCountry+'/',
