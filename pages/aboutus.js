@@ -23,7 +23,7 @@ export default function Aboutus() {
             <title>Onesta Group</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
             <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
             <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Nunito+Sans&display=swap" rel="stylesheet"></link>
         </Head>
         <Header
