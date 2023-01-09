@@ -4,8 +4,8 @@ export default function (req, res) {
     let nodemailer = require('nodemailer')
 
     const endEmail = 'biuro@onesta.com.pl';
-    const fromEmail = process.env.FROM_EMAIL;
-    const pass = process.env.EMAIL_PASS;
+    const fromEmail = "www@onesta.com.pl";
+    const pass = 'Onesta_www_asks_123!'
     
     const transporter = nodemailer.createTransport({
       port: 465,
