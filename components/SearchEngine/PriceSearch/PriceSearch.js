@@ -127,7 +127,7 @@ export default function PriceSearch({}) {
     <>
     {applyPrice && <div onClick={hideAppyButton} className="applyButton top-0">Zatwierdź</div>}
     {SummaryPrice.map(obj => (
-        <div onClick={resetFilters} className="choosed-multiple-option-price">Cena {obj} € <CloseIcon className="close-icon" /></div>
+        <div key={obj} onClick={resetFilters} className="choosed-multiple-option-price">Cena {obj} € <CloseIcon className="close-icon" /></div>
       ))}
       <div className="InputsStyle">
         <input ref={PriceFromRef} type="number" onChange={handleChangeData} className="InputsProps  mr-2" autoComplete="off" name="" placeholder="Od"></input>
