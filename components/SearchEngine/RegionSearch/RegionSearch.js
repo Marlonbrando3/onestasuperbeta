@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useContext } from "react"
-import { CountryIndexContext } from '../../../pages/[country]/index'
+// import { CountryIndexContext } from '../../../pages/[country]/index'
 import { useRouter } from "next/router"
 import { AppContext } from "../../../pages/_app";
 import DataCountry from '../../../data/DataCountry.json'
