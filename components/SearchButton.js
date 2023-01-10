@@ -74,7 +74,7 @@ export default function SearchButton({}) {
                         <div ref={listData} className='overflow-hidden mt-3 flex flex-wrap'>
                         {countries.map(obj => (
                                     <div key={obj} onClick={handleShowSearch} name={obj} className='hover:bg-red-700 hover:text-white text-2xl text-center w-1/2'>
-                                    <Link as={`/${obj}`} href="/[country">{obj}</Link></div>
+                                    <Link as={`/${obj}`} href="/[country]">{obj}</Link></div>
                         ))}
                     </div>
                     </div>
