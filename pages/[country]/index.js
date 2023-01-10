@@ -234,7 +234,7 @@ export default function Home(
 export async function getServerSideProps (contex) {
 
   console.log("im in get props")
-  await db.connect();
+  await db.connect({ useNewUrlParser: true });
   console.log("connected with DB")
 
   //searching for regions
