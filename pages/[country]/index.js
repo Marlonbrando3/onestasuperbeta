@@ -10,6 +10,7 @@ import Applychanges from '../../components/SearchEngine/Applychanges'
 import Footer from '../../components/Footer'
 import ContactFormMain from '../../components/ContactFormMain'
 import { AppContext } from '../_app'
+
 export const CountryIndexContext = createContext();
 
 export default function Home(
@@ -141,7 +142,7 @@ export default function Home(
   //   return counter + data
   // },[counter])
 
-  let LocalData = router.asPath.replaceAll('%20',' ').split("?")[1]
+  // let LocalData = router.asPath.replaceAll('%20',' ').split("?")[1]
   // console.log(LocalData)
 
   //use Effect for counring down counter with callBack
@@ -193,8 +194,8 @@ export default function Home(
 
 
   return (
-    <div className='overflow-x-hidden'>
-      <Head>
+    <div className='overflow-x-hidden'>Kolo
+      {/* <Head>
         <title>Onesta || Hiszpania</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
       </Head>
@@ -226,7 +227,7 @@ export default function Home(
         setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
       />
       <ContactFormMain />
-      <Footer />
+      <Footer /> */}
     </div>
   )
 }
