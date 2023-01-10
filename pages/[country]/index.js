@@ -138,12 +138,6 @@ export default function Home(
   const properties = propertiesWithSites.filter(prop => prop.page === actualSite)
   let [ActualCountry, setActualCountry] = useState(router.query.country);
 
-  const [counter, setCounter] = useState(0)
-
-  const ChangeCounter = useCallback((data)=>{
-    return counter + data
-  },[counter])
-
   let LocalData = router.asPath.replaceAll('%20',' ').split("?")[1]
   console.log(LocalData)
 
