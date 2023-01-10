@@ -17,7 +17,7 @@ export default function Home(
   ) {
   // const router = useRouter();
 
-  const {pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, batht, distance, type} = router.query
+  // const {pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, batht, distance, type} = router.query
 
   const {searchConditions, setSearchConditions} = useContext(AppContext)
 
