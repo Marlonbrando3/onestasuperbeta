@@ -1,15 +1,15 @@
 import { useState, useEffect, 
   // useContext, createContext
 } from 'react'
-import Head from 'next/head'
-// import {useRouter} from 'next/router'
-// import MiniHomeView from '../../components/SearchEngine/MiniHomeView'
+// import Head from 'next/head'
+import {useRouter} from 'next/router'
+import MiniHomeView from '../../components/SearchEngine/MiniHomeView'
 import Header from '../../components/Header'
 import SearchEngine from '../../components/SearchEngine/SearchEngine'
-import Property from '../../model/propertymodel'
+// import Property from '../../model/propertymodel'
 import db from '../../utils/db'
-import Applychanges from '../../components/SearchEngine/Applychanges'
-import Footer from '../../components/Footer'
+// import Applychanges from '../../components/SearchEngine/Applychanges'
+// import Footer from '../../components/Footer'
 // import ContactFormMain from '../../components/ContactFormMain'
 // import { AppContext } from '../_app'
 
