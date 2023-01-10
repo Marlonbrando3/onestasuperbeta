@@ -1,12 +1,10 @@
 
 import { useState, useEffect, useContext } from "react"
-// import { CountryIndexContext } from '../../../pages/[country]/index'
 import { useRouter } from "next/router"
 import { AppContext } from "../../../pages/_app";
 import DataCountry from '../../../data/DataCountry'
 import { NumbersOutlined, OneKPlusOutlined } from "@mui/icons-material";
 import SolarPower from "@mui/icons-material/SolarPower";
-// import { info } from "autoprefixer";
 
 export default function CountrySearch({
   activeRegionList,
