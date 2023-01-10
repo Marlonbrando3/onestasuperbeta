@@ -1,11 +1,11 @@
 import { useState } from "react";
 // import CitySearch from "./CitySearch/CitySearch";
 import RegionSearch from "./RegionSearch/RegionSearch";
-import RegionChoosed from "./RegionSearch/RegionChoosed"
-import TypeSearch from "./TypeSearch/TypeSearch"
-import TypeChoosed from "./TypeSearch/TypeChoosed"
-import CountrySearchInSearchEngine  from "../CountrySearchInSearchEngine"
-import Offersparameters from "./SearchparametrsCheckbox/Offersparameters"
+import RegionChoosed from "./RegionSearch/RegionChoosed";
+import TypeSearch from "./TypeSearch/TypeSearch";
+import TypeChoosed from "./TypeSearch/TypeChoosed";
+import CountrySearchInSearchEngine  from "../CountrySearchInSearchEngine";
+import Offersparameters from "./SearchparametrsCheckbox/Offersparameters";
 import Pool from '@mui/icons-material/Pool';
 import Parking from '@mui/icons-material/DirectionsCar';
 import Garden from '@mui/icons-material/LocalFlorist';
@@ -67,7 +67,7 @@ export default function SearchInput({
 
   return (
     <>
-    {/* <div className={showSearchComponentsOnMobile ?
+    <div className={showSearchComponentsOnMobile ?
         "transition-all absolute duration-700 top-10 w-screen z-30 bg-white p-1":
         "transition-all duration-700 hidden -top-screen flex-col items-center justify-center md:w-2/12 md:flex md:static"}
     >
@@ -125,7 +125,7 @@ export default function SearchInput({
 
             />
           </div></div>
-          <div className="InputsStyleContainer">
+          {/* <div className="InputsStyleContainer">
             <p>Wybierz miasto:</p>
             <div className="InputsStyle">
             <CitySearch
@@ -153,7 +153,7 @@ export default function SearchInput({
               choosedRegion={choosedRegion}
               setChoosedRegion={setChoosedRegion}
             />
-          </div></div>
+          </div></div> */}
           <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
             <p className="h-6">Typ nieruchomości</p>
             <TypeChoosed
@@ -184,6 +184,7 @@ export default function SearchInput({
           </div></div>
           <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
             <p>Cena (€)</p>
+              {/* <div className="InputsStyle w-12 m-auto md:w-full"> */}
                 <PriceSearch 
                  priceMin={priceMin}
                  setPriceMin={setPriceMin}
@@ -194,6 +195,7 @@ export default function SearchInput({
                  apply={apply}
                  setApply={setApply}
                 />
+              {/* </div> */}
             </div>
               <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
             <p>Liczba łazienek</p>
@@ -268,7 +270,7 @@ export default function SearchInput({
               />
             </div>
           </form>
-    </div> */}
+    </div>
     </>
   )
 }
