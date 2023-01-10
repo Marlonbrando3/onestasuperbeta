@@ -11,7 +11,7 @@ import Footer from '../../components/Footer'
 import ContactFormMain from '../../components/ContactFormMain'
 import { AppContext } from '../_app'
 
-// export const CountryIndexContext = createContext();
+export const CountryIndexContext = createContext();
 
 export default function Home(
   {
