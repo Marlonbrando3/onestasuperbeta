@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, createContext} from 'react'
 // import Head from 'next/head'
-// import {useRouter} from 'next/router'
+import {useRouter} from 'next/router'
 // import MiniHomeView from '../../components/SearchEngine/MiniHomeView'
 // import Header from '../../components/Header'
 // import SearchEngine from '../../components/SearchEngine/SearchEngine'
