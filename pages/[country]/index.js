@@ -167,10 +167,10 @@ export default function Home(
 
   // },[router])
 
-  useEffect(()=> {
+  // useEffect(()=> {
 
     //generate query from searchConditions
-    query = Multiple+resultsFin.toString().replaceAll(',','&')
+    // query = Multiple+resultsFin.toString().replaceAll(',','&')
     // console.log(query)
     // console.log(window.localStorage.key(0))
     // console.log(window.localStorage.key(1))
@@ -192,7 +192,7 @@ export default function Home(
 
     // setCounter(ChangeCounter(1))
 
-},[query, choosedCountry])
+// },[query, choosedCountry])
 
 
   return (
@@ -234,13 +234,13 @@ export default function Home(
   )
 }
 
-export async function getServerSideProps (
-  // contex
-  ) {
+// export async function getServerSideProps (
+//   // contex
+//   ) {
 
-  console.log("im in get props")
-  await db.connect();
-  console.log("connected with DB")
+//   console.log("im in get props")
+//   await db.connect();
+//   console.log("connected with DB")
 
   // //searching for regions
   // let dataid = contex.query.id
@@ -365,29 +365,29 @@ export async function getServerSideProps (
   // TrueOrFalse();
 
 
-  const results = await Property.find({
-      // country: contex.query.country,
-      // region: regiond,
-      // distance: {$lte: distanced},
-      // type: typed,
-      // pool:{$in: pool},
-      // seaview:{$in: seaview},
-      // parking:{$in: parking},
-      // garden:{$in: garden},
-      // solarium:{$in: solarium},
-      // balcony:{$in: balcony},
-      // price: {$gte: pf, $lte: pt},
-      // bathrooms: {$gte: bathf, $lte: batht},
-      // bedrooms: {$gte: bedf, $lte: bedt},
-  });
+//   const results = await Property.find({
+//       // country: contex.query.country,
+//       // region: regiond,
+//       // distance: {$lte: distanced},
+//       // type: typed,
+//       // pool:{$in: pool},
+//       // seaview:{$in: seaview},
+//       // parking:{$in: parking},
+//       // garden:{$in: garden},
+//       // solarium:{$in: solarium},
+//       // balcony:{$in: balcony},
+//       // price: {$gte: pf, $lte: pt},
+//       // bathrooms: {$gte: bathf, $lte: batht},
+//       // bedrooms: {$gte: bedf, $lte: bedt},
+//   });
 
-  const properties = JSON.parse(JSON.stringify(results))
+//   const properties = JSON.parse(JSON.stringify(results))
   
-  return {
-    props:{
-      propertiesWork: properties,
-    }
-  }
-}
+//   return {
+//     props:{
+//       propertiesWork: properties,
+//     }
+//   }
+// }
 
   
