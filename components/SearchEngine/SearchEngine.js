@@ -2,9 +2,9 @@ import {useState, useContext, createContext} from "react";
 import { AppContext } from "../../pages/_app";
 import {useRouter} from 'next/router';
 import SearchComponentsList from "./SearchComponentsList";
-import SearchResults from "./SearchResults";
+// import SearchResults from "./SearchResults";
 
-// export const SearchEngineContext = createContext();
+export const SearchEngineContext = createContext();
 
 export default function SearchEngine({
     ActualCountry,
@@ -80,12 +80,14 @@ export default function SearchEngine({
         const [showProp, setShowProp] = useState(false);
     return (
         <>
-            <div className={showSearchComponentsOnMobile===false ? "z-50 flex flex-col items-start justify-start w-full bg-white" : "h-0 overflow-hidden"}>
+
+        searchEngine
+            {/* <div className={showSearchComponentsOnMobile===false ? "z-50 flex flex-col items-start justify-start w-full bg-white" : "h-0 overflow-hidden"}>
                 <div className="flex items-center w-full justify-center nd:py-4 py-2 bg-white">
                     <p className="text-base w-full text-center font-normal">Przeglądasz pośród {properties.length} ogłoszeń</p>
                 </div>
                 <div className="flex items-start justify-center w-full pt-4 bg-gray-400/[0.1]">
-                    {/* <SearchEngineContext.Provider value={{applyBed, setApplyBed, applyBath, setApplyBath, activeTypeList, applyPrice, setApplyPrice, setActiveTypeList, applySea, setApplySea}}> */}
+                    <SearchEngineContext.Provider value={{applyBed, setApplyBed, applyBath, setApplyBath, activeTypeList, applyPrice, setApplyPrice, setActiveTypeList, applySea, setApplySea}}>
                 <SearchComponentsList
                     ActualCountry={ActualCountry}
                     setActualCountry={setActualCountry}
@@ -116,9 +118,9 @@ export default function SearchEngine({
                     sitesArray={sitesArray}
                     sitesArraycounter={sitesArraycounter}
                 />
-                {/* </SearchEngineContext.Provider> */}
+                </SearchEngineContext.Provider>
             </div>
-        </div>
+        </div> */}
     </>
     )
 }
