@@ -149,7 +149,7 @@ export default function Home(
   let LocalData = router.asPath.replaceAll('%20',' ').split("?")[1]
   console.log(LocalData)
 
-  use Effect for counring down counter with callBack
+  //use Effect for counring down counter with callBack
   useEffect(()=>{
 
   setTimeout(()=> {
@@ -167,7 +167,7 @@ export default function Home(
         }
   },0)
 
-  // },[router])
+  },[router])
 
   // useEffect(()=> {
 
