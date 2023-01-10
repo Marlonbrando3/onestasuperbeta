@@ -13,7 +13,9 @@ import { AppContext } from '../_app'
 export const CountryIndexContext = createContext();
 
 export default function Home(
-  {propertiesWork, showSearchComponentsOnMobile, setShowSearchComponentsOnMobile}
+  {
+    // propertiesWork, 
+    showSearchComponentsOnMobile, setShowSearchComponentsOnMobile}
   ) {
   // const router = useRouter();
 
@@ -231,160 +233,160 @@ export default function Home(
   )
 }
 
-export async function getServerSideProps (contex) {
+// export async function getServerSideProps (contex) {
 
-  console.log("im in get props")
-  await db.connect();
-  console.log("connected with DB")
+//   console.log("im in get props")
+//   await db.connect();
+//   console.log("connected with DB")
 
-  //searching for regions
-  let dataid = contex.query.id
-  let idd;
+//   //searching for regions
+//   let dataid = contex.query.id
+//   let idd;
 
-  //searching for regions
-  let dataregion = contex.query.region
-  let regiond;
+//   //searching for regions
+//   let dataregion = contex.query.region
+//   let regiond;
 
-  //counting price
-  let datapf = contex.query.pf
-  let datapt = contex.query.pt
-  let pf;
-  let pt;
+//   //counting price
+//   let datapf = contex.query.pf
+//   let datapt = contex.query.pt
+//   let pf;
+//   let pt;
 
-  //bathbrooms
-  let databathf = contex.query.bathf
-  let databatht = contex.query.batht
-  let bathf;
-  let batht;
+//   //bathbrooms
+//   let databathf = contex.query.bathf
+//   let databatht = contex.query.batht
+//   let bathf;
+//   let batht;
 
-  //bedrooms
-  let databedf = contex.query.bedf
-  let databedt = contex.query.bedt
-  let bedf;
-  let bedt;
+//   //bedrooms
+//   let databedf = contex.query.bedf
+//   let databedt = contex.query.bedt
+//   let bedf;
+//   let bedt;
 
-  //searching for types
-  let datatype = contex.query.type
-  let typed;
+//   //searching for types
+//   let datatype = contex.query.type
+//   let typed;
 
-  //searching for distance
-  let datadistance = contex.query.distance
-  let distanced;
+//   //searching for distance
+//   let datadistance = contex.query.distance
+//   let distanced;
 
-  //searching for regions, types, distance
-  let countRegions = () => {
+//   //searching for regions, types, distance
+//   let countRegions = () => {
 
-    if(dataregion === undefined){
-      regiond = ['Costa Blanca','Costa del Sol','Costa Brava','Costa Dorada','Lisboa','Porto','Istria', 'Kvarner', 'Dalmacja PŁ', 'Dalmacja PŁD', 'Dalmacja ŚR'];
-    } else regiond = contex.query.region
+//     if(dataregion === undefined){
+//       regiond = ['Costa Blanca','Costa del Sol','Costa Brava','Costa Dorada','Lisboa','Porto','Istria', 'Kvarner', 'Dalmacja PŁ', 'Dalmacja PŁD', 'Dalmacja ŚR'];
+//     } else regiond = contex.query.region
 
-    if(datatype === undefined){
-      typed = ['Bungalow','Dom','Apartament'];
-    } else typed = contex.query.type
+//     if(datatype === undefined){
+//       typed = ['Bungalow','Dom','Apartament'];
+//     } else typed = contex.query.type
 
-    if(datatype === undefined){
-      typed = ['Bungalow','Dom','Apartament'];
-    } else typed = contex.query.type
+//     if(datatype === undefined){
+//       typed = ['Bungalow','Dom','Apartament'];
+//     } else typed = contex.query.type
 
-    if(datadistance === undefined){
-      distanced = 100000;
-    } else distanced = contex.query.distance
+//     if(datadistance === undefined){
+//       distanced = 100000;
+//     } else distanced = contex.query.distance
 
-  }
+//   }
 
-  //countring 'from'
-  let countFrom = () => {
-    if(datapf === undefined){
-      pf=1;
-    } else pf = Number(contex.query.pf)
+//   //countring 'from'
+//   let countFrom = () => {
+//     if(datapf === undefined){
+//       pf=1;
+//     } else pf = Number(contex.query.pf)
 
-    if(databathf === undefined){
-      bathf=1;
-    } else bathf = Number(contex.query.bathf)
+//     if(databathf === undefined){
+//       bathf=1;
+//     } else bathf = Number(contex.query.bathf)
 
-    if(databedf === undefined){
-      bedf=1;
-    } else bedf = Number(contex.query.bedf)
-  }
+//     if(databedf === undefined){
+//       bedf=1;
+//     } else bedf = Number(contex.query.bedf)
+//   }
 
-  let countTo = () => {
-    if(datapt === undefined){
-      pt=50000000;
-    } else pt = Number(contex.query.pt)
+//   let countTo = () => {
+//     if(datapt === undefined){
+//       pt=50000000;
+//     } else pt = Number(contex.query.pt)
 
-    if(databatht === undefined){
-      batht=5;
-    } else batht = Number(contex.query.batht)
+//     if(databatht === undefined){
+//       batht=5;
+//     } else batht = Number(contex.query.batht)
 
-    if(databedt === undefined){
-      bedt=5;
-    } else bedt = Number(contex.query.bedt)
-  }
-  let pool = contex.query.pool
-  let garden = contex.query.garden
-  let seaview = contex.query.seaview
-  let parking = contex.query.parking
-  let solarium = contex.query.solarium
-  let balcony = contex.query.balcony
+//     if(databedt === undefined){
+//       bedt=5;
+//     } else bedt = Number(contex.query.bedt)
+//   }
+//   let pool = contex.query.pool
+//   let garden = contex.query.garden
+//   let seaview = contex.query.seaview
+//   let parking = contex.query.parking
+//   let solarium = contex.query.solarium
+//   let balcony = contex.query.balcony
 
-  let TrueOrFalse = () => {
+//   let TrueOrFalse = () => {
 
-    if(pool === undefined){
-      pool = ['false', 'true']
-    } else pool = ['true']
+//     if(pool === undefined){
+//       pool = ['false', 'true']
+//     } else pool = ['true']
 
-    if(garden === undefined){
-      garden = ['false', 'true']
-    } else garden = ['true']
+//     if(garden === undefined){
+//       garden = ['false', 'true']
+//     } else garden = ['true']
 
-    if(parking === undefined){
-      parking = ['false', 'true']
-    } else parking = ['true']
+//     if(parking === undefined){
+//       parking = ['false', 'true']
+//     } else parking = ['true']
 
-    if(seaview === undefined){
-      seaview = ['false', 'true']
-    } else seaview = ['true']
+//     if(seaview === undefined){
+//       seaview = ['false', 'true']
+//     } else seaview = ['true']
 
-    if(balcony === undefined){
-      balcony = ['false', 'true']
-    } else balcony = ['true']
+//     if(balcony === undefined){
+//       balcony = ['false', 'true']
+//     } else balcony = ['true']
 
-    if(solarium === undefined){
-      solarium = ['false', 'true']
-    } else solarium = ['true']
-  }
+//     if(solarium === undefined){
+//       solarium = ['false', 'true']
+//     } else solarium = ['true']
+//   }
 
-  countRegions();
-  countFrom();
-  countTo();
-  TrueOrFalse();
+//   countRegions();
+//   countFrom();
+//   countTo();
+//   TrueOrFalse();
 
 
-  const results = await Property.find({
-      country: contex.query.country,
-      region: regiond,
-      distance: {$lte: distanced},
-      type: typed,
-      pool:{$in: pool},
-      seaview:{$in: seaview},
-      parking:{$in: parking},
-      garden:{$in: garden},
-      solarium:{$in: solarium},
-      balcony:{$in: balcony},
-      price: {$gte: pf, $lte: pt},
-      bathrooms: {$gte: bathf, $lte: batht},
-      bedrooms: {$gte: bedf, $lte: bedt},
-  });
+//   const results = await Property.find({
+//       country: contex.query.country,
+//       region: regiond,
+//       distance: {$lte: distanced},
+//       type: typed,
+//       pool:{$in: pool},
+//       seaview:{$in: seaview},
+//       parking:{$in: parking},
+//       garden:{$in: garden},
+//       solarium:{$in: solarium},
+//       balcony:{$in: balcony},
+//       price: {$gte: pf, $lte: pt},
+//       bathrooms: {$gte: bathf, $lte: batht},
+//       bedrooms: {$gte: bedf, $lte: bedt},
+//   });
 
-  const properties = JSON.parse(JSON.stringify(results))
+//   const properties = JSON.parse(JSON.stringify(results))
   
-  return {
-    props:{kolo:"kolo"},
-    props:{
-      propertiesWork: properties,
-      dummyprop:"kolo"
-    }
-  }
-}
+//   return {
+//     props:{kolo:"kolo"},
+//     props:{
+//       propertiesWork: properties,
+//       dummyprop:"kolo"
+//     }
+//   }
+// }
 
   
