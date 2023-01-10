@@ -6,9 +6,9 @@
 // import SearchEngine from '../../components/SearchEngine/SearchEngine'
 import Property from '../../model/propertymodel'
 import db from '../../utils/db'
-// import Applychanges from '../../components/SearchEngine/Applychanges'
-// import Footer from '../../components/Footer'
-// import ContactFormMain from '../../components/ContactFormMain'
+import Applychanges from '../../components/SearchEngine/Applychanges'
+import Footer from '../../components/Footer'
+import ContactFormMain from '../../components/ContactFormMain'
 import { AppContext } from '../_app'
 
 // export const CountryIndexContext = createContext();
