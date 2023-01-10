@@ -16,7 +16,6 @@
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.16",
     "autoprefixer": "^10.4.13",
-    "dotenv": "^16.0.3",
     "eslint": "^8.27.0",
     "mongodb": "^4.12.1",
     "mongoose": "^5.13.15",
