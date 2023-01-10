@@ -16,7 +16,9 @@ import Footer from '../../components/Footer'
 // export const CountryIndexContext = createContext();
 
 export default function Home(
-  {propertiesWork, showSearchComponentsOnMobile, setShowSearchComponentsOnMobile}
+  {
+    // propertiesWork, showSearchComponentsOnMobile, setShowSearchComponentsOnMobile
+  }
   ) {
 //   const router = useRouter();
 
