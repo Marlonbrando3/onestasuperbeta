@@ -9,132 +9,132 @@ import db from '../../utils/db'
 import Applychanges from '../../components/SearchEngine/Applychanges'
 import Footer from '../../components/Footer'
 import ContactFormMain from '../../components/ContactFormMain'
-import { AppContext } from '../_app'
+// import { AppContext } from '../_app'
 
 export const CountryIndexContext = createContext();
 
 export default function Home(
   {propertiesWork, showSearchComponentsOnMobile, setShowSearchComponentsOnMobile}
   ) {
-  const router = useRouter();
+//   const router = useRouter();
 
-  const {pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, batht, distance, type} = router.query
+//   const {pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, batht, distance, type} = router.query
 
-  const {searchConditions, setSearchConditions} = useContext(AppContext)
+//   const {searchConditions, setSearchConditions} = useContext(AppContext)
 
-  //set number of properties per the one site
-  const [propertiesOnSite, setPropertiesOnSite] = useState(4);
+//   //set number of properties per the one site
+//   const [propertiesOnSite, setPropertiesOnSite] = useState(4);
 
-  //state is set the number of property to show on new site after click
-  const [startCountingFrom, setStartCountingFrom] = useState(0);
+//   //state is set the number of property to show on new site after click
+//   const [startCountingFrom, setStartCountingFrom] = useState(0);
 
-  //how many sites system have to generate based of numbers od filtered properties and properites per one site
-  const [sitesArray, setSitesArray] = useState(['1','1','1']);
+//   //how many sites system have to generate based of numbers od filtered properties and properites per one site
+//   const [sitesArray, setSitesArray] = useState(['1','1','1']);
 
-  //actual active site
-  const [actualSite, setActualSite] = useState(1);
+//   //actual active site
+//   const [actualSite, setActualSite] = useState(1);
 
-  //INDEX
-  const [choosedCountry, setChoosedCountry] = useState(
-    {
-        id:'',
-        country: '',
-        region:'',
-        city:'',
-        title:'',
-        market:'',
-        type:'',
-        bathrooms:'',
-        bedrooms:'',
-        seaview: false,
-        pool: false,
-        parking:false,
-        garden:false,
-        solarium: false,
-        balcony: false,
-        price:'',
-        distancetothesea:'',
-    },
-)
+//   //INDEX
+//   const [choosedCountry, setChoosedCountry] = useState(
+//     {
+//         id:'',
+//         country: '',
+//         region:'',
+//         city:'',
+//         title:'',
+//         market:'',
+//         type:'',
+//         bathrooms:'',
+//         bedrooms:'',
+//         seaview: false,
+//         pool: false,
+//         parking:false,
+//         garden:false,
+//         solarium: false,
+//         balcony: false,
+//         price:'',
+//         distancetothesea:'',
+//     },
+// )
 
-  let siteNumber = 1;
-  let lastPropertyOnSite = 4;
-  let sitesArraycounter = [1]
+//   let siteNumber = 1;
+//   let lastPropertyOnSite = 4;
+//   let sitesArraycounter = [1]
   
-  const propertiesWithSites = propertiesWork.map((property, index) => {
-    if(index+1 <= lastPropertyOnSite){
-      return{
-        ...property,
-        page: siteNumber
-      }
-    }
-    if(index+1 === lastPropertyOnSite+1){
-        sitesArraycounter.push(1)
-        siteNumber = siteNumber + 1,
-        lastPropertyOnSite = lastPropertyOnSite + propertiesOnSite
-          return{
-          ...property,
-          page: siteNumber,
-        }
-    } else return {...property}
-    })
+//   const propertiesWithSites = propertiesWork.map((property, index) => {
+//     if(index+1 <= lastPropertyOnSite){
+//       return{
+//         ...property,
+//         page: siteNumber
+//       }
+//     }
+//     if(index+1 === lastPropertyOnSite+1){
+//         sitesArraycounter.push(1)
+//         siteNumber = siteNumber + 1,
+//         lastPropertyOnSite = lastPropertyOnSite + propertiesOnSite
+//           return{
+//           ...property,
+//           page: siteNumber,
+//         }
+//     } else return {...property}
+//     })
 
 
-  let Region = []; 
-  let Type = [];
+//   let Region = []; 
+//   let Type = [];
 
-  searchConditions.filter(obj => {
-    let dataRegion = [];
-    if(obj.name === 'region') {
-      obj.value.map(v => {
-        if(v.isSearching === true) {
-          dataRegion = [...dataRegion,"region="+v.region]
-        } if(dataRegion.length > 0){
-          Region = dataRegion.toString().replaceAll(',',"&")+'&';
-          } else {
-            Region = [];
-          }
-        })
-    }
-  })
+//   searchConditions.filter(obj => {
+//     let dataRegion = [];
+//     if(obj.name === 'region') {
+//       obj.value.map(v => {
+//         if(v.isSearching === true) {
+//           dataRegion = [...dataRegion,"region="+v.region]
+//         } if(dataRegion.length > 0){
+//           Region = dataRegion.toString().replaceAll(',',"&")+'&';
+//           } else {
+//             Region = [];
+//           }
+//         })
+//     }
+//   })
 
-  searchConditions.filter(obj => {
-    let dataType = [];
-    if(obj.name === 'type') {
-      obj.value.map(v => {
-        if(v.isSearching === true) {
-          dataType = [...dataType,"type="+v.type]
-        } if(dataType.length > 0){
-          Type = dataType.toString().replaceAll(',',"&")+'&';
-          } else {
-            Type = [];
-          }
-        })
-    }
-  })
+//   searchConditions.filter(obj => {
+//     let dataType = [];
+//     if(obj.name === 'type') {
+//       obj.value.map(v => {
+//         if(v.isSearching === true) {
+//           dataType = [...dataType,"type="+v.type]
+//         } if(dataType.length > 0){
+//           Type = dataType.toString().replaceAll(',',"&")+'&';
+//           } else {
+//             Type = [];
+//           }
+//         })
+//     }
+//   })
 
-  let Multiple = Region+Type
+//   let Multiple = Region+Type
 
 
-  // console.log(Multiple)
+//   // console.log(Multiple)
     
 
-  let results = searchConditions.filter(obj => {
-    if(obj.isSearching === true) return true;
-  })
+//   let results = searchConditions.filter(obj => {
+//     if(obj.isSearching === true) return true;
+//   })
 
-  //from filtered props leave olny ...
-  const resultsFin = results.map(obj =>  {
-      return (
-        obj.name+'='+obj.value
-      )
-  })
+//   //from filtered props leave olny ...
+//   const resultsFin = results.map(obj =>  {
+//       return (
+//         obj.name+'='+obj.value
+//       )
+//   })
 
-  let query = Multiple+resultsFin.toString().replaceAll(',','&')
-  // console.log(query)
+//   let query = Multiple+resultsFin.toString().replaceAll(',','&')
+//   // console.log(query)
 
-  const properties = propertiesWithSites.filter(prop => prop.page === actualSite)
-  let [ActualCountry, setActualCountry] = useState(router.query.country);
+//   const properties = propertiesWithSites.filter(prop => prop.page === actualSite)
+//   let [ActualCountry, setActualCountry] = useState(router.query.country);
 
   // const [counter, setCounter] = useState(0)
 
@@ -362,19 +362,19 @@ export async function getServerSideProps (contex) {
 
 
   const results = await Property.find({
-      country: contex.query.country,
-      region: regiond,
-      distance: {$lte: distanced},
-      type: typed,
-      pool:{$in: pool},
-      seaview:{$in: seaview},
-      parking:{$in: parking},
-      garden:{$in: garden},
-      solarium:{$in: solarium},
-      balcony:{$in: balcony},
-      price: {$gte: pf, $lte: pt},
-      bathrooms: {$gte: bathf, $lte: batht},
-      bedrooms: {$gte: bedf, $lte: bedt},
+      // country: contex.query.country,
+      // region: regiond,
+      // distance: {$lte: distanced},
+      // type: typed,
+      // pool:{$in: pool},
+      // seaview:{$in: seaview},
+      // parking:{$in: parking},
+      // garden:{$in: garden},
+      // solarium:{$in: solarium},
+      // balcony:{$in: balcony},
+      // price: {$gte: pf, $lte: pt},
+      // bathrooms: {$gte: bathf, $lte: batht},
+      // bedrooms: {$gte: bedf, $lte: bedt},
   });
 
   const properties = JSON.parse(JSON.stringify(results))
