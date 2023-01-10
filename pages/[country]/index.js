@@ -184,7 +184,7 @@ export default function Home(
       query
     }, undefined, { scroll: false });
 
-    setCounter(ChangeCounter(1))
+    // setCounter(ChangeCounter(1))
 
 },[query, choosedCountry])
 
