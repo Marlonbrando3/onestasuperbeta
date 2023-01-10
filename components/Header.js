@@ -42,13 +42,11 @@ export default function Header({
            <li >Kontakt</li>
           </ul>
     </div>
-    <Link  href='/'>
-        <Image
+    <Link className="cursor-pointer flex items-center" href='/'>
+        <Image 
             src={Logotype}
-            width={160}
-            objectFit="contain"
+            width={210}
             alt="logo"
-            className="cursor-pointer"
             onClick={() => setSearchShow(false)}
           />
       </Link>

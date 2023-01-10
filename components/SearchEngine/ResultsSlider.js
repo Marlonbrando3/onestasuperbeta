@@ -161,7 +161,6 @@ export default function ResultsSlider({
                         src={img.img}
                         placeholder="blur"
                         blurDataURL='../components/images/Spinner-1s-200px'
-                        layout="fill"
                         alt="Picture of the author"
                         width={1000}
                         height={600}

@@ -15,6 +15,8 @@ export default function SearchButton({}) {
     const {searchShow,setSearchShow} = useContext(AppContext)
     const {searchConditions, setSearchConditions} = useContext(AppContext)
     const {headerAfterFirstView, setHeaderAfterFirstView} = useContext(AppContext)
+    console.log(searchConditions)
+    console.log(headerAfterFirstView)
 
     const handleShowSearch = (e) =>{
 
@@ -36,6 +38,7 @@ export default function SearchButton({}) {
             let data = [];
             DataCountry.map(obj => {
                 if(obj.country === targetvalue){
+
                     obj.region.map(region => {
                         console.log(region)
                             data = [...data, {
@@ -61,20 +64,21 @@ export default function SearchButton({}) {
     listData
 
     const ShowList = () => {
-        list.current.style.height = "200px"
+        list.current.style.height = "180px"
     }
 
 
     return (
             <>
                 <div 
-                    className={searchShow ? 'hidden' : 'md:p-2 lg:p-0 mx-7 transition absolute lg:w-96 top-3/4  md:top-3/4 left-0 right-0 md:left-20 md:right-20 lg:right-6 md:mx-4 lg:top-auto lg:left-auto md:rounded-xl rounded-3xl bg-white z-96 flex flex-col cursor-pointer border-red-400 border-4'}>
+                    className={searchShow ? 'hidden' : '-mt-12 md:mt-auto md:p-2 lg:p-0 mx-7 transition absolute lg:w-96 top-3/4  md:top-3/4 left-0 right-0 md:left-20 md:right-20 lg:right-6 md:mx-4 lg:top-auto lg:left-auto md:rounded-xl rounded-3xl bg-white z-96 flex flex-col cursor-pointer border-red-400 border-4'}>
                     <div ref={list} onClick={ShowList} className="duration-300 transition-all border-solid rounded-3xl text-xl px-4 py-2 lg:py-3 bg-white outline-none overflow-hidden lg:h-14 h-12">
                         <p ref={listClaim} className='rounded-md inline center text-2xl'>Naciśnij aby wybrać kraj</p>
-                        <div ref={listData} className='overflow-hidden mt-3 flex flex-wrap'>
+                        <div ref={listData} className='overflow-hidden mt-3 flex flex-wrap w-full'>
                         {countries.map(obj => (
-                                    <div key={obj} onClick={handleShowSearch} name={obj} className='hover:bg-red-700 hover:text-white text-2xl text-center w-1/2'>
-                                    <Link href={`/${obj}`} path="/[country]">{obj}</Link></div>
+                                <Link href={`/${obj}`} className='hover:bg-red-700 hover:text-white w-1/2 flex justify-center'>
+                                    <div onClick={handleShowSearch} className="text-2xl" name={obj} >{obj}</div>
+                                </Link>
                         ))}
                     </div>
                     </div>

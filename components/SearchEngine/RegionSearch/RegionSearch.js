@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext } from "react"
 import { useRouter } from "next/router"
 import { AppContext } from "../../../pages/_app";
-import DataCountry from '../../../data/DataCountry'
+import DataCountry from '../../../data/DataCountry.json'
 import { NumbersOutlined, OneKPlusOutlined } from "@mui/icons-material";
 import SolarPower from "@mui/icons-material/SolarPower";
 
