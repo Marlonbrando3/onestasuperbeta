@@ -1,7 +1,5 @@
 import '../styles/globals.css'
-import Index from '../pages/index'
 import { useState, useContext, createContext} from 'react'
-import SearchButton from '../components/SearchButton'
 
 export const AppContext = createContext(); 
 

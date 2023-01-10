@@ -1,5 +1,5 @@
 import {useState, useEffect, useContext} from 'react'
-import {useRouter} from 'next/router'
+// import {useRouter} from 'next/router'
 import Head from 'next/head'
 import Header from '../components/Header'
 import HomeView from '../components/HomeView'
@@ -10,7 +10,7 @@ import {AppContext} from '../pages/_app'
 
 export default function FirstView ({}) {
 
-    const router = useRouter();
+    // const router = useRouter();
 
     const [choosedCountry, setChoosedCountry] = useState(
         {
