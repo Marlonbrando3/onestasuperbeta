@@ -1,7 +1,7 @@
 import {useState, useContext, createContext} from "react";
 import { AppContext } from "../../pages/_app";
 import {useRouter} from 'next/router';
-// import SearchComponentsList from "./SearchComponentsList";
+import SearchComponentsList from "./SearchComponentsList";
 import SearchResults from "./SearchResults";
 
 export const SearchEngineContext = createContext();
