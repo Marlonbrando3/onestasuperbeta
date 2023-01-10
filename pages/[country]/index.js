@@ -118,9 +118,6 @@ export default function Home(
   let Multiple = Region+Type
 
 
-  // console.log(Multiple)
-    
-
   let results = searchConditions.filter(obj => {
     if(obj.isSearching === true) return true;
   })
@@ -184,13 +181,11 @@ export default function Home(
       query
     }, undefined, { scroll: false });
 
-    // setCounter(ChangeCounter(1))
-
 },[query, choosedCountry])
 
 
   return (
-    <div className='overflow-x-hidden'>Kolo
+    <div className='overflow-x-hidden'>
       <Head>
         <title>Onesta || Hiszpania</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />

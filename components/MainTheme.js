@@ -7,21 +7,21 @@ export default function MainTheme({searchShow}) {
     const [visible, setVisible] = useState(true);
     let index = 0;
 
-    // useEffect(() => {
-    //     setInterval(() => {
-    //         if(index <= 6) {
-    //             setVisible(true)
-    //             setActualCountry(search[index])
-    //             index = index +1
-    //         } else if(index>6) {
-    //             setVisible(true)
-    //             setActualCountry(search[0])
-    //             index = 1
-    //         }
-    //         setTimeout(() => {
-    //             setVisible(false)}, 1600)
-    //     }, 2000);
-    // },[index])
+    useEffect(() => {
+        setInterval(() => {
+            if(index <= 6) {
+                setVisible(true)
+                setActualCountry(search[index])
+                index = index +1
+            } else if(index>6) {
+                setVisible(true)
+                setActualCountry(search[0])
+                index = 1
+            }
+            setTimeout(() => {
+                setVisible(false)}, 1600)
+        }, 2000);
+    },[index])
 
   return (
     <div className={searchShow ? 'hidden transition duration-500': 'hidden md:block'}>

@@ -80,8 +80,6 @@ export default function SearchEngine({
         const [showProp, setShowProp] = useState(false);
     return (
         <>
-
-        searchEngine
             <div className={showSearchComponentsOnMobile===false ? "z-50 flex flex-col items-start justify-start w-full bg-white" : "h-0 overflow-hidden"}>
                 <div className="flex items-center w-full justify-center nd:py-4 py-2 bg-white">
                     <p className="text-base w-full text-center font-normal">Przeglądasz pośród {properties.length} ogłoszeń</p>
