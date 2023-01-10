@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useContext } from 'react'
-import { CCountry } from '../context/CCountry'
 
 export default function SearchButton({
     actualSite,
@@ -27,25 +26,25 @@ export default function SearchButton({
         })
         
         let targetvalue = e.target.value
-        setSearchConditions(searchConditions.map(param => {
-        if(param.name === 'country'){
-            return{
-                ...param,
-                isSearching: true,
-                value: targetvalue
-            }}
-        if(param.name === 'page'){
-            return{
-                ...param,
-                value: actualSite,
-                isSearching: true,
-            }
-        }
-        else return {...param}
-        }))
+        // setSearchConditions(searchConditions.map(param => {
+        // if(param.name === 'country'){
+        //     return{
+        //         ...param,
+        //         isSearching: true,
+        //         value: targetvalue
+        //     }}
+        // if(param.name === 'page'){
+        //     return{
+        //         ...param,
+        //         value: actualSite,
+        //         isSearching: true,
+        //     }
+        // }
+        // else return {...param}
+        // }))
 
-        setSearchShow(true)
-        setChoosedCountry({...choosedCountry, country:targetvalue})
+        // setSearchShow(true)
+        // setChoosedCountry({...choosedCountry, country:targetvalue})
 
     }
 
