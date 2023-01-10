@@ -1,10 +1,10 @@
 import {useState, useContext, createContext} from "react";
-// import { AppContext } from "../../pages/_app";
-// import {useRouter} from 'next/router';
+import { AppContext } from "../../pages/_app";
+import {useRouter} from 'next/router';
 import SearchComponentsList from "./SearchComponentsList";
 import SearchResults from "./SearchResults";
 
-export const SearchEngineContext = createContext();
+// export const SearchEngineContext = createContext();
 
 export default function SearchEngine({
     ActualCountry,
@@ -85,7 +85,7 @@ export default function SearchEngine({
                     <p className="text-base w-full text-center font-normal">Przeglądasz pośród {properties.length} ogłoszeń</p>
                 </div>
                 <div className="flex items-start justify-center w-full pt-4 bg-gray-400/[0.1]">
-                    <SearchEngineContext.Provider value={{applyBed, setApplyBed, applyBath, setApplyBath, activeTypeList, applyPrice, setApplyPrice, setActiveTypeList, applySea, setApplySea}}>
+                    {/* <SearchEngineContext.Provider value={{applyBed, setApplyBed, applyBath, setApplyBath, activeTypeList, applyPrice, setApplyPrice, setActiveTypeList, applySea, setApplySea}}> */}
                 <SearchComponentsList
                     ActualCountry={ActualCountry}
                     setActualCountry={setActualCountry}
@@ -116,7 +116,7 @@ export default function SearchEngine({
                     sitesArray={sitesArray}
                     sitesArraycounter={sitesArraycounter}
                 />
-                </SearchEngineContext.Provider>
+                {/* </SearchEngineContext.Provider> */}
             </div>
         </div>
     </>
