@@ -1,8 +1,8 @@
 import { useState } from "react";
 // import CitySearch from "./CitySearch/CitySearch";
 // import RegionSearch from "./RegionSearch/RegionSearch";
-// import RegionChoosed from "./RegionSearch/RegionChoosed";
-// import TypeSearch from "./TypeSearch/TypeSearch";
+import RegionChoosed from "./RegionSearch/RegionChoosed";
+import TypeSearch from "./TypeSearch/TypeSearch";
 import TypeChoosed from "./TypeSearch/TypeChoosed"
 import CountrySearchInSearchEngine  from "../CountrySearchInSearchEngine"
 import Offersparameters from "./SearchparametrsCheckbox/Offersparameters"
