@@ -72,17 +72,10 @@ export default function SearchInput({
 
   return (
     <>
-    <div className={searchShow ? 
-    "border-2 border-red-600 bg-white rounded-md px-2 pt-1 ml-4 w-26 mr-4 z-20 block md:hidden absolute top-14 right-0 " : "md:hidden"} onClick={handleShowMobileFilters}>
-          {/* <p className={(searchShow===true && showSearchComponentsOnMobile===true) ? "visible cursor-pointer" : "hidden"}>X</p> */}
-          <p className="visible cursor-pointer">Filtry</p>
-    </div>
     <div className={showSearchComponentsOnMobile ?
-        "transition-all absolute duration-700 top-0 w-screen z-30 bg-white p-1":
+        "transition-all absolute duration-700 top-0 w-screen pt-8 z-30 bg-white p-1":
         "transition-all duration-700 hidden -top-screen flex-col items-center justify-center md:w-2/12 md:flex md:static"}>
-      <div className={searchShow ? 
-    "border-2 border-red-600 bg-white rounded-md px-2 pt-1 ml-4 w-26 mr-2 z-40 block md:hidden fixed top-0 right-0" : "md:hidden"} onClick={handleShowMobileFilters}>
-          {/* <p className={(searchShow===true && showSearchComponentsOnMobile===true) ? "visible cursor-pointer" : "hidden"}>X</p> */}
+      <div className="border-2 border-red-600 bg-white  px-2 pt-1 m-4 w-26 z-40 block md:hidden fixed top-0 right-0" onClick={handleShowMobileFilters}>
           <p className="visible cursor-pointer">X</p>
     </div>
         <form className="flex flex-col m-auto justify-start items-center bg-white rounded-md h-auto p-1 mb-60 lg:w-11/12 w-10/12">

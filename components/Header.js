@@ -9,6 +9,7 @@ import IGIcon from './images/instagram.png'
 import Applychanges from "./SearchEngine/Applychanges";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import MobileFilters from "./MobileFilters";
 
 export default function Header({}) {
   
@@ -22,7 +23,7 @@ export default function Header({}) {
   }
 
   const handleBackToMainPage = () => {
-    // window.localStorage.clear()
+    window.localStorage.clear()
     setSearchShow(false)
   }
 
@@ -30,7 +31,7 @@ export default function Header({}) {
     <>
     <div className='transition-all duration-700 flex w-full h-16 top-0 lg:pl-24 lg:pt-2 lg:pb-2 lg:pr-10 px-4 text-gray-900 bg-white'>
     <div className={MobileMenu ? 
-      "flex items-center justify-center duration-300 bg-white absolute h-screen left-0 top-0 w-full": 
+      "flex items-center z-40 justify-center duration-300 bg-white absolute h-screen left-0 top-0 w-full": 
       "hidden items-center justify-center duration-300 bg-red-400 absolute w-full -left-screen top-0"}>
         <ul className="flex flex-col items-start justify-center mr-6 z-30">
            <li >Strona główna</li>
@@ -64,14 +65,6 @@ export default function Header({}) {
                           <li className='list'>Kontakt</li>
                       </ul>
                       <div className="h-full flex justify-end items-center">
-                        {/* <div 
-                          className={searchShow ? 
-                            "border-2 border-gray-900 rounded-md px-2 pt-1 ml-4 w-26 mr-4 z-50 block md:hidden absolute top-14" : 
-                            "border-2 border-gray-900 rounded-md px-2 ml-4 w-32 mr-4 z-50 invisible md:hidden"}
-                            onClick={handleShowMobileFilters}>
-                              <p className={(searchShow===true && showSearchComponentsOnMobile===true) ? "visible cursor-pointer" : "hidden"}>X</p>
-                              <p className={(searchShow===true && showSearchComponentsOnMobile===false) ? "visible cursor-pointer" : "hidden"}>Filtry</p>
-                        </div> */}
                         {MobileMenu ? <CloseIcon 
                           className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden visible"
                           onClick={handleShowMobileMenu}/> : 
@@ -83,6 +76,7 @@ export default function Header({}) {
 
             </div>
     </div>
+    <MobileFilters />
     </>
   )
 }
