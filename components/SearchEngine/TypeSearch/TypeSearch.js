@@ -70,7 +70,7 @@ export default function TypeSearch({}) {
   return (
     <>
       <div className="InputsStyle w-full">
-        <input onClick={handleShowTypeList} className="InputsProps w-full" autoComplete="off" name="type" placeholder="Typ nieruchomości"></input>
+        <input readonly="readonly" onClick={handleShowTypeList} className="InputsProps w-full" autoComplete="off" name="type" placeholder="Typ nieruchomości"></input>
       </div>
         {activeTypeList && <div className="ListWithChooseContainer">{TypeList.map(type => 
         <li key={type}

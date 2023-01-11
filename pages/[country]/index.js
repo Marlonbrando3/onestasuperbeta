@@ -14,15 +14,14 @@ import { AppContext } from '../_app'
 export const CountryIndexContext = createContext();
 
 export default function Home(
-  {
-    propertiesWork, showSearchComponentsOnMobile, setShowSearchComponentsOnMobile
-  }
+  {propertiesWork}
   ) {
   const router = useRouter();
 
   const {pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, batht, distance, type} = router.query
 
-  const {searchConditions, setSearchConditions} = useContext(AppContext)
+  const {searchConditions, setSearchConditions, searchShow, setSearchShow, showSearchComponentsOnMobile,setShowSearchComponentsOnMobile} = useContext(AppContext)
+  // setSearchShow(true)
 
   //set number of properties per the one site
   const [propertiesOnSite, setPropertiesOnSite] = useState(4);
@@ -140,9 +139,6 @@ export default function Home(
 
   //use Effect for counring down counter with callBack
   useEffect(()=>{
-
-  setTimeout(()=> {
-  
       const StorageInsideData = window.localStorage.getItem(router.asPath.replaceAll('%20',' ').split("?")[1])
       let conditions = [];
       conditions = JSON.parse(StorageInsideData)
@@ -154,7 +150,6 @@ export default function Home(
      } else {
           setSearchConditions(conditions)
         }
-  },0)
 
   },[router])
 
@@ -185,21 +180,16 @@ export default function Home(
 
 
   return (
-    <div className='overflow-x-hidden'>
+    <>
+    <div className={showSearchComponentsOnMobile===false ? 'overflow-x-hidden': 'h-0'}>
       <Head>
         <title>Onesta || Hiszpania</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
       </Head>
-      <div className='fixed w-full h-16 z-50 bg-white'>
-        <Header
-          showSearchComponentsOnMobile={showSearchComponentsOnMobile}
-          setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
-        />
+      <div className='fixed w-full h-16 z-30 bg-white'>
+        <Header/>
         </div>
-      <Applychanges
-          showSearchComponentsOnMobile={showSearchComponentsOnMobile}
-          setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
-      />
+      <Applychanges />
       <MiniHomeView 
         ActualCountry={ActualCountry}
       />
@@ -214,12 +204,11 @@ export default function Home(
         choosedCountry={choosedCountry}
         setChoosedCountry={setChoosedCountry}
         properties={properties}
-        showSearchComponentsOnMobile={showSearchComponentsOnMobile}
-        setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
       />
       <ContactFormMain />
       <Footer />
     </div>
+    </>
   )
 }
 

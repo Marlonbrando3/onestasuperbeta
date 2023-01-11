@@ -144,29 +144,26 @@ export default function ResultsSlider({
 
   return (
     <div className="h-60 md:h-full w-full relative">
-        <div onClick={handleChangeSiteLeft} className="flex items-center z-30 justify-center absolute w-10 h-full left-0 cursor-pointer bg-gray-900/[0.13] hover:bg-sky-900/[0.4] transition duration-450 hover:ease-in-out">
+        <div onClick={handleChangeSiteLeft} className="flex items-center z-10 justify-center absolute w-10 h-full left-0 cursor-pointer bg-gray-900/[0.13] hover:bg-sky-900/[0.4] transition duration-450 hover:ease-in-out">
         <ChevronLeftIcon className="w-full h-full text-white" />
         </div>
-        <div onClick={handleChangeSiteRight} className="flex items-center z-30 justify-center absolute w-10 h-full right-0 cursor-pointer group bg-gray-900/[0.13] hover:bg-sky-900/[0.4] transition duration-450 hover:ease-in-out">
+        <div onClick={handleChangeSiteRight} className="flex items-center z-10 justify-center absolute w-10 h-full right-0 cursor-pointer group bg-gray-900/[0.13] hover:bg-sky-900/[0.4] transition duration-450 hover:ease-in-out">
         <ChevronRightIcon className="w-full h-full text-white"/>
         </div>
         {imagesNew.map((img, index) => 
         {
           if(img.visible === true) {
             return (
-              <div key={index} className='w-full h-full overflow-hidden'>
+              <div key={index} className='overflow-hidden'>
                  <Link href={`/${property.country}/${property.id}&${property.title.replaceAll(' ','-')}`}>
-                    <span className="cursor-pointer">
-                      <Image
+                    <div className="cursor-pointer w-full h-full">
+                      <Image className="object-cover"
                         src={img.img}
-                        placeholder="blur"
-                        blurDataURL='../components/images/Spinner-1s-200px'
                         alt="Picture of the author"
-                        width={1000}
-                        height={600}
+                        fill
                         priority
                       />
-                    </span>
+                    </div>
                 </Link>
                 <div className="absolute text-base text-white bg-gray-900 p-2 bottom-0 right-0">{actualImg+1} / {imagesNew.length}</div>
                 {/* <img key={img.img} className="object-cover h-full md:w-full" src={img.img} /> */}

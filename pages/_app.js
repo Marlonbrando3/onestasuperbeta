@@ -33,11 +33,9 @@ function MyApp({ Component, pageProps }) {
     const [showSearchComponentsOnMobile,setShowSearchComponentsOnMobile] = useState(false)
 
     return(
-        <AppContext.Provider value={{searchShow, setSearchShow, searchConditions, setSearchConditions, headerAfterFirstView, setHeaderAfterFirstView}}>
+        <AppContext.Provider value={{searchShow, setSearchShow, searchConditions, setSearchConditions, headerAfterFirstView, setHeaderAfterFirstView, showSearchComponentsOnMobile,setShowSearchComponentsOnMobile}}>
             <Component
                 {...pageProps}
-                showSearchComponentsOnMobile={showSearchComponentsOnMobile}
-                setShowSearchComponentsOnMobile={setShowSearchComponentsOnMobile}
             />
             </AppContext.Provider>
 

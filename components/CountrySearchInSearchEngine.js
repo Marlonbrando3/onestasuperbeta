@@ -15,12 +15,12 @@ export default function HeaderCountrySearch({
     setActualSite}) {
 
     const router = useRouter();
-    const {searchConditions, setSearchConditions} = useContext(AppContext)
+    const {searchShow, setSearchShow, searchConditions, setSearchConditions} = useContext(AppContext)
 
     const handleChangeCountry = (e) => {
 
         let Country = e.target.value
-        // window.localStorage.clear()
+        window.localStorage.clear()
 
         console.log(Country)
         

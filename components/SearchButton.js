@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Loader from '../components/images/Spinner-1s-200px.gif'
 import DataCountry from '../data/DataCountry.json'
-import { data } from 'autoprefixer'
+// import { data } from 'autoprefixer'
 import { RunningWithErrorsOutlined } from '@mui/icons-material'
 
 

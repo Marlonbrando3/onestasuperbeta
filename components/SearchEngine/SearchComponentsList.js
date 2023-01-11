@@ -17,6 +17,8 @@ import Beds from './Bedrooms/BedSearch'
 import Baths from './Bathrooms/BathSearch';
 import Applychanges from "./Applychanges";
 import Seaview from '@mui/icons-material/Houseboat';
+import { AppContext } from "../../pages/_app";
+import { useContext } from "react";
 
 export default function SearchInput({
   ActualCountry,
@@ -33,8 +35,6 @@ export default function SearchInput({
   setCountryPlaceHolder,
   choosedCountry,
   setChoosedCountry,
-  searchShow,
-  setSearchShow,
   countries,
   setCountries,
   countryInput,
@@ -62,16 +62,30 @@ export default function SearchInput({
   setSearchConditions, 
   apply,
   setApply,
-  showSearchComponentsOnMobile
 }) {
+
+  const {showSearchComponentsOnMobile, setShowSearchComponentsOnMobile, searchShow, setSearchShow} = useContext(AppContext)
+
+  const handleShowMobileFilters = () => {
+    setShowSearchComponentsOnMobile(showSearchComponentsOnMobile => !showSearchComponentsOnMobile)
+  }
 
   return (
     <>
+    <div className={searchShow ? 
+    "border-2 border-red-600 bg-white rounded-md px-2 pt-1 ml-4 w-26 mr-4 z-20 block md:hidden absolute top-14 right-0 " : "md:hidden"} onClick={handleShowMobileFilters}>
+          {/* <p className={(searchShow===true && showSearchComponentsOnMobile===true) ? "visible cursor-pointer" : "hidden"}>X</p> */}
+          <p className="visible cursor-pointer">Filtry</p>
+    </div>
     <div className={showSearchComponentsOnMobile ?
-        "transition-all absolute duration-700 top-10 w-screen z-30 bg-white p-1":
-        "transition-all duration-700 hidden -top-screen flex-col items-center justify-center md:w-2/12 md:flex md:static"}
-    >
-        <form className="flex sticky flex-col m-auto justify-start items-center bg-white rounded-md h-auto p-1 mb-60 lg:w-11/12 w-10/12">
+        "transition-all absolute duration-700 top-0 w-screen z-30 bg-white p-1":
+        "transition-all duration-700 hidden -top-screen flex-col items-center justify-center md:w-2/12 md:flex md:static"}>
+      <div className={searchShow ? 
+    "border-2 border-red-600 bg-white rounded-md px-2 pt-1 ml-4 w-26 mr-2 z-40 block md:hidden fixed top-0 right-0" : "md:hidden"} onClick={handleShowMobileFilters}>
+          {/* <p className={(searchShow===true && showSearchComponentsOnMobile===true) ? "visible cursor-pointer" : "hidden"}>X</p> */}
+          <p className="visible cursor-pointer">X</p>
+    </div>
+        <form className="flex flex-col m-auto justify-start items-center bg-white rounded-md h-auto p-1 mb-60 lg:w-11/12 w-10/12">
         <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
         <p>Kraj</p>
           <div className="InputsStyle m-auto w-full">

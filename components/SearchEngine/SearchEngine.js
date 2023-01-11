@@ -18,12 +18,10 @@ export default function SearchEngine({
     setChoosedTypes,
     sitesArray,
     sitesArraycounter,
-    showSearchComponentsOnMobile,
-    setShowSearchComponentsOnMobile
 }) {
         const router = useRouter();
 
-        const {searchShow,setSearchShow} = useContext(AppContext)
+        const {searchShow,setSearchShow,showSearchComponentsOnMobile,setShowSearchComponentsOnMobile} = useContext(AppContext)
 
         //a./ll countries, regions, Cities
         const[countries, setCountries] = useState([
@@ -80,8 +78,8 @@ export default function SearchEngine({
         const [showProp, setShowProp] = useState(false);
     return (
         <>
-            <div className={showSearchComponentsOnMobile===false ? "z-50 flex flex-col items-start justify-start w-full bg-white" : "h-0 overflow-hidden"}>
-                <div className="flex items-center w-full justify-center nd:py-4 py-2 bg-white">
+            <div className={showSearchComponentsOnMobile===false ? "z-10 flex flex-col items-start justify-start transition w-full bg-white" : "h-full -top-full overflow-hidden"}>
+                <div className="flex items-center w-full justify-center md:py-4 py-2 bg-white">
                     <p className="text-base w-full text-center font-normal">Przeglądasz pośród {properties.length} ogłoszeń</p>
                 </div>
                 <div className="flex items-start justify-center w-full pt-4 bg-gray-400/[0.1]">
