@@ -27,6 +27,8 @@ export default function Header({}) {
     setSearchShow(false)
   }
 
+ 
+
   return (
     <>
     <div className='transition-all duration-700 flex w-full h-16 top-0 lg:pl-24 lg:pt-2 lg:pb-2 lg:pr-10 px-4 text-gray-900 bg-white'>
@@ -34,7 +36,7 @@ export default function Header({}) {
       "flex items-center z-40 justify-center duration-300 bg-white absolute h-screen left-0 top-0 w-full": 
       "hidden items-center justify-center duration-300 bg-red-400 absolute w-full -left-screen top-0"}>
         <ul className="flex flex-col items-start justify-center mr-6 z-30">
-           <li >Strona główna</li>
+        <li ><Link onClick={handleBackToMainPage}href='/'>Strona główna</Link></li>
            <li >Oferta</li>
            <li >Jak kupić</li>
            <li ><Link href='/aboutus'>O Nas</Link></li>
@@ -53,9 +55,7 @@ export default function Header({}) {
             <div className=""></div>
                 <div className="h-full justify-end lg:flex items-center">
                       <ul className="lg:flex mr-6 hidden">
-                      <li className='list'>
-                            <Link href='/'>Strona główna</Link>
-                          </li>
+                      <li ><Link  className='list' onClick={handleBackToMainPage} href='/'>Strona główna</Link></li>
                           <li className='list'>
                             <Link href='/aboutus'>O Nas</Link>
                           </li>

@@ -2,6 +2,8 @@ import { useEffect,useState, useContext, useRef } from "react"
 import CloseIcon from '@mui/icons-material/Close';
 import { AppContext } from "../../../pages/_app"
 import { SearchEngineContext } from '../SearchEngine'
+import { SearchComponentsContext } from "../SearchComponentsList";
+
 
 export default function Searange({}
 ) {
@@ -12,6 +14,7 @@ export default function Searange({}
 
   const {searchConditions, setSearchConditions} = useContext(AppContext)
   const {applySea, setApplySea} = useContext(SearchEngineContext)
+  const {ShowChangedAreApply} = useContext(SearchComponentsContext)
 
   let distanceActual = [];
 
@@ -30,6 +33,8 @@ export default function Searange({}
   }
 
   const hideAppyButton = (e) => {
+
+    ShowChangedAreApply()
 
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'distance'){

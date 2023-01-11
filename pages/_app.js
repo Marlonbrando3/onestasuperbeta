@@ -6,6 +6,7 @@ export const AppContext = createContext();
 function MyApp({ Component, pageProps }) {
 
     const [searchShow,setSearchShow] = useState(false)
+    const [aprove, setAprove] = useState(false);
     const [headerAfterFirstView, setHeaderAfterFirstView] = useState(false)
     const [searchConditions, setSearchConditions] = useState([
         {id: 1, name: 'region', value:[]},
@@ -33,7 +34,7 @@ function MyApp({ Component, pageProps }) {
     const [showSearchComponentsOnMobile,setShowSearchComponentsOnMobile] = useState(false)
 
     return(
-        <AppContext.Provider value={{searchShow, setSearchShow, searchConditions, setSearchConditions, headerAfterFirstView, setHeaderAfterFirstView, showSearchComponentsOnMobile,setShowSearchComponentsOnMobile}}>
+        <AppContext.Provider value={{aprove, setAprove, searchShow, setSearchShow, searchConditions, setSearchConditions, headerAfterFirstView, setHeaderAfterFirstView, showSearchComponentsOnMobile,setShowSearchComponentsOnMobile}}>
             <Component
                 {...pageProps}
             />

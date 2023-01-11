@@ -3,11 +3,13 @@ import { useState, useContext, useRef } from "react"
 import CloseIcon from '@mui/icons-material/Close';
 import { SearchEngineContext } from '../SearchEngine'
 import { AppContext } from "../../../pages/_app"
+import { SearchComponentsContext } from "../SearchComponentsList";
 
 export default function Bedrooms({
 }) {
   const {searchConditions, setSearchConditions} = useContext(AppContext)
   const {applyBed, setApplyBed} = useContext(SearchEngineContext)
+  const {ShowChangedAreApply} = useContext(SearchComponentsContext)
 
   const BedFromRef = useRef();
   const BedToRef = useRef();
@@ -69,6 +71,7 @@ export default function Bedrooms({
   //hide apply button after click and change value 'from' and 'to' in searchConditions
   const hideAppyButton = (e) => {
     setApplyBed(false)
+    ShowChangedAreApply()
 
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'bedt'){

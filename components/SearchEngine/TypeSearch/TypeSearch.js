@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { AppContext } from "../../../pages/_app";
 import { SearchEngineContext } from '../SearchEngine'
+import { SearchComponentsContext } from "../SearchComponentsList";
 
 export default function TypeSearch({}) {
 
   const {searchConditions, setSearchConditions} = useContext(AppContext)
   const {activeTypeList, setActiveTypeList} = useContext(SearchEngineContext)
+  const {ShowChangedAreApply} = useContext(SearchComponentsContext)
 
   let TypeList = [];
   searchConditions.map(obj => {
@@ -33,6 +35,7 @@ export default function TypeSearch({}) {
 
     //hide list of types
     setActiveTypeList(activeTypeList => !activeTypeList)
+    ShowChangedAreApply()
 
     //get value of cliked option
     const Type = e.target.getAttribute ('name')

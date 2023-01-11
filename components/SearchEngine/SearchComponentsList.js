@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, createContext } from "react";
 // import CitySearch from "./CitySearch/CitySearch";
 import RegionSearch from "./RegionSearch/RegionSearch";
 import RegionChoosed from "./RegionSearch/RegionChoosed";
@@ -19,6 +19,9 @@ import Applychanges from "./Applychanges";
 import Seaview from '@mui/icons-material/Houseboat';
 import { AppContext } from "../../pages/_app";
 import { useContext } from "react";
+import { useEffect } from "react";
+
+export const SearchComponentsContext = createContext();
 
 export default function SearchInput({
   ActualCountry,
@@ -64,24 +67,37 @@ export default function SearchInput({
   setApply,
 }) {
 
-  const {showSearchComponentsOnMobile, setShowSearchComponentsOnMobile, searchShow, setSearchShow} = useContext(AppContext)
+  const {aprove, setAprove, showSearchComponentsOnMobile, setShowSearchComponentsOnMobile, searchShow, setSearchShow} = useContext(AppContext)
 
   const handleShowMobileFilters = () => {
     setShowSearchComponentsOnMobile(showSearchComponentsOnMobile => !showSearchComponentsOnMobile)
   }
 
+  const ShowPopUpChangedApply = useRef();
+
+  const ShowChangedAreApply = () => {
+    console.log("działa")
+    ShowPopUpChangedApply.current.style.display = "block"
+    setTimeout(() => {
+
+    ShowPopUpChangedApply.current.style.display = "none"
+    },1500)
+  };
+
   return (
     <>
+    <div ref={ShowPopUpChangedApply} className="bg-green-700 transition fixed z-40 bottom-10 right-2 text-white px-3 rounded-sm hidden">Zmiany wprowdzone!</div>
     <div className={showSearchComponentsOnMobile ?
-        "transition-all absolute duration-700 top-0 w-screen pt-8 z-30 bg-white p-1":
-        "overflo-hidden transition-all duration-700 hidden -top-screen flex-col items-center justify-center md:w-2/12 md:flex md:static"}>
+        "transition-all absolute duration-700 top-0 w-screen pt-8 z-30 bg-white p-1 md:h-auto h-[1050px]":
+        "transition-all duration-700 absolute disable hidden -top-screen flex-col items-center justify-center md:w-2/12 md:flex md:static"}>
       <div className="border-2 border-red-600 bg-white  px-2 pt-1 m-4 w-26 z-40 block md:hidden fixed top-0 right-0" onClick={handleShowMobileFilters}>
           <p className="visible cursor-pointer">X</p>
     </div>
         <form className="flex flex-col m-auto justify-start items-center bg-white rounded-md h-auto p-1 mb-60 lg:w-11/12 w-10/12">
-        <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
-        <p>Kraj</p>
-          <div className="InputsStyle m-auto w-full">
+        <SearchComponentsContext.Provider value={{ShowChangedAreApply}}>
+          <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
+            <p>Kraj</p>
+            <div className="InputsStyle m-auto w-full">
             <CountrySearchInSearchEngine
               ActualCountry={ActualCountry}
               setActualCountry={setActualCountry}
@@ -271,11 +287,12 @@ export default function SearchInput({
                 title={"Solarium"}
                 />
               <Offersparameters 
-                name="balcony"x
+                name="balcony"
                 IconName={<Balcony className="IconsByChoosing"/>}
                 title={"Balkon"}
               />
             </div>
+            </SearchComponentsContext.Provider>
           </form>
     </div>
     </>

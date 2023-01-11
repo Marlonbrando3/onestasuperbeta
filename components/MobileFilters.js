@@ -14,16 +14,17 @@ export default function MobileFilters() {
         setShowSearchComponentsOnMobile(showSearchComponentsOnMobile => !showSearchComponentsOnMobile)
       }
       let filters;
-      if(router.asPath === "/"){
+      if(router.asPath.includes("page")){
         filters = 1
       } else {
           filters = 0;
       }
 
+      console.log(router.asPath)
+
     
   return (
-        <div className={filters===0 ? "bg-white rounded-md px-2 pt-1 ml-4 w-26 mr-4 z-0 md:hidden fixed top-14 right-0 visible": "hidden"} onClick={handleShowMobileFilters}>
-              {/* <p className={(searchShow===true && showSearchComponentsOnMobile===true) ? "visible cursor-pointer" : "hidden"}>X</p> */}
+        <div className={filters===1 ? "bg-white rounded-md px-2 pt-1 ml-4 w-26 mr-4 z-0 md:hidden fixed top-14 right-0 visible": "hidden"} onClick={handleShowMobileFilters}>
               <p className="visible cursor-pointer">Filtry</p>
         </div>
   )

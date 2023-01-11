@@ -3,11 +3,13 @@ import { useState, useContext, useRef } from "react"
 import CloseIcon from '@mui/icons-material/Close';
 import { SearchEngineContext } from '../SearchEngine'
 import { AppContext } from "../../../pages/_app"
+import { SearchComponentsContext } from "../SearchComponentsList";
 
 export default function PriceSearch({}) {
 
   const {searchConditions, setSearchConditions} = useContext(AppContext)
   const {applyPrice, setApplyPrice} = useContext(SearchEngineContext)
+  const {ShowChangedAreApply} = useContext(SearchComponentsContext)
 
   const PriceFromRef = useRef();
   const PriceToRef = useRef();
@@ -69,6 +71,7 @@ export default function PriceSearch({}) {
   //hide apply button after click and change value 'from' and 'to' in searchConditions
   const hideAppyButton = (e) => {
     setApplyPrice(false)
+    ShowChangedAreApply()
 
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'pt'){

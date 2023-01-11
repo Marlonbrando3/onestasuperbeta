@@ -3,12 +3,14 @@ import { useState, useContext, useRef } from "react"
 import CloseIcon from '@mui/icons-material/Close';
 import { SearchEngineContext } from '../SearchEngine'
 import { AppContext } from "../../../pages/_app"
+import { SearchComponentsContext } from "../SearchComponentsList";
 
 export default function Bathrooms({}
 ) {
 
   const {searchConditions, setSearchConditions} = useContext(AppContext)
   const {applyBath, setApplyBath} = useContext(SearchEngineContext)
+  const {ShowChangedAreApply} = useContext(SearchComponentsContext)
 
   const BathFromRef = useRef();
   const BathToRef = useRef();
@@ -68,6 +70,7 @@ export default function Bathrooms({}
 
   const hideAppyButton = (e) => {
     setApplyBath(false)
+    ShowChangedAreApply()
 
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'batht'){

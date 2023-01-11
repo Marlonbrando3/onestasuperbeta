@@ -2,6 +2,7 @@
 import { useState, useEffect, useContext } from "react"
 import { useRouter } from "next/router"
 import { AppContext } from "../../../pages/_app";
+import { SearchComponentsContext } from "../SearchComponentsList";
 import DataCountry from '../../../data/DataCountry.json'
 import { NumbersOutlined, OneKPlusOutlined } from "@mui/icons-material";
 import SolarPower from "@mui/icons-material/SolarPower";
@@ -12,7 +13,8 @@ export default function CountrySearch({
 }) {
 
   const router = useRouter();
-  const {searchConditions, setSearchConditions} = useContext(AppContext)
+  const {aprove, setAprove, searchConditions, setSearchConditions} = useContext(AppContext)
+  const {ShowChangedAreApply} = useContext(SearchComponentsContext)
 
   let RegionsList = [];
   searchConditions.map(obj => {
@@ -30,35 +32,17 @@ export default function CountrySearch({
   }
   )
 
-  // console.log(RegionsList)
-
 
   const handleShowCountryList = () => {
 
     setActiveRegionList(activeRegionList => !activeRegionList)
     }
-    // DataCountry.map (obj =>{
-    //   if(obj.country === router.query.country){
-    //     ActualRegionList = ActualRegionList.filter(obj => (obj !== Region))
-    //   }
-    // })
 
   const handleChooseThisRegion = (e) => {
 
     let Region = e.target.getAttribute ('name')
+    ShowChangedAreApply()
     setActiveRegionList(activeRegionList => !activeRegionList)
-
-    // if(choosedCountry.length >= 0){
-    //   setCountryPlaceHolder("")
-    // }
-
-    // setChoosedRegion(current => [...current, Region])
-    // setChoosedCountry(region => {
-    //   return{
-    //     ...region,
-    //     region: Region,
-    //   }
-    // })
 
     setSearchConditions(searchConditions.map(obj => {
       if(obj.name === 'region') { 
@@ -78,16 +62,6 @@ export default function CountrySearch({
       }
       ))
     
-    // setCountries(countries.map(country => {
-    //   if(country.name === Region){
-    //   return {
-    //     ...country, 
-    //     added: true,
-    //     OnList: false,
-    //     regionList: false
-    //   }
-    // } else return {...country}
-    // }))
   }
 
 

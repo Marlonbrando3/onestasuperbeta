@@ -5,6 +5,7 @@ import Pool from '@mui/icons-material/Pool';
 import Seaview from '@mui/icons-material/Houseboat';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react'
+import { SearchComponentsContext } from "../SearchComponentsList";
 
 export default function Offersparameters({
   title, 
@@ -12,6 +13,7 @@ export default function Offersparameters({
   IconName}) {
 
     const {searchConditions, setSearchConditions} = useContext(AppContext)
+    const {ShowChangedAreApply} = useContext(SearchComponentsContext)
     
   let ActualValue; 
 
@@ -21,6 +23,7 @@ export default function Offersparameters({
   const handleSelectParameter = (e) => {
 
     let targetname = e.target.name
+    ShowChangedAreApply()
 
     setSearchConditions(searchConditions.map(param => {
       if(param.name === targetname && param.isSearching === false){

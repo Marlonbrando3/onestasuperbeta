@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 import PropertyCard from "./PropertyCard";
 import ChangeSite from "./ChangeSite";
-import Applychanges from "./Applychanges";
 
 
 export default function SearchResults({
