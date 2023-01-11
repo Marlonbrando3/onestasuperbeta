@@ -20,12 +20,9 @@ export default function MobileFilters() {
           filters = 0;
       }
 
-      console.log(router.asPath)
-
-    
   return (
-        <div className={filters===1 ? "bg-white rounded-md px-2 pt-1 ml-4 w-26 mr-4 z-0 md:hidden fixed top-14 right-0 visible": "hidden"} onClick={handleShowMobileFilters}>
-              <p className="visible cursor-pointer">Filtry</p>
+        <div className={filters===1 ? "bg-white rounded-md px-2 py-1 ml-4 w-28 mr-4 z-0 md:hidden fixed top-14 right-0 visible": "hidden"} onClick={handleShowMobileFilters}>
+              <p className="visible cursor-pointer text-xl flex justify-center font-bold">Filtry</p>
         </div>
   )
 }
