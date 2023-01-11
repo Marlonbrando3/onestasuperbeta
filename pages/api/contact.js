@@ -1,10 +1,9 @@
 export default function (req, res) {
-      console.log('jestem w API')
     require('dotenv').config()
     let nodemailer = require('nodemailer')
 
-    const endEmail = process.env.END_MAIL;
-    const fromEmail = process.env.FROM_MAIL;
+    const endEmail = process.env.END_EMAIL;
+    const fromEmail = process.env.FROM_EMAIL;
     const pass = process.env.EMAIL_PASS
     
     const transporter = nodemailer.createTransport({
