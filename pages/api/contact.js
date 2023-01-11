@@ -2,14 +2,15 @@ export default function (req, res) {
     require('dotenv').config()
     let nodemailer = require('nodemailer')
 
-    const endEmail = process.env.END_EMAIL;
+    const endEmail = "biuro@onesta.com.pl";
     const fromEmail = process.env.FROM_EMAIL;
     const pass = process.env.EMAIL_PASS
-    
+
     const transporter = nodemailer.createTransport({
       port: 465,
       host: "mail-serwer141299.lh.pl",
       secure: true,
+      // requireTLS: true,
       tls: {
         ciphers: "SSLv3",
       },
@@ -18,6 +19,10 @@ export default function (req, res) {
         user: fromEmail,
         pass: pass,
       },   
+      // dkim: {
+      //   domainName: 'onesta.com.pl',
+      //   keySelector: 'www@onesta.com.pl',
+      // }
     })
 
     const mailData = {
