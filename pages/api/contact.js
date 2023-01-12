@@ -10,7 +10,6 @@ export default function (req, res) {
       port: 465,
       host: "mail-serwer141299.lh.pl",
       secure: true,
-      // requireTLS: true,
       tls: {
         ciphers: "SSLv3",
       },
@@ -19,10 +18,6 @@ export default function (req, res) {
         user: fromEmail,
         pass: pass,
       },   
-      // dkim: {
-      //   domainName: 'onesta.com.pl',
-      //   keySelector: 'www@onesta.com.pl',
-      // }
     })
 
     const mailData = {

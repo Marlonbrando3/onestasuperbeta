@@ -9,9 +9,7 @@ export default function Searange({}
 ) {
   const RangeRef = useRef();
   const RangeRefVis = useRef();
-
   const [current, setValue] = useState(2000);
-
   const {searchConditions, setSearchConditions} = useContext(AppContext)
   const {applySea, setApplySea} = useContext(SearchEngineContext)
   const {ShowChangedAreApply} = useContext(SearchComponentsContext)

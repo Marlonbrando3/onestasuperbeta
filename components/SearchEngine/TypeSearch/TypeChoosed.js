@@ -17,7 +17,6 @@ export default function TypeChoosed({}) {
       obj.value.map(v => {
           if(v.isSearching === true) {
             types = [...types, v.type]
-            // console.log(regions)
           } TypeList = types; 
       }
       )

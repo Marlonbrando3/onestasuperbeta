@@ -157,9 +157,6 @@ export default function Home(
 
     //generate query from searchConditions
     query = Multiple+resultsFin.toString().replaceAll(',','&')
-    // console.log(query)
-    // console.log(window.localStorage.key(0))
-    // console.log(window.localStorage.key(1))
 
     if(window.localStorage.key(0) === null){
       window.localStorage.setItem(query, JSON.stringify(searchConditions))
@@ -182,10 +179,11 @@ export default function Home(
   return (
     <>
     <div className={showSearchComponentsOnMobile===false ? 'overflow-x-hidden': 'h-0'}>
-      <Head>
-        <title>Onesta || Hiszpania</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
-      </Head>
+        <Head>
+            <title>Onesta Group</title>
+            <link rel="shortcut icon" href="/logotype.png" />
+            <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
+        </Head>
       <div className='fixed w-full h-16 z-30 bg-white'>
         <Header/>
         </div>

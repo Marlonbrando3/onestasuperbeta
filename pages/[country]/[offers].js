@@ -125,6 +125,7 @@ export default function Property(
     <>
          <Head>
             <title>Onesta Group</title>
+            <link rel="shortcut icon" href="/logotype.png" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
             <link rel="preconnect" href="https://fonts.googleapis.com"></link>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>

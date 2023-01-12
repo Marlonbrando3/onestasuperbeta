@@ -1,5 +1,4 @@
 import {useState, useEffect, useContext} from 'react'
-// import {useRouter} from 'next/router'
 import Head from 'next/head'
 import Header from '../components/Header'
 import HomeView from '../components/HomeView'
@@ -36,13 +35,12 @@ export default function FirstView ({}) {
 
     const {searchShow,setSearchShow} = useContext(AppContext)
     const {headerAfterFirstView, setHeaderAfterFirstView} = useContext(AppContext)
-    // setSearchShow(false)
-    // setHeaderAfterFirstView(false)
 
     return(
         <div className='main-index'>
         <Head>
             <title>Onesta Group</title>
+            <link rel="shortcut icon" href="/logotype.png" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
         </Head>
         <div className={searchShow ? 'hidden': 'w-full md:h-16 fixed top-0 md:bg-gray-800/[0.4] z-10 bg-white shadow-xl'}>
