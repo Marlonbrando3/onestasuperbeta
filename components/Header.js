@@ -66,10 +66,10 @@ export default function Header({}) {
                       </ul>
                       <div className="h-full flex justify-end items-center">
                         {MobileMenu ? <CloseIcon 
-                          className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden visible"
+                          className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 md:hidden visible"
                           onClick={handleShowMobileMenu}/> : 
                           <MenuIcon 
-                          className="transition-all duration-700 cursor-pointer z-50 w-10 h-10 lg:hidden block"
+                          className="transition-all duration-700 cursor-pointer z-50 w-10 h-10 md:hidden block"
                           onClick={handleShowMobileMenu}/>}
                       </div>
                 </div>
