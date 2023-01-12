@@ -24,7 +24,7 @@ export default function Property(
   ) {
 
   const router = useRouter();
-  let propertyDescription = (property.description)
+  let propertyDescription = (property[0].description)
   let propertyId = (property[0].id)
 
   const [actualImage, setActualImage] = useState(1);
