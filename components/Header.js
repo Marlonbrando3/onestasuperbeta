@@ -65,10 +65,12 @@ export default function Header({}) {
                           <li className='list'>Kontakt</li>
                       </ul>
                       <div className="h-full flex justify-end items-center lg:hidden">
-                          <CloseIcon className={MobileMenu && "transition-all duration-700 cursor-pointer z-50 w-10 h-10 lg:hidden block"}
-                           onClick={handleShowMobileMenu}/> 
-                          <MenuIcon className={MobileMenu ? "transition-all duration-700 cursor-pointer z-50 w-10 h-10 hidden" : "block lg:hidden"}
-                            onClick={handleShowMobileMenu}/>
+                        {MobileMenu ? <CloseIcon 
+                          className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden visible"
+                          onClick={handleShowMobileMenu}/> : 
+                          <MenuIcon 
+                          className="transition-all duration-700 cursor-pointer z-50 w-10 h-10 lg:hidden block"
+                          onClick={handleShowMobileMenu}/>}
                       </div>
                 </div>
 
