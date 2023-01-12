@@ -107,7 +107,7 @@ export default function Bedrooms({
 
   const resetFilters = () => {
 
-    // setActualBeds(false)
+    ShowChangedAreApply()
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'bedt'){
           return{

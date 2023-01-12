@@ -2,14 +2,14 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AppContext } from '../../../pages/_app';
-import { CountryIndexContext } from '../../../pages/[country]/index'
+import { SearchComponentsContext } from "../SearchComponentsList";
 import { useRouter } from 'next/router';
 
 export default function RegionChoosed({}) {
 
   const router = useRouter();
 
-  // const {choosedRegion, setChoosedRegion} = useContext(CountryIndexContext)
+  const {ShowChangedAreApply} = useContext(SearchComponentsContext)
   const {searchConditions, setSearchConditions} = useContext(AppContext)
 
   let RegionsList = [];
@@ -32,17 +32,7 @@ export default function RegionChoosed({}) {
     
     let Region = e.target.getAttribute('name')
 
-    // setCountries(countries.map(region => {
-    //   if((region.name === Region) && (region.OnList !== "deactive")){
-    //   return {
-    //     ...region, 
-    //     added: false,
-    //     OnList: true,
-    //     regionList:true
-    //   }
-    // } else return {...region}
-    // }))
-
+    ShowChangedAreApply()
     setSearchConditions(searchConditions.map(obj => {
       if(obj.name === 'region') { 
             return {

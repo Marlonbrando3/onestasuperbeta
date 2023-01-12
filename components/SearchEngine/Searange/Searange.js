@@ -50,7 +50,7 @@ export default function Searange({}
 
   const resetFilters = () => {
 
-    // setActualBeds(false)
+    ShowChangedAreApply()
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'distance'){
           return{
@@ -67,11 +67,11 @@ export default function Searange({}
     <>
         {applySea && <div onClick={hideAppyButton} className="applyButton">Zatwierdź</div>}
         {distanceActual.map(obj => (
-        <div key={obj} onClick={resetFilters} className="choosed-multiple-option-beds">Dystans: {obj} m <CloseIcon className="close-icon" /></div>
+        <div key={obj} onClick={resetFilters} className="choosed-multiple-option-beds">Dystans: {obj} m / {obj/1000} km <CloseIcon className="close-icon" /></div>
       )) }
       <div className="InputsStyle flex-col items-end">
         <input ref={RangeRef} type="range" onChange={handleChangeMax} start="2000" step="100" max="10000" className="InputsProp appearance-none outline-none rounded-md bg-red-500 h-1 w-full my-2 cursor-pointer" autoComplete="off" name="" placeholder="Do"></input>
-        <div ref={RangeRefVis} className=" w-full h-10 border rounded-md border-gray-900/[0.5] p-1 mt-1">{current} km</div>
+        <div ref={RangeRefVis} className=" w-full h-10 border rounded-md border-gray-900/[0.5] p-1 mt-1">{current} m / {current/1000} km </div>
       </div> 
     </>
   )

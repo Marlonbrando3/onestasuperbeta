@@ -2,10 +2,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useContext } from 'react';
 import { AppContext } from '../../../pages/_app';
 import { useState } from 'react';
+import { SearchComponentsContext } from "../SearchComponentsList";
 
 export default function TypeChoosed({}) {
 
   const {searchConditions, setSearchConditions} = useContext(AppContext)
+  const {ShowChangedAreApply} = useContext(SearchComponentsContext)
 
   let TypeList = [];
   searchConditions.map(obj => {
@@ -26,7 +28,7 @@ export default function TypeChoosed({}) {
   const handleDeleteTypeFromList = (e) => {
 
     let Type = e.target.getAttribute('name')
-
+    ShowChangedAreApply()
     setSearchConditions(searchConditions.map(obj => {
       if(obj.name === 'type') { 
             return {

@@ -81,12 +81,12 @@ export default function SearchInput({
     setTimeout(() => {
 
     ShowPopUpChangedApply.current.style.display = "none"
-    },1500)
+    },1000)
   };
 
   return (
     <>
-    <div ref={ShowPopUpChangedApply} className="bg-green-700 transition fixed z-40 bottom-10 right-2 text-white px-3 rounded-sm hidden">Zmiany wprowdzone!</div>
+    <div ref={ShowPopUpChangedApply} className="bg-green-700 transition fixed z-40 bottom-2 right-2 text-white px-3 rounded-md hidden">Zmiany wprowdzone!</div>
     <div className={showSearchComponentsOnMobile ?
         "transition-all absolute duration-700 top-0 w-screen pt-8 z-30 bg-white p-1 md:h-auto h-[1050px]":
         "transition-all duration-700 absolute disable hidden -top-screen flex-col items-center justify-center md:w-2/12 md:flex md:static"}>

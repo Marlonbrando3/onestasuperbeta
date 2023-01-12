@@ -107,7 +107,7 @@ export default function PriceSearch({}) {
 
   const resetFilters = () => {
 
-    // setActualBeds(false)
+    ShowChangedAreApply()
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'pt'){
           return{

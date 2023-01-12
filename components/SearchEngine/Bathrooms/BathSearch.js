@@ -107,7 +107,7 @@ export default function Bathrooms({}
 
   const resetFilters = () => {
 
-    // setActualB(false)
+    ShowChangedAreApply()
     setSearchConditions(searchConditions.map(param => {
       if(param.name === 'batht'){
           return{
