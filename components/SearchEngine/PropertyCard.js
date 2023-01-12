@@ -33,10 +33,13 @@ export default function PropertyCard({
     const router = useRouter();
     // const propertyNew = useContext(PropertyContext)
 
-    const PriceOneE = price.toString();
-    const PriceOne = PriceOneE.slice(0,3)
-    const PriceTwoE = price.toString();
-    const PriceTwo = PriceTwoE.slice(3,6);
+
+    const PriceLength = price.toString().length
+    let Milions = PriceLength - 6
+    console.log(PriceLength-3)
+    const RestOfThePrice =  price.toString().slice(0,PriceLength - 6);
+    const PriceOneE = price.toString().slice(Milions,Milions+3)
+    const PriceTwoE = price.toString().slice(Milions+3,Milions+6);
 
     const[copiedShowed,setCopiedShowed] = useState(false)
 
@@ -115,7 +118,7 @@ export default function PropertyCard({
             </div>
           </div>
           <div className='bg-blue-700 lg:h-16 md:h-10 h-12 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
-            <span className="ml-1 text-white md:text-2xl sm:text-xl text-2xl lg:text-3xl ">od {PriceOne} {PriceTwo} €</span>
+            <span className="ml-1 text-white md:text-2xl sm:text-xl text-2xl lg:text-3xl ">od {RestOfThePrice} {PriceOneE} {PriceTwoE} €</span>
           </div>
           </div>
           </Link>
