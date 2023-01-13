@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 html{
-  font-family: 'Lexend', sans-serif !important;
-  font-size: 200;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
   padding:0;
   margin:0;
   box-sizing: border-box;
@@ -314,8 +314,8 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent'; */
   }
 
   .list{
-    @apply text-gray-900 pl-4 pr-4 list-none cursor-pointer 
-    hover:border-b z-50
+    @apply text-gray-900 ml-4 text-base uppercase p-2 list-none cursor-pointer transition
+    hover:bg-red-700 hover:text-white
 
   }
 
@@ -330,5 +330,8 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent'; */
   .topheaderel{
     @apply w-44 border-l-2 border-l-gray-100 pl-4 pr-4 flex justify-center items-center text-white 
  
+  }
+  .iconscosialheader{
+    @apply mx-1 w-4 h-4 text-gray-800/[0.5] transition cursor-pointer hover:text-red-700
   }
 }

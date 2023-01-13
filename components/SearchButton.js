@@ -73,11 +73,11 @@ export default function SearchButton({}) {
                 <div 
                     className={searchShow ? 'hidden' : '-mt-12 md:mt-auto md:p-2 lg:p-0 mx-7 transition absolute lg:w-96 top-3/4  md:top-3/4 left-0 right-0 md:left-20 md:right-20 lg:right-6 md:mx-4 lg:top-auto lg:left-auto md:rounded-xl rounded-3xl bg-white z-96 flex flex-col cursor-pointer border-red-400 border-4'}>
                     <div ref={list} onClick={ShowList} className="duration-300 transition-all border-solid rounded-3xl text-xl px-4 py-2 lg:py-3 bg-white outline-none overflow-hidden lg:h-14 h-12">
-                        <p ref={listClaim} className='rounded-md inline center text-2xl'>Naciśnij aby wybrać kraj</p>
+                        <p ref={listClaim} className='rounded-md inline center text-xl pl-2 md:text-2xl'>Naciśnij aby wybrać kraj</p>
                         <div ref={listData} className='overflow-hidden mt-3 flex flex-wrap w-full'>
                         {countries.map(obj => (
-                                <Link key={obj} href={`/${obj}`} className='hover:bg-red-700 hover:text-white w-1/2 flex justify-center'>
-                                    <div key={obj} onClick={handleShowSearch} className="text-2xl" name={obj} >{obj}</div>
+                                <Link key={obj} href={`/${obj}`} className='hover:bg-red-700 hover:text-white lg:w-40 w-[135px] flex justify-center border m-[1px]'>
+                                    <div key={obj} onClick={handleShowSearch} className="text-2xl" name={obj}>{obj}</div>
                                 </Link>
                         ))}
                     </div>
