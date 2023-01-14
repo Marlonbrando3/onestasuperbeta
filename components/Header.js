@@ -66,9 +66,11 @@ export default function Header({}) {
       </Link>
             <div className="flex flex-col flex-1 h-full">
             <div className="w-full h-1/3 flex justify-end items-center">
+            <a href="tel:+48669752525">
               <div className="mx-5 font-bold text-xs bg-red-700 lg:px-2 px-1 py-1 text-white rounded-md md:flex items-center cursor-pointer md:w-40 w-8 h-8 lg:static absolute top-2 right-10 ">
                 <PhoneIcon className="lg:w-7 lg:h-3 lg:pr-2 text-white px-auto"/>
-                <a href="tel:+48669752525" className="hidden md:block">+48 669 75 25 25</a></div>
+                <p className="hidden md:block">+48 669 75 25 25</p></div>
+            </a>
               <div className="lg:static absolute top-14 left-0 bg-white ">
                 <a href="https://www.facebook.com/profile.php?id=100071864003899"><FacebookIcon className="iconscosialheader" /></a>
                 <InstagramIcon className="iconscosialheader"/>
