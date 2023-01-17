@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-export default function login() {
+export default function Login() {
 
   const login = useRef();
   const pass = useRef();

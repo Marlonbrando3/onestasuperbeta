@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-export default function singin() {
+export default function Singin() {
 
     
   const name = useRef();
