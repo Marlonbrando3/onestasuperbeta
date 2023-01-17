@@ -153,6 +153,7 @@ export default function ResultsSlider({
         {imagesNew.map((img, index) => 
         {
           if(img.visible === true) {
+            console.log(img.img)
             return (
               <div key={index} className='overflow-hidden'>
                  <Link href={`/${property.country}/${property.id}&${property.title.replaceAll(' ','-')}`}>
