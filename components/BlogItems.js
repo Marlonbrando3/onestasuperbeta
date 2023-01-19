@@ -7,7 +7,7 @@ export default function BlogItems() {
   return (
     <div className='flex justify-evenly flex-wrap w-10/12 mx-auto'>
         {Blog.map(obj => (
-            <div className='w-1/3 py-6'>
+            <div key={obj} className='w-1/3 py-6'>
                 <div className='w-10/12 mx-auto bg-gray-100/[0.2]'>
                     <Image className='h-52 object-cover'
                         src={obj.link}
