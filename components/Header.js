@@ -54,7 +54,7 @@ export default function Header({}) {
            <li >Jak kupić</li>
            <li ><Link href='/aboutus'>O Nas</Link></li>
            <li ><Link onClick={handleBackToMainPage}href='/blog'>Blog</Link></li>
-           <li ><Link href='/aboutus'>ABC Inwestora</Link></li>
+           <li ><Link href='/abc'>ABC Inwestora</Link></li>
            <li >Kontakt</li>
           </ul>
     </div>
