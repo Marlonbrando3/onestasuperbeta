@@ -174,6 +174,8 @@ export default function Home(
 
 },[query, choosedCountry])
 
+console.log(pool)
+
 
   return (
     <>

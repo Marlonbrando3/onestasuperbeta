@@ -81,7 +81,7 @@ div.InputsStyleContainer p {
 
 .InputsProps{
   min-width: 1vw;
-  font-weight: 100;
+  font-weight: 500;
   border:1px solid rgb(147, 146, 146);
   padding-left: 6px;
   border-radius: 4px;
@@ -257,12 +257,12 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent'; */
   }
 
   .choosed-multiple-option-region {
-  @apply  flex bg-red-400 text-xs text-white rounded-md px-1 cursor-pointer  m-[1px]
+  @apply  flex bg-red-400 font-normal text-white rounded-md px-1 cursor-pointer m-[1px]
 
   }
 
   .choosed-multiple-option-multiple {
-    @apply flex justify-between text-white left-0 top-16 items-center bg-red-400 text-xs rounded-md px-1 cursor-pointer h-6 m-[1px]
+    @apply flex justify-between text-white font-normal items-center bg-red-400 rounded-md px-1 cursor-pointer h-6 m-[1px]
   
     }
 
@@ -272,7 +272,7 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent'; */
     }
 
       .choosed-multiple-option-price {
-    @apply flex justify-between text-white left-0 top-16 items-center bg-red-400 text-xs rounded-md px-1 cursor-pointer
+    @apply flex justify-between text-white left-0 font-normal top-16 items-center bg-red-400 text-xs rounded-md px-1 cursor-pointer
   
     }
 
@@ -314,13 +314,13 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent'; */
   }
 
   .list{
-    @apply text-gray-900 ml-4 text-base uppercase p-2 list-none cursor-pointer transition
+    @apply text-gray-900 ml-4 font-normal uppercase p-2 list-none cursor-pointer transition
     hover:bg-red-700 hover:text-white
 
   }
 
   .listToChoose {
-    @apply text-black pl-4 pr-4 list-none hover:bg-yellow-500/[0.2] hover:font-normal cursor-pointer
+    @apply text-black font-normal pl-4 pr-4 list-none hover:bg-yellow-500/[0.2] hover:cursor-pointer hover:font-semibold
 
   }
   .socialicons {

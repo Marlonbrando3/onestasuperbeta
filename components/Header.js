@@ -53,6 +53,7 @@ export default function Header({}) {
            <li >Oferta</li>
            <li >Jak kupić</li>
            <li ><Link href='/aboutus'>O Nas</Link></li>
+           <li ><Link onClick={handleBackToMainPage}href='/blog'>Blog</Link></li>
            <li ><Link href='/aboutus'>ABC Inwestora</Link></li>
            <li >Kontakt</li>
           </ul>
@@ -83,9 +84,9 @@ export default function Header({}) {
                       <ul className="lg:flex hidden">
                       <li className='list'><Link  onClick={handleBackToMainPage} href='/'>Strona główna</Link></li>
                       <li className='list'><Link href='/aboutus'>O Nas</Link></li>
-                          <li className='list'>Zarządzanie najmem</li>
-                          <li className='list'>Blog</li>
-                          <li className='list'><Link href='/abc'>ABC Inwestora</Link></li>
+                      <li className='list'>Zarządzanie najmem</li>
+                      <li className='list'><Link onClick={handleBackToMainPage}href='/blog'>Blog</Link></li>
+                      <li className='list'><Link href='/abc'>ABC Inwestora</Link></li>
                           <li className='list'>Kontakt</li>
                       </ul>
                       <div className="h-full flex justify-end items-center lg:hidden">

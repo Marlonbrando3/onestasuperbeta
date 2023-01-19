@@ -1,0 +1,50 @@
+[
+    {
+        "id":1,
+        "status":"published",
+        "link":"https://images.pexels.com/photos/210536/pexels-photo-210536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title":"Jak kupić nieruchomość w Chorwacji?",
+        "description":"W lekki i przyjemy sposób staramy się przybliżyć zawiłości, które towarzyszą w procesie zakupu swojego drugie do mu w Chorwacji",
+        "tag": "jak-kupic-nieruchomosc-w-chorwacji"
+    },
+    {
+        "id":2,
+        "status":"wating",
+        "link":"https://images.pexels.com/photos/1013427/pexels-photo-1013427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title":"Jak kupić nieruchomość w Portugalii?",
+        "description":"Zapraszamy wrktóce",
+        "article": "JSON.stringify(lalala)"
+    },
+    {
+        "id":3,
+        "status":"wating",
+        "link":"https://images.pexels.com/photos/1830936/pexels-photo-1830936.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title":"Jak kupić nieruchomość w Hiszpanii?",
+        "description":"Zapraszamy wkrótce",
+        "article": "Wkrótce"
+    },
+    {
+        "id":4,
+        "status":"wating",
+        "link":"https://images.pexels.com/photos/1703311/pexels-photo-1703311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title":"Najciekawsze miejsca na Costa del Sol",
+        "description":"Zapraszamy wkrótce",
+        "article": "Wkrótce"
+    },
+    {
+        "id":5,
+        "status":"wating",
+        "link":"https://cdn.pixabay.com/photo/2023/01/09/09/42/sunflowers-7706977_1280.jpg",
+        "title":"Najciekawsze miejsca na Costa Blanca",
+        "description":"Zapraszamy wkrótce",
+        "article": "Wkrótce"
+    },
+    {
+        "id":6,
+        "status":"wating",
+        "link":"https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title":"Rodzaje nieruchomości w Hiszpanii",
+        "description":"Zapraszamy wkrótce",
+        "article": "Wkrótce"
+    }
+]

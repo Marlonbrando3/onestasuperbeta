@@ -1,0 +1,27 @@
+import React from 'react'
+import { useRouter } from 'next/router'
+import BlogItems from '../../data/Blog.json'
+
+export default function Post() {
+
+  const router = useRouter();
+
+  let Post;
+  BlogItems.map(i => {
+    // console.log(i.id)
+    if(i.id.toString() === router.query.id){
+        Post = i.article
+    }
+    else return false;
+
+})
+
+// let Dupa = JSON.parse(JSON.stringify(Post))
+
+  return (
+    <div>
+    </div>
+  )
+}
+
+
