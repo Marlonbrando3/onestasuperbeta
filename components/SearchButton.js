@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Loader from '../components/images/Spinner-1s-200px.gif'
 import DataCountry from '../data/DataCountry.json'
-// import { data } from 'autoprefixer'
 import { RunningWithErrorsOutlined } from '@mui/icons-material'
+import { sliderClasses } from '@mui/material'
 
 
 export default function SearchButton({}) {    
@@ -32,8 +32,8 @@ export default function SearchButton({}) {
                 ...param,
                 value: 1,
                 isSearching: true,
+                }
             }
-        }
         if(param.name === 'region'){
             let data = [];
             DataCountry.map(obj => {
@@ -47,26 +47,24 @@ export default function SearchButton({}) {
                                     }]
                         })
                     }                
-                }  )
+                })
                 return {
                     ...param,
                     value: data,
                 }
                 } else return {...param}
             }))
-}
+    }
 
 
     const [countries, setCountires] = useState(['Polska','Hiszpania', 'Chorwacja', 'Portugalia', 'Cypr', 'Dubaj'])
     const list = useRef()
     const listClaim = useRef()
     const listData = useRef()
-    listData
 
     const ShowList = () => {
         list.current.style.height = "180px"
     }
-
 
     return (
             <>
@@ -75,8 +73,8 @@ export default function SearchButton({}) {
                     <div ref={list} onClick={ShowList} className="duration-300 transition-all border-solid rounded-3xl text-xl px-4 py-2 lg:py-3 bg-white outline-none overflow-hidden lg:h-14 h-12">
                         <p ref={listClaim} className='rounded-md inline center text-xl pl-2 md:text-2xl'>Naciśnij aby wybrać kraj</p>
                         <div ref={listData} className='overflow-hidden mt-3 flex flex-wrap w-full'>
-                        {countries.map(obj => (
-                                <Link key={obj} href={`/${obj}`} className='hover:bg-red-700 hover:text-white lg:w-40 w-[135px] flex justify-center border m-[1px]'>
+                        {countries.map((obj, key) => (
+                                <Link key={obj} href={obj.charAt(0).toLowerCase() + obj.slice(1)}className='hover:bg-red-700 hover:text-white lg:w-40 w-[135px] flex justify-center border m-[1px]'>
                                     <div key={obj} onClick={handleShowSearch} className="text-2xl" name={obj}>{obj}</div>
                                 </Link>
                         ))}

@@ -80,8 +80,7 @@ export default function Home(
     } else return {...property}
     })
 
-
-  let Region = []; 
+  let Region = [];
   let Type = [];
 
   searchConditions.filter(obj => {
@@ -340,7 +339,7 @@ export async function getServerSideProps (contex) {
 
 
   const results = await Property.find({
-      country: contex.query.country,
+      country: contex.query.country.charAt(0).toUpperCase() + contex.query.country.slice(1),
       region: regiond,
       distance: {$lte: distanced},
       type: typed,
