@@ -9,11 +9,11 @@
     },
     {
         "id":2,
-        "status":"wating",
-        "link":"https://images.pexels.com/photos/1013427/pexels-photo-1013427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "title":"Jak kupić nieruchomość w Portugalii?",
-        "description":"Zapraszamy wkrótce",
-        "article": "Wkrótce"
+        "status":"published",
+        "link":"https://images.pexels.com/photos/8748170/pexels-photo-8748170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title":"Co z Okupados, Okupas, Okupado?... wie Pan o co chodzi",
+        "description":"Co to jest skąd się bierze i jak się przed nim bronić? Materiał oparty o Hiszpańskie artykuły i historie",
+        "tag": "okupados"
     },
     {
         "id":3,
