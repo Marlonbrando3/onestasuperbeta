@@ -89,7 +89,7 @@ export default function Header({}) {
                       <li className='list'><Link href='/abc'>ABC Inwestora</Link></li>
                           <li className='list'>Kontakt</li>
                       </ul>
-                      <div className="h-full flex justify-end items-center lg:hidden w-auto">
+                      <div className="h-full flex justify-end items-center lg:hidden">
                         {MobileMenu ? <CloseIcon 
                           className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden visible"
                           onClick={handleShowMobileMenu}/> : 
