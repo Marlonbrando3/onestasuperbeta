@@ -49,14 +49,13 @@ export default function Header({}) {
       "flex items-center z-40 justify-center duration-300 bg-white absolute h-screen left-0 top-0 w-full": 
       "hidden items-center justify-center duration-300 bg-red-400 absolute w-full -left-screen top-0"}>
         <ul className="flex flex-col items-start justify-center mr-6 z-30">
-        <li ><Link onClick={handleBackToMainPage}href='/'>Strona główna</Link></li>
-           <li >Oferta</li>
-           <li >Jak kupić</li>
-           <li ><Link href='/aboutus'>O Nas</Link></li>
-           <li ><Link onClick={handleBackToMainPage}href='/blog'>Blog</Link></li>
-           <li ><Link href='/abc'>ABC Inwestora</Link></li>
-           <li >Kontakt</li>
-          </ul>
+          <li ><Link className="text-3xl" onClick={handleBackToMainPage}href='/'>Strona główna</Link></li>
+          <li ><Link className="text-3xl" href='/hiszpania'>Nieruchomości</Link></li>
+          <li ><Link className="text-3xl" href='/aboutus'>O Nas</Link></li>
+          <li ><Link className="text-3xl" onClick={handleBackToMainPage}href='/blog'>Blog</Link></li>
+          <li ><Link className="text-3xl" href='/abc'>ABC Inwestora</Link></li>
+          <li ><Link className="text-3xl" href='#'>Kontakt</Link></li>
+        </ul>
     </div>
     <Link onClick={handleBackToMainPage} className="cursor-pointer flex items-center" href='/'>
         <Image className="py-3"
@@ -84,7 +83,7 @@ export default function Header({}) {
                       <ul className="lg:flex hidden">
                       <li className='list'><Link  onClick={handleBackToMainPage} href='/'>Strona główna</Link></li>
                       <li className='list'><Link href='/aboutus'>O Nas</Link></li>
-                      <li className='list'>Zarządzanie najmem</li>
+                      <li className='list'><Link href='/hiszpania'>Nieruchomości</Link></li>
                       <li className='list'><Link onClick={handleBackToMainPage}href='/blog'>Blog</Link></li>
                       <li className='list'><Link href='/abc'>ABC Inwestora</Link></li>
                           <li className='list'>Kontakt</li>
