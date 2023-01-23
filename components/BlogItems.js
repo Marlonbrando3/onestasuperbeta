@@ -6,14 +6,14 @@ import BlogTopics from '../data/BlogTopics.json'
 
 export default function BlogItems() {
   return (
-    <div className='flex justify-evenly flex-wrap w-10/12 mx-auto'>
-        <div className='w-9/12 flex flex-wrap'>
+    <div className='flex justify-evenly flex-wrap lg:w-10/12 w-full mx-auto'>
+        <div className='lg:w-9/12 w-11/12 flex flex-wrap'>
         {Blog.map(obj => (
-            <div key={obj} className='lg:w-1/2 w-12/12 mx-auto py-2'>
-                <div className='w-11/12 mx-auto bg-gray-100/[0.4]'>
+            <div key={obj} className='lg:w-1/2 w-full py-2'>
+                <div className='w-11/12 mx-auto'> 
                     <Image className='h-52 object-cover'
                         src={obj.link}
-                        width={500}
+                        width={900}
                         height={500}
                     />
                     <div className='p-2'>
@@ -25,7 +25,7 @@ export default function BlogItems() {
             </div>
         ))}
         </div>
-        <div className='w-3/12 h-full'>
+        <div className='w-3/12 h-full hidden lg:block'>
             <div>
                 <div className='font-bold py-3 text-lg'>Tematyka:</div>
                 {BlogTopics.map(i => (
