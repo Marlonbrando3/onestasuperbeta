@@ -39,7 +39,7 @@ const handleSubmit = (e) => {
 }
 
   return (
-    <div className=' lg:flex w-1/2 bg-slate-900/[0.9] mx-1 px-2 lg:px-10 rounded-md mt-1 lg:w-5/12 lg:ml-40'>
+    <div className=' lg:flex w-1/2 w-10/12 mx-auto bg-slate-900/[0.9] lg:mx-1 px-2 lg:px-10 rounded-md mt-1 lg:w-5/12 lg:ml-40'>
         <form className='flex flex-col lg:w-full lg:p-7 p-7'>
             <div className='py-4 font-bold text-2xl text-white'>Zadaj nam pytanie:</div>
               <p className='py-2 font-bold text-white hidden'>Ogłoszenie o nr ref. <input className='bg-gray-900/[0.0]' type="text" value={temat} name="id"></input></p>
