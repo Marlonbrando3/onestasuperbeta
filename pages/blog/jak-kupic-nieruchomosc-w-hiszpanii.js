@@ -12,7 +12,6 @@ export default function BlogPost() {
     <>
     <HeaderBlogPost temat={temat}/>
 <div className='lg:px-40 px-4 pt-24 leading-7 tracking-normal'>
-
 Zdecydowana większość osób rozglądająca się za swoją (zazwyczaj pierwszą) nieruchomością chce zrozumieć co wiąże się z samym zakupem, jaki jest proces ale na samym początku (to wynika z doświadczenia) wiele osób – bez urazy Drogi Czytelniku - nie do końca wie czego i po co szuka. <br></br><br></br>
 Często spotykamy się z bardzo szerokim spectrum poszukiwań, nasi rozmówcy zmieniają zdanie, regiony jakby za pstryknięciem palcem i jest to dla nas całkowicie zrozumiałe, ponieważ na początku drogi, poznawania i szukania co nam się podoba, a co nie – zupełnie normalnym jest, że podoba się pewnie wszystko w Hiszpanii. Brakuje metody, prowadzenia, która/które pomoże oszacować Państwa pragnienia, potrzeby, koncepcje.<br></br><br></br>
 Tym artykułem chcę spróbować temu zaradzić, dzieląc się też własnymi przykładami lub przykładami naszych klientów. W tym artykule (jako 2 częściach) skupimy się głównie na aspektach samego procesu określenia celu, metodyce wyboru miejsca i finalnie procesu zakupu nieruchomości w Hiszpanii lub domu w Hiszpanii, zatem pominięte zostaną aspekty traktujące o wyglądzie, wyposażeniu danej nieruchomości. Te aspekty zostaną opracowane w jednym z wpisów, które pojawią się na blogu niebawem.
@@ -38,9 +37,9 @@ c) możemy również sprawę skomplikować i starać się połączyć oba powyż
 <br></br>
 Zatem po kolei aby dobrze to zrozumieć. 
 <br></br><br></br>
-<b>Punkt a) „Interesuje mnie tylko zakup inwestycyjny, mam środki chcę aby pracowały najefektywniej”.</b>
+<b>Punkt a) &quot;Interesuje mnie tylko zakup inwestycyjny, mam środki chcę aby pracowały najefektywniej&quot;.</b>
 <br></br>
-Jest naszą sytuacją wyjściową/bazową na jej podstawie będzie łatwiej mi w sposób jasny omówić pozostałe podpunkty. Osoba szukająca nieruchomości w Hiszpanii tak aby była ona wyłącznie lub głównie zakupem inwestycyjnym, czyt. „chcę kupić nieruchomość w Hiszpanii i wynajmować ją z jak największym zyskiem, nie interesuje mnie jej wygląd” powinna zwrócić uwagę na kilka podstawowych kryteriów:<br></br>
+Jest naszą sytuacją wyjściową/bazową na jej podstawie będzie łatwiej mi w sposób jasny omówić pozostałe podpunkty. Osoba szukająca nieruchomości w Hiszpanii tak aby była ona wyłącznie lub głównie zakupem inwestycyjnym, czyt. &quot;chcę kupić nieruchomość w Hiszpanii i wynajmować ją z jak największym zyskiem, nie interesuje mnie jej wygląd&quot; powinna zwrócić uwagę na kilka podstawowych kryteriów:<br></br>
 - odległość od morza (najlepiej do 1 km),<br></br>
 - posesja ma basen,<br></br>
 - 2 sypialnie,<br></br>
@@ -96,7 +95,7 @@ Czyli kupuję po to abym tm mieszkał, odwiedzał to miejsce wyłącznie ja lub 
 Tutaj naszym zadaniem w procesie jest wejście na bardzo wysoki poziom zrozumienia tego o czym mówi do nas nasz przyszły klient i oferowanie tego co jest temu najbliższe wraz z etapowym wykluczaniem ofert nietrafionych (lub elementów nietrafionych w tych ofertach) oraz wybieraniem aspektów (lub ofert), które są w gustach klienta i przy których zostajemy. Potrzebna jest cierpliwość. Osoby szukające nieruchomości „dla siebie” mają też swoje kryteria odległości od plaży, środowiska, oteczenia - już bardziej sprecyzowane, częściej jako obrazy niż opisy - na co też jesteśmy gotowi. <br></br>
 Najczęściej (choć nie jest to jakąś regułą) oddalamy się od morza znacznie, już w kilometrach liczmy tę odległość.<br></br> 
 Bliskość do plaży w sezonie raczej nie pozwala na doznawanie spokoju, a owo 10 km od morza już tak, konwekwencją jest dojazd w ciągu 10 min do plaży.<br></br> Nieruchomości tak oddalone od plaży mają również znacznie niższą cenę czasami nawet 2-krotnie i ich jakość jest równie wysoka. <br></br>
-<br></br>Natomiast tutaj nie ma mowy o skutecznym wynajmie i zarabianiu, można po prostu zmniejszać koszty takiej nieruchomości wynajmując lub wychodzić na przysłowiowe „zero”. Jeśli nieruchomość jest kupiona za gotówkę to będzie to zapewne jakiś przychód, niemniej trudny do oszacowania "na oko".<br></br>
+<br></br>Natomiast tutaj nie ma mowy o skutecznym wynajmie i zarabianiu, można po prostu zmniejszać koszty takiej nieruchomości wynajmując lub wychodzić na przysłowiowe „zero”. Jeśli nieruchomość jest kupiona za gotówkę to będzie to zapewne jakiś przychód, niemniej trudny do oszacowania &quot;na oko&quot;.<br></br>
 <br></br>
 <b>Jaki region?</b><br></br>
 <br></br>
