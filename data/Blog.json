@@ -17,11 +17,11 @@
     },
     {
         "id":3,
-        "status":"wating",
+        "status":"published",
         "link":"https://images.pexels.com/photos/1830936/pexels-photo-1830936.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "title":"Jak kupić nieruchomość w Hiszpanii?",
-        "description":"Zapraszamy wkrótce",
-        "article": "Wkrótce"
+        "title":"Jak kupić nieruchomość w Hiszpani (cz.1 określ swoje cele)",
+        "description":"Czytasz ten opis, więc pewnie szukasz od czego zacząć, może chcesz wiedzieć jak podjeść do tematu wyboru nieruichomość lub swoje potrzeby w kryteria.",
+        "tag": "jak-kupic-nieruchomosc-w-hiszpanii"
     },
     {
         "id":4,
