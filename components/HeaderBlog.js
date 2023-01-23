@@ -18,7 +18,7 @@ export default function HeaderBlog() {
       </Link>
         <SearchComponent />
     </div>
-        {/* <MiniMainViewBlog /> */}
+        <MiniMainViewBlog />
     </>
   )
 }

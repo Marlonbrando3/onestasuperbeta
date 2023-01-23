@@ -2,13 +2,15 @@ import React from 'react'
 import Link from 'next/link'
 import Blog from '../data/Blog.json'
 import Image from 'next/image'
+import BlogTopics from '../data/BlogTopics.json'
 
 export default function BlogItems() {
   return (
     <div className='flex justify-evenly flex-wrap w-10/12 mx-auto'>
+        <div className='w-9/12 flex flex-wrap'>
         {Blog.map(obj => (
-            <div key={obj} className='lg:w-1/3 w-12/12 mx-auto py-2'>
-                <div className='w-10/12 mx-auto bg-gray-100/[0.4]'>
+            <div key={obj} className='lg:w-1/2 w-12/12 mx-auto py-2'>
+                <div className='w-11/12 mx-auto bg-gray-100/[0.4]'>
                     <Image className='h-52 object-cover'
                         src={obj.link}
                         width={500}
@@ -22,6 +24,16 @@ export default function BlogItems() {
                     </div>
             </div>
         ))}
+        </div>
+        <div className='w-3/12 h-full'>
+            <div>
+                <div className='font-bold py-3 text-lg'>Tematyka:</div>
+                {BlogTopics.map(i => (
+                    <div className='p-1 border-b border-gray-600 cursor-pointer hover:bg-red-400 hover:text-white duration-300'>{i.temat}</div>
+                ))}
+            </div>
+
+        </div>
     </div>
   )
 }

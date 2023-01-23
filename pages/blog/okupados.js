@@ -1,4 +1,6 @@
 import React from 'react'
+import ContactFormBlogPost from '../../components/ContactFormBlogPost'
+import Footer from '../../components/Footer'
 import HeaderBlog from '../../components/HeaderBlog'
 import HeaderBlogPost from '../../components/HeaderBlogPost'
 import MiniMainViewBlog from '../../components/MiniMainViewBlog'
@@ -6,12 +8,12 @@ import MiniMainViewBlog from '../../components/MiniMainViewBlog'
 
 export default function Okupados() {
 
-  const temat = "Co z Okupados, Okupas, Okupado?... wie Pan o co chodzi"
+  const temat = "Co z Okupados, Okupas, Okupado?... Wie Pan o co chodzi..."
 
   return (
     <>
     <HeaderBlogPost temat={temat}/>
-<div className='lg:px-40 px-4 pt-24'>
+<div className='lg:px-40 px-4 pt-24 leading-7 tracking-normal'>
 
 Właśnie to pytanie w 2022 roku zyskało ogromną (nie)sławę. Niezwykle wrażliwy i wzbudzający wiele kontrowersji temat. Ze względu na to, że leży on u fundamentów jakichkolwiek inwestycji w Hiszpanii, a Polskie media nie dostarczają zbyt wielu sensownych informacji - przeszukaliśmy Hiszpańskie źrodła traktujące o problemie na poziomie prawnym oraz poznaliśmy konkretne przypadki z życia wzięte aby móc nadać temu wyraźnie więcej rzeczywistego wymiaru.<br></br><br></br>
 <b>&quot;A co z okupas, okupados, ocupatos?... Wie Pan o chodzi...&quot;</b> <br></br><br></br>Jakkolwiek by tego określenia nie przekręcać – każdy raczej wie o co chodzi. Okupados jest nazywany &quot;ruchem&quot; lub &quot;społeczną inicjatywą&quot; choć w Polsce raczej nie kojarzymy tego z niczym pozytywnym. Związana jest z nim cała ideologia, która ma być oparta o prawa człowieka do np. dachu nad głową, swojego miejsca. Nie zmienia to faktu iż drugą stroną medalu (tą stroną osób kupujących nieruchomość w Hiszpanii) owego dość nieścisłego prawa jest zagrożenie zwyczajnego prawa własności w formie bezprawnego (zdawać by się mogło) przejęcia mieszkania, domu przez „zasiedzianą osobę” - okupados. <br></br>Czy człowiek, który wszedł do mojego domu naprawdę może stać się Jego właścicielem? I tak i nie. Brzmi wystarczająco kuriozalnie?  Rozpracujmy to zagadnienie.<br></br><br></br>
@@ -52,6 +54,8 @@ Przy zabezpieczeniach owo 48 godzin to jednak wystarczająco dużo czasu na reak
 
 W związku z powyższym, nie ma powodów do paniki, jednak zabezpieczajmy się na zasadzie podobnej jak zrobilibyśmy to w naszych domach w Polsce. <br></br> Te same metody powinny rozwiązać różne zagrożenia w tym Hiszpańskich Ocupados.<br></br><br></br><br></br><br></br> 
     </div>
+    <ContactFormBlogPost temat={temat} />
+    <Footer />
     </>
   )
 }

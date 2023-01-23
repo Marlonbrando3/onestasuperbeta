@@ -7,21 +7,16 @@ import MiniMainViewBlog from './MiniMainViewBlog'
 import Blog from '../data/Blog.json'
 
 
-
 export default function HeaderBlog({temat}) {
 
     let img;
-
     Blog.map(i => {
         console.log(i.title)
         if(i.title === temat){
             img = i.link
-            console.log(i.link)
         }
       })
 
-    console.log(img)
-    console.log(temat)
 
   return (
     <>
