@@ -29,7 +29,7 @@ export default function BlogItems() {
             <div>
                 <div className='font-bold py-3 text-lg'>Tematyka:</div>
                 {BlogTopics.map(i => (
-                    <div className='p-1 border-b border-gray-600 cursor-pointer hover:bg-red-400 hover:text-white duration-300'>{i.temat}</div>
+                    <div key={i.temat} className='p-1 border-b border-gray-600 cursor-pointer hover:bg-red-400 hover:text-white duration-300'>{i.temat}</div>
                 ))}
             </div>
 
