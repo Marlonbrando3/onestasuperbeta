@@ -4,17 +4,9 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Link from 'next/link';
 import Footer from '../components/Footer';
-//icons
-import HandshakeIcon from '@mui/icons-material/Handshake';
-import SavingsIcon from '@mui/icons-material/Savings';
-import GTranslateIcon from '@mui/icons-material/GTranslate';
-import GavelIcon from '@mui/icons-material/Gavel';
-import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import ContactFormBlogPost from '../components/ContactFormBlogPost';
 
-
-export default function Zarzadanie() {
+export default function Zarzadzanie() {
 
   const [searchShow, setSearchShow] = useState(true);
   return (
