@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useRef, useContext } from "react";
 import { AppContext } from "../pages/_app";
 import Head from "next/head";
 import Image from "next/image";
@@ -23,6 +23,10 @@ export default function Header({}) {
     const {searchShow,setSearchShow} = useContext(AppContext)
     const {headerAfterFirstView, setHeaderAfterFirstView} = useContext(AppContext)
 
+    const MouseOn = useRef();
+    const MouseOff = useRef();
+
+
   const [MobileMenu, setMobileMenu] = useState(false)
 
   const handleShowMobileMenu = () => {
@@ -34,6 +38,16 @@ export default function Header({}) {
     setSearchShow(false)
   }
 
+  const handleShowListMenu = () => {
+    MouseOn.current.style.display = "block";
+    MouseOn.current.style.color = "black";
+    MouseOn.current.style.backgroundColor = "white";
+  }
+
+  const handleHideListMenu = () => {
+    MouseOn.current.style.display = "none";
+    MouseOn.current.style.backgroundColor = "none";
+  }
 
   return (
     <>
@@ -52,6 +66,7 @@ export default function Header({}) {
           <li ><Link className="text-3xl" onClick={handleBackToMainPage}href='/'>Strona główna</Link></li>
           <li ><Link className="text-3xl" href='/hiszpania'>Nieruchomości</Link></li>
           <li ><Link className="text-3xl" href='/aboutus'>O Nas</Link></li>
+          <li ><Link className="text-3xl" href='/zarzadzanie-nieruchomosciami-w-hiszpanii'>Zarządzanie najmem</Link></li>
           <li ><Link className="text-3xl" onClick={handleBackToMainPage}href='/blog'>Blog</Link></li>
           <li ><Link className="text-3xl" href='/abc'>ABC Inwestora</Link></li>
           <li ><Link className="text-3xl" href='#'>Kontakt</Link></li>
@@ -84,6 +99,8 @@ export default function Header({}) {
                       <li className='list'><Link  onClick={handleBackToMainPage} href='/'>Strona główna</Link></li>
                       <li className='list'><Link href='/aboutus'>O Nas</Link></li>
                       <li className='list'><Link href='/hiszpania'>Nieruchomości</Link></li>
+                      <li className='list' onMouseEnter={handleShowListMenu} onMouseLeave={handleHideListMenu}>Zarządzanie najmem
+                      <Link href='/zarzadzanie-nieruchomosciami-w-hiszpanii' ref={MouseOn} className="hidden absolute mt-2 p-2 -ml-2">Zarządzanie najmem w Hiszpanii</Link></li>
                       <li className='list'><Link onClick={handleBackToMainPage}href='/blog'>Blog</Link></li>
                       <li className='list'><Link href='/abc'>ABC Inwestora</Link></li>
                           <li className='list'>Kontakt</li>

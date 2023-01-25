@@ -315,7 +315,7 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent'; */
 
   .list{
     @apply text-gray-900 ml-4 font-normal uppercase p-2 list-none cursor-pointer transition
-    hover:bg-red-700 hover:text-white
+    hover:bg-red-700 hover:text-white xl:text-sm xl:font-semibold text-xs
 
   }
 
