@@ -2,8 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import Head from 'next/head';
 import Header from '../components/Header';
-import MiniHomeView from '../components/SearchEngine/MiniHomeView';
-import ContactFormMain from '../components/ContactFormMain';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 //icons
 import HandshakeIcon from '@mui/icons-material/Handshake';
