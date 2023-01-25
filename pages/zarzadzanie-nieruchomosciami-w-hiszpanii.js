@@ -14,7 +14,7 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import ContactFormBlogPost from '../components/ContactFormBlogPost';
 
 
-export default function Aboutus() {
+export default function Zarzadanie() {
 
   const [searchShow, setSearchShow] = useState(true);
   return (
