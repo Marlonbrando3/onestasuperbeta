@@ -202,7 +202,7 @@ console.log(pool)
         setActualSite={setActualSite}
         choosedCountry={choosedCountry}
         setChoosedCountry={setChoosedCountry}
-        properties={properties}
+        properties={propertiesWork}
       />
       <ContactFormMain />
       <Footer />
