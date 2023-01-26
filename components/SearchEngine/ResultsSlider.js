@@ -159,6 +159,8 @@ export default function ResultsSlider({
                  <Link href={`/${property.country}/${property.id}&${property.title.replaceAll(' ','-')}`}>
                     <div className="cursor-pointer w-full h-full">
                       <Image className="object-cover"
+                        placeholder="blur"
+                        blurDataURL={img.img}
                         src={img.img}
                         alt="Picture of the author"
                         fill
