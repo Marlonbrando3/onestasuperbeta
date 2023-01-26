@@ -83,7 +83,7 @@ export default function SearchButton({}) {
             </div>
             {searchShow && 
             <div className='absolute md:w-40 md:h-40 w-56 h-56 z-30 mx-auto'>
-            <Image className='z-50 absolute'
+            <Image className='spinner'
                 src={Loader}
                 width={800}
                 height={800}
