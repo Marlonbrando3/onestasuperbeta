@@ -117,7 +117,7 @@ export default function PropertyCard({
                </div>
             </div>
           </div>
-          <div className='bg-blue-700 lg:h-16 md:h-10 h-12 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
+          <div className='bg-red-700 lg:h-16 md:h-10 h-12 flex items-center justify-between text-darkblue text-2xl px-3 font-semibold'>
             <span className="ml-1 text-white md:text-2xl sm:text-xl text-2xl lg:text-3xl ">od {RestOfThePrice} {PriceOneE} {PriceTwoE} €</span>
           </div>
           </div>
