@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import ContactFormBlogPost from '../../components/ContactFormBlogPost'
 import HeaderBlog from '../../components/HeaderBlog'
 import HeaderBlogPost from '../../components/HeaderBlogPost'

@@ -10,7 +10,7 @@ export default function Zarzadzanie() {
 
   const [searchShow, setSearchShow] = useState(true);
   return (
-    <>
+        <>
         <Head>
             <title>Zarządanie nieruchomościami w Hiszpanii - Onesta Group</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
