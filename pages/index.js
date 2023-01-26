@@ -37,14 +37,16 @@ export default function FirstView ({}) {
     const {headerAfterFirstView, setHeaderAfterFirstView} = useContext(AppContext)
 
     return(
-        <div className='main-index'>
+        <>
         <Head>
-            <title>Onesta Group</title>
+            <title>Strona Główna - Onesta Group</title>
+            <link rel="shortcut icon" href="/logotype.png" />
             <link rel="preconnect" href="https://fonts.googleapis.com"></link>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"></link>
+            {/* <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"></link> */}
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
         </Head>
+        <div className='main-index'>
         <div className={searchShow ? 'hidden': 'w-full md:h-16 fixed top-0 md:bg-gray-800/[0.4] z-10 bg-white shadow-xl'}>
             <Header />
         </div>
@@ -56,5 +58,6 @@ export default function FirstView ({}) {
         />
         <MainTheme />
     </div>
+    </>
     )
 }

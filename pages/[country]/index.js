@@ -179,12 +179,12 @@ console.log(pool)
 
   return (
     <>
-    <div className={showSearchComponentsOnMobile===false ? 'overflow-x-hidden': 'h-0'}>
-        <Head>
-            <title>Onesta Group</title>
+    <Head>
+            <title>Nieruchomości w {router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)} - Onesta Group</title>
             <link rel="shortcut icon" href="/logotype.png" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
         </Head>
+    <div className={showSearchComponentsOnMobile===false ? 'overflow-x-hidden': 'h-0'}>
       <div className='fixed w-full h-16 z-30 bg-white'>
         <Header/>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import ContactFormBlogPost from '../../components/ContactFormBlogPost'
 import Footer from '../../components/Footer'
 import HeaderBlog from '../../components/HeaderBlog'
@@ -12,6 +13,13 @@ export default function Okupados() {
 
   return (
     <>
+    <Head>
+            <title>Okupdos - kim są i czy stanowią zagrożenie? - Onesta Group</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"></link>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
+    </Head>
     <HeaderBlogPost temat={temat}/>
 <div className='lg:px-40 px-4 pt-24 leading-7 tracking-normal'>
 

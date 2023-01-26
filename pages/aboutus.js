@@ -20,7 +20,7 @@ export default function Aboutus() {
   return (
     <>
         <Head>
-            <title>Onesta Group</title>
+            <title>O Nas - Onesta Group</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
             <link rel="preconnect" href="https://fonts.googleapis.com"></link>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>

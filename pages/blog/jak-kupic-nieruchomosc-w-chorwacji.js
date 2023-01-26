@@ -9,6 +9,13 @@ export default function BlogPost() {
 
   return (
     <>
+    <Head>
+        <title>Jak kupić nieruchomość w Chorwacji - Onesta Group</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"></link>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
+    </Head>
     <HeaderBlogPost temat={temat}/>
 <div className='lg:px-40 px-4 pt-24'>
 Chcemy przedstawić Państwu proces zakupu nieruchomości w Chorwacji  w formie ogólnej, opisowej aby pozwolić Państwu zyskać pogląd na tę sprawę i ocenić na ile on dla Państwa jest złożony a ile do opanowania ponad to co znajdziecie Państwo tutaj.<br></br>

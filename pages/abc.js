@@ -1,6 +1,7 @@
 import { height } from '@mui/system'
 import React, { createRef } from 'react'
 import { useRef } from 'react'
+import Head from 'next/head'
 import Header from '../components/Header'
 import MiniHomeView from '../components/SearchEngine/MiniHomeView'
 import Abc from '../data/Abc.json'
@@ -37,6 +38,14 @@ export default function ABC() {
 
   return (
     <div>
+      <Head>
+            <title>ABC Inwestowania - Onesta Group</title>
+            <link rel="shortcut icon" href="/logotype.png" />
+            <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"></link>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
+        </Head>
       <Header />
       <MiniHomeView />
       <div className='lg:w-10/12 w-12/12 mx-auto md:p-3 p-auto'>

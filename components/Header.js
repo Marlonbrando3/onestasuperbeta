@@ -51,13 +51,6 @@ export default function Header({}) {
 
   return (
     <>
-        <Head>
-            <title>Onesta Group</title>
-            <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"></link>
-            <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
-        </Head>
     <div className='transition-all duration-700 flex w-full h-22 top-0 lg:pl-24 lg:pt-2 lg:pb-0 lg:pr-10 px-4 text-gray-900 bg-white'>
     <div className={MobileMenu ? 
       "flex items-center z-40 justify-center duration-300 bg-white absolute h-screen left-0 top-0 w-full": 

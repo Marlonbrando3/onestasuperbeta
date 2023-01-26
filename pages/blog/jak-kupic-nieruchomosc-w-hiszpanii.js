@@ -6,10 +6,17 @@ import MiniMainViewBlog from '../../components/MiniMainViewBlog'
 
 export default function BlogPost() {
 
-  const temat = "Jak kupić nieruchomość w Hiszpani (cz.1 określ swoje cele)"
+  const temat = "Jak kupić nieruchomość w Hiszpanii (cz.1 określ swoje cele)"
 
   return (
     <>
+    <Head>
+        <title>Jak kupić nieruchomość w Hiszpanii - cz.1 - Onesta Group</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"></link>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
+    </Head>
     <HeaderBlogPost temat={temat}/>
 <div className='lg:px-40 px-4 pt-24 leading-7 tracking-normal'>
 Zdecydowana większość osób rozglądająca się za swoją (zazwyczaj pierwszą) nieruchomością chce zrozumieć co wiąże się z samym zakupem, jaki jest proces ale na samym początku (to wynika z doświadczenia) wiele osób – bez urazy Drogi Czytelniku - nie do końca wie czego i po co szuka. <br></br><br></br>
