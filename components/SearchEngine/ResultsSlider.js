@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ChevronRightIcon from '@mui/icons-material/ChevronRightOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { ImageSearch } from "@mui/icons-material";
-import Loader from '../../components/images/Spinner-1s-200px-1.gif';
+import loader from '../images/Spinner-1s-200px-1.gif';
 import Image from "next/image";
 import Link from 'next/link';
 
@@ -143,7 +143,7 @@ export default function ResultsSlider({
     },[choosedCountry, actualSite, images])
 
   return (
-    <div className="h-60 md:h-full w-full relative">
+    <div className="h-60 md:h-full w-full relative bg-white">
         <div onClick={handleChangeSiteLeft} className="flex items-center z-10 justify-center absolute w-10 h-full left-0 cursor-pointer bg-gray-900/[0.13] hover:bg-sky-900/[0.4] transition duration-450 hover:ease-in-out">
         <ChevronLeftIcon className="w-full h-full text-white" />
         </div>
@@ -157,14 +157,13 @@ export default function ResultsSlider({
             return (
               <div key={index} className='overflow-hidden'>
                  <Link href={`/${property.country}/${property.id}&${property.title.replaceAll(' ','-')}`}>
+                 <span class="loader absolute top-36 left-64"></span>
                     <div className="cursor-pointer w-full h-full">
                       <Image className="object-cover"
-                        placeholder="blur"
-                        blurDataURL={img.img}
                         src={img.img}
                         alt="Picture of the author"
                         fill
-                        priority
+                        priorit
                       />
                     </div>
                 </Link>
