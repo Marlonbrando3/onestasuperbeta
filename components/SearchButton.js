@@ -57,7 +57,7 @@ export default function SearchButton({}) {
     }
 
 
-    const [countries, setCountires] = useState(['Polska','Hiszpania', 'Chorwacja', 'Portugalia', 'Cypr', 'Dubaj'])
+    const [countries, setCountires] = useState(['Hiszpania', 'Chorwacja', 'Portugalia'])
     const list = useRef()
     const listClaim = useRef()
     const listData = useRef()
