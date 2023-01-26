@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import DataCountry from '../data/DataCountry.json'
+import Loader from '../components/images/Spinner-1s-200px.gif';
 import { RunningWithErrorsOutlined } from '@mui/icons-material'
 import { sliderClasses } from '@mui/material'
 

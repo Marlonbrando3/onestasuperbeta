@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import ChevronRightIcon from '@mui/icons-material/ChevronRightOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { ImageSearch } from "@mui/icons-material";
-import loader from '../images/Spinner-1s-200px-1.gif';
 import Image from "next/image";
 import Link from 'next/link';
 
@@ -157,7 +156,7 @@ export default function ResultsSlider({
             return (
               <div key={index} className='overflow-hidden'>
                  <Link href={`/${property.country}/${property.id}&${property.title.replaceAll(' ','-')}`}>
-                 <span class="loader absolute top-36 left-64"></span>
+                 <span class="loader absolute mx-auto"></span>
                     <div className="cursor-pointer w-full h-full">
                       <Image className="object-cover"
                         src={img.img}
