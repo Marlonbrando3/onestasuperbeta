@@ -48,7 +48,7 @@ body{
   display: inline-block; 
   top:45%;
   transform: translateY(-50%);
-  animation: rotation 1s linear infinite;
+  animation: rotation 0.3s linear infinite;
   left: 0; 
   right: 0; 
   margin-left: auto;
@@ -63,7 +63,8 @@ body{
   100% {
       transform: rotate(360deg);
   }
-  } 
+  }
+   
 
 
 .ListWithChooseContainer{
