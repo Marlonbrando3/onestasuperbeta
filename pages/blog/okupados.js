@@ -1,15 +1,15 @@
 import React from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import ContactFormBlogPost from '../../components/ContactFormBlogPost'
 import Footer from '../../components/Footer'
 import HeaderBlog from '../../components/HeaderBlog'
 import HeaderBlogPost from '../../components/HeaderBlogPost'
 import MiniMainViewBlog from '../../components/MiniMainViewBlog'
 
-
 export default function Okupados() {
 
-  const temat = "Co z Okupados, Okupas, Okupado?... Wie Pan o co chodzi..."
+  const temat = "Okupados, Okupas, Okupado... a inwestowanie w nieruchomości w Hiszpanii"
 
   return (
     <>
@@ -47,10 +47,10 @@ Zatem sytuacje na wzór - wprowadzająca się do wynajmowanego mieszkania para 
 
 <b>Możliwe rozwiązania.</b><br></br><br></br>
 
-1. Najlepszym rozwiązaniem jest po prostu dobre zabezpieczenie nieruchomości w Hiszpanii i szybkie reakcje. <br></br>Mimo, że problem okupados na mieszkaniach inwestycyjnych stanowi raczej wyjątkową rzadkość (my oraz nasi partnerzy nie odnotowaliśmy włamania od ok 7 lat, a problem okupados nie dotknął nigdy i oby tak zostało) - <br></br>rozwiązań jest kilka:<br></br>
+1. Najlepszym rozwiązaniem jest po prostu dobre zabezpieczenie nieruchomości w Hiszpanii i szybkie reakcje. <br></br>Mimo, że problem okupados w nieruchomościach inwestycyjnych (przykładowe <Link href="/hiszpania" className='font-bold text-blue-700 underline'>Nieruchomości inwestycyjne w Hiszpanii</Link>) stanowi raczej wyjątkową rzadkość (my oraz nasi partnerzy nie odnotowaliśmy włamania od ok 7 lat, a problem okupados nie dotknął nigdy i oby tak zostało) - <br></br>jest kilka możlowości zabezpieczeń:<br></br>
 - zabiezpieczenie się współpracą z lokalną firmą ochroniarską, która ma za zadanie zareagować w przypadku włączenia alarmu itp (nieautoryzowane wejście),<br></br>
 - pomoże system video-monitoringu,<br></br>
-- mamy do dyspozycji systemy, które w czasie rzeczywistym uruchamiają aplikację w telefonie o infomrując o nieautoryzowanym wejściu. <br></br>
+- mamy do dyspozycji systemy, które w czasie rzeczywistym uruchamiają aplikację w telefonie o infomrując o nieautoryzowanym wejściu.<br></br>
 - firma zarządzają nieruchomością ma swoje zabezpieczenia, jest na miejscu i może zareagować,<br></br>
 - rejestr wejść i wyjść - aby otworzyć drzwi trzezba mieć hasło lub kod.<br></br><br></br>
 

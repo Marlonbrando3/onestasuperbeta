@@ -1,23 +1,24 @@
-import { useState,useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { AppContext } from "../../pages/_app"
 
 export default function ChangeSite({
   actualSite, 
   setActualSite,
-  searchConditions,
-  setSearchConditions,
   sitesArraycounter
 }) {
+
+  const {searchConditions, setSearchConditions} = useContext(AppContext)
     
   const handleClickOnSite = (e, key) => {
 
       setActualSite(key+1)
     
-      setSearchConditions(searchConditions.map(page => {
-      if(page.name === "page"){
+      setSearchConditions(searchConditions.map(i => {
+      if(i.name === "page"){
       return{
-          ...page,
+          ...i,
           value: key+1
-    }} else return {...page}
+    }} else return {...i}
   
   }))
     }

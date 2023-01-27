@@ -18,8 +18,6 @@ export default function SearchResults({
   setSitesArray,
   sitesArraycounter
 }) {
-      // // countring how many sites is nessesairly
-      const howManySites = Math.ceil(properties.length/2)
 
   return (
     <div className="h-3/3 w-12/12 md:w-9/12">

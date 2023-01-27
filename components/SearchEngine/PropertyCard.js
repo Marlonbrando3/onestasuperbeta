@@ -36,7 +36,6 @@ export default function PropertyCard({
 
     const PriceLength = price.toString().length
     let Milions = PriceLength - 6
-    console.log(PriceLength-3)
     const RestOfThePrice =  price.toString().slice(0,PriceLength - 6);
     const PriceOneE = price.toString().slice(Milions,Milions+3)
     const PriceTwoE = price.toString().slice(Milions+3,Milions+6);

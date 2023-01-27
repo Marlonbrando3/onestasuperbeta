@@ -60,7 +60,7 @@ export default function Home(
 
   let siteNumber = 1;
   let lastPropertyOnSite = 4;
-  let sitesArraycounter = [1]
+  let sitesArraycounter = [1];
   
   const propertiesWithSites = propertiesWork.map((property, index) => {
     if(index+1 <= lastPropertyOnSite){
@@ -115,12 +115,13 @@ export default function Home(
 
   let Multiple = Region+Type
 
-
   let results = searchConditions.filter(obj => {
     if(obj.isSearching === true) return true;
   })
+  
+  console.log(propertiesWithSites)
 
-  //from filtered props leave olny ...
+  //from filtered props leave only ...
   const resultsFin = results.map(obj =>  {
       return (
         obj.name+'='+obj.value
@@ -128,13 +129,25 @@ export default function Home(
   })
 
   let query = Multiple+resultsFin.toString().replaceAll(',','&')
-  // console.log(query)
 
-  const properties = propertiesWithSites.filter(prop => prop.page === actualSite)
   let [ActualCountry, setActualCountry] = useState(router.query.country);
 
-  let LocalData = router.asPath.replaceAll('%20',' ').split("?")[1]
-  console.log(LocalData)
+  let properties = propertiesWithSites.filter(i => {
+    let counter;
+
+    searchConditions.map(e => {
+      if(e.name === "page") {
+        counter =  e.value
+      }
+    })
+
+    if(i.page === counter){
+      return i 
+    }
+  
+  })
+
+  console.log(properties)
 
   //use Effect for counring down counter with callBack
   useEffect(()=>{
@@ -145,7 +158,7 @@ export default function Home(
 
 
      if(conditions === null){
-        console.log("null")
+        // console.log("null")
      } else {
           setSearchConditions(conditions)
         }
@@ -174,15 +187,12 @@ export default function Home(
 
 },[query, choosedCountry])
 
-console.log(pool)
-
-
   return (
     <>
-    <Head>
-            <title>Nieruchomości w {router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)} - Onesta Group</title>
-            <link rel="shortcut icon" href="/logotype.png" />
-            <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
+      <Head>
+          <title>Nieruchomości w {router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)} - Onesta Group</title>
+          <link rel="shortcut icon" href="/logotype.png" />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
         </Head>
     <div className={showSearchComponentsOnMobile===false ? 'overflow-x-hidden': 'h-0'}>
       <div className='fixed w-full h-16 z-30 bg-white'>
@@ -202,7 +212,7 @@ console.log(pool)
         setActualSite={setActualSite}
         choosedCountry={choosedCountry}
         setChoosedCountry={setChoosedCountry}
-        properties={propertiesWork}
+        properties={properties}
       />
       <ContactFormMain />
       <Footer />
