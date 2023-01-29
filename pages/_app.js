@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
     return(
         
         <AppContext.Provider value={{aprove, setAprove, searchShow, setSearchShow, searchConditions, setSearchConditions, headerAfterFirstView, setHeaderAfterFirstView, showSearchComponentsOnMobile,setShowSearchComponentsOnMobile}}>
-            <!-- Google tag (gtag.js) -->
+            {/* <!-- Google tag (gtag.js) --> */}
                 <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P4VZ7P7VZ5"></Script>
                 <Script>
                 window.dataLayer = window.dataLayer || [];
