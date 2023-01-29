@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { useState, useContext, createContext} from 'react'
+import Script from 'next/script';
 
 export const AppContext = createContext(); 
 
@@ -34,7 +35,16 @@ function MyApp({ Component, pageProps }) {
     const [showSearchComponentsOnMobile,setShowSearchComponentsOnMobile] = useState(false)
 
     return(
+        
         <AppContext.Provider value={{aprove, setAprove, searchShow, setSearchShow, searchConditions, setSearchConditions, headerAfterFirstView, setHeaderAfterFirstView, showSearchComponentsOnMobile,setShowSearchComponentsOnMobile}}>
+            <!-- Google tag (gtag.js) -->
+                <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P4VZ7P7VZ5"></Script>
+                <Script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-P4VZ7P7VZ5');
+                </Script>
             <Component
                 {...pageProps}
             />

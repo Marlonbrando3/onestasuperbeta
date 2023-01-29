@@ -38,14 +38,6 @@ export default function FirstView ({}) {
 
     return(
         <>
-        {/* <!-- Google tag (gtag.js) --> */}
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4VZ7P7VZ5"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-P4VZ7P7VZ5');
-            </script>
         <Head>
             <title>Strona Główna - Onesta Group</title>
             <link rel="shortcut icon" href="/logotype.png" />
