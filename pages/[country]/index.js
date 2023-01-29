@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext, createContext} from 'react'
 import Head from 'next/head'
+import Script from 'next/script'
 import {useRouter} from 'next/router'
 import MiniHomeView from '../../components/SearchEngine/MiniHomeView'
 import Header from '../../components/Header'
@@ -189,6 +190,15 @@ export default function Home(
 
   return (
     <>
+        {/* <!-- Google tag (gtag.js) --> */}
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P4VZ7P7VZ5"></Script>
+          <Script id="google-analitycs">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-P4VZ7P7VZ5');
+              `}
+          </Script>
       <Head>
           <title>Nieruchomości w {router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)} - Onesta Group</title>
           <link rel="shortcut icon" href="/logotype.png" />

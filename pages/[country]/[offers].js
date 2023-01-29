@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Head from 'next/head';
+import Script from 'next/script';
 import Header from '../../components/Header';
 import {useRouter} from 'next/router';
 import MiniHomeView from '../../components/SearchEngine/MiniHomeView';
@@ -123,6 +124,15 @@ export default function Property(
 
   return (
     <>
+     {/* <!-- Google tag (gtag.js) --> */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P4VZ7P7VZ5"></Script>
+        <Script id="google-analitycs">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-P4VZ7P7VZ5');
+              `}
+        </Script>
          <Head>
             <title>{property[0].title} - Onesta Group</title>
             <link rel="shortcut icon" href="/logotype.png" />

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
 import Header from '../components/Header';
 import MiniHomeView from '../components/SearchEngine/MiniHomeView';
 import ContactFormMain from '../components/ContactFormMain';
@@ -19,6 +20,16 @@ export default function Aboutus() {
   const [searchShow, setSearchShow] = useState(true);
   return (
     <>
+
+     {/* <!-- Google tag (gtag.js) --> */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P4VZ7P7VZ5"></Script>
+        <Script id="google-analitycs">{`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-P4VZ7P7VZ5');
+            `}
+        </Script>
         <Head>
             <title>O Nas - Onesta Group</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
