@@ -80,12 +80,14 @@ export default function Header({}) {
                 <p className="hidden md:block">+48 669 75 25 25</p></div>
             </a>
               <div className="lg:static absolute top-14 left-0 bg-white ">
-                <a href="https://www.facebook.com/profile.php?id=100071864003899"><FacebookIcon className="iconscosialheader" /></a>
+                <a href="https://www.facebook.com/profile.php?id=100071864003899"><FacebookIcon className="iconscosialheader"/></a>
                 <InstagramIcon className="iconscosialheader"/>
                 <LinkedInIcon className="iconscosialheader"/>
                 <YouTubeIcon className="iconscosialheader"/>
                 <PodcastsIcon className="iconscosialheader"/>
               </div>
+              {/* <Link href="/account/login" className="px-2  border rounded-md border-green-700 mr-2 cursor-pointer duration-300 hover:bg-green-700 hover:text-white " >Zaloguj</Link>
+              <Link href="/account/signup" className="border bg-green-700 border-green-700 px-2 rounded-md text-white cursor-pointer duration-300 hover:bg-white hover:text-black">Utwórz konto</Link> */}
             </div>
                 <div className="h-2/3 justify-end lg:flex items-center mt-1">
                       <ul className="lg:flex hidden">

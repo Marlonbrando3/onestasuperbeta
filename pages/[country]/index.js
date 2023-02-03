@@ -10,6 +10,7 @@ import db from '../../utils/db'
 import Applychanges from '../../components/SearchEngine/Applychanges'
 import Footer from '../../components/Footer'
 import ContactFormMain from '../../components/ContactFormMain'
+import DataCountry from '../../data/DataCountry.json'
 import { AppContext } from '../_app'
 
 export const CountryIndexContext = createContext();
@@ -120,7 +121,7 @@ export default function Home(
     if(obj.isSearching === true) return true;
   })
   
-  console.log(propertiesWithSites)
+  // console.log(propertiesWithSites)
 
   //from filtered props leave only ...
   const resultsFin = results.map(obj =>  {
@@ -148,23 +149,31 @@ export default function Home(
   
   })
 
-  console.log(properties)
 
   //use Effect for counring down counter with callBack
   useEffect(()=>{
       const StorageInsideData = window.localStorage.getItem(router.asPath.replaceAll('%20',' ').split("?")[1])
       let conditions = [];
       conditions = JSON.parse(StorageInsideData)
-      // console.log(conditions)
 
+      console.log(query)
+      console.log(conditions)
 
-     if(conditions === null){
-        // console.log("null")
-     } else {
+     if(window.localStorage.length === 1 && query === "page=1"){
+        setSearchShow(false)
+     } 
+     else {
+      if(conditions === null && query === "page=1"){
+        router.push("/")
+        setSearchShow(false)
+        window.localStorage.clear()
+      } else {
           setSearchConditions(conditions)
         }
+     }
 
   },[router])
+
 
   useEffect(()=> {
 
@@ -187,6 +196,48 @@ export default function Home(
     }, undefined, { scroll: false });
 
 },[query, choosedCountry])
+
+
+
+//set country and filters
+useEffect(() => {
+
+    let targetvalue =  router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)
+    console.log(targetvalue)
+
+    // setHeaderAfterFirstView(true)
+    setSearchShow(true)
+    
+    setSearchConditions(searchConditions.map(param => {
+
+    if(param.name === 'page'){
+        return{
+            ...param,
+            value: 1,
+            isSearching: true,
+            }
+        }
+    if(param.name === 'region'){
+        let data = [];
+        DataCountry.map(obj => {
+            if(obj.country === targetvalue){
+
+                obj.region.map(region => {
+                    console.log(region)
+                        data = [...data, {
+                                    region: region,
+                                    isSearching: false,
+                                }]
+                    })
+                }                
+            })
+            return {
+                ...param,
+                value: data,
+            }
+            } else return {...param}
+        }))
+},[])
 
   return (
     <>
@@ -358,7 +409,6 @@ export async function getServerSideProps (contex) {
   countFrom();
   countTo();
   TrueOrFalse();
-
 
   const results = await Property.find({
       country: contex.query.country.charAt(0).toUpperCase() + contex.query.country.slice(1),

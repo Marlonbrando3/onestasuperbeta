@@ -20,40 +20,40 @@ export default function SearchButton({}) {
 
     const handleShowSearch = (e) =>{
 
-        let targetvalue =  e.target.getAttribute('name')
+    //     let targetvalue =  e.target.getAttribute('name')
 
-        setHeaderAfterFirstView(true)
-        setSearchShow(true)
+    //     setHeaderAfterFirstView(true)
+    //     setSearchShow(true)
         
-        setSearchConditions(searchConditions.map(param => {
+    //     setSearchConditions(searchConditions.map(param => {
 
-        if(param.name === 'page'){
-            return{
-                ...param,
-                value: 1,
-                isSearching: true,
-                }
-            }
-        if(param.name === 'region'){
-            let data = [];
-            DataCountry.map(obj => {
-                if(obj.country === targetvalue){
+    //     if(param.name === 'page'){
+    //         return{
+    //             ...param,
+    //             value: 1,
+    //             isSearching: true,
+    //             }
+    //         }
+    //     if(param.name === 'region'){
+    //         let data = [];
+    //         DataCountry.map(obj => {
+    //             if(obj.country === targetvalue){
 
-                    obj.region.map(region => {
-                        console.log(region)
-                            data = [...data, {
-                                        region: region,
-                                        isSearching: false,
-                                    }]
-                        })
-                    }                
-                })
-                return {
-                    ...param,
-                    value: data,
-                }
-                } else return {...param}
-            }))
+    //                 obj.region.map(region => {
+    //                     console.log(region)
+    //                         data = [...data, {
+    //                                     region: region,
+    //                                     isSearching: false,
+    //                                 }]
+    //                     })
+    //                 }                
+    //             })
+    //             return {
+    //                 ...param,
+    //                 value: data,
+    //             }
+    //             } else return {...param}
+    //         }))
     }
 
 

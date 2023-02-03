@@ -14,6 +14,7 @@ export default function ContactFormMain() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
         console.log('Sending')
       
         fetch('/api/contact', {
@@ -27,14 +28,9 @@ export default function ContactFormMain() {
           console.log('Response received')
           if (res.status === 200) {
             console.log('Response succeeded!')
-      
-            setDataForm({
-              Name:e.target.value,
-              Phone:e.target.value,
-              Email:e.target.value,
-              Message:e.target.value,
-            }
-            )
+          }
+          else {
+            console.log('Response failed!')
           }
         })
       }
