@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-export default function signup() {
+export default function Signup() {
 
   const firstnameReg = useRef();
   const lastnameReg = useRef();

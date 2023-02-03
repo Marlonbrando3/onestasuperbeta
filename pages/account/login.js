@@ -30,7 +30,7 @@ export default function Login() {
         <label id="pass">Hasło</label>
         <input ref={passRef} name="passRef" className='border-2 rounded-md h-10'></input>
         <button type="submit" onClick={handleLogin} name="submit" className='mt-6 h-10 bg-green-600 text-white rounded-md font-bold'>Zaloguj się</button>
-        <div className='text-center text-sm mt-3'>Nie masz konta? <a href='/account/signup' className='text-blue-500 font-semibold'>Zarejestruj się</a></div>
+        <div className='text-center text-sm mt-3'>Nie masz konta? <Link href='/account/signup' className='text-blue-500 font-semibold'>Zarejestruj się</Link></div>
     </form>
   )
 }
