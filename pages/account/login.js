@@ -23,7 +23,7 @@ export default function Login() {
   }
 
   return (
-    <form className='bg-gray-100 w-3/12 flex flex-col p-5 mx-auto mt-52' href={'/admin'}>
+    <form className='bg-gray-100 w-3/12 flex flex-col p-5 mx-auto mt-52'>
       <div className='text-center text-lg pb-5 font-bold'>Logowanie</div>
         <label id="login">Adres e-mail</label>
         <input ref={emailRef} name="emailRef" type="mail" className='border-2 rounded-md mb-3 h-10'></input>
