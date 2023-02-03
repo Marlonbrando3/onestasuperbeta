@@ -215,6 +215,7 @@ export default function Home(
       } 
       else if(window.localStorage.length > 0 && Path === undefined && query === "page=1") {
           router.push("/")
+          window.localStorage.clear()
           console.log("cofam na główną")
         }
       
