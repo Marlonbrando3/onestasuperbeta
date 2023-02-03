@@ -48,7 +48,7 @@ export default function Signup() {
         <label id="pass">Hasło *</label>
         <input ref={passReg} name="pass" className='border-2 rounded-md'></input>
         <button type="submit" onClick={handleSignUp} name="submit" className='mt-6 h-10 bg-green-600 text-white rounded-md font-bold'>Zarejestruj się</button>
-        <div className='text-center text-sm mt-3'>Masz już konto? <a href='/account/login' className='text-blue-500 font-semibold'>Zaloguj się</a></div>
+        <div className='text-center text-sm mt-3'>Masz już konto? <Link href='/account/login' className='text-blue-500 font-semibold'>Zaloguj się</Link></div>
     </form>
   )
 }
