@@ -51,7 +51,9 @@ export default function Header({}) {
 
   return (
     <>
-    <div className='transition-all duration-700 flex w-full h-22 top-0 lg:pl-24 lg:pt-2 lg:pb-0 lg:pr-10 px-4 text-gray-900 bg-white'>
+    {/* Mobile Menu */}
+    <div className='transition-all duration-700 w-full h-22 top-0 lg:pt-2 lg:pb-0 lg:pr-10 px-4 text-gray-900 bg-white'>
+    <div className="xl:w-[1200px] w-full h-full flex mx-auto">
     <div className={MobileMenu ? 
       "flex items-center z-40 justify-center duration-300 bg-white absolute h-screen left-0 top-0 w-full": 
       "hidden items-center justify-center duration-300 bg-red-400 absolute w-full -left-screen top-0"}>
@@ -89,6 +91,7 @@ export default function Header({}) {
               {/* <Link href="/account/login" className="px-2  border rounded-md border-green-700 mr-2 cursor-pointer duration-300 hover:bg-green-700 hover:text-white " >Zaloguj</Link>
               <Link href="/account/signup" className="border bg-green-700 border-green-700 px-2 rounded-md text-white cursor-pointer duration-300 hover:bg-white hover:text-black">Utwórz konto</Link> */}
             </div>
+            {/* Desktop Menu */}
                 <div className="h-2/3 justify-end lg:flex items-center mt-1">
                       <ul className="lg:flex hidden">
                       <li className='list'><Link  onClick={handleBackToMainPage} href='/'>Strona główna</Link></li>
@@ -110,6 +113,7 @@ export default function Header({}) {
                       </div>
                 </div>
             </div>
+          </div>
     </div>
     <MobileFilters />
     </>

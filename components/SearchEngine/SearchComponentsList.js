@@ -89,7 +89,7 @@ export default function SearchInput({
     <div ref={ShowPopUpChangedApply} className="bg-green-700 transition fixed z-40 bottom-2 right-2 text-white px-3 rounded-md hidden">Zmiany wprowdzone!</div>
     <div className={showSearchComponentsOnMobile ?
         "transition-all absolute duration-700 top-0 w-screen pt-8 z-30 bg-white p-1 md:h-auto h-[1050px]":
-        "transition-all duration-700 absolute disable hidden -top-screen flex-col items-center justify-center md:w-2/12 md:flex md:static"}>
+        "transition-all duration-700 absolute disable hidden -top-screen flex-col items-center justify-center md:w-[280px] md:flex md:static"}>
       <div className="border-2 border-red-600 bg-white  px-2 pt-1 m-4 w-26 z-40 block md:hidden fixed top-0 right-0" onClick={handleShowMobileFilters}>
           <p className="visible cursor-pointer">X</p>
     </div>

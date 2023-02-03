@@ -74,7 +74,7 @@ export default function SearchButton({}) {
                         <p ref={listClaim} className='rounded-md inline center text-xl pl-2 md:text-2xl'>Naciśnij aby wybrać kraj</p>
                         <div ref={listData} className='overflow-hidden mt-3 flex flex-col w-full'>
                         {countries.map((obj, key) => (
-                                <Link key={obj} href={obj.charAt(0).toLowerCase() + obj.slice(1)}className='hover:bg-red-700 hover:text-white w-12/12 flex justify-center border-b'>
+                                <Link key={obj} href={obj.charAt(0).toLowerCase() + obj.slice(1)} className='hover:bg-red-700 hover:text-white w-12/12 flex justify-center border-b'>
                                     <div key={obj} onClick={handleShowSearch} className="text-2xl w-full" name={obj}>{obj}</div>
                                 </Link>
                         ))}

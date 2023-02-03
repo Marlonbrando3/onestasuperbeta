@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
     const [aprove, setAprove] = useState(false);
     const [headerAfterFirstView, setHeaderAfterFirstView] = useState(false)
     const [searchConditions, setSearchConditions] = useState([
+        {id: 1, name: 'country', value: ''},
         {id: 1, name: 'region', value:[]},
         {id: 2, name: 'page', value:'1', isSearching:true},
         {id: 3, name: 'type', value: [

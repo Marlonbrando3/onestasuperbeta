@@ -80,7 +80,7 @@ export default function SearchEngine({
         <>
             <div className={showSearchComponentsOnMobile===false ? "z-10 flex flex-col items-start justify-start transition w-full bg-white" : "h-full -top-full overflow-hidden"}>
                 <div className="flex items-center w-full justify-center md:py-4 py-2 bg-white">
-                    <p className="text-xs w-11/12 ml-8 font-normal">{router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)} -  Przeglądasz pośród {properties.length} ogłoszeń.</p>
+                    <p className="text-xs w-[1200px] mx-auto font-normal">{router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)} -  Przeglądasz pośród {properties.length} ogłoszeń.</p>
                 </div>
                 <div className="flex items-start justify-center w-full pt-4 bg-gray-400/[0.1]">
                     <SearchEngineContext.Provider value={{applyBed, setApplyBed, applyBath, setApplyBath, activeTypeList, applyPrice, setApplyPrice, setActiveTypeList, applySea, setApplySea}}>

@@ -28,6 +28,9 @@ export default function Home(
   //set number of properties per the one site
   const [propertiesOnSite, setPropertiesOnSite] = useState(4);
 
+  //actual choosed country from router
+  const [ActualCountry, setActualCountry] = useState(router.query.country);
+
   //state is set the number of property to show on new site after click
   const [startCountingFrom, setStartCountingFrom] = useState(0);
 
@@ -59,6 +62,54 @@ export default function Home(
         distancetothesea:'',
     },
 )
+
+  const targetvalue =  "Hiszpania"
+
+  // setHeaderAfterFirstView(true)
+  // setSearchShow(true)
+
+  //change searchConditions country if ROUTER value i empty or is else that actuall
+  searchConditions.map(i => {
+    if(i.name === 'country' && (i.value === "" || i.value !== router.query.country)){
+    
+  setSearchConditions(searchConditions.map(param => {
+
+    if(param.name === 'country'){
+      return{
+          ...param,
+          value: router.query.country,
+          }
+      }
+  if(param.name === 'page'){
+      return{
+          ...param,
+          value: 1,
+          isSearching: true,
+          }
+      }
+  if(param.name === 'region'){
+      let data = [];
+      DataCountry.map(obj => {
+          if(obj.country === targetvalue){
+
+              obj.region.map(region => {
+                  console.log(region)
+                      data = [...data, {
+                             region: region,
+                                  isSearching: false,
+                               }]
+                 })
+               }                
+           })
+           return {
+            ...param,
+            value: data,
+           }
+          } else return {...param}
+      }))
+
+    }})
+
 
   let siteNumber = 1;
   let lastPropertyOnSite = 4;
@@ -132,8 +183,6 @@ export default function Home(
 
   let query = Multiple+resultsFin.toString().replaceAll(',','&')
 
-  let [ActualCountry, setActualCountry] = useState(router.query.country);
-
   let properties = propertiesWithSites.filter(i => {
     let counter;
 
@@ -149,28 +198,29 @@ export default function Home(
   
   })
 
+  // set country and conditions at first load
 
   //use Effect for counring down counter with callBack
   useEffect(()=>{
+
       const StorageInsideData = window.localStorage.getItem(router.asPath.replaceAll('%20',' ').split("?")[1])
       let conditions = [];
       conditions = JSON.parse(StorageInsideData)
 
-      console.log(query)
-      console.log(conditions)
+      let Path = router.asPath.replaceAll('%20',' ').split("?")[1]
+      console.log(Path)
 
-     if(window.localStorage.length === 1 && query === "page=1"){
-        setSearchShow(false)
-     } 
-     else {
-      if(conditions === null && query === "page=1"){
-        router.push("/")
-        setSearchShow(false)
-        window.localStorage.clear()
-      } else {
-          setSearchConditions(conditions)
+      if(conditions === null && window.localStorage.length === 0) {
+        console.log("nie spełniłem conditions")
+      } 
+      else if(window.localStorage.length > 0 && Path === undefined && query === "page=1") {
+          router.push("/")
+          console.log("cofam na główną")
         }
-     }
+      
+      else {
+        setSearchConditions(conditions)
+      }
 
   },[router])
 
@@ -180,6 +230,13 @@ export default function Home(
     //generate query from searchConditions
     query = Multiple+resultsFin.toString().replaceAll(',','&')
 
+    router.push({
+      pathname: ActualCountry+'/',
+      query
+    }, undefined, { scroll: false });
+
+
+    // setTimeout(() => {
     if(window.localStorage.key(0) === null){
       window.localStorage.setItem(query, JSON.stringify(searchConditions))
     } 
@@ -189,55 +246,11 @@ export default function Home(
     else {
       window.localStorage.setItem(query, JSON.stringify(searchConditions))
     }
-    
-    router.push({
-      pathname: ActualCountry+'/',
-      query
-    }, undefined, { scroll: false });
+  // },10)
+  
 
 },[query, choosedCountry])
 
-
-
-//set country and filters
-useEffect(() => {
-
-    let targetvalue =  router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)
-    console.log(targetvalue)
-
-    // setHeaderAfterFirstView(true)
-    setSearchShow(true)
-    
-    setSearchConditions(searchConditions.map(param => {
-
-    if(param.name === 'page'){
-        return{
-            ...param,
-            value: 1,
-            isSearching: true,
-            }
-        }
-    if(param.name === 'region'){
-        let data = [];
-        DataCountry.map(obj => {
-            if(obj.country === targetvalue){
-
-                obj.region.map(region => {
-                    console.log(region)
-                        data = [...data, {
-                                    region: region,
-                                    isSearching: false,
-                                }]
-                    })
-                }                
-            })
-            return {
-                ...param,
-                value: data,
-            }
-            } else return {...param}
-        }))
-},[])
 
   return (
     <>

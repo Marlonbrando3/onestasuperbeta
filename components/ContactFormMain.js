@@ -37,9 +37,9 @@ export default function ContactFormMain() {
 
 
   return (
-    <div className='relative flex flex-col w-full h-1/2 bg-center bg-cover bg-[url("../components/images/bg-contact.jpeg")]'>
+    <div className='relative flex flex-col  w-full h-1/2 bg-center bg-cover bg-[url("../components/images/bg-contact.jpeg")]'>
         <div className='absolute w-full h-full bg-red-700/[0.6]'></div>
-        <div className='h-10/12 lg:w-10/12 w-full flex flex-col-reverse lg:flex-row lg:flex py-10 lg:mx-auto'>
+        <div className='h-10/12 lg:w-[1200px] w-full flex flex-col-reverse lg:flex-row lg:flex py-10 lg:mx-auto'>
               <div className='flex lg:flex-col items-center z-10 lg:w-6/12 w-full justify-center lg:pt-0 pt-24 visible md:hidden'>
                 <div className='text-xs lg:text-xs flex flex-col justify-center items-center h-1/2 w-5/12 text-white'>
                     <p className='font-bold'>Siedziba firmy:</p>
