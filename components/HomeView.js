@@ -9,7 +9,7 @@ function HomeView() {
       <div className={searchShow ?
       'h-screen mt-24 w-screen m-0 overflow-hidden bg-white bg-none'
       :
-      'h-[120vh] w-screen duration-500 md:bg-cover mt-24 sm:-mt-20 bg-horizontal md:bg-[url("../components/images/main_bg4.jpeg")] bg-[url("../components/images/main_bg4.jpeg")]' 
+      'h-[120vh] w-screen duration-500 md:bg-cover md:mt-24 sm:-mt-20 bg-cover md:bg-[url("../components/images/main_bg4.jpeg")] bg-[url("../components/images/main_bg4.jpeg")]' 
       }>
         <div className={searchShow ? 
         "absolute transition-transform bg-white z-20 w-full h-full top-0"
