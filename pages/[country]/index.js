@@ -62,22 +62,21 @@ export default function Home(
         distancetothesea:'',
     },
 )
-
-  const targetvalue =  "Hiszpania"
-
   // setHeaderAfterFirstView(true)
   // setSearchShow(true)
 
   //change searchConditions country if ROUTER value i empty or is else that actuall
   searchConditions.map(i => {
-    if(i.name === 'country' && (i.value === "" || i.value !== router.query.country)){
+
+    let targetvalue = router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)
+    if(i.name === 'country' && (i.value === "" || i.value !== targetvalue)){
     
   setSearchConditions(searchConditions.map(param => {
 
     if(param.name === 'country'){
       return{
           ...param,
-          value: router.query.country,
+          value: targetvalue,
           }
       }
   if(param.name === 'page'){
@@ -231,13 +230,16 @@ export default function Home(
     //generate query from searchConditions
     query = Multiple+resultsFin.toString().replaceAll(',','&')
 
-    router.push({
-      pathname: ActualCountry+'/',
-      query
-    }, undefined, { scroll: false });
+    putQuery()
 
+    async function putQuery() {
+      await router.push({
+        pathname: ActualCountry+'/',
+        query
+      }, undefined, { scroll: false });
 
-    // setTimeout(() => {
+    }
+
     if(window.localStorage.key(0) === null){
       window.localStorage.setItem(query, JSON.stringify(searchConditions))
     } 
@@ -247,7 +249,6 @@ export default function Home(
     else {
       window.localStorage.setItem(query, JSON.stringify(searchConditions))
     }
-  // },10)
   
 
 },[query, choosedCountry])

@@ -19,8 +19,13 @@ export default function HeaderCountrySearch({
 
     const handleChangeCountry = (e) => {
 
+        async function cleardata() {
+            await window.localStorage.clear()
+        }
+        
+        cleardata()
+
         let Country = e.target.value
-        window.localStorage.clear()
 
         console.log(Country)
         
@@ -30,8 +35,9 @@ export default function HeaderCountrySearch({
 
           router.push({
           pathname:'/[country]',
-          query: {country:Country}
+          query: {country:Country, page:"1"}
         }) 
+
 
         setChoosedCountry({...choosedCountry, country: Country})
 

@@ -23,8 +23,12 @@ export default function Header({}) {
     const {searchShow,setSearchShow} = useContext(AppContext)
     const {headerAfterFirstView, setHeaderAfterFirstView} = useContext(AppContext)
 
-    const MouseOn = useRef();
-    const MouseOff = useRef();
+    const MouseOnZarzadzanie = useRef();
+    const MouseOnZarzadzanieSpain = useRef();
+    const MouseOnProperties = useRef();
+    const MouseOnSpain = useRef();
+    const MouseOnPortugal = useRef();
+    const MouseOnCroatia = useRef();
 
 
   const [MobileMenu, setMobileMenu] = useState(false)
@@ -38,15 +42,45 @@ export default function Header({}) {
     setSearchShow(false)
   }
 
-  const handleShowListMenu = () => {
-    MouseOn.current.style.display = "block";
-    MouseOn.current.style.color = "black";
-    MouseOn.current.style.backgroundColor = "white";
+  const handleShowListMenuZarzadzanie = () => {
+    MouseOnZarzadzanie.current.style.display = "flex";
+    MouseOnZarzadzanie.current.style.color = "black";
+    MouseOnZarzadzanie.current.style.backgroundColor = "white";
   }
 
-  const handleHideListMenu = () => {
-    MouseOn.current.style.display = "none";
-    MouseOn.current.style.backgroundColor = "none";
+  const handleHideListMenuZarzadzanie = () => {
+    MouseOnZarzadzanie.current.style.display = "none";
+    MouseOnZarzadzanie.current.style.backgroundColor = "none";
+  }
+
+  const handleShowListMenuNieruchomosci = () => {
+    MouseOnProperties.current.style.display = "flex";
+    MouseOnProperties.current.style.backgroundColor = "none";
+  }
+
+  const handleHideListMenuNieruchomosci = () => {
+    MouseOnProperties.current.style.display = "none";
+    MouseOnProperties.current.style.backgroundColor = "none";
+  }
+
+  const handleHover = (e) => {
+
+    e.current.style.backgroundColor = "#B91C1C";
+    e.current.style.color = "white";
+  }
+
+  const handleHoverLeave = (e) => {
+
+    e.current.style.backgroundColor = "white";
+    e.current.style.color = "black";
+  }
+
+  const handleClearData = () => {
+
+    async function cleardata() {
+      await window.localStorage.clear()
+  }
+  cleardata()
   }
 
   return (
@@ -96,9 +130,18 @@ export default function Header({}) {
                       <ul className="lg:flex hidden">
                       <li className='list'><Link  onClick={handleBackToMainPage} href='/'>Strona główna</Link></li>
                       <li className='list'><Link href='/aboutus'>O Nas</Link></li>
-                      <li className='list'><Link href='/hiszpania'>Nieruchomości</Link></li>
-                      <li className='list' onMouseEnter={handleShowListMenu} onMouseLeave={handleHideListMenu}>Zarządzanie najmem
-                      <Link href='/zarzadzanie-nieruchomosciami-w-hiszpanii' ref={MouseOn} className="hidden absolute mt-2 p-2 -ml-2">Zarządzanie najmem w Hiszpanii</Link></li>
+                      <li className='list' onMouseEnter={handleShowListMenuNieruchomosci} onMouseLeave={handleHideListMenuNieruchomosci}>Nieruchomości
+                        <div className="hidden absolute mt-2 -ml-2 bg-white flex-col" ref={MouseOnProperties}>
+                            <Link onClick={handleClearData} href='/hiszpania?page=1' className="p-2 text-black" ref={MouseOnSpain} name="MouseOnSpain" onMouseEnter={() => handleHover(MouseOnSpain)} onMouseLeave={() => handleHoverLeave(MouseOnSpain)}>Nieruchomości w Hiszpanii</Link>
+                            <Link href='/chorwacja?page=1' className="p-2 text-black" ref={MouseOnCroatia} name="MouseOnCroatia" onMouseEnter={() => handleHover(MouseOnCroatia)} onMouseLeave={() => handleHoverLeave(MouseOnCroatia)}>Nieruchomości w Chorwacji</Link>
+                            <Link href='/portugalia?page=1' className="p-2 text-black" ref={MouseOnPortugal} name="MouseOnPortugal" onMouseEnter={() => handleHover(MouseOnPortugal)} onMouseLeave={() => handleHoverLeave(MouseOnPortugal)}>Nieruchomości w Portugalii</Link>
+                        </div>
+                      </li>
+                      <li className='list' onMouseEnter={handleShowListMenuZarzadzanie} onMouseLeave={handleHideListMenuZarzadzanie}>Zarządzanie najmem
+                        <div className="hidden absolute mt-2 -ml-2 bg-white flex-col" ref={MouseOnZarzadzanie}>
+                          <Link href='/zarzadzanie-nieruchomosciami-w-hiszpanii' className="p-2 text-black" ref={MouseOnZarzadzanieSpain} onMouseEnter={() => handleHover(MouseOnZarzadzanieSpain)} onMouseLeave={() => handleHoverLeave(MouseOnZarzadzanieSpain)}>Zarządzanie najmem w Hiszpanii</Link>
+                        </div>
+                      </li>
                       <li className='list'><Link onClick={handleBackToMainPage}href='/blog'>Blog</Link></li>
                       <li className='list'><Link href='/abc'>ABC Inwestora</Link></li>
                           <li className='list'>Kontakt</li>
