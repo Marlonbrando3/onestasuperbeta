@@ -20,7 +20,7 @@ export default function Home(
   ) {
   const router = useRouter();
 
-  const {pool, page, seaview, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, batht, distance, type} = router.query
+  const {pool, page, seaview, bungalow, apartament, house, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, batht, distance, type} = router.query
 
   const {searchConditions, setSearchConditions, searchShow, setSearchShow, showSearchComponentsOnMobile,setShowSearchComponentsOnMobile} = useContext(AppContext)
   // setSearchShow(true)
@@ -66,49 +66,6 @@ export default function Home(
   // setSearchShow(true)
 
   //change searchConditions country if ROUTER value i empty or is else that actuall
-  searchConditions.map(i => {
-
-    let targetvalue = router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)
-    if(i.name === 'country' && (i.value === "" || i.value !== targetvalue)){
-    
-  setSearchConditions(searchConditions.map(param => {
-
-    if(param.name === 'country'){
-      return{
-          ...param,
-          value: targetvalue,
-          }
-      }
-  if(param.name === 'page'){
-      return{
-          ...param,
-          value: 1,
-          isSearching: true,
-          }
-      }
-  if(param.name === 'region'){
-      let data = [];
-      DataCountry.map(obj => {
-          if(obj.country === targetvalue){
-
-              obj.region.map(region => {
-                  console.log(region)
-                      data = [...data, {
-                             region: region,
-                                  isSearching: false,
-                               }]
-                 })
-               }                
-           })
-           return {
-            ...param,
-            value: data,
-           }
-          } else return {...param}
-      }))
-
-    }})
-
 
   let siteNumber = 1;
   let lastPropertyOnSite = 4;
@@ -132,127 +89,27 @@ export default function Home(
     } else return {...property}
     })
 
-  let Region = [];
-  let Type = [];
+  // console.log(propertiesWork)
+  console.log(propertiesWithSites)
+  // console.log(router.query)
 
-  searchConditions.filter(obj => {
-    let dataRegion = [];
-    if(obj.name === 'region') {
-      obj.value.map(v => {
-        if(v.isSearching === true) {
-          dataRegion = [...dataRegion,"region="+v.region]
-        } if(dataRegion.length > 0){
-          Region = dataRegion.toString().replaceAll(',',"&")+'&';
-          } else {
-            Region = [];
-          }
-        })
-    }
-  })
+  let properties = propertiesWithSites
+  // .filter(i => {
+  //   let counter;
 
-  searchConditions.filter(obj => {
-    let dataType = [];
-    if(obj.name === 'type') {
-      obj.value.map(v => {
-        if(v.isSearching === true) {
-          dataType = [...dataType,"type="+v.type]
-        } if(dataType.length > 0){
-          Type = dataType.toString().replaceAll(',',"&")+'&';
-          } else {
-            Type = [];
-          }
-        })
-    }
-  })
+  //   searchConditions.map(e => {
+  //     if(e.name === "page") {
+  //       counter =  e.value
+  //     }
+  //   })
 
-  let Multiple = Region+Type
-
-  let results = searchConditions.filter(obj => {
-    if(obj.isSearching === true) return true;
-  })
+  //   if(i.page === counter){
+  //     return i 
+  //   }
   
-  // console.log(propertiesWithSites)
+  // })
 
-  //from filtered props leave only ...
-  const resultsFin = results.map(obj =>  {
-      return (
-        obj.name+'='+obj.value
-      )
-  })
-
-  let query = Multiple+resultsFin.toString().replaceAll(',','&')
-
-  let properties = propertiesWithSites.filter(i => {
-    let counter;
-
-    searchConditions.map(e => {
-      if(e.name === "page") {
-        counter =  e.value
-      }
-    })
-
-    if(i.page === counter){
-      return i 
-    }
-  
-  })
-
-  // set country and conditions at first load
-
-  //use Effect for counring down counter with callBack
-  useEffect(()=>{
-
-      const StorageInsideData = window.localStorage.getItem(router.asPath.replaceAll('%20',' ').split("?")[1])
-      let conditions = [];
-      conditions = JSON.parse(StorageInsideData)
-
-      let Path = router.asPath.replaceAll('%20',' ').split("?")[1]
-      console.log(Path)
-
-      if(conditions === null && window.localStorage.length === 0) {
-        console.log("nie spełniłem conditions")
-      } 
-      else if(window.localStorage.length > 0 && Path === undefined && query === "page=1") {
-          router.push("/")
-          window.localStorage.clear()
-          console.log("cofam na główną")
-        }
-      
-      else {
-        setSearchConditions(conditions)
-      }
-
-  },[router])
-
-
-  useEffect(()=> {
-
-    //generate query from searchConditions
-    query = Multiple+resultsFin.toString().replaceAll(',','&')
-
-    putQuery()
-
-    async function putQuery() {
-      await router.push({
-        pathname: ActualCountry+'/',
-        query
-      }, undefined, { scroll: false });
-
-    }
-
-    if(window.localStorage.key(0) === null){
-      window.localStorage.setItem(query, JSON.stringify(searchConditions))
-    } 
-    if(window.localStorage.length >= 0 && query === "page=1"){
-      // console.log('alredyExist')
-    }
-    else {
-      window.localStorage.setItem(query, JSON.stringify(searchConditions))
-    }
-  
-
-},[query, choosedCountry])
-
+  console.log(properties)
 
   return (
     <>
@@ -329,10 +186,6 @@ export async function getServerSideProps (contex) {
   let bedf;
   let bedt;
 
-  //searching for types
-  let datatype = contex.query.type
-  let typed;
-
   //searching for distance
   let datadistance = contex.query.distance
   let distanced;
@@ -343,14 +196,6 @@ export async function getServerSideProps (contex) {
     if(dataregion === undefined){
       regiond = ['Costa Blanca','Costa del Sol','Costa Brava','Costa Dorada','Lisboa','Porto','Istria', 'Kvarner', 'Dalmacja PŁ', 'Dalmacja PŁD', 'Dalmacja ŚR'];
     } else regiond = contex.query.region
-
-    if(datatype === undefined){
-      typed = ['Bungalow','Dom','Apartament'];
-    } else typed = contex.query.type
-
-    if(datatype === undefined){
-      typed = ['Bungalow','Dom','Apartament'];
-    } else typed = contex.query.type
 
     if(datadistance === undefined){
       distanced = 100000;
@@ -386,6 +231,10 @@ export async function getServerSideProps (contex) {
       bedt=5;
     } else bedt = Number(contex.query.bedt)
   }
+
+  let bungalow = contex.query.bungalow
+  let apartament = contex.query.apartament
+  let house = contex.query.house
   let pool = contex.query.pool
   let garden = contex.query.garden
   let seaview = contex.query.seaview
@@ -394,6 +243,17 @@ export async function getServerSideProps (contex) {
   let balcony = contex.query.balcony
 
   let TrueOrFalse = () => {
+    if(bungalow === undefined){
+      bungalow = ['false', 'true']
+    } else bungalow = ['true']
+
+    if(apartament === undefined){
+      apartament = ['false', 'true']
+    } else apartament = ['true']
+
+    if(house === undefined){
+      house = ['false', 'true']
+    } else house = ['true']
 
     if(pool === undefined){
       pool = ['false', 'true']
@@ -429,7 +289,9 @@ export async function getServerSideProps (contex) {
       country: contex.query.country.charAt(0).toUpperCase() + contex.query.country.slice(1),
       region: regiond,
       distance: {$lte: distanced},
-      type: typed,
+      bungalow: {$in: bungalow},
+      apartament: {$in: apartament},
+      house: {$in: house},
       pool:{$in: pool},
       seaview:{$in: seaview},
       parking:{$in: parking},

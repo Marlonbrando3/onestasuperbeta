@@ -1,4 +1,6 @@
 import { CommentsDisabledOutlined } from '@mui/icons-material'
+import CancelIcon from '@mui/icons-material/Cancel';
+import CheckIcon from '@mui/icons-material/Check';
 import { AppContext } from '../../../pages/_app';
 import { SearchEngineContext } from '../SearchEngine'
 import Pool from '@mui/icons-material/Pool';
@@ -7,10 +9,9 @@ import { useRouter } from 'next/router';
 import React, { useContext } from 'react'
 import { SearchComponentsContext } from "../SearchComponentsList";
 
-export default function Offersparameters({
-  title, 
-  name, 
-  IconName}) {
+export default function Offersparameters({name, title}) {
+
+    const router = useRouter();
 
     const {searchConditions, setSearchConditions} = useContext(AppContext)
     const {ShowChangedAreApply} = useContext(SearchComponentsContext)
@@ -20,45 +21,39 @@ export default function Offersparameters({
   searchConditions.map(param => {
   if(param.name === name) ActualValue = param.value})
 
-  const handleSelectParameter = (e) => {
+  const handleFunction = (e) => {
 
-    let targetname = e.target.name
-    ShowChangedAreApply()
+    let name = e.target.getAttribute('name')
+    console.log(router.asPath.toString())
+    console.log(name)
 
-    setSearchConditions(searchConditions.map(param => {
-      if(param.name === targetname && param.isSearching === false){
-        return{
-          ...param,
-          isSearching: true,
-          value: true
-        }
-      }
-
-      if(param.name === targetname && param.isSearching === true){
-        return{
-          ...param,
-          isSearching: false,
-          value: false
-      }} else return {...param,}
-
-    })
-    )
-
-  console.log(targetname)
+    if(router.asPath.toString().includes(name)) {
+      const params = new URLSearchParams(router.query);
+      params.delete(name);
+      const queryString = params.toString();
+      console.log(queryString)
+      const path = `/[country]${queryString ? `?${queryString}` : ''}`;
+      router.push(path, '', { scroll: false });
+    }
+    else {
+      const params = new URLSearchParams(router.query);
+      params.append(name, true)
+      const queryString = params.toString();
+      console.log(queryString)
+      const path = `/[country]${queryString ? `?${queryString}` : ''}`;
+      router.push(path, '', { scroll: false });
+  }
 }
+
   return (
   <>
-      <div className='flex items-center justify-start w-full'>
-        <input 
-          name={name}
-          onChange={handleSelectParameter}
-          className="w-5 h-5 cursor-pointer"
-          type="checkbox"
-          checked={ActualValue}
-          >
-        </input>
-          {IconName}
-        <label id={name} className="p-2 font-normal cursor-pointer">{title}</label>
+      <div className="flex items-center w-11/12 lg:w-11/12 md:w-11/12">
+          <div onClick={handleFunction} name={name} className={router.asPath.includes(name) ? 'rounded-sm border-gray-700 my-2 mr-2 w-5 h-5 p-0 accent-red-600 cursor-pointer' :"rounded-sm border-gray-700 my-2 mr-2 w-5 h-5 p-0 accent-red-600 cursor-pointer border"}>
+              <div name={name} className={router.asPath.includes(name) ? 'rounded-sm bg-red-600 text-white w-full h-full':'hidden'}>
+                <CheckIcon name={name} className='w-full h-full rounded-sm flex items-center justify-center'/>
+              </div>
+          </div>
+        <p className="font-bold block">{title}</p>
       </div>
     </>
   )

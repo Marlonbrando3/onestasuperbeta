@@ -18,9 +18,6 @@ const propertySchema = new mongoose.Schema({
     market:{
         type:String,
     },
-    type:{
-        type:String,
-    },
     bathrooms:{
         type:Number,
     },
@@ -53,6 +50,15 @@ const propertySchema = new mongoose.Schema({
     },
     description: {
         type:String,
+    },
+    bungalow:{
+        type:Boolean,
+    },
+    apartament:{
+        type:Boolean,
+    },
+    house:{
+        type:Boolean,
     },
     image:{
 

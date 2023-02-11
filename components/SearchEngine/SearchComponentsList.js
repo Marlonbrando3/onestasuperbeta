@@ -26,25 +26,16 @@ export const SearchComponentsContext = createContext();
 export default function SearchInput({
   ActualCountry,
   setActualCountry,
-  TypeList,
   choosedTypes,
   setChoosedTypes,
-  setTypeList,
-  activeTypeList,
-  setActiveTypeList,
   choosedRegion,
   setChoosedRegion,
-  countryPlaceHolder,
-  setCountryPlaceHolder,
   choosedCountry,
   setChoosedCountry,
   countries,
   setCountries,
-  countryInput,
   actualSite,
   setActualSite,
-  activeRegionList,
-  setActiveRegionList,
   priceMin,
   setPriceMin,
   priceMax,
@@ -59,8 +50,6 @@ export default function SearchInput({
   setBedMax,
   seaMax,
   setSeaMax,
-  query,
-  setQuery,
   searchConditions,
   setSearchConditions, 
   apply,
@@ -96,8 +85,7 @@ export default function SearchInput({
         <form className="flex flex-col m-auto justify-start items-center bg-white rounded-md h-auto p-1 mb-60 lg:w-11/12 w-10/12">
         <SearchComponentsContext.Provider value={{ShowChangedAreApply}}>
           <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
-            <p>Kraj</p>
-            <div className="InputsStyle m-auto w-full">
+            <div className="m-auto w-full h-auto">
             <CountrySearchInSearchEngine
               ActualCountry={ActualCountry}
               setActualCountry={setActualCountry}
@@ -114,97 +102,6 @@ export default function SearchInput({
             /> 
             </div>
           </div>
-          <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
-            <p className="font-lg">Region</p>
-            <RegionChoosed
-              apply={apply}
-              setApply={setApply}
-              choosedRegion={choosedRegion}
-              setChoosedRegion={setChoosedRegion}
-              countryPlaceHolder={countryPlaceHolder}
-              setCountryPlaceHolder={setCountryPlaceHolder}
-              choosedCountry={choosedCountry}
-              setChoosedCountry={setChoosedCountry}
-              countries={countries}
-              setCountries={setCountries}
-            />
-          <div className="InputsStyle m-auto w-full my-1">
-            <RegionSearch
-              choosedRegion={choosedRegion}
-              setChoosedRegion={setChoosedRegion}
-              countryPlaceHolder={countryPlaceHolder}
-              setCountryPlaceHolder={setCountryPlaceHolder}
-              choosedCountry={choosedCountry}
-              setChoosedCountry={setChoosedCountry}
-              searchShow={searchShow}
-              setSearchShow={setSearchShow}
-              countries={countries}
-              setCountries={setCountries}
-              countryInput={countryInput}
-              activeRegionList={activeRegionList}
-              setActiveRegionList={setActiveRegionList}
-              apply={apply}
-              setApply={setApply}
-
-            />
-          </div></div>
-          {/* <div className="InputsStyleContainer">
-            <p>Wybierz miasto:</p>
-            <div className="InputsStyle">
-            <CitySearch
-              countryPlaceHolder={countryPlaceHolder}
-              setCountryPlaceHolder={setCountryPlaceHolder}
-              choosedCountry={choosedCountry}
-              setChoosedCountry={setChoosedCountry}
-              searchShow={searchShow}
-              setSearchShow={setSearchShow}
-              countries={countries}
-              setCountries={setCountries}
-              countryInput={countryInput}
-              activeCountryList={activeCountryList}
-              setActiveCountryList={setActiveCountryList}
-              choosedRegion={choosedRegion}
-              setChoosedRegion={setChoosedRegion}
-            />
-            <ChoosedCity 
-              countryPlaceHolder={countryPlaceHolder}
-              setCountryPlaceHolder={setCountryPlaceHolder}
-              choosedCountry={choosedCountry}
-              setChoosedCountry={setChoosedCountry}
-              countries={countries}
-              setCountries={setCountries}
-              choosedRegion={choosedRegion}
-              setChoosedRegion={setChoosedRegion}
-            />
-          </div></div> */}
-          <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
-            <p className="h-6">Typ nieruchomości</p>
-            <TypeChoosed
-                  apply={apply}
-                  setApply={setApply}
-                  TypeList={TypeList}
-                  choosedTypes={choosedTypes}
-                  setChoosedTypes={setChoosedTypes}
-                  setTypeList={setTypeList}
-                  activeTypeList={activeTypeList}
-                  setActiveTypeList={setActiveTypeList}
-                  query={query}
-                  setQuery={setQuery} 
-            />
-          <div className="InputsStyle w-full m-auto md:w-full my-1">
-               <TypeSearch
-                  apply={apply}
-                  setApply={setApply}
-                  TypeList={TypeList}
-                  choosedTypes={choosedTypes}
-                  setChoosedTypes={setChoosedTypes}
-                  setTypeList={setTypeList}
-                  activeTypeList={activeTypeList}
-                  setActiveTypeList={setActiveTypeList}
-                  query={query}
-                  setQuery={setQuery}
-                />
-          </div></div>
           <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
             <p>Cena (€)</p>
               {/* <div className="InputsStyle w-12 m-auto md:w-full"> */}
@@ -251,15 +148,6 @@ export default function SearchInput({
               />
               </div>
           <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12">
-          <h1 className="font-bold mt-7">Rynek</h1>
-              <Offersparameters 
-                name="firstmarket"
-                title={"Pierwotny"}
-                />
-              <Offersparameters 
-                name="secondarymarket"
-                title={"Wtórny"}
-                />
             <h1 className="font-bold mt-7">Parametry oferty</h1>
               <Offersparameters
                 name="pool"

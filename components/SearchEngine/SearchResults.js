@@ -19,10 +19,13 @@ export default function SearchResults({
   sitesArraycounter
 }) {
 
+  console.log(properties)
+
   return (
     <div className="h-3/3 w-12/12 md:w-[1000px]">
       {properties.map(property => 
-          <PropertyCard key={property}
+          <PropertyCard 
+            key={property}
             country={property.country}
             region={property.region}
             city={property.city}

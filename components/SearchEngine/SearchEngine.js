@@ -49,8 +49,6 @@ export default function SearchEngine({
         { id:4, nameCountry: "Hiszpania", name: "Costa del Sol", OnList: "deactive",  regionList: true},
         { id:4, nameCountry: "Hiszpania", name: "Costa Dorada", OnList: "deactive",  regionList: true},
         { id:4, nameCountry: "Hiszpania", name: "Costa Brava", OnList: "deactive",  regionList: true},
-
-
         ])
 
         //handling type of property

@@ -13,15 +13,9 @@ export default function MobileFilters() {
     const handleShowMobileFilters = () => {
         setShowSearchComponentsOnMobile(showSearchComponentsOnMobile => !showSearchComponentsOnMobile)
       }
-      let filters;
-      if(router.asPath.includes("page")){
-        filters = 1
-      } else {
-          filters = 0;
-      }
 
   return (
-        <div className={filters===1 ? "bg-red-600 rounded-b-xl border-blue-900 border-b-2 px-2 py-1 ml-4 w-28 mr-4 z-0 md:hidden fixed top-16 right-0 visible": "hidden"} onClick={handleShowMobileFilters}>
+        <div className="bg-red-600 rounded-b-xl border-blue-900 border-b-2 px-2 py-1 ml-4 w-28 mr-4 z-0 md:hidden fixed top-16 right-0 visible block" onClick={handleShowMobileFilters}>
               <p className="visible cursor-pointer text-white text-base flex justify-center font-bold">Filtry</p>
         </div>
   )
