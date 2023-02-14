@@ -116,7 +116,7 @@ export default function Home() {
 
 const RegionsList = regionsToShow.map(region => {
     if(router.query.region !== undefined) {
-        return <div className='bg-red-600 text-white flex items-center justify-between pl-2 pr-1 rounded-md absolute top-0 h-8 w-full cursor-pointer' key={region}>
+        return <div key={region} className='bg-red-600 text-white flex items-center justify-between pl-2 pr-1 rounded-md absolute top-0 h-8 w-full cursor-pointer'>
             <span className='font-normal'>{region}</span>
             <span>
                 <CloseIcon className='w-5 h-5' onClick={handleDeleteParam} />
@@ -215,7 +215,7 @@ const RegionsList = regionsToShow.map(region => {
                 if(router.query.country === i.country){
                   return (
                     i.regions.map(r=> (
-                    <p onClick={pushRegions} onMouseDown={(e) => e.preventDefault()} className='hover:bg-red-600/[0.9] hover:text-white text-black cursor-pointer text-normal pl-3' query={{region:{r}}}>{r}</p>
+                    <p key={i} onClick={pushRegions} onMouseDown={(e) => e.preventDefault()} className='hover:bg-red-600/[0.9] hover:text-white text-black cursor-pointer text-normal pl-3' query={{region:{r}}}>{r}</p>
                   ))
                   )
                 }}))}
