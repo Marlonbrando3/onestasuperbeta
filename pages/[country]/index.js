@@ -62,10 +62,6 @@ export default function Home(
         distancetothesea:'',
     },
 )
-  // setHeaderAfterFirstView(true)
-  // setSearchShow(true)
-
-  //change searchConditions country if ROUTER value i empty or is else that actuall
 
   let siteNumber = 1;
   let lastPropertyOnSite = 4;
@@ -88,14 +84,6 @@ export default function Home(
         }
     } else return {...property}
     })
-
-  // console.log(propertiesWork)
-  // console.log(propertiesWithSites)
-  
-  console.log(router.query.bungalow)
-  console.log(router.query.apartament)
-  console.log(router.query.house)
-
 
   let properties = propertiesWithSites
   // .filter(i => {
@@ -297,8 +285,6 @@ export async function getServerSideProps (contex) {
   countFrom();
   countTo();
   TrueOrFalse();
-
-  console.log(bungalow, apartament, house)
 
   const results = await Property.find({
       country: contex.query.country.charAt(0).toUpperCase() + contex.query.country.slice(1),

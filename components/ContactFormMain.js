@@ -13,7 +13,7 @@ export default function ContactFormMain() {
     })
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
 
         console.log('Sending')
       
@@ -45,7 +45,7 @@ export default function ContactFormMain() {
                     <p className='font-bold'>Siedziba firmy:</p>
                     <p>Onesta Group sp. z o.o.</p>
                     <p>53-148 Wrocław</p>
-                    <p>ul. Wolbromska 18b/1</p>
+                    <p>ul. Wolbromska 18/1b</p>
                     <p>NIP: 899 292 23 78</p>
                 </div>
                 <div className='text-xs lg:text-xl flex flex-col justify-center items-center  h-1/2 w-5/12 text-white'>
@@ -58,7 +58,7 @@ export default function ContactFormMain() {
                 </div>
             </div>
             <div className='w-full lg:w-6/12'>
-                <form className='relative z-10 lg:flex w-10/12 flex flex-col mx-auto'>
+                <form className='relative z-10 lg:flex w-10/12 flex flex-col mx-auto' onSubmit={handleSubmit} method="post">
                     <div className='py-4 font-bold text-2xl text-white'>Napisz do nas:</div>
                     <input className="h-10 my-2 rounded-sm pl-2" onChange={(e) =>{setDataForm({...dataForm, Name:(e.target.value)})}} type="text" name="name" placeholder='imię i nazwisko' required></input>
                     <input className="h-12 my-2 rounded-sm pl-2" onChange={(e) =>{setDataForm({...dataForm, Phone:(e.target.value)})}} type="number" name="phone" placeholder='numer telefonu' required></input>
@@ -68,7 +68,7 @@ export default function ContactFormMain() {
                         <input className='w-4 h-4' type="checkbox" name="mail" required></input>
                         <p className='text-xs text-white block ml-2'>Akceptuję regulamin i <a className="underline-offset-1" href="#">politykę prywatności (wymagane)</a></p>
                     </div>
-                    <button type="submit" onClick={handleSubmit} className='bg-white w-56 py-2 mx-auto rounded-md text-gray-900 text-xl font-normal hover:bg-red-900'>Wyślij</button>
+                    <button type="submit" className='bg-white w-56 py-2 mx-auto rounded-md text-gray-900 text-xl font-normal hover:bg-red-900'>Wyślij</button>
                 </form>
             </div>
             <div className='md:flex lg:flex-col items-center z-10 lg:w-6/12 w-full justify-center lg:pt-0 pt-24 hidden md:visible'>
