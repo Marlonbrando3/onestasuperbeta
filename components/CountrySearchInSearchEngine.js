@@ -19,7 +19,7 @@ export default function Home() {
     params.delete('region');
     const queryString = params.toString();
     const path = `/[country]${queryString ? `?${queryString}` : ''}`;
-    console.log(queryString)
+    // console.log(queryString)
 
     router.push(path, '', { scroll: false });
 
@@ -82,7 +82,7 @@ export default function Home() {
       const params = new URLSearchParams(router.query);
       params.delete('bungalow');
       const queryString = params.toString();
-      console.log(queryString)
+    //   console.log(queryString)
       const path = `/[country]${queryString ? `?${queryString}` : ''}`;
       router.push(path, '', { scroll: false });
     }

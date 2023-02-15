@@ -90,8 +90,12 @@ export default function Home(
     })
 
   // console.log(propertiesWork)
-  console.log(propertiesWithSites)
-  // console.log(router.query)
+  // console.log(propertiesWithSites)
+  
+  console.log(router.query.bungalow)
+  console.log(router.query.apartament)
+  console.log(router.query.house)
+
 
   let properties = propertiesWithSites
   // .filter(i => {
@@ -109,7 +113,7 @@ export default function Home(
   
   // })
 
-  console.log(properties)
+  // console.log(properties)
 
   return (
     <>
@@ -243,17 +247,26 @@ export async function getServerSideProps (contex) {
   let balcony = contex.query.balcony
 
   let TrueOrFalse = () => {
+    if(bungalow === undefined && apartament === undefined && house === undefined) {
+      bungalow = 'bungalow'
+      apartament = 'apartament'
+      house = 'house'
+    } else {
+
+      console.log(bungalow + "dupa")
+
     if(bungalow === undefined){
-      bungalow = ['false', 'true']
-    } else bungalow = ['true']
+      bungalow = ''
+    } else bungalow = 'bungalow'
 
     if(apartament === undefined){
-      apartament = ['false', 'true']
-    } else apartament = ['true']
+      apartament = ''
+    } else apartament = 'apartament'
 
     if(house === undefined){
-      house = ['false', 'true']
-    } else house = ['true']
+      house = ''
+    } else house = 'house'
+    }
 
     if(pool === undefined){
       pool = ['false', 'true']
@@ -285,13 +298,13 @@ export async function getServerSideProps (contex) {
   countTo();
   TrueOrFalse();
 
+  console.log(bungalow, apartament, house)
+
   const results = await Property.find({
       country: contex.query.country.charAt(0).toUpperCase() + contex.query.country.slice(1),
       region: regiond,
       distance: {$lte: distanced},
-      bungalow: {$in: bungalow},
-      apartament: {$in: apartament},
-      house: {$in: house},
+      type: {$in:[bungalow, apartament, house]},
       pool:{$in: pool},
       seaview:{$in: seaview},
       parking:{$in: parking},
@@ -311,5 +324,3 @@ export async function getServerSideProps (contex) {
     }
   }
 }
-
-  

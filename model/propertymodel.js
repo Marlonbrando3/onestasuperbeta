@@ -51,14 +51,8 @@ const propertySchema = new mongoose.Schema({
     description: {
         type:String,
     },
-    bungalow:{
-        type:Boolean,
-    },
-    apartament:{
-        type:Boolean,
-    },
-    house:{
-        type:Boolean,
+    type:{
+        type:String,
     },
     image:{
 
