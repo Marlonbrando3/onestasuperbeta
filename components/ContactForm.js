@@ -40,7 +40,7 @@ const handleSubmit = (e) => {
 
   return (
     <div className=' lg:flex w-full bg-slate-900/[0.9] mx-1 px-2 lg:px-10 rounded-md mt-1 lg:w-full lg:mx-auto'>
-        <form className='flex flex-col lg:w-full lg:p-7 p-7'>
+        <form className='flex flex-col lg:w-full lg:p-7 p-7' onSubmit={handleSubmit}>
             <div className='py-4 font-bold text-2xl text-white'>Zadaj nam pytanie:</div>
               <p className='py-2 font-bold text-white'>Ogłoszenie o nr ref. <input className='bg-gray-900/[0.0]' type="text" value={propertyId} name="id"></input></p>
               {/* <label id="name">Imię i naziwsko</label> */}
@@ -55,7 +55,7 @@ const handleSubmit = (e) => {
                   <input className='w-6 h-6' type="checkbox" name="mail" required></input>
                   <p className='block ml-2 text-white'>Akceptuję regulamin i <a className="underline-offset-1" href="#">politykę prywatności (wymagane)</a></p>
               </div>
-            <button type="submit" onClick={handleSubmit} className='bg-red-600 w-full rounded-md py-2 text-white'>Wyślij</button>
+            <button type="submit" className='bg-red-600 w-full rounded-md py-2 text-white'>Wyślij</button>
         </form>
 </div>
   )
