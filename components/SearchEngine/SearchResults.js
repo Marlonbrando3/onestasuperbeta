@@ -20,7 +20,7 @@ export default function SearchResults({
 }) {
 
   return (
-    <div className="h-3/3 w-12/12 md:w-[1000px]">
+    <div className="h-3/3 w-full md:w-[1000px]">
       {properties.map(property => 
           <PropertyCard 
             key={property}
