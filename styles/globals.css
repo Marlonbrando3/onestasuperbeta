@@ -363,4 +363,15 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent'; */
   .iconscosialheader{
     @apply mx-1 w-4 h-4 text-gray-800/[0.5] transition cursor-pointer hover:text-red-700
   }
+
+  .inputs-add-property-label{
+    @apply mt-2
+  }
+
+  .inputs-add-property{
+    @apply border-2
+  }
+  .inputs-add-property-textarea{
+    @apply border
+  }
 }

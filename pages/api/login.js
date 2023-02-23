@@ -1,24 +1,37 @@
-import React from 'react'
-import User from "../../model/users"
-import db from '../../utils/db';
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import mongoose from "mongoose";
+import { setCookie } from "cookies-next";
+import { compare } from 'bcrypt'
+import Users  from '../../model/users'
+import { sign } from 'jsonwebtoken' 
+import { secret } from "./secret"
 
-export default function signup(req,res) {
-       console.log(req.body.email)
 
-       async function handleAddUser(){ 
-         await db.connect();
-       //   console.log("jestem w mongo")
-     
-         const validationEmail = User.find({
-              email:req.body.name,
-         })
+export default async function connect(req,res) {
 
-       console.log("to"+validationEmail)  
-       console.log("to2"+req.body.email)  
+  const email = req.body.email
+  const pass = req.body.pass
 
-       if(validationEmail === req.body.email) console.log("zalogowno")
-       else console.log("użytkownika nie ma w bazie")
-       }
+  // console.log("łączę...")
+  await mongoose.connect(process.env.MONGO_URI);
+  console.log("połączono!")
+  
+  const results = await Users.find({
+    email:email,
+  })
 
-       handleAddUser();
-     }
+  if(results.length === 1){
+    compare(pass, results[0].pass, async function(err,result){
+      if(!err && result){
+              const jwt = sign(email, secret);
+              setCookie('auth', jwt, { req, res })
+              res.status(200).json({msg:"ciastko dodane"})
+              console.log("ciastko dodane")
+            } else {
+              res.status(403).json({msg:"Błędny token"})
+            }
+    })} else {
+      res.status(403).json({msg:"dane nie są zgodne"})
+      console.log("błedne dane")
+    }
+  }

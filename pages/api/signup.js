@@ -1,22 +1,40 @@
 import React from 'react'
 import db from '../../utils/db'
+import { hash } from 'bcrypt'
+import mongoose from 'mongoose'
 import UserSchema from '../../model/users'
 
-export default function signup(req,res) {
+export default async function connect(req, res) {
 
-  async function handleAddUser(){ 
-    await db.connect();
-    console.log("jestem w mongo")
+  const email = req.body.email
 
-    const newUser = new UserSchema({
-      firstname:req.body.firstname,
-      lastname:req.body.lastname,
-      mail:req.body.email,
-      phone:req.body.phone,
-      pass:req.body.pass,
-    })
-    await newUser.save();
-  }
+  console.log("łączę...")
+  await mongoose.connect(process.env.MONGO_URI);
+  console.log("połączono!")
+
+const results = await UserSchema.find({
+  email:email,
+})
+
+console.log(results.length)
+
+if(results.length === 1){
+  res.json("Użytkownik już istnieje!")
+  console.log("istnieje")
+  } else {
+  hash(req.body.pass, 12, async function(err,hash){
+      console.log(hash)
+      if(!err){
+          await UserSchema.create({
+            firstname:req.body.firstname,
+            lastname:req.body.lastname,
+            email:req.body.email,
+            phone:req.body.phone,
+            pass: hash,
+          })
+      }})
   
-  handleAddUser();
+  res.json("dodano nowego użytkownika!")
+  console.log("dodano")
+}
 }
