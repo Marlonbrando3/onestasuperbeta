@@ -2,8 +2,8 @@ import React from 'react'
 import Link from 'next/link';
 import { useRef, useState } from 'react'
 import mongoose from 'mongoose'
-export default function login() {
 
+export default function Signup() {
 
 const info = useRef();  
 const firstname = useRef();

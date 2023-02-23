@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import Link from 'next/link';
 import Router, { useRouter } from 'next/router';
 
-export default function login() {
+export default function Login() {
 
 const router = useRouter();
 
