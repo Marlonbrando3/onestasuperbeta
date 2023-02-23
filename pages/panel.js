@@ -13,15 +13,13 @@ export default function Panel() {
     const router = useRouter();
     async function adminapi(){ 
 
-    let ref = await fetch('https://onesta.com.pl/api/panel', {
+    let ref = await fetch('api/panel', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json'
         },
       })
-
-      console.log("panel status "+ref.status)
 
       if(ref.status === 200){
           router.push("/panel")
