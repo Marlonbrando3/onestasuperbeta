@@ -14,14 +14,14 @@ export default function admin(req, res) {
         if(decoded && !err){
             if(coockie === undefined) {
             console.log("działa")
-            res.status(200).json({msg:"uprawnienia przyznane"}).header('Access-Control-Allow-Origin', '*');
+            res.status(200).json({msg:"uprawnienia przyznane"})
             }
         } if(coockie !== undefined) {
             console.log("Twoje coockie istnieje")
-            res.status(300).json({msg:"coockie istnieje"}).header('Access-Control-Allow-Origin', '*');
+            res.status(300).json({msg:"coockie istnieje"})
         } else {
             console.log("Odmowa")
-            res.status(403).json({msg:"coockie istnieje"}).header('Access-Control-Allow-Origin', '*');
+            res.status(403).json({msg:"coockie istnieje"})
 
         }
 })

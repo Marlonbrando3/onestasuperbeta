@@ -15,7 +15,7 @@ export default function Panel() {
 
     let ref = await fetch('api/panel', {
         method: 'POST',
-        mode:"no-cors",
+        model:"no-cors",
         headers: new Headers({
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json',

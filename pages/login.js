@@ -16,7 +16,7 @@ const handleLogin = async() => {
 
     let ref = await fetch('api/login', {
         method: 'POST',
-        mode:"no-cors",
+        model:"no-cors",
         headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
