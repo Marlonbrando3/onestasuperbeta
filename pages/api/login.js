@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import mongoose from "mongoose";
-import { setCookie } from "cookies-next";
+import mongoose from "mongoose"
+import { setCookie } from "cookies-next"
 import { compare } from 'bcrypt'
 import Users  from '../../model/users'
 import { sign } from 'jsonwebtoken' 

@@ -13,7 +13,7 @@ export default function Panel() {
     const router = useRouter();
     async function adminapi(){ 
 
-    let ref = await fetch('api/panel', {
+    let ref = await fetch('https://onestagroup.herokuapp.com/api/panel', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',
