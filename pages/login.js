@@ -14,11 +14,13 @@ const [comm, setComm] = useState();
 const handleLogin = async() => {
     console.log(email.current.value+" with pass: "+pass.current.value)
 
-    let ref = await fetch('https://onestagroup.herokuapp.com/api/login', {
+    let ref = await fetch('api/login', {
         method: 'POST',
+        mode:"no-cors",
         headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
+          "LALA":"dupa",
           "Access-Control-Allow-Origin":"*",
           "Access-Control-Allow-Methods" : "GET, POST, OPTIONS"
         },
