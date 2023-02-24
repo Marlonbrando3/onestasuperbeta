@@ -13,13 +13,13 @@ export default function Panel() {
     const router = useRouter();
     async function adminapi(){ 
 
-    let ref = await fetch('https://cors-onestagroup.herokuapp.com/api/panel', {
+    let ref = await fetch('https://onestagroup.herokuapp.com/api/panel', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
           "Access-Control-Allow-Origin":"*",
-          "Access-Control-Allow-Methods" : GET, POST, OPTIONS
+          "Access-Control-Allow-Methods" : "GET, POST, OPTIONS"
 
         },
       })
