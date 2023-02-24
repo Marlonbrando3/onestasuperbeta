@@ -12,9 +12,6 @@ export default async function connect(req,res) {
   const email = req.body.email
   const pass = req.body.pass
 
-  // console.log("headersy "+JSON.stringify(req.headers))
-
-  // console.log("łączę...")
   await mongoose.connect(process.env.MONGO_URI);
   console.log("połączono!")
   

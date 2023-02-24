@@ -14,7 +14,7 @@ const [comm, setComm] = useState();
 const handleLogin = async(req,res) => {
     console.log(email.current.value+" with pass: "+pass.current.value)
 
-    let ref = await fetch('api/login', {
+    let ref = await fetch('https://https://onestagroup.herokuapp.com/api/panel', {
         method: 'POST',
         model:"no-cors",
         headers: {
