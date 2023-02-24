@@ -6,12 +6,10 @@ export function middleware(request: NextRequest) {
 
     // const requestHeaders = new Headers(request.headers)
     const requestCookies = new Headers(request.headers)
-    let cookie = request.cookies.getAll();
     requestCookies.set('Access-Control-Allow-Origin', '*')
 
     const response = NextResponse.next()
     
-    response.cookies.set('vercel', 'fast')
     response.headers.set('Access-Control-Allow-Origin','*')
 
 
