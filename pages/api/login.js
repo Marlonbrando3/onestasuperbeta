@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 import { setCookie } from "cookies-next"
 import { compare } from 'bcrypt'
 import Users  from '../../model/users'
-import { sign } from 'jsonwebtoken' 
+import { sign } from 'jsonwebtoken'
 import { secret } from "./secret"
 
 
@@ -11,6 +11,8 @@ export default async function connect(req,res) {
 
   const email = req.body.email
   const pass = req.body.pass
+
+  // console.log("headersy "+JSON.stringify(req.headers))
 
   // console.log("łączę...")
   await mongoose.connect(process.env.MONGO_URI);

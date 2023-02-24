@@ -11,8 +11,10 @@ const pass = useRef();
 const info = useRef();
 const [comm, setComm] = useState();
 
-const handleLogin = async() => {
+const handleLogin = async(req,res) => {
     console.log(email.current.value+" with pass: "+pass.current.value)
+
+    // console.log("headersy "+JSON.stringify(headers))
 
     let ref = await fetch('api/login', {
         method: 'POST',
