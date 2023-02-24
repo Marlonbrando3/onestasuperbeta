@@ -4,7 +4,8 @@ const nextConfig = {
   // swcMinify: true,
   images: {
     domains: ['onestaforms.com.pl', 'cdn.pixabay.com','images.pexels.com'],
-  }
+  },
+  
 }
 
 module.exports = nextConfig

@@ -5,8 +5,8 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
 
     // const requestHeaders = new Headers(request.headers)
-    const requestCookies = new Headers(request.headers)
-    requestCookies.set('Access-Control-Allow-Origin', '*')
+    // const requestCookies = new Headers(request.headers)
+    // requestCookies.set('Access-Control-Allow-Origin', '*')
 
     const response = NextResponse.next()
     
@@ -21,5 +21,5 @@ export function middleware(request: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/login','/panel']
+  matcher: '*'
 }

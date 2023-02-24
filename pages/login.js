@@ -14,17 +14,12 @@ const [comm, setComm] = useState();
 const handleLogin = async(req,res) => {
     console.log(email.current.value+" with pass: "+pass.current.value)
 
-    // console.log("headersy "+JSON.stringify(headers))
-
     let ref = await fetch('api/login', {
         method: 'POST',
         model:"no-cors",
         headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
-          // "LALA":"dupa",
-          // "Access-Control-Allow-Origin":"*",
-          // "Access-Control-Allow-Methods" : "GET, POST, OPTIONS"
         },
         body: JSON.stringify({
           email: email.current.value,
