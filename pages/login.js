@@ -14,7 +14,7 @@ const [comm, setComm] = useState();
 const handleLogin = async() => {
     console.log(email.current.value+" with pass: "+pass.current.value)
 
-    let ref = await fetch('https://onestagroup.herokuapp.com/api/login', {
+    let ref = await fetch('api/login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',
