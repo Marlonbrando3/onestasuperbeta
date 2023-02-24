@@ -20,9 +20,9 @@ const handleLogin = async() => {
         headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
-          "LALA":"dupa",
-          "Access-Control-Allow-Origin":"*",
-          "Access-Control-Allow-Methods" : "GET, POST, OPTIONS"
+          // "LALA":"dupa",
+          // "Access-Control-Allow-Origin":"*",
+          // "Access-Control-Allow-Methods" : "GET, POST, OPTIONS"
         },
         body: JSON.stringify({
           email: email.current.value,

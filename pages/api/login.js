@@ -25,10 +25,10 @@ export default async function connect(req,res) {
       if(!err && result){
               const jwt = sign(email, secret);
               setCookie('auth', jwt, { req, res })
-              res.status(200).json({msg:"ciastko dodane"})
+              res.status(200).json({msg:"ciastko dodane"}).header('Access-Control-Allow-Origin', '*');
               console.log("ciastko dodane")
             } else {
-              res.status(403).json({msg:"Błędny token"})
+              res.status(403).json({msg:"Błędny token"}).header('Access-Control-Allow-Origin', '*');
             }
     })} else {
       res.status(403).json({msg:"dane nie są zgodne"})
