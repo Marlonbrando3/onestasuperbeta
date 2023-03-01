@@ -1,7 +1,6 @@
 import React from 'react'
 import { useRef } from 'react';
 import nextConnect from 'next-connect';
-import multer from 'multer';
 
 export default function AdminInputs() {
 
@@ -129,9 +128,9 @@ export default function AdminInputs() {
     }
 
   return (
-    <form  method="POST" action='http://localhost:3001/properties' className='flex flex-col w-10/12 mx-auto' enctype="multipart/form-data">
+    <form  method="POST" action='http://localhost:3001/routes/properties' className='flex flex-col w-10/12 mx-auto' enctype="multipart/form-data">
         <label id="id">Numer oferty (nadany automatycznie)</label>
-        <input className="inputs-add-property" name="id" value="id" readonly></input>
+        <input className="inputs-add-property" name="id" value="1234" readonly></input>
 
         <label id="country" className="inputs-add-property-label">Kraj</label>
         <select ref={country}  className="inputs-add-property" name="country">

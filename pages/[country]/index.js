@@ -241,8 +241,6 @@ export async function getServerSideProps (contex) {
       house = 'house'
     } else {
 
-      console.log(bungalow + "dupa")
-
     if(bungalow === undefined){
       bungalow = ''
     } else bungalow = 'bungalow'

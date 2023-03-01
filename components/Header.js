@@ -132,9 +132,9 @@ export default function Header({}) {
                       <li className='list'><Link href='/aboutus'>O Nas</Link></li>
                       <li className='list' onMouseEnter={handleShowListMenuNieruchomosci} onMouseLeave={handleHideListMenuNieruchomosci}>Nieruchomości
                         <div className="hidden absolute mt-2 -ml-2 bg-white flex-col" ref={MouseOnProperties}>
-                            <Link onClick={handleClearData} href='/hiszpania?page=1' className="p-2 text-black" ref={MouseOnSpain} name="MouseOnSpain" onMouseEnter={() => handleHover(MouseOnSpain)} onMouseLeave={() => handleHoverLeave(MouseOnSpain)}>Nieruchomości w Hiszpanii</Link>
-                            <Link href='/chorwacja?page=1' className="p-2 text-black" ref={MouseOnCroatia} name="MouseOnCroatia" onMouseEnter={() => handleHover(MouseOnCroatia)} onMouseLeave={() => handleHoverLeave(MouseOnCroatia)}>Nieruchomości w Chorwacji</Link>
-                            <Link href='/portugalia?page=1' className="p-2 text-black" ref={MouseOnPortugal} name="MouseOnPortugal" onMouseEnter={() => handleHover(MouseOnPortugal)} onMouseLeave={() => handleHoverLeave(MouseOnPortugal)}>Nieruchomości w Portugalii</Link>
+                            <Link onClick={handleClearData} href={{pathname:'/[country]', query: {country:"hiszpania"}}} className="p-2 text-black" ref={MouseOnSpain} name="MouseOnSpain" onMouseEnter={() => handleHover(MouseOnSpain)} onMouseLeave={() => handleHoverLeave(MouseOnSpain)}>Nieruchomości w Hiszpanii</Link>
+                            <Link href={{pathname:'/[country]', query: {country:"chorwacja"}}} className="p-2 text-black" ref={MouseOnCroatia} name="MouseOnCroatia" onMouseEnter={() => handleHover(MouseOnCroatia)} onMouseLeave={() => handleHoverLeave(MouseOnCroatia)}>Nieruchomości w Chorwacji</Link>
+                            <Link href={{pathname:'/[country]', query: {country:"portugalia"}}} className="p-2 text-black" ref={MouseOnPortugal} name="MouseOnPortugal" onMouseEnter={() => handleHover(MouseOnPortugal)} onMouseLeave={() => handleHoverLeave(MouseOnPortugal)}>Nieruchomości w Portugalii</Link>
                         </div>
                       </li>
                       <li className='list' onMouseEnter={handleShowListMenuZarzadzanie} onMouseLeave={handleHideListMenuZarzadzanie}>Zarządzanie najmem

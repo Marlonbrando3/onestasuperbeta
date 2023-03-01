@@ -21,7 +21,7 @@ export default async function connect(req,res) {
 
   if(results.length === 1){
     compare(pass, results[0].pass, async function(err,result){
-      if(!err && result){
+      if(!err && results){
               const jwt = sign(email, secret);
               setCookie('auth', jwt, { req, res })
               res.status(200).json({msg:"ciastko dodane"})
@@ -29,7 +29,8 @@ export default async function connect(req,res) {
             } else {
               res.status(403).json({msg:"Błędny token"})
             }
-    })} else {
+    })
+  } else {
       res.status(403).json({msg:"dane nie są zgodne"})
       console.log("błedne dane")
     }

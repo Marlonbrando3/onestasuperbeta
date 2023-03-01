@@ -1,5 +1,4 @@
 import React from 'react'
-import db from '../../utils/db'
 import { hash } from 'bcrypt'
 import mongoose from 'mongoose'
 import UserSchema from '../../model/users'
