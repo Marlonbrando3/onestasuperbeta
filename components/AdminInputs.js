@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRef } from 'react';
-import nextConnect from 'next-connect';
 
 export default function AdminInputs() {
 
