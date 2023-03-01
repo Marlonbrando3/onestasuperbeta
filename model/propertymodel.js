@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const propertySchema = new mongoose.Schema({
     id:{
         type:Number,
@@ -55,7 +55,7 @@ const propertySchema = new mongoose.Schema({
         type:String,
     },
     image:{
-
+        
     }
 })
 

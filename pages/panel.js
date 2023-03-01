@@ -11,7 +11,7 @@ export default function Panel() {
     adminapi();
 
     const router = useRouter();
-    async function adminapi(){ 
+    async function adminapi(){
 
     let ref = await fetch('/api/panel', {
         method: 'POST',
@@ -19,6 +19,8 @@ export default function Panel() {
         headers: new Headers({
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Methods':'GET, POST',
+          'Access-Control-Allow-Origin':'*'
         }),
       })
 

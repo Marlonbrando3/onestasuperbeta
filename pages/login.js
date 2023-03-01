@@ -20,6 +20,8 @@ const handleLogin = async(req,res) => {
         headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Methods':'GET, POST',
+          'Access-Control-Allow-Origin':'*'
         },
         body: JSON.stringify({
           email: email.current.value,
