@@ -127,7 +127,7 @@ export default function AdminInputs() {
     }
 
   return (
-    <form  method="POST" action='https://onesta-backend.herokuapp.com/routes/properties' className='flex flex-col w-10/12 mx-auto' enctype="multipart/form-data">
+    <form  method="POST" action='https://gentle-harbor-20750.herokuapp.com/routes/properties' className='flex flex-col w-10/12 mx-auto' enctype="multipart/form-data">
         <label id="id">Numer oferty (nadany automatycznie)</label>
         <input className="inputs-add-property" name="id" value="1234" readonly></input>
 
