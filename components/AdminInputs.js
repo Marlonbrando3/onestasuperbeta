@@ -1,8 +1,26 @@
 import React from 'react'
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export default function AdminInputs() {
 
+
+    const [UniqeId, setUniqeId] = useState('');
+
+        let data = fetch("/api/randomizedId",{
+        method:"POST",
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+        },
+        })
+        const dataID = data.then(r => r.json())
+        dataID.then(i => {
+            if(UniqeId === ''){
+                setUniqeId(parseInt(i.id))
+            } else {}
+        }
+    )   
+    
     const id = useRef();
     const favorites = useRef();
     const recomended = useRef();
@@ -31,105 +49,90 @@ export default function AdminInputs() {
     const owner = useRef();
     const images = useRef();
 
-    const handleChange = (e) => {
-
-        if(images.current !== undefined){
-            let i;
-            let NewImages = [];
-            let FileListContent = images.current.files
-            let FileListLenght = images.current.files.length
-            
-                for(i=0; i<FileListLenght; i++){
-                    NewImages.push(FileListContent[i].name)
-                }
-
-            console.log(NewImages)
-
-            return NewImages
-        }   
-    }
-
-        const imagesForFetch = handleChange();
-
     //send data to backend and save images on public/images
+    
     const connectwithbackend = async(e) => {
 
-        console.log(e)
-
-        const imggg = e.nativeEvent.srcElement.target
-
         e.preventDefault();
-        let data = images.current.files
-        console.log(imggg)
 
-        const image = function() {
-            let i;
-            const formData = new FormData();
-            for(i = 0;  i < images.current.files.length; i++) {
-            console.log(data[i].name)
-            formData.append('LALA', images.current.files[i].name)
-            console.log(formData)
-        } return formData
-    }
-        let img = image();
-        await console.log(img)  
+        const fileData = images.current
 
-        // let msg = await fetch('http://localhost:3001/properties', {
-            // method:"POST",
-            // model:"no-cors",
-            // headers: {
-            //     'Accept': 'application/json, text/plain, */*',
-            //     'Content-Type': 'application/json',
-            // },
-            // body: JSON.stringify({
-            //     id: 23,
-            //     favorites: favorites.current.value,
-            //     recomended:recomended.current.value,
-            //     localization: localization.current.value,
-            //     meters: meters.current.value,
-            //     country: country.current.value,
-            //     region: region.current.value,
-            //     city: city.current.value,
-            //     title: title.current.value,
-            //     market: market.current.value,
-            //     type: type.current.value,
-            //     seaview: seaview.current.value,
-            //     firstline: firstline.current.value,
-            //     bathrooms: bathrooms.current.value,
-            //     bedrooms: bedrooms.current.value,
-            //     pool: pool.current.value,
-            //     garden: garden.current.value,
-            //     parking: parking.current.value,
-            //     solarium: solarium.current.value,
-            //     sauna: sauna.current.value,
-            //     taras: taras.current.value,
-            //     balcony: balcony.current.value,
-            //     price: price.current.value,
-            //     distance: distance.current.value,
-            //     description: description.current.value,
-            //     owner: owner.current.value,
-            //     image: img,
-            // }),
-        // },
-        // {
-            
-        //     method:"POST",
-        //     // model:"no-cors",
-        //     headers: {
-        //         // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        //         'Content-Type':"multipart/form-data; boundary=----WebKitFormBoundaryplJlrMv2mdMh2yTV",
-        //         // 'Accept-Encoding': 'gzip, deflate, br',
-        //     },
-        //     body: imggg
-        // }
-        // ,
-        // )
+        let imagestoFetch = []
+
+        for (const file of fileData.files) {
+            console.log("name"+file.name)
+        }
+
+        const formData = new FormData();
+        for (const file of fileData.files){
+
+            const data = new Date().toLocaleDateString();
+            const filename = file.name
+            const link = 'https://res.cloudinary.com/onestagrouppl/image/upload/Properties/'
+            const id = UniqeId
+            const uniqueSuffix = '_'+ data+'_'+ Date.now()+'_.' + 'jpg'
+            const uniqueImgNameWork = link+id+'_'+country.current.value+'_'+region.current.value+'_'+title.current.value+'_'+uniqueSuffix
+            const uniqueImgName = uniqueImgNameWork.toString().replaceAll(' ','_')
+
+            // console.log(uniqueImgName.toString().replaceAll(' ','_'))
+
+             //set links to files for Mongo DB array
+            imagestoFetch = [...imagestoFetch, uniqueImgName]
+
+            formData.set('file', file,`${uniqueImgName}`)
+            formData.append('upload_preset', 'Onesta')
+            await fetch(`https://api.cloudinary.com/v1_1/onesetagrouppl/image/upload?api_key=565674343466964`, {
+            method:"POST",
+            body:formData})
+        }
+
+        // const API = process.env.SECRET_API
+
+        let msg = await fetch('/api/addpropertytomongo', {
+            method:"POST",
+            model:"no-cors",
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Methods':'GET, POST',
+                'Access-Control-Allow-Origin':'*'
+            },
+            body: JSON.stringify({
+                id: UniqeId,
+                favorites: favorites.current.value,
+                recomended:recomended.current.value,
+                localization: localization.current.value,
+                meters: meters.current.value,
+                country: country.current.value,
+                region: region.current.value,
+                city: city.current.value,
+                title: title.current.value,
+                market: market.current.value,
+                type: type.current.value,
+                seaview: seaview.current.value,
+                firstline: firstline.current.value,
+                bathrooms: bathrooms.current.value,
+                bedrooms: bedrooms.current.value,
+                pool: pool.current.value,
+                garden: garden.current.value,
+                parking: parking.current.value,
+                solarium: solarium.current.value,
+                sauna: sauna.current.value,
+                taras: taras.current.value,
+                balcony: balcony.current.value,
+                price: price.current.value,
+                distance: distance.current.value,
+                description: description.current.value,
+                owner: owner.current.value,
+                image:imagestoFetch
+            }),
+        })
     }
 
   return (
-    <form  method="POST" action='https://gentle-harbor-20750.herokuapp.com/routes/properties' className='flex flex-col w-10/12 mx-auto' enctype="multipart/form-data">
+    <form  method="POST" onSubmit={connectwithbackend} className='flex flex-col w-10/12 mx-auto' enctype='multipart/form-data'>
         <label id="id">Numer oferty (nadany automatycznie)</label>
-        <input className="inputs-add-property" name="id" value="1234" readonly></input>
+        <input ref={id} className="inputs-add-property" name="id" value={UniqeId} readOnly></input>
 
         <label id="country" className="inputs-add-property-label">Kraj</label>
         <select ref={country}  className="inputs-add-property" name="country">
@@ -167,9 +170,9 @@ export default function AdminInputs() {
 
         <label id="type" className="inputs-add-property-label">Typ</label>
         <select ref={type} className="inputs-add-property" name="type">
-            <option value="Dom">Dom</option>
-            <option value="Apartament">Apartament</option>
-            <option value="Bungalow">Bungalow</option>
+            <option value="house">Dom</option>
+            <option value="apartament">Apartament</option>
+            <option value="bungalow">Bungalow</option>
         </select>
 
         <label id="seaview" className="inputs-add-property-label">Widok na morze</label>
@@ -255,7 +258,7 @@ export default function AdminInputs() {
         <textarea ref={description} className="inputs-add-property-textarea h-40"name="description"></textarea>
 
         <label id="PropImages" className="inputs-add-property-label">Zdjęcia</label>
-        <input onChange={handleChange} ref={images} type="file" multiple name="PropImages"></input>
+        <input ref={images} type="file" multiple name="PropImages"></input>
 
         <button type="submit">Add property</button>
     </form>

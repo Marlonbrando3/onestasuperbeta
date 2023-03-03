@@ -11,7 +11,7 @@ const pass = useRef();
 const info = useRef();
 const [comm, setComm] = useState();
 
-const handleLogin = async(req,res) => {
+const handleLogin = async() => {
     console.log(email.current.value+" with pass: "+pass.current.value)
 
     let ref = await fetch('/api/login', {

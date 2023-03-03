@@ -60,6 +60,7 @@ export default function FirstView ({}) {
             <Header />
         </div>
         <Applychanges />
+        <img src="https://res.cloudinary.com/onestagrouppl/image/upload/Properties/333777_Hiszpania_TEST_SUPER_TEST_SUPER__3.03.2023_1677868861972_.jpg"></img>
         <HomeView />
         <SearchButton
             choosedCountry={choosedCountry}

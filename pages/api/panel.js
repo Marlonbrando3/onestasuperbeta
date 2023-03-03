@@ -6,17 +6,18 @@ import { secret } from './secret'
 
 export default function admin(req, res) {
 
-    const coockie = getCookie('auth', { req, res })
+    const cookie = getCookie('auth', { req, res })
+    console.log("coockie"+cookie)
 
     verify(getCookie('auth', { req, res }), secret, function(err, decoded) {
 
         console.log("jestem w API " + res.statusCode)
         if(decoded && !err){
-            if(coockie === undefined) {
+            if(cookie === undefined) {
             console.log("działa")
             res.status(200).json({msg:"uprawnienia przyznane"})
             }
-        } if(coockie !== undefined) {
+        } if(cookie !== undefined) {
             console.log("Twoje coockie istnieje")
             res.status(300).json({msg:"coockie istnieje"})
         } else {

@@ -6,8 +6,14 @@ const propertySchema = new mongoose.Schema({
     country:{
         type:String,
     },
+    favorite:{
+        type:Boolean,
+    },
+    addtohomeview:{
+        type:Boolean,
+    },
     region: {
-        type: String,
+        type: String
     },
     city: {
         type: String
@@ -18,14 +24,20 @@ const propertySchema = new mongoose.Schema({
     market:{
         type:String,
     },
+    type:{
+        type:String,
+    },
+    seaview:{
+        type:Boolean,
+    },
+    firstline:{
+        type:Boolean,
+    },
     bathrooms:{
         type:Number,
     },
     bedrooms:{
         type:Number,
-    },
-    seaview:{
-        type:Boolean,
     },
     pool:{
         type:Boolean,
@@ -36,7 +48,13 @@ const propertySchema = new mongoose.Schema({
     parking:{
         type:Boolean,
     },
-    solarium:{
+    solarium :{
+        type:Boolean,
+    },
+    sauna:{
+        type:Boolean,
+    },
+    taras :{
         type:Boolean,
     },
     balcony:{
@@ -45,13 +63,19 @@ const propertySchema = new mongoose.Schema({
     price:{
         type:Number,
     },
-    distance:{
+    localization:{
+        type:String,
+    },
+    meters:{
         type:Number,
     },
     description: {
         type:String,
     },
-    type:{
+    distance:{
+        type:Number,
+    },
+    owner: {
         type:String,
     },
     image:{

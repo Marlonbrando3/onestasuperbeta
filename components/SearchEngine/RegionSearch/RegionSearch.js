@@ -68,7 +68,7 @@ export default function CountrySearch({
   return (
     <>
     <div className="InputsStyle w-full">
-      <input readonly="readonly" onClick={handleShowCountryList} className="InputsProps w-full" autoComplete="off" name="country" placeholder="Wybierz region"></input>
+      <input readOnly onClick={handleShowCountryList} className="InputsProps w-full" autoComplete="off" name="country" placeholder="Wybierz region"></input>
     </div>
     {activeRegionList && <div className="ListWithChooseContainer w-full">{RegionsList.map(region => 
       <li key={region}

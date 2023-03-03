@@ -12,6 +12,8 @@ export default async function connect(req,res) {
   const email = req.body.email
   const pass = req.body.pass
 
+  console.log(email)
+
   await mongoose.connect(process.env.MONGO_URI);
   console.log("połączono!")
   
@@ -21,7 +23,7 @@ export default async function connect(req,res) {
 
   if(results.length === 1){
     compare(pass, results[0].pass, async function(err,result){
-      if(!err && results){
+      if(!err && result){
               const jwt = sign(email, secret);
               setCookie('auth', jwt, { req, res })
               res.status(200).json({msg:"ciastko dodane"})
