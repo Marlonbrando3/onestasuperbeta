@@ -41,7 +41,7 @@ export default function SearchEngine({
         //Chorwacja
         { id:3, nameCountry: "Chorwacja", name: "Istria", added:false, OnList: true, region: "Dalmacja (CRO)", regionList: false},
         { id:3, nameCountry: "Chorwacja", name: "Kvarner", OnList: "deactive", region: "Hvar (CRO)", regionList: false},
-        { id:3, nameCountry: "Chorwacja", name: "Dalmacja PŁ", OnList: "deactive", region: "Brać (CRO)", regionList: false},
+        { id:3, nameCountry: "Chorwacja", name: "Dalmacja PŁN", OnList: "deactive", region: "Brać (CRO)", regionList: false},
         { id:3, nameCountry: "Chorwacja", name: "Dalmacja PŁD", OnList: "deactive", region: "Hvar (CRO)", regionList: false},
         { id:3, nameCountry: "Chorwacja", name: "Dalmacja ŚR", OnList: "deactive", region: "Brać (CRO)", regionList: false},
         //Hiszpania

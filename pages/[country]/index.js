@@ -39,7 +39,7 @@ export default function Home(
   const [sitesArray, setSitesArray] = useState(['1','1','1']);
 
   //actual active site
-  const [actualSite, setActualSite] = useState(1);
+  const [actualSite, setActualSite] = useState(1)
 
   //INDEX
   const [choosedCountry, setChoosedCountry] = useState(

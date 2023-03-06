@@ -29,11 +29,11 @@ export default function ImagesInPropetyCard({property, images, setImages}) {
   return (
     <>
     {images.map((prop, index)=> (
-        <div key={prop} className={prop.showed === true ? 'h-full w-32 mx-1 flex border-red-700 border-4': 'h-full w-32 mx-2 flex border-red-700/[0] border-4'}>
+        <div key={prop} className={prop.showed === true ? 'h-full w-32 flex border-red-700 border-2': 'h-full w-32 flex border-red-700/[0] border-2'}>
           <Image className='cursor-pointer'
             src={prop.image}
-            width={2200}
-            height={250}
+            width={1000}
+            height={500}
             onClick={() => handleActiveImage(index+1)}
             number={index+1}
           ></Image>

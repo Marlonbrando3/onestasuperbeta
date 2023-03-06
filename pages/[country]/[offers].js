@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRef } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import Header from '../../components/Header';
@@ -23,6 +24,12 @@ import Descryption from '../../components/Descryption';
 export default function Property(
   {property},
   ) {
+
+  const buttonLeft = useRef();
+  const buttonRight = useRef();
+  const photosContainer = useRef();
+  const photosContainerMain = useRef();
+  const photosRow = useRef();
 
   const router = useRouter();
   let propertyDescription = (property[0].description)
@@ -53,45 +60,109 @@ export default function Property(
         showedImage = img.image
       }
     })
-  const[handleMarginSlider, setHandleMarginSlider] = useState(false)
+  const [handleMarginSlider, setHandleMarginSlider] = useState(false)
+  const [margin, setMargin] = useState(0)
 
 
   //change Imagearray
   let hiddenImg;
+
+
+  const handleChangeSlideLeft = () => {
+    setHandleMarginSlider('true')
+
+    const photosCM = photosContainerMain.current.offsetWidth
+    const photosC = photosContainer.current.offsetWidth
+    const photosR = photosRow.current.offsetWidth
+    console.log(photosR - photosC)
+    console.log(photosC)
+
+    let oneImageLength = photosR / images.length
+    let cutedImage = photosCM / oneImageLength
+    console.log(oneImageLength)
+    console.log(Math.floor(cutedImage))
+    console.log(oneImageLength - oneImageLength * (cutedImage - Math.floor(cutedImage)))
+
+    let marginWork = 0
+    
+    // if(photosR - photosC > 260){
+    //   marginWork = margin - oneImageLength*2
+    // }
+    // if(photosR - photosC < 260){
+    //   marginWork = margin - (photosR - photosC)
+    // }
+
+    if(photosR - photosC > 0){
+      marginWork = margin - oneImageLength*2
+    }
+
+    if(photosR - photosC === 0){
+
+      marginWork = margin - (oneImageLength - (oneImageLength * (cutedImage - Math.floor(cutedImage))))
+    }
+
+    if(margin === 0){
+      //
+    }
+
+    console.log(marginWork)
+    
+    photosContainer.current.style.marginLeft = `-${marginWork.toString()}px`
+    console.log(`-${margin.toString()}`)
+
+   setTimeout(() => {
+
+      setMargin(marginWork)
+   
+  },400)
+}
   
   
   const handleChangeSlideRight = () => {
     setHandleMarginSlider('true')
 
-    setTimeout(() => {
+    const photosCM = photosContainerMain.current.offsetWidth
+    const photosC = photosContainer.current.offsetWidth
+    const photosR = photosRow.current.offsetWidth
 
-      let ImagesSorted = images.map((image, index) => {
-        if(image.count === 1){
-          hiddenImg = {
-              ...image,
-              count:0
-            }
-        
-            return {
-              ...image,
-              count:2,
-           }
-        }
-      if(index === 1) {
-          return{
-            ...image,
-            count:1
-        }
-      } 
-      else return{...image}
-  }
-)
-  ImagesSorted.push(hiddenImg)
-  let ImagesDelete = ImagesSorted.filter(img => img.count !== 2)
-  setImages(ImagesDelete)
-    setHandleMarginSlider(false)
-},400)
+    let oneImageLength = photosR / images.length
+    let cutedImage = photosCM / oneImageLength
 
+    console.log(photosR - photosC)
+
+    let marginWork = 0
+    
+    if(photosR - photosC > 260){
+      marginWork = margin + oneImageLength*2
+    }
+    if(photosR - photosC < 260){
+      marginWork = margin+(photosR - photosC)
+    }
+
+    if(photosR - photosC < 10){
+      marginWork = 0
+    }
+
+    console.log(marginWork)
+    
+    photosContainer.current.style.marginLeft = `-${marginWork.toString()}px`
+    console.log(`-${margin.toString()}`)
+
+   setTimeout(() => {
+
+      setMargin(marginWork)
+   
+  },400)
+}
+
+const handleShowNavi = () => {
+  buttonLeft.current.style.visibility = "visible"
+  buttonRight.current.style.visibility = "visible"
+} 
+
+const handleHideNavi = () => {  
+  buttonLeft.current.style.visibility = "hidden"
+  buttonRight.current.style.visibility = "hidden"
 }
 
   const pool = property.map(prop => {
@@ -121,6 +192,8 @@ export default function Property(
   const priceOne = property[0].price.toString().slice(0,3)
   const priceTwo = property[0].price.toString().slice(3,6)
   const priceToShow = priceOne +" "+priceTwo
+
+  
 
   return (
     <>
@@ -162,13 +235,14 @@ export default function Property(
                       height={600}
                   ></Image>
                 </div>
-                <div className='relative flex h-[80px]'>
-                  <div className='w-[30px] h-full cursor-pointer'></div>
-                  <div className='absolute w-[30px] left-0 z-4 h-full flex justify-center cursor-pointer border'>
-                    <ChevronLeftIcon className='h-full w-8'/>
+                <div ref={photosContainerMain}className='relative flex h-[100px]' onMouseEnter={handleShowNavi} onMouseLeave={handleHideNavi} >
+                  <div ref={buttonLeft} className='absolute w-[55px] my-[2px] flex left-0 z-4 h-full justify-center cursor-pointer bg-gray-600/[0.4] hover:bg-gray-600/[0.6] duration-300 invisible'>
+                    <ChevronLeftIcon 
+                        className='h-full w-8 text-white'
+                        onClick={handleChangeSlideLeft}/>
                   </div>
-                  <div className='overflow-x-hidden flex h-full w-full p-[5px]'>
-                    <div className={handleMarginSlider ? 'duration-300 flex flex-nowrap -ml-[144px]':'flex flex-nowrap ml-0'}>
+                  <div ref={photosContainer} className='overflow-x-hidden duration-300 flex h-full p-[1px] border-2'>
+                    <div ref={photosRow} className={handleMarginSlider ? 'duration-300 flex flex-nowrap':'flex flex-nowrap ml-0'}>
                     <ImagesInPropetyCard
                       property={images}
                       images={images}
@@ -176,10 +250,10 @@ export default function Property(
                     />
                     </div>
                   </div>
-                  <div className='w-[30px] h-full cursor-pointer border'></div>
-                  <div className={handleMarginSlider ? 'absolute w-[30px] left-0 z-4 h-full flex justify-center cursor-pointer clickedSlideLeftGallery' : 'property-card-data-gallery-arrow-right unClickedSlideLeftGallery'}>
+                  {/* <div className='w-[30px] h-full cursor-pointer border'></div> */}
+                  <div ref={buttonRight} className='absolute w-[55px] my-[2px] flex right-0 z-4 h-full justify-center cursor-pointer bg-gray-600/[0.4] hover:bg-gray-600/[0.6] duration-300 invisible'>
                     <ChevronRightIcon 
-                      className='h-full w-8'
+                      className='h-full w-8 text-white'
                       onClick={handleChangeSlideRight}/>
                   </div>
                 </div>

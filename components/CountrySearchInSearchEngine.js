@@ -72,7 +72,7 @@ export default function Home() {
 
     router.push({
       pathname: "/[country]",
-      query:{...router.query,region:region}
+      query:{...router.query,region:region, page:1}
       })
   }
 
@@ -81,6 +81,7 @@ export default function Home() {
     if(router.query.bungalow) {
       const params = new URLSearchParams(router.query);
       params.delete('bungalow');
+      params.set('page',1)
       const queryString = params.toString();
     //   console.log(queryString)
       const path = `/[country]${queryString ? `?${queryString}` : ''}`;
@@ -91,7 +92,7 @@ export default function Home() {
       router.push({
       scroll:false,
       pathname: "/[country]",
-      query:{...router.query,bungalow:true},
+      query:{...router.query,bungalow:true, page:1},
 
     })
   }
@@ -102,6 +103,7 @@ export default function Home() {
     if(router.query.house) {
       const params = new URLSearchParams(router.query);
       params.delete('house');
+      params.set('page',1)
       const queryString = params.toString();
       const path = `/[country]${queryString ? `?${queryString}` : ''}`;
       router.push(path, '', { scroll: false });
@@ -109,9 +111,27 @@ export default function Home() {
     else {
       router.push({
       pathname: "/[country]",
-      query:{...router.query,house:true}
+      query:{...router.query,house:true, page:1}
     })
   }
+}
+
+const pushApartament = (e) => {
+
+  if(router.query.apartament) {
+    const params = new URLSearchParams(router.query);
+    params.delete('apartament');
+    params.set('page',1)
+    const queryString = params.toString();
+    const path = `/[country]${queryString ? `?${queryString}` : ''}`;
+    router.push(path, '', { scroll: false });
+  }
+  else {
+    router.push({
+    pathname: "/[country]",
+    query:{...router.query,apartament:true, page:1}
+  })
+}
 }
 
 const RegionsList = regionsToShow.map(region => {
@@ -128,28 +148,13 @@ const RegionsList = regionsToShow.map(region => {
     }
 })
 
-  const pushApartament = (e) => {
-
-    if(router.query.apartament) {
-      const params = new URLSearchParams(router.query);
-      params.delete('apartament');
-      const queryString = params.toString();
-      const path = `/[country]${queryString ? `?${queryString}` : ''}`;
-      router.push(path, '', { scroll: false });
-    }
-    else {
-      router.push({
-      pathname: "/[country]",
-      query:{...router.query,apartament:true}
-    })
-  }
-  }
 
   const handleFirstMarket = (e) => {
 
     if(router.query.firstmarket) {
       const params = new URLSearchParams(router.query);
       params.delete('firstmarket');
+      params.set('page',1)
       const queryString = params.toString();
       const path = `/[country]${queryString ? `?${queryString}` : ''}`;
       router.push(path, '', { scroll: false });
@@ -157,7 +162,7 @@ const RegionsList = regionsToShow.map(region => {
     else {
       router.push({
       pathname: "/[country]",
-      query:{...router.query,firstmarket:true}
+      query:{...router.query,firstmarket:true, page:1}
     })
   }
   }
@@ -167,6 +172,7 @@ const RegionsList = regionsToShow.map(region => {
     if(router.query.secondmarket) {
       const params = new URLSearchParams(router.query);
       params.delete('secondmarket');
+      params.set('page',1)
       const queryString = params.toString();
       const path = `/[country]${queryString ? `?${queryString}` : ''}`;
       router.push(path, '', { scroll: false });
@@ -174,11 +180,10 @@ const RegionsList = regionsToShow.map(region => {
     else {
       router.push({
       pathname: "/[country]",
-      query:{...router.query,secondmarket:true}
+      query:{...router.query,secondmarket:true, page:1}
     })
   }
   }
-
 
 
   return (
