@@ -236,9 +236,9 @@ const handleHideNavi = () => {
                   ></Image>
                 </div>
                 <div ref={photosContainerMain}className='relative flex h-[100px]' onMouseEnter={handleShowNavi} onMouseLeave={handleHideNavi} >
-                  <div ref={buttonLeft} className='absolute w-[55px] my-[2px] flex left-0 z-4 h-full justify-center cursor-pointer bg-gray-600/[0.4] hover:bg-gray-600/[0.6] duration-300 invisible'>
+                  <div onClick={handleChangeSlideLeft} ref={buttonLeft} className='absolute w-[55px] my-[2px] flex left-0 z-4 h-full justify-center cursor-pointer bg-gray-600/[0.4] hover:bg-gray-600/[0.6] duration-300 invisible'>
                     <ChevronLeftIcon 
-                        className='h-full w-8 text-white'
+                        className='h-full w-8 text-white block'
                         onClick={handleChangeSlideLeft}/>
                   </div>
                   <div ref={photosContainer} className='overflow-x-hidden duration-300 flex h-full p-[1px] border-2'>
@@ -251,9 +251,9 @@ const handleHideNavi = () => {
                     </div>
                   </div>
                   {/* <div className='w-[30px] h-full cursor-pointer border'></div> */}
-                  <div ref={buttonRight} className='absolute w-[55px] my-[2px] flex right-0 z-4 h-full justify-center cursor-pointer bg-gray-600/[0.4] hover:bg-gray-600/[0.6] duration-300 invisible'>
+                  <div onClick={handleChangeSlideRight} ref={buttonRight} className='absolute w-[55px] my-[2px] flex right-0 z-4 h-full justify-center cursor-pointer bg-gray-600/[0.4] hover:bg-gray-600/[0.6] duration-300 invisible'>
                     <ChevronRightIcon 
-                      className='h-full w-8 text-white'
+                      className='h-full w-8 text-white block'
                       onClick={handleChangeSlideRight}/>
                   </div>
                 </div>
