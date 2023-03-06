@@ -12,6 +12,7 @@ import Footer from '../../components/Footer'
 import ContactFormMain from '../../components/ContactFormMain'
 import DataCountry from '../../data/DataCountry.json'
 import { AppContext } from '../_app'
+import { ppid } from 'process'
 
 export const CountryIndexContext = createContext();
 
@@ -85,23 +86,8 @@ export default function Home(
     } else return {...property}
     })
 
-  let properties = propertiesWithSites
-  // .filter(i => {
-  //   let counter;
-
-  //   searchConditions.map(e => {
-  //     if(e.name === "page") {
-  //       counter =  e.value
-  //     }
-  //   })
-
-  //   if(i.page === counter){
-  //     return i 
-  //   }
-  
-  // })
-
-  // console.log(properties)
+  // let properties = propertiesWithSites
+  let properties = propertiesWithSites.filter(p => p.page === parseInt(router.query.page))
 
   return (
     <>

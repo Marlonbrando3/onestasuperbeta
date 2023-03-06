@@ -60,7 +60,7 @@ export default function Home() {
 
     router.push({
       pathname: `/${name}`,
-    //   query:{country:name}
+      query:{page:1}
       })
 
   } 

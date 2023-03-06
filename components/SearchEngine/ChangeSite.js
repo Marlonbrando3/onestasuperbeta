@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react"
+import { useRouter } from "next/router"
 import { AppContext } from "../../pages/_app"
 
 export default function ChangeSite({
@@ -7,11 +8,18 @@ export default function ChangeSite({
   sitesArraycounter
 }) {
 
+
+  const router = useRouter();
   const {searchConditions, setSearchConditions} = useContext(AppContext)
     
   const handleClickOnSite = (e, key) => {
 
       setActualSite(key+1)
+      
+      router.replace({
+        pathname: "/[country]",
+        query:{...router.query, page:key+1}
+      })
     
       setSearchConditions(searchConditions.map(i => {
       if(i.name === "page"){

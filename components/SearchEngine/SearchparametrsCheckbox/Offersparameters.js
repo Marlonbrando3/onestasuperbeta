@@ -24,12 +24,16 @@ export default function Offersparameters({name, title}) {
   const handleFunction = (e) => {
 
     let name = e.target.getAttribute('name')
+    const page = "page="+router.query.page
     console.log(router.asPath.toString())
-    console.log(name)
+    // console.log(name)
+    // console.log(page)
 
     if(router.asPath.toString().includes(name)) {
       const params = new URLSearchParams(router.query);
       params.delete(name);
+      params.set('page',1);
+      // params.append(page, 1);
       const queryString = params.toString();
       console.log(queryString)
       const path = `/[country]${queryString ? `?${queryString}` : ''}`;
@@ -38,6 +42,7 @@ export default function Offersparameters({name, title}) {
     else {
       const params = new URLSearchParams(router.query);
       params.append(name, true)
+      params.set('page',1);
       const queryString = params.toString();
       console.log(queryString)
       const path = `/[country]${queryString ? `?${queryString}` : ''}`;

@@ -8,7 +8,7 @@ export default function SearchResults({
   actualSite,
   setActualSite,
   choosedCountry,
-  propDetails, 
+  propDetails,
   setPropDetails,
   showProp,
   setShowProp,
