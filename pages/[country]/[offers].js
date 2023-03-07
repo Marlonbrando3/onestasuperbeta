@@ -74,38 +74,40 @@ export default function Property(
     const photosCM = photosContainerMain.current.offsetWidth
     const photosC = photosContainer.current.offsetWidth
     const photosR = photosRow.current.offsetWidth
-    console.log(photosR - photosC)
-    console.log(photosC)
+    console.log("PhotosCM: "+photosCM)
+    console.log("PhotosC: "+photosC)
+    console.log("PhpotosR: "+photosR)
 
     let oneImageLength = photosR / images.length
     let cutedImage = photosCM / oneImageLength
-    console.log(oneImageLength)
-    console.log(Math.floor(cutedImage))
-    console.log(oneImageLength - oneImageLength * (cutedImage - Math.floor(cutedImage)))
+    // console.log(oneImageLength)
+    // console.log(Math.floor(cutedImage))
+    // console.log(oneImageLength - oneImageLength * (cutedImage - Math.floor(cutedImage)))
 
     let marginWork = 0
-    
-    // if(photosR - photosC > 260){
-    //   marginWork = margin - oneImageLength*2
-    // }
-    // if(photosR - photosC < 260){
-    //   marginWork = margin - (photosR - photosC)
-    // }
 
-    if(photosR - photosC > 0){
+    if(photosC - photosCM < oneImageLength*2) {
+        console.log("warunek 1")
+        marginWork = 0
+    }
+
+    if(photosC - photosCM >= oneImageLength*2) {
+      console.log("warunek 2")
       marginWork = margin - oneImageLength*2
     }
 
-    if(photosR - photosC === 0){
+    if(photosC === photosCM) {
+      console.log("warunek 3")
+      marginWork = photosR-photosCM
+    } 
 
-      marginWork = margin - (oneImageLength - (oneImageLength * (cutedImage - Math.floor(cutedImage))))
-    }
+    if(photosC - photosR === 0) {
+      console.log("warunek 3")
+      marginWork = margin - (oneImageLength - oneImageLength * (cutedImage - Math.floor(cutedImage)))
+    } 
 
-    if(margin === 0){
-      //
-    }
 
-    console.log(marginWork)
+    console.log(photosR - photosC)
     
     photosContainer.current.style.marginLeft = `-${marginWork.toString()}px`
     console.log(`-${margin.toString()}`)
@@ -125,6 +127,10 @@ export default function Property(
     const photosC = photosContainer.current.offsetWidth
     const photosR = photosRow.current.offsetWidth
 
+    console.log("PhotosCM: "+photosCM)
+    console.log("PhotosC: "+photosC)
+    console.log("PhpotosR: "+photosR)
+
     let oneImageLength = photosR / images.length
     let cutedImage = photosCM / oneImageLength
 
@@ -132,10 +138,10 @@ export default function Property(
 
     let marginWork = 0
     
-    if(photosR - photosC > 260){
+    if(photosR - photosC > oneImageLength*2){
       marginWork = margin + oneImageLength*2
     }
-    if(photosR - photosC < 260){
+    if(photosR - photosC < oneImageLength*2){
       marginWork = margin+(photosR - photosC)
     }
 

@@ -88,6 +88,7 @@ export default function Home(
 
   // let properties = propertiesWithSites
   let properties = propertiesWithSites.filter(p => p.page === parseInt(router.query.page))
+  let propertiesNumber = propertiesWithSites.length
 
   return (
     <>
@@ -114,6 +115,7 @@ export default function Home(
         ActualCountry={ActualCountry}
       />
       <SearchEngine
+        propertiesNumber={propertiesNumber}
         ActualCountry={ActualCountry}
         setActualCountry={setActualCountry}
         sitesArraycounter={sitesArraycounter}
