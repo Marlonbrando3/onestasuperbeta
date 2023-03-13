@@ -105,7 +105,7 @@ export default function Home(
           <link rel="shortcut icon" href="/logotype.png" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
           <meta property="Nieruchomości w Hiszpanii, Chorwacji, Portugalii" content="image" />
-          <meta property="og:image" content="/onesta_og_img.png" />
+          <meta property="og:image" content="https://onesta.com.pl/onesta_og_img.png" />
         </Head>
     <div className={showSearchComponentsOnMobile===false ? 'overflow-x-hidden': 'h-0'}>
       <div className='fixed w-full h-16 z-30 bg-white'>
