@@ -55,7 +55,7 @@ export default function FirstView ({}) {
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
             {/* <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"></link> */}
             <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
-            <meta property="og:image URL" content="https://onesta.com.pl/onesta_og_img.png" />
+            <meta property="og:image" content="https://onesta.com.pl/onesta_og_img.png" />
         </Head>
         <div className='main-index'>
         <div className={searchShow ? 'hidden': 'w-full md:h-16 fixed top-0 md:bg-gray-800/[0.4] z-10 bg-white shadow-xl'}>
