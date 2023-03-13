@@ -12,7 +12,6 @@ import Footer from '../../components/Footer'
 import ContactFormMain from '../../components/ContactFormMain'
 import DataCountry from '../../data/DataCountry.json'
 import { AppContext } from '../_app'
-import { ppid } from 'process'
 
 export const CountryIndexContext = createContext();
 
@@ -105,6 +104,8 @@ export default function Home(
           <title>Nieruchomości w {router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)} - Onesta Group</title>
           <link rel="shortcut icon" href="/logotype.png" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1, maximum-scale=1" />
+          <meta property="Nieruchomości w Hiszpanii, Chorwacji, Portugalii" content="image" />
+          <meta property="og:image" content="/onesta_og_img.png" />
         </Head>
     <div className={showSearchComponentsOnMobile===false ? 'overflow-x-hidden': 'h-0'}>
       <div className='fixed w-full h-16 z-30 bg-white'>
