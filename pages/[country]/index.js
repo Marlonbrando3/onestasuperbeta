@@ -175,7 +175,7 @@ export async function getServerSideProps (contex) {
   let countRegions = () => {
 
     if(dataregion === undefined){
-      regiond = ['Costa Blanca','Costa del Sol','Costa Brava','Costa Dorada','Lisboa','Porto','Istria', 'Kvarner', 'Dalmacja PŁ', 'Dalmacja PŁD', 'Dalmacja ŚR'];
+      regiond = ['Costa Blanca','Costa del Sol','Costa Brava','Costa Dorada',"PT Północna", "PT Centralna", "Alentejo", "Algavre", "Lisbona",'Istria', 'Kvarner', 'Dalmacja PŁ', 'Dalmacja PŁD', 'Dalmacja ŚR'];
     } else regiond = contex.query.region
 
     if(datadistance === undefined){

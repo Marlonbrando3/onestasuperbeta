@@ -7,12 +7,16 @@ import { useRouter } from 'next/router'
 import { useState, useRef, useReducer, useEffect, useCallback, useMemo} from "react"
 import CheckIcon from '@mui/icons-material/Check';
 import Image from 'next/image'
+import data from "../data/DataCountry.json"
 
 export default function Home() {
 
   const router = useRouter();
 
     let regionsToShow = [router.query.region];
+    const country = router.query.country
+
+    console.log(country)
     
     const handleDeleteParam = (e) => {
     const params = new URLSearchParams(router.query);
@@ -28,14 +32,6 @@ export default function Home() {
   
   const countrylist = useRef();
   const regionslist = useRef();
-
-
-
-  const[conditions, setConditions] = useState([
-    {country: "hiszpania", regions: ['Costa Blanca', 'Costa Dorada', 'Costa Brava','Costa del Sol']},
-    {country: "chorwacja", regions: ["Istria", "Kvarner", "Dalmacja PŁ", "Dalmacja PŁD", "Dalmacja ŚR"]},
-    {country: "portugalia", regions: ["Leiria", "Lisboa", "Setubal", "Beja", "Faro"]}
-  ])
 
   const handleCountryListShow = () => {
     countrylist.current.style.display = "block"
@@ -134,6 +130,16 @@ const pushApartament = (e) => {
 }
 }
 
+const conditions = data.map(c => {
+  if(c.country === country){
+    return (
+      c.region.map((r,i) => 
+        <p key={i} onClick={pushRegions} onMouseDown={(e) => e.preventDefault()} className='hover:bg-red-600/[0.9] hover:text-white text-black cursor-pointer text-normal pl-3' query={{region:{r}}}>{r}</p>
+        )
+      )
+    }
+})
+
 const RegionsList = regionsToShow.map(region => {
     if(router.query.region !== undefined) {
         return <div key={region} className='bg-red-600 text-white flex items-center justify-between pl-2 pr-1 rounded-md absolute top-0 h-8 w-full cursor-pointer'>
@@ -216,14 +222,15 @@ const RegionsList = regionsToShow.map(region => {
             {RegionsList}
           </div>
           <div className='absolute text-white w-full top-24 -mt-3.5 hidden h-auto border rounded-md border-gray-700 bg-white z-10' ref={regionslist}>
-            {conditions.map((i => {
+            {conditions}
+            {/* {conditions.map((i => {
                 if(router.query.country === i.country){
                   return (
                     i.regions.map(r=> (
                     <p key={i} onClick={pushRegions} onMouseDown={(e) => e.preventDefault()} className='hover:bg-red-600/[0.9] hover:text-white text-black cursor-pointer text-normal pl-3' query={{region:{r}}}>{r}</p>
                   ))
                   )
-                }}))}
+                }}))} */}
           </div>
         <div className='mt-4 font-semibold relative'>Rodzaj zabudowy</div>
             <div className="flex items-center w-11/12 lg:w-11/12 md:w-11/12">

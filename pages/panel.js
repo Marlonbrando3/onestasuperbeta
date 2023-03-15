@@ -36,8 +36,8 @@ export default function Panel() {
     }
     console.log(permission)
 
-    return (
+      return (
         permission && <AdminInputs/>
         )
-}
+  }
 

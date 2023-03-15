@@ -5,7 +5,6 @@ import { AppContext } from "../../../pages/_app";
 import { SearchComponentsContext } from "../SearchComponentsList";
 import DataCountry from '../../../data/DataCountry.json'
 import { NumbersOutlined, OneKPlusOutlined } from "@mui/icons-material";
-import SolarPower from "@mui/icons-material/SolarPower";
 
 export default function CountrySearch({
   activeRegionList,
@@ -16,16 +15,17 @@ export default function CountrySearch({
   const {aprove, setAprove, searchConditions, setSearchConditions} = useContext(AppContext)
   const {ShowChangedAreApply} = useContext(SearchComponentsContext)
 
+  const country = router.query.country
+
   let RegionsList = [];
-  searchConditions.map(obj => {
+  DataCountry.map(obj => {
 
     let regions = [];
-    if(obj.name === 'region'){
-      obj.value.map(v => {
-          if(v.isSearching === false) {
+    if(obj.country === country){
+      obj.region.map(v => {
+
             regions = [...regions, v.region]
             // console.log(regions)
-          } RegionsList = regions; 
       }
       )
     } 
@@ -74,7 +74,7 @@ export default function CountrySearch({
       <li key={region}
         className="listToChoose"
         name={region}
-        onClick={handleChooseThisRegion}>{region}</li>)}</div>}
+        onClick={handleChooseThisRegion}>dupa</li>)}</div>}
       </>
   )
 }

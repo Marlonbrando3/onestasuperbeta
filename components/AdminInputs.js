@@ -72,7 +72,7 @@ export default function AdminInputs() {
             const id = UniqeId
             const uniqueSuffix = '_'+ data+'_'+ Date.now()+'_.' + 'jpg'
             const uniqueImgNameWork = link+id+'_'+country.current.value+'_'+region.current.value+'_'+title.current.value+'_'+uniqueSuffix
-            const uniqueImgName = uniqueImgNameWork.toString().replaceAll(' ','_')
+            const uniqueImgName = uniqueImgNameWork.toString().replaceAll(' ','_').replaceAll(',','_')
 
             // console.log(uniqueImgName.toString().replaceAll(' ','_'))
 
@@ -258,9 +258,9 @@ export default function AdminInputs() {
         <textarea ref={description} className="inputs-add-property-textarea h-40"name="description"></textarea>
 
         <label id="PropImages" className="inputs-add-property-label">Zdjęcia</label>
-        <input ref={images} type="file" multiple name="PropImages"></input>
+        <input ref={images} type="file" multiple placeholder="dupa" name="PropImages"></input>
 
-        <button type="submit">Add property</button>
+        <button type="submit" className='bg-green-600 text-white py-2 w-32 my-4 border-green-600 border duration-300 rounded-md hover:bg-white hover:text-black'>Add property</button>
     </form>
   )
 }

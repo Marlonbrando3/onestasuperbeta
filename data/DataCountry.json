@@ -1,16 +1,16 @@
     [    
         {
-            "country": "Hiszpania",
+            "country": "hiszpania",
             "region":["Costa Blanca", "Costa del Sol", "Costa Brava", "Costa Dorata"]
         },
 
         {
-            "country": "Portugalia",
-            "region":["Leiria", "Lisboa", "Setubal", "Beja", "Faro"]
+            "country": "portugalia",
+            "region":["PT Północna", "PT Centralna", "Alentejo", "Algavre", "Lisbona"]
         },
 
         {
-            "country": "Chorwacja",
+            "country": "chorwacja",
             "region":["Istria", "Kvarner", "Dalmacja PŁ", "Dalmacja PŁD", "Dalmacja ŚR"]
         },
 
