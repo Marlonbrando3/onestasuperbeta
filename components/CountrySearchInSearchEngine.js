@@ -208,7 +208,6 @@ const RegionsList = regionsToShow.map(region => {
                 <input autoComplete="off"  className='border border-gray-900 rounded-md h-8 w-full' name="country" onFocus={handleCountryListShow} onBlur={handleCountryListHide}></input>
                 <div className=' flex justify-between px-1 text-white absolute cursor-pointer bg-red-600 top-0 h-8 pl-2 rounded-md w-full items-center font-normal'>{router.query.country.charAt(0).toUpperCase() + router.query.country.slice(1)}<KeyboardArrowDownIcon className='w-6 h-6' onClick={handleCountryListShow} /></div>
             </div>
-            <div className='border'></div>
             <div className='absolute bg-white text-black w-full top-6 -mt-1 hidden border border-gray-900 rounded-md' ref={countrylist}>
                 <div className='cursor-pointer hover:bg-red-500/[0.9] pl-3 font-normal hover:text-white' onMouseDown={(e) => e.preventDefault()} name="hiszpania" onClick={pushCountry}>Hiszpania</div>
                 <div className='cursor-pointer hover:bg-red-500/[0.9] pl-3 font-normal hover:text-white' onMouseDown={(e) => e.preventDefault()} name="chorwacja" onClick={pushCountry}>Chorwacja</div>
@@ -221,7 +220,7 @@ const RegionsList = regionsToShow.map(region => {
             <input autoComplete="off" placeholder="szukasz: wszystkie regiony" className='placeholder:pl-2 rounded-md border border-gray-800 h-8 w-full flex justify-center align-center outline-none' name="country" onFocus={handleRegionsListShow} onBlur={handleRegionsListHide}></input>
             {RegionsList}
           </div>
-          <div className='absolute text-white w-full top-24 -mt-3.5 hidden h-auto border rounded-md border-gray-700 bg-white z-10' ref={regionslist}>
+          <div className='absolute text-white w-full top-24 -mt-4 hidden h-auto border rounded-md border-gray-700 bg-white z-10' ref={regionslist}>
             {conditions}
             {/* {conditions.map((i => {
                 if(router.query.country === i.country){

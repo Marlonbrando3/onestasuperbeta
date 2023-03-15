@@ -54,7 +54,7 @@ export default function PropertyCard({
     }
 
   return (
-    <div className="flex flex-col md:flex-row bg-gray-300 w-12/12 md:h-56 lg:h-80 mb-4 md:mx-auto mx-2 rounded-md overflow-hidden">
+    <div className="flex flex-col md:flex-row bg-gray-300 w-12/12 md:h-56 lg:h-80 mb-4 md:mx-auto mx-2 rounded-md overflow-hidden drop-shadow-[0_3px_3px_rgba(0,0,0,0.30)]">
       <div className="md:w-6/12 w-full h-full flex items-center justify-center text-4xl">
         <ResultsSlider 
           property={property}

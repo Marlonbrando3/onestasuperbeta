@@ -54,7 +54,7 @@ export default function Offersparameters({name, title}) {
   <>
       <div className="flex items-center w-11/12 lg:w-11/12 md:w-11/12">
           <div onClick={handleFunction} name={name} className={router.asPath.includes(name) ? 'rounded-sm border-gray-700 my-2 mr-2 w-5 h-5 p-0 accent-red-600 cursor-pointer' :"rounded-sm border-gray-700 my-2 mr-2 w-5 h-5 p-0 accent-red-600 cursor-pointer border"}>
-              <div name={name} className={router.asPath.includes(name) ? 'rounded-sm bg-red-600 text-white w-full h-full':'hidden'}>
+              <div name={name} className={router.asPath.includes(name) ? 'rounded-sm bg-orange-500 text-white w-full h-full':'hidden'}>
                 <CheckIcon name={name} className='w-full h-full rounded-sm flex items-center justify-center'/>
               </div>
           </div>

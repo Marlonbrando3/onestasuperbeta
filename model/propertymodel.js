@@ -64,7 +64,7 @@ const propertySchema = new mongoose.Schema({
         type:Number,
     },
     localization:{
-        type:String,
+        type:mongoose.Schema.Types.Mixed,
     },
     meters:{
         type:Number,
