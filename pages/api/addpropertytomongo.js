@@ -28,6 +28,7 @@ export default async function addpropertytomongo(req,res){
         taras: req.body.taras,
         balcony: req.body.balcony,
         price: req.body.price,
+        localization: req.body.localization,
         distance: req.body.distance,
         description: req.body.description,
         owner: req.body.owner,

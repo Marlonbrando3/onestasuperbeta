@@ -25,6 +25,9 @@ export default function Property(
   {property},
   ) {
 
+  
+  const local = property[0].localization.toString()
+  console.log(local)
   const buttonLeft = useRef();
   const buttonRight = useRef();
   const photosContainer = useRef();
@@ -307,7 +310,7 @@ const handleHideNavi = () => {
                           </div>
                     </div>
                     <div className='w-full h-64'>
-                    <iframe className="w-[100%] h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6297.78949969237!2d-0.7631180743668244!3d37.88614401895693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd630f53e30fd6e9%3A0x65e736f432819e2f!2s03191%20Mil%20Palmeras%2C%20Prowincja%20Alicante%2C%20Hiszpania!5e0!3m2!1spl!2spl!4v1666100630565!5m2!1spl!2spl" allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe className="w-[100%] h-full" src={local} allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                       <div className='bg-red-600 w-full h-20 flex flex-col justify-center items-start pl-4'>
                         <p className='text-5xl font-bold text-white'>od {priceToShow} €</p>

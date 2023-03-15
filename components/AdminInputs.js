@@ -121,6 +121,7 @@ export default function AdminInputs() {
                 taras: taras.current.value,
                 balcony: balcony.current.value,
                 price: price.current.value,
+                localization: localization.current.value,
                 distance: distance.current.value,
                 description: description.current.value,
                 owner: owner.current.value,
