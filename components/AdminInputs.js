@@ -72,7 +72,7 @@ export default function AdminInputs() {
             const id = UniqeId
             const uniqueSuffix = '_'+ data+'_'+ Date.now()+'_.' + 'jpg'
             const uniqueImgNameWork = link+id+'_'+country.current.value+'_'+region.current.value+'_'+title.current.value+'_'+uniqueSuffix
-            const uniqueImgName = uniqueImgNameWork.toString().replaceAll(' ','_')
+            const uniqueImgName = uniqueImgNameWork.toString().replaceAll(' ','_').replaceAll(',','_')
 
             // console.log(uniqueImgName.toString().replaceAll(' ','_'))
 
