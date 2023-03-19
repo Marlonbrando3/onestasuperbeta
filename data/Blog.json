@@ -25,6 +25,22 @@
     },
     {
         "id":4,
+        "status":"published",
+        "link":"https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title":"Nieruchomości w Hiszpanii: Costa Blanca - zarys.",
+        "description":"Jeśli interesuje Cię ten region pod kątem zakupu nieruchomości, ten artykuł będzie dobrym początkiem.",
+        "tag": "nieruchomosci-w-hiszpanii-costa-blanca"
+    },
+    {
+        "id":5,
+        "status":"published",
+        "link":"https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title":"Regiony Costa Blanca - Piękne San Pedro del Pinatar",
+        "description": "San Pedro del Pinatar jest regionem wyjątkowym, do życia, wakacji oraz do inwestowania. W artukule przedstawiamy atuty tego regionu.",
+        "tag": "region-san-pedro-del-pinatar"
+    },
+    {
+        "id":6,
         "status":"wating",
         "link":"https://images.pexels.com/photos/1703311/pexels-photo-1703311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         "title":"Najciekawsze miejsca na Costa del Sol",
@@ -32,19 +48,12 @@
         "article": "Wkrótce"
     },
     {
-        "id":5,
+        "id":7,
         "status":"wating",
         "link":"https://cdn.pixabay.com/photo/2023/01/09/09/42/sunflowers-7706977_1280.jpg",
         "title":"Najciekawsze miejsca na Costa Blanca",
         "description":"Zapraszamy wkrótce",
         "article": "Wkrótce"
-    },
-    {
-        "id":6,
-        "status":"wating",
-        "link":"https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "title":"Rodzaje nieruchomości w Hiszpanii",
-        "description":"Zapraszamy wkrótce",
-        "article": "Wkrótce"
     }
+
 ]
