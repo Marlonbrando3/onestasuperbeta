@@ -137,6 +137,14 @@ export default function Home(
 
 export async function getServerSideProps (contex) {
 
+  const actualcountry = contex.query.country
+
+  if(actualcountry !== "hiszpania" && actualcountry !== "portugalia" && actualcountry !== "chorwacja"){
+    return {
+      notFound:true
+    }
+  }
+
   console.log("im in get props")
   await db.connect();
   console.log("connected with DB")
