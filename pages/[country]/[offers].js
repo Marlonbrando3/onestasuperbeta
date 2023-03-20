@@ -26,7 +26,7 @@ export default function Property(
   ) {
 
   
-  const local = property[0].localization.toString()
+  const local = property[0].localization
   console.log(local)
   const buttonLeft = useRef();
   const buttonRight = useRef();
