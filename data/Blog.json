@@ -41,6 +41,14 @@
     },
     {
         "id":6,
+        "status":"published",
+        "link":"https://images.pexels.com/photos/4633649/pexels-photo-4633649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title":"Jak kupić nieruchomość w Portugalii? Pigułka",
+        "description": "Zakup nieruchomości w Portgalii procesowo wydaje się być prosta, pod warunkiem spełnienia pewnych kryteriów. Jedyn z Nich. Zapraszamy do poznania 6 kroków do zakupu",
+        "tag": "jak-kupic-nieruchomosc-w-portugalii"
+    },
+    {
+        "id":7,
         "status":"wating",
         "link":"https://images.pexels.com/photos/1703311/pexels-photo-1703311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         "title":"Najciekawsze miejsca na Costa del Sol",
@@ -48,7 +56,7 @@
         "article": "Wkrótce"
     },
     {
-        "id":7,
+        "id":8,
         "status":"wating",
         "link":"https://cdn.pixabay.com/photo/2023/01/09/09/42/sunflowers-7706977_1280.jpg",
         "title":"Najciekawsze miejsca na Costa Blanca",
