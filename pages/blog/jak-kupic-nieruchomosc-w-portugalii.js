@@ -111,6 +111,6 @@ Warto zaznaczyć, że podatek IMT należy wpłacić w ciągu 30 dni od daty naby
 Podsumowując, zakup nieruchomości w Portugalii może być korzystną inwestycją, ale wymaga dokładnego zapoznania się z ryzykami i potencjalnymi zagrożeniami oraz uzyskania porady specjalistów, np. poprzez uzupełnienie poniższego formularza<br></br>
 <br></br><br></br>
 </div>
-<ContactFormBlogPost />
+<ContactFormBlogPost temat="Jak kupić nieruchomość w Portugalii" />
 </>
 )}

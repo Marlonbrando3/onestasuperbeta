@@ -140,6 +140,6 @@ Na tym lista pytań się nie kończy, wystarczy, że pójdziesz w ślad za anali
 Zapraszamy Państwa do części drugiej, która ukaże się na dniach i będzie traktować o procesie zakupu.<br></br>
 <br></br>
 </div>
-<ContactFormBlogPost />
+<ContactFormBlogPost temat="Jak kupić nieruchomość w Hiszpanii cz.1" />
 </>
 )}

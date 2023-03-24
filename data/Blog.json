@@ -49,6 +49,14 @@
     },
     {
         "id":7,
+        "status":"published",
+        "link":"https://images.unsplash.com/photo-1621848060929-bea5cb86c155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1808&q=80",
+        "title":"Nieruchomości Chorwacja - Trogir i jego atrakcje",
+        "description": "Poznaj Trogir, który jest pięknhym i ciekawym miejsce do zakupu nieruchmości oraz turytyki",
+        "tag": "nieruchomosci-chorwacja-trogir"
+    },
+    {
+        "id":20,
         "status":"wating",
         "link":"https://images.pexels.com/photos/1703311/pexels-photo-1703311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         "title":"Najciekawsze miejsca na Costa del Sol",
@@ -56,7 +64,7 @@
         "article": "Wkrótce"
     },
     {
-        "id":8,
+        "id":21,
         "status":"wating",
         "link":"https://cdn.pixabay.com/photo/2023/01/09/09/42/sunflowers-7706977_1280.jpg",
         "title":"Najciekawsze miejsca na Costa Blanca",
