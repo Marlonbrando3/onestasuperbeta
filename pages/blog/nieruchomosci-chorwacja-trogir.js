@@ -60,21 +60,21 @@ Nie można zapomnieć również o pięknych plażach w Trogirze i na wyspie Čio
 <br></br><br></br>
 <b>Restauracje</b>
 <br></br><br></br>
-Jednym z najlepszych miejsc do jedzenia w Trogirze jest restauracja "Konoba Trs". <br></br>
+Jednym z najlepszych miejsc do jedzenia w Trogirze jest restauracja &quot;Konoba Trs&quot;. <br></br>
 Znajduje się ona w samym sercu miasta i oferuje tradycyjne dania z Dalmacji, takie jak grillowane ryby i mięsa, makarony i risotto. Restauracja ma przytulny i rustykalny wystrój, a personel jest bardzo przyjazny i pomocny.<br></br><br></br>
 
-Kolejnym polecanym miejscem jest restauracja "Pašike", która znajduje się na tarasie nad kanałem w Trogirze. Restauracja oferuje dania kuchni chorwackiej i międzynarodowej, a ich menu zmienia się wraz z porami roku, aby wykorzystać sezonowe produkty. Restauracja ma przyjemny i romantyczny wystrój, a widok na kanał i starówkę Trogiru jest niesamowity.<br></br><br></br>
+Kolejnym polecanym miejscem jest restauracja &quot;ašike&quot;, która znajduje się na tarasie nad kanałem w Trogirze. Restauracja oferuje dania kuchni chorwackiej i międzynarodowej, a ich menu zmienia się wraz z porami roku, aby wykorzystać sezonowe produkty. Restauracja ma przyjemny i romantyczny wystrój, a widok na kanał i starówkę Trogiru jest niesamowity.<br></br><br></br>
 
-Inną ciekawą restauracją jest "Restoran Piccolo", która znajduje się w samym centrum miasta, niedaleko Katedry św. Wawrzyńca. Restauracja oferuje przepyszne dania kuchni dalmatyńskiej, takie jak owoc morza, grillowane ryby i mięsa oraz tradycyjne makarony i risotto. Restauracja ma uroczy i przytulny wystrój oraz duży taras na zewnątrz.<br></br><br></br>
+Inną ciekawą restauracją jest &quot;Restoran Piccolo&quot;, która znajduje się w samym centrum miasta, niedaleko Katedry św. Wawrzyńca. Restauracja oferuje przepyszne dania kuchni dalmatyńskiej, takie jak owoc morza, grillowane ryby i mięsa oraz tradycyjne makarony i risotto. Restauracja ma uroczy i przytulny wystrój oraz duży taras na zewnątrz.<br></br><br></br>
 
-Jeśli lubisz jedzenie wegetariańskie lub wegańskie, to polecamy odwiedzenie "Konoba Trifora". Restauracja znajduje się w pięknej kamiennej kamienicy w centrum miasta i oferuje pyszne dania wegetariańskie i wegańskie. Menu składa się z tradycyjnych dań z Dalmacji, takich jak fasolka szparagowa, papryka faszerowana i makarony z warzywami. Restauracja ma piękny i rustykalny wystrój, a personel jest bardzo przyjazny i pomocny.<br></br><br></br>
+Jeśli lubisz jedzenie wegetariańskie lub wegańskie, to polecamy odwiedzenie &quot;Konoba Trifora&quot;. Restauracja znajduje się w pięknej kamiennej kamienicy w centrum miasta i oferuje pyszne dania wegetariańskie i wegańskie. Menu składa się z tradycyjnych dań z Dalmacji, takich jak fasolka szparagowa, papryka faszerowana i makarony z warzywami. Restauracja ma piękny i rustykalny wystrój, a personel jest bardzo przyjazny i pomocny.<br></br><br></br>
 
 <b>Najładniejsze plaże</b>
 <br></br><br></br>
 
-Jedną z najbardziej popularnych plaż w Trogirze jest plaża "Pantan". Znajduje się ona około 1,5 km od centrum miasta i jest łatwo dostępna pieszo lub samochodem. Plaża jest piaszczysta, a woda jest krystalicznie czysta. Na plaży znajdują się leżaki i parasole, a także kawiarnie i bary serwujące napoje i przekąski.<br></br>
-Inną popularną plażą jest plaża "Medena". Znajduje się ona w odległości około 4 km od centrum Trogiru, w kierunku południowym. Plaża jest piaszczysta i ma długość około 3 km, co czyni ją jedną z największych plaż w okolicy. Na plaży znajdują się leżaki i parasole, a także wiele punktów gastronomicznych. Plaża jest idealna dla rodzin z dziećmi, ze względu na łagodne wejście do wody i wiele atrakcji, takich jak boiska do piłki nożnej i siatkówki.<br></br>
-Kolejną piękną plażą w Trogirze jest plaża "Kava". Znajduje się ona na północny wschód od miasta, na skraju malowniczego lasu sosnowego. Plaża jest kamienista, ale woda jest krystalicznie czysta i idealna do pływania. Na plaży znajduje się wiele barów i kawiarni, gdzie można zrelaksować się i cieszyć się pięknymi widokami.<br></br><br></br>
+Jedną z najbardziej popularnych plaż w Trogirze jest plaża &quot;Pantan&quot;. Znajduje się ona około 1,5 km od centrum miasta i jest łatwo dostępna pieszo lub samochodem. Plaża jest piaszczysta, a woda jest krystalicznie czysta. Na plaży znajdują się leżaki i parasole, a także kawiarnie i bary serwujące napoje i przekąski.<br></br>
+Inną popularną plażą jest plaża &quot;Medena&quot;. Znajduje się ona w odległości około 4 km od centrum Trogiru, w kierunku południowym. Plaża jest piaszczysta i ma długość około 3 km, co czyni ją jedną z największych plaż w okolicy. Na plaży znajdują się leżaki i parasole, a także wiele punktów gastronomicznych. Plaża jest idealna dla rodzin z dziećmi, ze względu na łagodne wejście do wody i wiele atrakcji, takich jak boiska do piłki nożnej i siatkówki.<br></br>
+Kolejną piękną plażą w Trogirze jest plaża &quot;Kava&quot;. Znajduje się ona na północny wschód od miasta, na skraju malowniczego lasu sosnowego. Plaża jest kamienista, ale woda jest krystalicznie czysta i idealna do pływania. Na plaży znajduje się wiele barów i kawiarni, gdzie można zrelaksować się i cieszyć się pięknymi widokami.<br></br><br></br>
 
 <b>Nieruchomości Chorwacja - rynek Trogir</b>
 <br></br><br></br>
