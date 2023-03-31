@@ -60,7 +60,6 @@ export default function Searange({}
     })) 
   }
 
-
   return (
     <>
         {applySea && <div onClick={hideAppyButton} className="applyButton">Zatwierdź</div>}
