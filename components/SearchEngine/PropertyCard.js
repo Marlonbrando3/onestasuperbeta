@@ -10,7 +10,7 @@ import PoolOutlinedIcon from '@mui/icons-material/PoolOutlined';
 import OtherHousesOutlinedIcon from '@mui/icons-material/OtherHousesOutlined';
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import OtherHousesIcon from '@mui/icons-material/OtherHouses';
-import img from "../images/2_max.jpeg";
+// import img from "../images/2_max.jpeg";
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import ResultsSlider from "./ResultsSlider";
 import ShareIcon from '@mui/icons-material/Share';

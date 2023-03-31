@@ -4,6 +4,7 @@ import ContactFormBlogPost from '../../components/ContactFormBlogPost'
 import HeaderBlog from '../../components/HeaderBlog'
 import HeaderBlogPost from '../../components/HeaderBlogPost'
 import MiniMainViewBlog from '../../components/MiniMainViewBlog'
+import Image from 'next/image'
 
 export default function BlogPost() {
 
@@ -56,12 +57,21 @@ Wracając. Charakter miasta nie przypomina raczej stylu, który kojarzy się z w
 
 <b>3. Plaże.</b><br></br><br></br>
 
-- Playa del Cura - to najbardziej popularna plaża w Torrevieja, znajdująca się w centrum miasta. Plaża ma około 325 metrów długości i oferuje wszystkie udogodnienia, w tym bary, restauracje i sklepy.<br></br>
-- Playa de Los Locos - to długa i szeroka plaża z drobnym piaskiem, znajdująca się w północnej części miasta. Plaża jest bardzo popularna wśród rodzin z dziećmi, ponieważ ma łagodne zejście do wody.<br></br>
-- Playa de La Mata - to jedna z największych plaż w Torrevieja, o długości ponad 2 km. Plaża jest bardzo dobrze utrzymana i oferuje wiele udogodnień, w tym bary, restauracje i sklepy.<br></br>
-- Cala Ferris - to mała, urokliwa plaża, znajdująca się w pobliżu wieży La Mata. Plaża jest idealna dla osób szukających ciszy i spokoju, ponieważ jest mniej zatłoczona niż inne plaże w Torrevieja.<br></br>
-- Playa de Los Náufragos - to kolejna popularna plaża w Torrevieja, która znajduje się w południowej części miasta. Plaża ma około 400 metrów długości i oferuje wiele udogodnień, w tym bary, restauracje i sklepy.<br></br><br></br>
+- <b>Playa del Cura</b> - (zdjęcie niżej) to najbardziej popularna plaża w Torrevieja, znajdująca się w centrum miasta. Plaża ma około 325 metrów długości i oferuje wszystkie udogodnienia, w tym bary, restauracje i sklepy.<br></br>
+- <b>Playa de Los Locos</b> - to długa i szeroka plaża z drobnym piaskiem, znajdująca się w północnej części miasta. Plaża jest bardzo popularna wśród rodzin z dziećmi, ponieważ ma łagodne zejście do wody.<br></br>
+- <b>Playa de La Mata</b> - to jedna z największych plaż w Torrevieja, o długości ponad 2 km. Plaża jest bardzo dobrze utrzymana i oferuje wiele udogodnień, w tym bary, restauracje i sklepy.<br></br>
+- <b>Cala Ferris</b> - to mała, urokliwa plaża, znajdująca się w pobliżu wieży La Mata. Plaża jest idealna dla osób szukających ciszy i spokoju, ponieważ jest mniej zatłoczona niż inne plaże w Torrevieja.<br></br>
+- <b>Playa de Los Náufragos</b> - to kolejna popularna plaża w Torrevieja, która znajduje się w południowej części miasta. Plaża ma około 400 metrów długości i oferuje wiele udogodnień, w tym bary, restauracje i sklepy.<br></br><br></br>
 
+    <div className='flex flex-col'>
+    <Image
+        src="/torrevieja-apartamenty-na-sprzedaz.png"   
+        width={800}
+        height={800}
+    />
+    <p className='text-sm font-bold'>fot. Playa del Cura, Torrevieja, pierwsza linia brzegowa.</p>
+</div>
+<br></br><br></br>
 
 <b>4. Najciekawsze atrakcje.</b> <br></br><br></br>
 
@@ -86,6 +96,8 @@ Na tle tego inwestycja w San Pedro del Pinatar, rynek pierwotny.<br></br>
 
 <b>Podsumowując.</b> <br></br><br></br>Znalezienie poprawnego (powyżej 80 000 euro) apartamentu na sprzedaż w Torrevieja, kupienie go i próba efektywnego wynajmu jest inwestycją natomiast są zdecydowanie lepsze formy inwestowania. Jeśli zakładam, że chcemy mieć coś w Hiszpanii, mamy budżet na poziomie ma 150 000 euro i nie więcej i wiemy, że mieszkanie nam się będzie powoli spłacać, a może wyjść czasami na zero, to dlaczego nie.
 <br></br><br></br>
+
+<b>Napisz do nas, a prześlemy Ci kilka ciekawych ofert z Torrevieja</b> 
 
 </div>
 <ContactFormBlogPost temat={temat} />
