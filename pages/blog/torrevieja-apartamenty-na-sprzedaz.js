@@ -73,7 +73,7 @@ Wracając. Charakter miasta nie przypomina raczej stylu, który kojarzy się z w
 - Park wodny Aquopolis - to park wodny, który oferuje mnóstwo atrakcji dla całej rodziny, w tym zjeżdżalnie, baseny z falami, jacuzzi i wiele innych. To idealne miejsce na spędzenie gorącego dnia.<br></br>
 - Jaskinie Canelobre - to jaskinie znajdujące się w okolicy miasta Alicante, około 40 minut jazdy od Torrevieja. To jedne z najpiękniejszych jaskiń w Hiszpanii, które są warte odwiedzenia.<br></br>
 - Festiwale - Torrevieja organizuje wiele festiwali i imprez przez cały rok. Warto odwiedzić miasto podczas Fiesta de la Habanera (festiwal muzyki hiszpańskiej), Semana Santa (Święty Tydzień) lub na Słoniowej Paradzie, która odbywa się w sierpniu.<br></br>
-- Rzeźby w parku Alfonso XIII - to park miejski, który wzbogacają rzeźby różnych artystów. W parku znajduje się m.in. rzeźba "La Mujer del Pescador" autorstwa Víctora García Villalgordo oraz "El Hombre y el Mar" autorstwa Francisco Jurado.<br></br><br></br>
+- Rzeźby w parku Alfonso XIII - to park miejski, który wzbogacają rzeźby różnych artystów. W parku znajduje się m.in. rzeźba &quot;La Mujer del Pescador&quot; autorstwa Víctora García Villalgordo oraz &quot;El Hombre y el Mar&quot; autorstwa Francisco Jurado.<br></br><br></br>
 
 <b>5. Wynajem, czy to się opłaca?</b><br></br><br></br>
 
