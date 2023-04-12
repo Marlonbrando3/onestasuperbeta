@@ -75,7 +75,7 @@ export default function ResultsSlider({
         </div>
         <div ref={imagesContainer} className="absolute flex duration-300">
           {images.map( i => (
-          <div className="h-[320px] w-[500px] relative object-cover">
+          <div key={i} className="h-[320px] w-[500px] relative object-cover">
             <Image className="object-cover"
               src={i}
               fill
