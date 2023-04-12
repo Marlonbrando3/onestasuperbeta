@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ChevronRightIcon from '@mui/icons-material/ChevronRightOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { ImageSearch } from "@mui/icons-material";
@@ -11,7 +11,11 @@ export default function ResultsSlider({
   choosedCountry,
   actualSite}) {
 
+    const imagesContainer = useRef();
+
     const [actualImg, setActualImg] = useState(0)
+    const [margin, setMargin] = useState(0)
+    const [imgCounter, setImgCounter] = useState(0)
 
     const [imagesNew, setImagesNew] = useState(images.map((img, index) => {
       if(index === 0){
@@ -21,158 +25,65 @@ export default function ResultsSlider({
         }
       } else return {img}}))
 
-      // console.log(actualImg)
-
       const handleChangeSiteLeft = () => {
+        const ImagesLength = images.length-1
+        const divPX = 500
+        const newMargin = margin + divPX
 
-        setImagesNew(imagesNew.map((img, index) => {
-          let imgLength = imagesNew.length-1
-              if(actualImg === 0){
-                if(index === 0){
-                  setActualImg(imgLength)
-                return{
-                  img: img.img,
-                  visible:false
-                }
-              }
-              if(index === imgLength){
-                // console.log('okejka '+ index)
-                return{
-                  img: img.img,
-                  visible:true
-                }
-              }else {
-                return{
-                  img: img.img,
-                  visible:false
-                }
-              }
-            }
-            
-            if(actualImg > 0){
-              if(index === actualImg){
-                setActualImg(actualImg-1)
-                  return{
-                    img: img.img,
-                    visible:false
-                  }
-              }
-              if(index === actualImg-1){
-                // console.log('okejka '+ index)
-                return{
-                  img: img.img,
-                  visible:true
-                }
-              }
-              else {
-                return{
-                  img: img.img,
-                  visible:false
-                }
-              }
-              }
-            }))
+        if(imgCounter === 0){
+          console.log("opcja 1")
+          setImgCounter(ImagesLength)
+          console.log(newMargin)
+          imagesContainer.current.style.marginLeft = `${-(ImagesLength * divPX)}px`
+          setMargin(-(ImagesLength * divPX))
+        } else {  
+          console.log("opcja 2")
+          console.log(newMargin)
+          setImgCounter(imgCounter - 1)
+          imagesContainer.current.style.marginLeft = `${newMargin}px`
+          setMargin(margin + divPX)
+  
+        }
       }
 
-
     const handleChangeSiteRight = () => {
+      console.log("clicked right")
+      const ImagesLength = images.length
+      const divPX = 500
+      const newMargin = margin - divPX
+      if(imgCounter < ImagesLength-1){
+        setImgCounter(imgCounter + 1)
+        console.log(margin)
+        imagesContainer.current.style.marginLeft = `${newMargin}px`
+        setMargin(margin - divPX)
+      } else {  
+        setImgCounter(0)
+        imagesContainer.current.style.marginLeft = `0px`
+        setMargin(0)
 
-      setImagesNew(imagesNew.map((img, index) => {
-        let imgLength = imagesNew.length-1
-            if(actualImg < imgLength){
-              setActualImg(actualImg + 1)
-              if(index === actualImg){
-              return{
-                img: img.img,
-                visible:false
-              }
-            }
-            if(index === actualImg+1){
-              // console.log('okejka '+ index)
-              return{
-                img: img.img,
-                visible:true
-              }
-            }else {
-              return{
-                img: img.img,
-                visible:false
-              }
-            }
-          }
-          
-          if(actualImg === imgLength){
-            if(index === actualImg){
-              setActualImg(0)
-                return{
-                  img: img.img,
-                  visible:false
-                }
-            }
-            if(index === 0){
-                return{
-                  img: img.img,
-                  visible:true
-                }
-            }
-            else {
-              return{
-                img: img.img,
-                visible:false
-              }
-            }
-            }
-          }))
+      }
     }
 
-    useEffect(()=>{
-      setImagesNew(images.map((img, index) => {
-        if(index === 0){
-          return{
-            img: img,
-            visible:true
-          }
-        } else {
-          return{
-            img: img,
-            visible:false
-          }
-        }}))
-  
-    },[choosedCountry, actualSite, images])
 
   return (
-    <div className="h-60 md:h-full w-full relative bg-white">
-        <div onClick={handleChangeSiteLeft} className="flex items-center z-10 justify-center absolute w-10 h-full left-0 cursor-pointer bg-gray-900/[0.13] hover:bg-sky-900/[0.4] transition duration-450 hover:ease-in-out">
+    <div className="h-full w-full relative bg-white">
+        <div onClick={handleChangeSiteLeft} className="flex items-center z-10 justify-center absolute w-10 h-full  left-0 cursor-pointer bg-gray-900/[0.13] hover:bg-sky-900/[0.4] transition duration-450 hover:ease-in-out">
         <ChevronLeftIcon className="w-full h-full text-white" />
         </div>
         <div onClick={handleChangeSiteRight} className="flex items-center z-10 justify-center absolute w-10 h-full right-0 cursor-pointer group bg-gray-900/[0.13] hover:bg-sky-900/[0.4] transition duration-450 hover:ease-in-out">
         <ChevronRightIcon className="w-full h-full text-white"/>
         </div>
-        {imagesNew.map((img, index) => 
-        {
-          if(img.visible === true) {
-            // console.log(img.img)
-            return (
-              <div key={index} className='overflow-hidden'>
-                 <Link href={`/${property.country}/${property.id}&${property.title.replaceAll(' ','-')}`}>
-                 <span class="loader absolute mx-auto"></span>
-                    <div className="cursor-pointer w-full h-full">
-                      <Image className="object-cover"
-                        src={img.img}
-                        alt="Picture of the author"
-                        fill
-                        priorit
-                      />
-                    </div>
-                </Link>
-                <div className="absolute text-base text-white bg-gray-900 p-2 bottom-0 right-0">{actualImg+1} / {imagesNew.length}</div>
-                {/* <img key={img.img} className="object-cover h-full md:w-full" src={img.img} /> */}
-              </div>
-          )}
-          else return false;
-        }
-        )}
+        <div ref={imagesContainer} className="absolute flex duration-300">
+          {images.map( i => (
+          <div className="h-[320px] w-[500px] relative object-cover">
+            <Image className="object-cover"
+              src={i}
+              fill
+              priority
+            />
+          </div>
+        ))}
+        </div>
     </div>
   )
 }

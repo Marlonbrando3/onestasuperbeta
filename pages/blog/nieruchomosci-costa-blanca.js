@@ -53,6 +53,9 @@ export default function Zarzadzanie() {
                         <p><b>Pillar De La Horadada:</b> ok 2164 / m2. Kwoty wynajmu: średnie</p>
                         <p><b>Torre De La Horadada:</b> ok 2153 / m2. Kwoty wynajmu: średnie</p>
                         <p><b>Orihuela Costa:</b> ok 2073 / m2. Kwoty wynajmu: średnie</p>
+                        <p><b>San Pedro del Pinatar:</b> ok 2050 / m2. Kwoty wynajmu: średnie-wyższe</p>
+                        <p><b>San Diego de La Ribera:</b> ok 2050 / m2. Kwoty wynajmu: średni-wyższe</p>
+                        <p><b>Orihuela Costa:</b> ok 2073 / m2. Kwoty wynajmu: średnie</p>
                     </div>
                 <br></br><br></br>
                 

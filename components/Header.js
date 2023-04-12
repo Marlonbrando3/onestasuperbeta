@@ -17,6 +17,9 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PodcastsIcon from '@mui/icons-material/Podcasts';
 import PhoneIcon from '@mui/icons-material/Phone';
+import {HiOutlineMenu} from 'react-icons/hi'
+import {HiOutlineMenuAlt3} from 'react-icons/hi'
+
 
 export default function Header({}) {
   
@@ -86,7 +89,7 @@ export default function Header({}) {
   return (
     <>
     {/* Mobile Menu */}
-    <div className='transition-all duration-700 w-full h-22 top-0 lg:pt-2 lg:pb-0 lg:pr-10 px-4 text-gray-900 bg-white'>
+    <div className='transition-all duration-700 w-full h-[60px] md:h-[60px] top-0 lg:pb-0 lg:pr-10 px-4 text-gray-900 bg-white'>
     <div className="xl:w-[1200px] w-full h-full flex mx-auto">
     <div className={MobileMenu ? 
       "flex items-center z-40 justify-center duration-300 bg-white absolute h-screen left-0 top-0 w-full": 
@@ -109,9 +112,9 @@ export default function Header({}) {
           />
       </Link>
             <div className="flex flex-col flex-1 h-full">
-            <div className="w-full h-1/3 flex justify-end items-center">
-            <a href="tel:+48669752525">
-              <div className="mx-5 font-bold text-xs bg-red-700 lg:px-2 px-1 py-1 text-white rounded-md md:flex items-center cursor-pointer md:w-40 w-8 h-8 lg:static absolute top-2 right-10 ">
+            <div className="w-full lg:h-1/3 flex justify-end items-center">
+              <a href="tel:+48669752525">
+              <div className="mx-5 mt-1 font-bold text-xs bg-red-700 lg:px-2 px-1 py-2 text-white rounded-md md:flex items-center cursor-pointer md:w-40 w-8 h-8 lg:static absolute top-2 right-10 ">
                 <PhoneIcon className="lg:w-7 lg:h-3 lg:pr-2 text-white px-auto"/>
                 <p className="hidden md:block">+48 669 75 25 25</p></div>
             </a>
@@ -126,7 +129,7 @@ export default function Header({}) {
               <Link href="/account/signup" className="border bg-green-700 border-green-700 px-2 rounded-md text-white cursor-pointer duration-300 hover:bg-white hover:text-black">Utwórz konto</Link> */}
             </div>
             {/* Desktop Menu */}
-                <div className="h-2/3 justify-end lg:flex items-center mt-1">
+                <div className="h-full justify-end flex items-center ">
                       <ul className="lg:flex hidden">
                       <li className='list'><Link  onClick={handleBackToMainPage} href='/'>Strona główna</Link></li>
                       <li className='list'><Link href='/aboutus'>O Nas</Link></li>
@@ -146,11 +149,11 @@ export default function Header({}) {
                       <li className='list'><Link href='/abc'>ABC Inwestora</Link></li>
                           <li className='list'>Kontakt</li>
                       </ul>
-                      <div className="h-[100%] w-[100%] flex justify-end items-center lg:hidden">
-                        {MobileMenu ? <CloseIcon 
-                          className="transition-all duration-700 cursor-pointer block z-50 w-10 h-10 lg:hidden visible"
+                      <div className="h-[40px] w-[40px] flex justify-center items-center lg:hidden">
+                        {MobileMenu ? <HiOutlineMenuAlt3 
+                          className="transition-all duration-700 cursor-pointer block z-50 h-[40px] w-[40px] lg:hidden visible"
                           onClick={handleShowMobileMenu}/> : 
-                          <MenuIcon className="transition-all duration-700 cursor-pointer z-50 h-[100%] w-[17%] lg:hidden block"
+                          <HiOutlineMenu className="transition-all duration-700 cursor-pointer z-50 h-[40px] w-[40px] lg:hidden block"
                           onClick={handleShowMobileMenu}/>}
                       </div>
                 </div>

@@ -19,7 +19,7 @@ export default function BlogItems() {
                     <div className='p-2'>
                         <p className='font-bold text-xl'>{obj.title}</p>
                         <div>{obj.description}...</div>
-                        <button className={obj.status !== "wating" ? 'border-gray-500 mt-12 px-3 py-1 rounded-lg cursor-pointer bg-white drop-shadow-md hover:bg-red-600 duration-100 hover:text-white': 'hidden'}><Link href={{pathname: `/blog/${obj.tag}`}}>Czytaj więcej</Link></button>
+                        <button className={obj.status !== "wating" ? 'border-gray-500 mt-12 px-3 py-1 rounded-lg cursor-pointer bg-white shadow-md hover:bg-red-600 duration-100 hover:text-white': 'hidden'}><Link href={{pathname: `/blog/${obj.tag}`}}>Czytaj więcej</Link></button>
                     </div>
                     </div>
             </div>

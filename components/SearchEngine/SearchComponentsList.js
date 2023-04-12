@@ -78,11 +78,11 @@ export default function SearchInput({
     <div ref={ShowPopUpChangedApply} className="bg-green-700 transition fixed z-40 bottom-2 right-2 text-white px-3 rounded-md hidden ">Zmiany wprowdzone!</div>
     <div className={showSearchComponentsOnMobile ?
         "transition-all absolute duration-700 top-0 w-screen pt-8 z-30 bg-white p-1 md:h-auto h-[1050px] ":
-        "transition-all duration-700 absolute disable hidden -top-screen flex-col items-center justify-center md:w-[280px] md:flex md:static"}>
+        "transition-all duration-700 absolute disable hidden -top-screen flex-col items-center justify-center lg:w-[280px] lg:flex lg:static"}>
       <div className="border-2 border-red-600 bg-white  px-2 pt-1 m-4 w-26 z-40 block md:hidden fixed top-0 right-0" onClick={handleShowMobileFilters}>
           <p className="visible cursor-pointer">X</p>
     </div>
-        <form className="flex flex-col m-auto justify-start items-center bg-white rounded-md h-auto p-1 mb-60 lg:w-11/12 w-10/12 drop-shadow-[0_3px_3px_rgba(0,0,0,0.30)]">
+        <form className="flex flex-col m-auto justify-start items-center bg-white rounded-md h-auto p-1 mb-60 lg:w-11/12 w-10/12 shadow-md">
         <SearchComponentsContext.Provider value={{ShowChangedAreApply}}>
           <div className="InputsStyleContainer w-11/12 lg:w-11/12 md:w-11/12 ">
             <div className="m-auto w-full h-auto">
