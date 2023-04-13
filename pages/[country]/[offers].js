@@ -230,18 +230,18 @@ const handleHideNavi = () => {
           <div className='flex items-center justify-center h-[80px] w-full px-auto my-[10px] mx-auto bg-white'>
             <p className='block w-12/12 text-lg lg:text-2xl font-bold lg:mx-auto'>{property[0].title}</p>
           </div>
-          <div className='lg:w-[1050px] md:w-[780px] w-[440px] p-[20px] mx-auto my-0 rounded-md bg-white '>
-            <div className='flex flex-col lg:flex-row  mx-auto'>
-              <div className='md:w-[800px] md:h-full w-[400px] h-[300px] overflow-hidden mr-[20px]'>
-              <div className='flex h-full w-full flex-col justify-between'>
-                <div className='lg:w-[800px] md:w-[740px] h-[400px] overflow-hidden hidden sm:block select-none relative'>
-                  <Image 
+          <div className='lg:w-[1050px] md:w-[780px] w-[92vw] p-[20px] mx-auto my-0 rounded-md bg-white '>
+            <div className='flex flex-col lg:flex-row mx-auto'>
+              <div className='md:w-[740px] md:h-[500px] w-full sm:h-[500px] h-[400px] overflow-hidden mr-[20px]'>
+              <div className='flex md:h-[500px] sm:h-[500px] h-[400px] w-full flex-col justify-between'>
+                <div className='lg:w-[800px] md:w-[740px] h-[500px] sm:h-[600px] w-[700px] overflow-hidden hidden sm:block select-none relative'>
+                  <Image className='w-[400;'
                       src={showedImage}
                       fill
                       responsive
                   ></Image>
                 </div>
-                <div ref={photosContainerMain}className='lg:w-[800px] md:w-[740px] relative flex sm:h-[100px] h-[450px]' onMouseEnter={handleShowNavi} onMouseLeave={handleHideNavi} >
+                <div ref={photosContainerMain} className='lg:w-[800px] md:w-[740px] w-full relative flex sm:h-[100px] h-[450px]' onMouseEnter={handleShowNavi} onMouseLeave={handleHideNavi} >
                   <div onClick={handleChangeSlideLeft} ref={buttonLeft} className='absolute w-[55px] my-[2px] flex left-0 z-40 h-full justify-center items-center cursor-pointer bg-gray-600/[0.4] hover:bg-gray-600/[0.6] duration-300 sm:invisible'>
                     <ChevronLeftIcon 
                         className='h-full w-8 text-white block'
@@ -257,7 +257,6 @@ const handleHideNavi = () => {
                       />
                     </div>
                   </div>
-                  {/* <div className='w-[30px] h-full cursor-pointer border'></div> */}
                   <div onClick={handleChangeSlideRight} ref={buttonRight} className='absolute select-none w-[55px] my-[2px] flex right-0 z-40 h-full justify-center items-center cursor-pointer bg-gray-600/[0.4] hover:bg-gray-600/[0.6] duration-300 sm:invisible'>
                     <ChevronRightIcon 
                       className='h-full w-8 text-white block'
