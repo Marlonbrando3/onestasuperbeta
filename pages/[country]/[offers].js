@@ -83,9 +83,6 @@ export default function Property(
 
     let oneImageLength = photosR / images.length
     let cutedImage = photosCM / oneImageLength
-    // console.log(oneImageLength)
-    // console.log(Math.floor(cutedImage))
-    // console.log(oneImageLength - oneImageLength * (cutedImage - Math.floor(cutedImage)))
 
     let marginWork = 0
 
@@ -233,18 +230,18 @@ const handleHideNavi = () => {
           <div className='flex items-center justify-center h-[80px] w-full px-auto my-[10px] mx-auto bg-white'>
             <p className='block w-12/12 text-lg lg:text-2xl font-bold lg:mx-auto'>{property[0].title}</p>
           </div>
-          <div className='w-[100%] p-[20px] mx-auto my-0 bg-white rounded-md lg:w-10/12'>
-            <div className='flex flex-col md:flex-row h-full mx-auto'>
-              <div className='md:w-[55%] w-full h-full overflow-hidden mr-[20px]'>
+          <div className='lg:w-[1050px] md:w-[780px] w-[440px] p-[20px] mx-auto my-0 rounded-md bg-white '>
+            <div className='flex flex-col lg:flex-row  mx-auto'>
+              <div className='md:w-[800px] md:h-full w-[400px] h-[300px] overflow-hidden mr-[20px]'>
               <div className='flex h-full w-full flex-col justify-between'>
-                <div className='overflow-hidden hidden sm:block select-none'>
+                <div className='lg:w-[800px] md:w-[740px] h-[400px] overflow-hidden hidden sm:block select-none relative'>
                   <Image 
                       src={showedImage}
-                      width={1000}
-                      height={600}
+                      fill
+                      responsive
                   ></Image>
                 </div>
-                <div ref={photosContainerMain}className='relative flex sm:h-[100px] h-[450px]' onMouseEnter={handleShowNavi} onMouseLeave={handleHideNavi} >
+                <div ref={photosContainerMain}className='lg:w-[800px] md:w-[740px] relative flex sm:h-[100px] h-[450px]' onMouseEnter={handleShowNavi} onMouseLeave={handleHideNavi} >
                   <div onClick={handleChangeSlideLeft} ref={buttonLeft} className='absolute w-[55px] my-[2px] flex left-0 z-40 h-full justify-center items-center cursor-pointer bg-gray-600/[0.4] hover:bg-gray-600/[0.6] duration-300 sm:invisible'>
                     <ChevronLeftIcon 
                         className='h-full w-8 text-white block'
@@ -256,6 +253,7 @@ const handleHideNavi = () => {
                         property={images}
                         images={images}
                         setImages={setImages}
+                    
                       />
                     </div>
                   </div>
@@ -268,9 +266,9 @@ const handleHideNavi = () => {
                 </div>
               </div>
               </div>
-              <div className='flex flex-col justify-center md:w-[45%] w-full  bg-gray-200'>
-                <div className='w-full h-28 lg:h-16'>
-                  <div className='flex h-full items-center'>
+              <div className='flex flex-col justify-center lg:w-[45%] w-full bg-gray-200'>
+                <div className='w-full h-[100px]'>
+                  <div className='flex h-[90px] items-center'>
                     <div className='h-12 w-10 flex items-center justify-center'>
                       <Localization />
                     </div>

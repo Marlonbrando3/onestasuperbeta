@@ -11,19 +11,6 @@ export default function ResultsSlider({images}) {
   const router = useRouter();
 
   let [img, setImg] = useState([]) 
-  // = images.map(i => (
-  //   // console.log(images)
-  //   <div key={i} className="h-[320px] w-[500px] relative object-cover text-sm">
-  //     <Image className="object-cover"
-  //       src={i}
-  //       // width={100}
-  //       // height={100}
-  //       fill
-  //       // priority
-  //       alt={i}
-  //     />
-  //   </div>
-  // ))
 
   const clearImages = () => (setImg([]))
 
