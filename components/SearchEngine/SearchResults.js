@@ -19,6 +19,7 @@ export default function SearchResults({
   sitesArraycounter
 }) {
 
+
   return (
     <div className="h-3/3 md:w-[800px] lg:w-[900px] mr-5">
       {properties.map(property => 

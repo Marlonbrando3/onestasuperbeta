@@ -33,7 +33,6 @@ export default function PropertyCard({
     const router = useRouter();
     // const propertyNew = useContext(PropertyContext)
 
-
     const PriceLength = price.toString().length
     let Milions = PriceLength - 6
     const RestOfThePrice =  price.toString().slice(0,PriceLength - 6);

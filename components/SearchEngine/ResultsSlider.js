@@ -1,29 +1,58 @@
 import { useEffect, useState, useRef } from "react";
+import { useRouter } from "next/router";
 import ChevronRightIcon from '@mui/icons-material/ChevronRightOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { ImageSearch } from "@mui/icons-material";
 import Image from "next/image";
 import Link from 'next/link';
 
-export default function ResultsSlider({
-  property,
-  images,
-  choosedCountry,
-  actualSite}) {
+export default function ResultsSlider({images}) {
+
+  const router = useRouter();
+
+  let [img, setImg] = useState([]) 
+  // = images.map(i => (
+  //   // console.log(images)
+  //   <div key={i} className="h-[320px] w-[500px] relative object-cover text-sm">
+  //     <Image className="object-cover"
+  //       src={i}
+  //       // width={100}
+  //       // height={100}
+  //       fill
+  //       // priority
+  //       alt={i}
+  //     />
+  //   </div>
+  // ))
+
+  const clearImages = () => (setImg([]))
+
+  useEffect(() => {
+    console.log("router")
+    clearImages();
+    setTimeout(() => {
+    setImg(images.map(i => (
+      // console.log(images)
+        <div key={i} className="h-[320px] w-[500px] relative object-cover text-sm">
+        <Image className="object-cover"
+          src={i}
+          // width={100}
+          // height={100}
+          fill
+          priority
+          // alt={i}
+        />
+      </div>
+      
+    )))
+  },50)
+
+  },[router.query])
 
     const imagesContainer = useRef();
 
-    const [actualImg, setActualImg] = useState(0)
     const [margin, setMargin] = useState(0)
     const [imgCounter, setImgCounter] = useState(0)
-
-    const [imagesNew, setImagesNew] = useState(images.map((img, index) => {
-      if(index === 0){
-        return{
-          img: img,
-          visible:true
-        }
-      } else return {img}}))
 
       const handleChangeSiteLeft = () => {
         const ImagesLength = images.length-1
@@ -60,10 +89,8 @@ export default function ResultsSlider({
         setImgCounter(0)
         imagesContainer.current.style.marginLeft = `0px`
         setMargin(0)
-
       }
     }
-
 
   return (
     <div className="h-full w-full relative bg-white">
@@ -73,16 +100,8 @@ export default function ResultsSlider({
         <div onClick={handleChangeSiteRight} className="flex items-center z-10 justify-center absolute w-10 h-full right-0 cursor-pointer group bg-gray-900/[0.13] hover:bg-sky-900/[0.4] transition duration-450 hover:ease-in-out">
         <ChevronRightIcon className="w-full h-full text-white"/>
         </div>
-        <div ref={imagesContainer} className="absolute flex duration-300">
-          {images.map( i => (
-          <div key={i} className="h-[320px] w-[500px] relative object-cover">
-            <Image className="object-cover"
-              src={i}
-              fill
-              priority
-            />
-          </div>
-        ))}
+        <div ref={imagesContainer} className="flex absolute duration-300">
+          {img}
         </div>
     </div>
   )

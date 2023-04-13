@@ -76,6 +76,8 @@ export default function SearchEngine({
         const [propDetails, setPropDetails] = useState();
 
         const [showProp, setShowProp] = useState(false);
+
+        // console.log(properties)
     return (
         <>
             <div className={showSearchComponentsOnMobile===false ? "z-10 flex flex-col items-start justify-start transition w-full bg-white" : "h-full -top-full overflow-hidden"}>
