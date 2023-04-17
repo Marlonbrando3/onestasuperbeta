@@ -15,17 +15,15 @@ export default function SearchButton({}) {
     const {searchShow,setSearchShow} = useContext(AppContext)
     const {searchConditions, setSearchConditions} = useContext(AppContext)
     const {headerAfterFirstView, setHeaderAfterFirstView} = useContext(AppContext)
-    console.log(searchConditions)
-    console.log(headerAfterFirstView)
 
     const handleShowSearch = (e) =>{
     }
 
 
     const [countries, setCountires] = useState(['Hiszpania', 'Chorwacja', 'Portugalia'])
-    const list = useRef()
-    const listClaim = useRef()
-    const listData = useRef()
+        const list = useRef()
+        const listClaim = useRef()
+        const listData = useRef()
 
     const ShowList = () => {
         list.current.style.height = "180px"

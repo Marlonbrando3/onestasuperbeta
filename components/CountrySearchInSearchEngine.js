@@ -72,28 +72,6 @@ export default function Home() {
       })
   }
 
-  const pushBungalow = (e) => {
-
-    if(router.query.bungalow) {
-      const params = new URLSearchParams(router.query);
-      params.delete('bungalow');
-      params.set('page',1)
-      const queryString = params.toString();
-    //   console.log(queryString)
-      const path = `/[country]${queryString ? `?${queryString}` : ''}`;
-      router.push(path, '', { scroll: false });
-    }
-    else {
-      
-      router.push({
-      scroll:false,
-      pathname: "/[country]",
-      query:{...router.query,bungalow:true, page:1},
-
-    })
-  }
-  }
-
   const pushHouse = (e) => {
 
     if(router.query.house) {
@@ -116,7 +94,7 @@ const pushApartament = (e) => {
 
   if(router.query.apartament) {
     const params = new URLSearchParams(router.query);
-    params.delete('apartament');
+    params.delete('apartment');
     params.set('page',1)
     const queryString = params.toString();
     const path = `/[country]${queryString ? `?${queryString}` : ''}`;
@@ -191,7 +169,6 @@ const RegionsList = regionsToShow.map(region => {
   }
   }
 
-
   return (
     <>
       <Head>
@@ -232,12 +209,12 @@ const RegionsList = regionsToShow.map(region => {
                 }}))} */}
           </div>
         <div className='mt-4 font-semibold relative'>Rodzaj zabudowy</div>
-            <div className="flex items-center w-11/12 lg:w-11/12 md:w-11/12">
+            {/* <div className="flex items-center w-11/12 lg:w-11/12 md:w-11/12">
                 <div onClick={pushBungalow} name="bungalow" className={router.query.bungalow ? 'rounded-sm border-gray-700 my-2 mr-2 w-5 h-5 p-0 accent-red-600 cursor-pointer' :"rounded-sm border-gray-700 my-2 mr-2 w-5 h-5 p-0 accent-red-600 cursor-pointer border"}>
                     <div className={router.query.bungalow ? 'rounded-sm bg-red-600 text-white w-full h-full':'hidden'}><CheckIcon className='w-full h-full rounded-sm flex items-center justify-center'/></div>
                 </div>
                 <p className="font-bold block">Bungalow</p>
-            </div>
+            </div> */}
             <div className="flex items-center w-11/12 lg:w-11/12 md:w-11/12">
                 <div type="checkbox" onClick={pushApartament} name="apartament" className={router.query.apartament ? 'rounded-sm border-gray-700 my-2 mr-2 w-5 h-5 p-0 accent-red-600 cursor-pointer' :"rounded-sm border-gray-700 my-2 mr-2 w-5 h-5 p-0 accent-red-600 cursor-pointer border"}>
                     <div className={router.query.apartament ? 'rounded-sm bg-red-600 text-white w-full h-full':'hidden'}><CheckIcon className='w-full h-full rounded-sm flex items-center justify-center'/></div>

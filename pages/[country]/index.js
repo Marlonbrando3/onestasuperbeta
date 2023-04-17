@@ -5,8 +5,8 @@ import {useRouter} from 'next/router'
 import MiniHomeView from '../../components/SearchEngine/MiniHomeView'
 import Header from '../../components/Header'
 import SearchEngine from '../../components/SearchEngine/SearchEngine'
-import Property from '../../model/propertymodel'
-import db from '../../utils/db'
+// import Property from '../../model/propertymodel'
+// import db from '../../utils/db'
 import Applychanges from '../../components/SearchEngine/Applychanges'
 import Footer from '../../components/Footer'
 import ContactFormMain from '../../components/ContactFormMain'
@@ -16,9 +16,45 @@ import { AppContext } from '../_app'
 export const CountryIndexContext = createContext();
 
 export default function Home(
-  {propertiesWork}
+  {propertiesFromBase, rawResales, rawdata}
   ) {
   const router = useRouter();
+
+  const [country, setCountry] = useState();
+
+  // console.log(propertiesFromBase)
+  // console.log(rawResales.Property)
+
+  // let properties = []
+  let propertiesNumber = 0
+
+  // const addinfo = async() => {
+  //   const data = await propertiesWork
+  //   const propertiesWithSites = await data.map((property, index) => {
+  //       if(index+1 <= lastPropertyOnSite){
+  //         return{
+  //           ...property,
+  //           page: siteNumber
+  //         }
+  //       }
+  //       if(index+1 === lastPropertyOnSite+1){
+  //           sitesArraycounter.push(1)
+  //           siteNumber = siteNumber + 1,
+  //           lastPropertyOnSite = lastPropertyOnSite + propertiesOnSite
+  //             return{
+  //             ...property,
+  //             page: siteNumber,
+  //           }
+  //       } else return {...property}
+  //       }
+  //       )
+  //           properties = propertiesWithSites.filter(p => p.page === parseInt(router.query.page)),
+  //           propertiesNumber = propertiesWithSites.length
+  
+  //   }
+
+      // let properties = propertiesWithSites
+    const [sitesArray, setSitesArray] = useState(['1','1','1']);
 
   const {pool, page, seaview, bungalow, apartament, house, garden, parking, balcony, solarium, pf, pt, bedf, bedt, bathf, batht, distance, type} = router.query
 
@@ -35,7 +71,6 @@ export default function Home(
   const [startCountingFrom, setStartCountingFrom] = useState(0);
 
   //how many sites system have to generate based of numbers od filtered properties and properites per one site
-  const [sitesArray, setSitesArray] = useState(['1','1','1']);
 
   //actual active site
   const [actualSite, setActualSite] = useState(1)
@@ -64,30 +99,11 @@ export default function Home(
 )
 
   let siteNumber = 1;
-  let lastPropertyOnSite = 4;
+  let lastPropertyOnSite = 10;
   let sitesArraycounter = [1];
-  
-  const propertiesWithSites = propertiesWork.map((property, index) => {
-    if(index+1 <= lastPropertyOnSite){
-      return{
-        ...property,
-        page: siteNumber
-      }
-    }
-    if(index+1 === lastPropertyOnSite+1){
-        sitesArraycounter.push(1)
-        siteNumber = siteNumber + 1,
-        lastPropertyOnSite = lastPropertyOnSite + propertiesOnSite
-          return{
-          ...property,
-          page: siteNumber,
-        }
-    } else return {...property}
-    })
 
-  // let properties = propertiesWithSites
-  let properties = propertiesWithSites.filter(p => p.page === parseInt(router.query.page))
-  let propertiesNumber = propertiesWithSites.length
+  const properties = rawResales
+  // console.log(properties)
 
   return (
     <>
@@ -135,173 +151,257 @@ export default function Home(
   )
 }
 
-export async function getServerSideProps (contex) {
-
-  const actualcountry = contex.query.country
-
-  if(actualcountry !== "hiszpania" && actualcountry !== "portugalia" && actualcountry !== "chorwacja"){
-    return {
-      notFound:true
-    }
+export async function getStaticPaths() {
+  return {
+    paths: [{params:{country:"hiszpania"}}],
+    fallback: false, // can also be true or 'blocking'
   }
+}
 
-  console.log("im in get props")
-  await db.connect();
-  console.log("connected with DB")
+export async function getStaticProps (contex) {
 
-  //searching for regions
-  let dataid = contex.query.id
-  let idd;
+    const actualcountry = contex.params.country
 
-  //searching for regions
-  let dataregion = contex.query.region
-  let regiond;
+    let propsAPIresales  = []
+    let rawdata = []
 
-  //counting price
-  let datapf = contex.query.pf
-  let datapt = contex.query.pt
-  let pf;
-  let pt;
+    // const type = await fetch('https://webapi.resales-online.com/V6/SearchPropertyTypes?p_agency_filterid=4&p1=1029100&p2=de5106e6bb273174de88dc458849c9a06a7b9749&P_sandbox=true&')
+    // rawdata = await type.json()
 
-  //bathbrooms
-  let databathf = contex.query.bathf
-  let databatht = contex.query.batht
-  let bathf;
-  let batht;
+    if(actualcountry === "hiszpania"){
+      const DatafromResales = await fetch('https://webapi.resales-online.com/V6/SearchProperties?p_agency_filterid=4&p1=1029100&p2=de5106e6bb273174de88dc458849c9a06a7b9749&P_sandbox=true&P_Beds=1&P_Beds=2&P_PropertyTypes=1-1,2-1&P_PageSize=20')
 
-  //bedrooms
-  let databedf = contex.query.bedf
-  let databedt = contex.query.bedt
-  let bedf;
-  let bedt;
+      const data = await DatafromResales.json()
+      rawdata = data
+      propsAPIresales = await data.Property.map((p, key) => {
+        return {
+          id:p. Reference,
+          title:`Apartament w Hiszpanii`,
+          country: "Hiszpania",
+          region: p.Area,
+          type: p.PropertyType.Type,
+          bedrooms:parseInt(p.Bedrooms),
+          bathrooms:parseInt(p.Bathrooms),
+          parking:true,
+          market:"second",
+          solarium:true,
+          garden: true,
+          pool:true,
+          sauna:false,
+          taras:false,
+          balcony:true,
+          price: parseInt(p.Price),
+          description:p.Description,
+          image:p.Pictures.Picture.map(p => {
+            return p.PictureURL
+          })
+        }
+      })} else propsAPIresales = []
 
-  //searching for distance
-  let datadistance = contex.query.distance
-  let distanced;
+      // const databeta = await props
+      
+      // const Resales = await databeta.map((property, index) => {
+      //   if(index+1 <= lastPropertyOnSite){
+      //     return{
+      //       ...property,
+      //       page: siteNumber
+      //     }
+      //   }
+      //   if(index+1 === lastPropertyOnSite+1){
+      //       sitesArraycounter.push(1)
+      //       siteNumber = siteNumber + 1,
+      //       lastPropertyOnSite = lastPropertyOnSite + propertiesOnSite
+      //         return{
+      //         ...property,
+      //         page: siteNumber,
+      //       }
+      //   } else return {...property}
+      //   }
+      //   )
 
-  //searching for regions, types, distance
-  let countRegions = () => {
+        // const MainDB = await propertiesMainDB.map((property, index) => {
+        //   console.log(propertiesMainDB)
+        //   if(index+1 <= lastPropertyOnSite){
+        //     return{
+        //       ...property,
+        //       page: siteNumber
+        //     }
+        //   }
+        //   if(index+1 === lastPropertyOnSite+1){
+        //       sitesArraycounter.push(1)
+        //       siteNumber = siteNumber + 1,
+        //       lastPropertyOnSite = lastPropertyOnSite + propertiesOnSite
+        //         return{
+        //         ...property,
+        //         page: siteNumber,
+        //       }
+        //   } else return {...property}
+        //   }
+        //   )
 
-    if(dataregion === undefined){
-      regiond = ['Costa Blanca','Costa del Sol','Costa Brava','Costa Dorada',"PT Północna", "PT Centralna", "Alentejo", "Algavre", "Lisbona",'Istria', 'Kvarner', 'Dalmacja PŁ', 'Dalmacja PŁD', 'Dalmacja ŚR'];
-    } else regiond = contex.query.region
+      //     console.log(router.query.country)
 
-    if(datadistance === undefined){
-      distanced = 100000;
-    } else distanced = contex.query.distance
+      //     // return MainDB
+      //     if(router.query.country == "hiszpania"){
+      //       return MainDB.concat(Resales)
+      //     }
+      //       return MainDB
+      //       // properties = propertiesWithSites.filter(p => p.page === parseInt(router.query.page)),
+      //       // propertiesNumber = propertiesWithSites.length
+      // }
 
-  }
+  // if(actualcountry !== "hiszpania" && actualcountry !== "portugalia" && actualcountry !== "chorwacja"){
+  //   return {
+  //     notFound:true
+  //   }
+  // }
 
-  //countring 'from'
-  let countFrom = () => {
-    if(datapf === undefined){
-      pf=1;
-    } else pf = Number(contex.query.pf)
+  // // console.log("im in get props")
+  // // await db.connect();
+  // // console.log("connected with DB")
 
-    if(databathf === undefined){
-      bathf=1;
-    } else bathf = Number(contex.query.bathf)
+  // //searching for regions
+  // let dataid = contex.query.id
+  // let idd;
 
-    if(databedf === undefined){
-      bedf=1;
-    } else bedf = Number(contex.query.bedf)
-  }
+  // //searching for regions
+  // let dataregion = contex.query.region
+  // let regiond;
 
-  let countTo = () => {
-    if(datapt === undefined){
-      pt=50000000;
-    } else pt = Number(contex.query.pt)
+  // //counting price
+  // let datapf = contex.query.pf
+  // let datapt = contex.query.pt
+  // let pf;
+  // let pt;
 
-    if(databatht === undefined){
-      batht=5;
-    } else batht = Number(contex.query.batht)
+  // //bathbrooms
+  // let databathf = contex.query.bathf
+  // let databatht = contex.query.batht
+  // let bathf;
+  // let batht;
 
-    if(databedt === undefined){
-      bedt=5;
-    } else bedt = Number(contex.query.bedt)
-  }
+  // //bedrooms
+  // let databedf = contex.query.bedf
+  // let databedt = contex.query.bedt
+  // let bedf;
+  // let bedt;
 
-  let bungalow = contex.query.bungalow
-  let apartament = contex.query.apartament
-  let house = contex.query.house
-  let pool = contex.query.pool
-  let garden = contex.query.garden
-  let seaview = contex.query.seaview
-  let parking = contex.query.parking
-  let solarium = contex.query.solarium
-  let balcony = contex.query.balcony
+  // //searching for distance
+  // let datadistance = contex.query.distance
+  // let distanced;
 
-  let TrueOrFalse = () => {
-    if(bungalow === undefined && apartament === undefined && house === undefined) {
-      bungalow = 'bungalow'
-      apartament = 'apartament'
-      house = 'house'
-    } else {
+  // //searching for regions, types, distance
+  // let countRegions = () => {
 
-    if(bungalow === undefined){
-      bungalow = ''
-    } else bungalow = 'bungalow'
+  //   if(dataregion === undefined){
+  //     regiond = ['Costa Blanca','Costa del Sol','Costa Brava','Costa Dorada',"PT Północna", "PT Centralna", "Alentejo", "Algavre", "Lisbona",'Istria', 'Kvarner', 'Dalmacja PŁ', 'Dalmacja PŁD', 'Dalmacja ŚR'];
+  //   } else regiond = contex.query.region
 
-    if(apartament === undefined){
-      apartament = ''
-    } else apartament = 'apartament'
+  //   if(datadistance === undefined){
+  //     distanced = 100000;
+  //   } else distanced = contex.query.distance
 
-    if(house === undefined){
-      house = ''
-    } else house = 'house'
-    }
+  // }
 
-    if(pool === undefined){
-      pool = ['false', 'true']
-    } else pool = ['true']
+  // //countring 'from'
+  // let countFrom = () => {
+  //   if(datapf === undefined){
+  //     pf=1;
+  //   } else pf = Number(contex.query.pf)
 
-    if(garden === undefined){
-      garden = ['false', 'true']
-    } else garden = ['true']
+  //   if(databathf === undefined){
+  //     bathf=1;
+  //   } else bathf = Number(contex.query.bathf)
 
-    if(parking === undefined){
-      parking = ['false', 'true']
-    } else parking = ['true']
+  //   if(databedf === undefined){
+  //     bedf=1;
+  //   } else bedf = Number(contex.query.bedf)
+  // }
 
-    if(seaview === undefined){
-      seaview = ['false', 'true']
-    } else seaview = ['true']
+  // let countTo = () => {
+  //   if(datapt === undefined){
+  //     pt=50000000;
+  //   } else pt = Number(contex.query.pt)
 
-    if(balcony === undefined){
-      balcony = ['false', 'true']
-    } else balcony = ['true']
+  //   if(databatht === undefined){
+  //     batht=5;
+  //   } else batht = Number(contex.query.batht)
 
-    if(solarium === undefined){
-      solarium = ['false', 'true']
-    } else solarium = ['true']
-  }
+  //   if(databedt === undefined){
+  //     bedt=5;
+  //   } else bedt = Number(contex.query.bedt)
+  // }
 
-  countRegions();
-  countFrom();
-  countTo();
-  TrueOrFalse();
+  // let bungalow = contex.query.bungalow
+  // let apartament = contex.query.apartament
+  // let house = contex.query.house
+  // let pool = contex.query.pool
+  // let garden = contex.query.garden
+  // let seaview = contex.query.seaview
+  // let parking = contex.query.parking
+  // let solarium = contex.query.solarium
+  // let balcony = contex.query.balcony
 
-  const results = await Property.find({
-      country: contex.query.country.charAt(0).toUpperCase() + contex.query.country.slice(1),
-      region: regiond,
-      distance: {$lte: distanced},
-      type: {$in:[bungalow, apartament, house]},
-      pool:{$in: pool},
-      seaview:{$in: seaview},
-      parking:{$in: parking},
-      garden:{$in: garden},
-      solarium:{$in: solarium},
-      balcony:{$in: balcony},
-      price: {$gte: pf, $lte: pt},
-      bathrooms: {$gte: bathf, $lte: batht},
-      bedrooms: {$gte: bedf, $lte: bedt},
-  });
+  // let TrueOrFalse = () => {
+  //   if(bungalow === undefined && apartament === undefined && house === undefined) {
+  //     apartament = 'apartment'
+  //     house = 'house'
+  //   } else {
 
-  const properties = JSON.parse(JSON.stringify(results))
+  //   if(apartament === undefined){
+  //     apartament = ''
+  //   } else apartament = 'apartment'
+
+  //   if(house === undefined){
+  //     house = ''
+  //   } else house = 'house'
+  //   }
+
+  //   if(pool === undefined){
+  //     pool = ['false', 'true']
+  //   } else pool = ['true']
+
+  //   if(garden === undefined){
+  //     garden = ['false', 'true']
+  //   } else garden = ['true']
+
+  //   if(parking === undefined){
+  //     parking = ['false', 'true']
+  //   } else parking = ['true']
+
+  //   if(seaview === undefined){
+  //     seaview = ['false', 'true']
+  //   } else seaview = ['true']
+
+  //   if(balcony === undefined){
+  //     balcony = ['false', 'true']
+  //   } else balcony = ['true']
+
+  //   if(solarium === undefined){
+  //     solarium = ['false', 'true']
+  //   } else solarium = ['true']
+  // }
+
+  // countRegions();
+  // countFrom();
+  // countTo();
+  // TrueOrFalse();
+
+
+  // const results = await Property.find({
+  //     country: contex.query.country.charAt(0).toUpperCase() + contex.query.country.slice(1),
+  // });
+
+  // const properties = JSON.parse(JSON.stringify(results))
+  console.log(propsAPIresales)
+
+  // const database = properties.concat(propsAPIresales)
   
   return {
     props:{
-      propertiesWork: properties,
+      rawData:rawdata,
+      rawResales: propsAPIresales,
+      // propertiesFromBase: database,
     }
   }
 }
