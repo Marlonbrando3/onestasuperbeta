@@ -153,7 +153,7 @@ export default function Home(
 
 export async function getStaticPaths() {
   return {
-    paths: [{params:{country:"hiszpania"}},{params:{country:"chorwacja"}}],
+    paths: [{params:{country:'hiszpania'}},{params:{country:'chorwacja'}}],
     fallback: false, // can also be true or 'blocking'
   }
 }
