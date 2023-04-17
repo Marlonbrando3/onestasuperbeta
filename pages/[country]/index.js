@@ -153,7 +153,7 @@ export default function Home(
 
 export async function getStaticPaths() {
   return {
-    paths: [],
+    paths: [{params:{country:"hiszpania"}},{params:{country:"chorwacja"}}],
     fallback: false, // can also be true or 'blocking'
   }
 }
@@ -403,5 +403,6 @@ export async function getStaticProps (contex) {
       rawResales: propsAPIresales,
       // propertiesFromBase: database,
     }
+
   }
 }
