@@ -66,7 +66,7 @@ const propertySchema = new mongoose.Schema({
     localization:{
         type:mongoose.Schema.Types.Mixed,
     },
-    meters:{
+    squaremeters:{
         type:Number,
     },
     description: {

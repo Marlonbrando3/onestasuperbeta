@@ -7,10 +7,8 @@ export default function ChangeSite({
   setActualSite,
   sitesArraycounter
 }) {
-
-
   const router = useRouter();
-  const {searchConditions, setSearchConditions} = useContext(AppContext)
+  // const {searchConditions, setSearchConditions} = useContext(AppContext)
     
   const handleClickOnSite = (e, key) => {
 
@@ -20,15 +18,6 @@ export default function ChangeSite({
         pathname: "/[country]",
         query:{...router.query, page:key+1}
       })
-    
-      setSearchConditions(searchConditions.map(i => {
-      if(i.name === "page"){
-      return{
-          ...i,
-          value: key+1
-    }} else return {...i}
-  
-  }))
     }
 
   return (

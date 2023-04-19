@@ -10,15 +10,11 @@ export default function ResultsSlider({images}) {
 
   const router = useRouter();
 
-  let [img, setImg] = useState([]) 
+  // let [img, setImg] = useState([]) 
 
   const clearImages = () => (setImg([]))
 
-  useEffect(() => {
-    // console.log("router")
-    clearImages();
-    setTimeout(() => {
-    setImg(images.map(i => (
+    const img = images.map(i => (
       // console.log(images)
         <div key={i} className="h-[320px] w-[500px] relative object-cover text-sm">
         <Image kry={i} className="object-cover"
@@ -27,15 +23,14 @@ export default function ResultsSlider({images}) {
           // height={100}
           alt={i}
           fill
+          sizes="100%, 100%"
           priority
           // alt={i}
         />
       </div>
       
-    )))
-  },50)
+    ))
 
-  },[router.query])
 
     const imagesContainer = useRef();
 

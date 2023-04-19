@@ -25,7 +25,6 @@ export default function AdminInputs() {
     const favorites = useRef();
     const recomended = useRef();
     const localization = useRef();
-    const meters = useRef();
     const country = useRef();
     const region = useRef();
     const city = useRef();
@@ -45,6 +44,7 @@ export default function AdminInputs() {
     const balcony = useRef();
     const price = useRef();
     const distance = useRef();
+    const squaremeters = useRef();
     const description = useRef();
     const owner = useRef();
     const images = useRef();
@@ -102,7 +102,7 @@ export default function AdminInputs() {
                 favorites: favorites.current.value,
                 recomended:recomended.current.value,
                 localization: localization.current.value,
-                meters: meters.current.value,
+                squaremeters: squaremeters.current.value,
                 country: country.current.value,
                 region: region.current.value,
                 city: city.current.value,
@@ -249,8 +249,8 @@ export default function AdminInputs() {
         <label id="localization" className="inputs-add-property-label">Lokalizacja(link google)</label>
         <input ref={localization} className="inputs-add-property" name="localization"></input>
 
-        <label id="meters" className="inputs-add-property-label">Powierznia obiektu</label>
-        <input ref={meters} className="inputs-add-property" type="number" name="powierzchnia"></input>
+        <label id="squaremeters" className="inputs-add-property-label">Powierznia obiektu</label>
+        <input ref={squaremeters} className="inputs-add-property" type="number" name="powierzchnia"></input>
         
         <label id="owner" className="inputs-add-property-label">Źródło</label>
         <input ref={owner} className="inputs-add-property" name="owner" type="text"></input>
